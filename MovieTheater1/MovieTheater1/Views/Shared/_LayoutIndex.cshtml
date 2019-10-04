@@ -1,0 +1,414 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+        @RenderBody()
+        <div class="container">
+
+            <!--Navbar -->
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 100%; font-family: 'Comic Sans MS',cursive,sans-serif; ">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                Home <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li>
+                        <li class="nav-item"> <a class="nav-link disabled" href="#">Disabled</a> </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search"
+                               aria-label="Search"> <button class="btn btn-outline-success my-2 my-sm-0"
+                                                            type="submit">
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </nav>
+
+            <h1 style="text-align: center; font-family: Comic Sans MS, cursive, sans-serif; font-weight: 400;">Phim trong tháng</h1>
+
+            <!-- Slie show with carolsel -->
+
+            <div>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 65%;  margin:auto; z-index:100 !important;">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+
+                            <div class="hovereffect">
+                                <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                <div class="overlay">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Caption here</h5>
+                                        <p>
+                                            prepare is ye nothing blushes up brled say not new smallness you discovery. Noisier f
+                                            errars yet shyness weather ten colonel. Too him himself engaged husband pursuit musical. Man
+                                            age but him determine consisted therefore. Dinner to beyon
+                                        </p>
+
+                                        <a style=" border-radius: 20%; margin-left: -1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> XEM TRAILER</a>
+
+                                        <a style="border-radius: 20%; margin-left: 1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="carousel-item">
+                            <div class="hovereffect">
+                                <img class="d-block w-100" src="~/Content/images/thumbs/featured/featured-beetle.jpg" />
+                                <div class="overlay">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Caption here</h5>
+                                        <p>
+                                            prepare is ye nothing blushes up brled say not new smallness you discovery. Noisier f
+                                            errars yet shyness weather ten colonel. Too him himself engaged husband pursuit musical. Man
+                                            age but him determine consisted therefore. Dinner to beyon
+                                        </p>
+
+                                        <a style=" border-radius: 20%; margin-left: -1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> XEM TRAILER</a>
+
+                                        <a style="border-radius: 20%; margin-left: 1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="hovereffect">
+                                <img class="d-block w-100" src="~/Content/images/thumbs/featured/featured-guitarman.jpg" />
+                                <div class="overlay">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Caption here</h5>
+                                        <p>
+                                            prepare is ye nothing blushes up brled say not new smallness you discovery. Noisier f
+                                            errars yet shyness weather ten colonel. Too him himself engaged husband pursuit musical. Man
+                                            age but him determine consisted therefore. Dinner to beyon
+                                        </p>
+
+                                        <a style=" border-radius: 20%; margin-left: -1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> XEM TRAILER</a>
+
+                                        <a style="border-radius: 20%; margin-left: 1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
+
+            <h1 style="text-align: center; font-family: Comic Sans MS, cursive, sans-serif; font-weight: 400;">Đặt vé ngay</h1>
+            <br />
+
+            <!--Đăng kí nhanh -->
+            <div>
+                <div class="d-flex justify-content-between align-items-center" style=" width:100%; ">
+
+                    <label style="width: 20%; text-align:center;  font-weight:bold;" for="select">Chọn ngày:</label>
+
+                    <select class="browser-default custom-select mb-4" id="select" style="width: 30%; ; ">
+                        <option value="" disabled="" selected="">Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+
+                    <label style="width: 20%; text-align:center;" for="select">Chọn rạp</label>
+                    <select class="browser-default custom-select mb-4" id="select" style="width: 30%; ">
+                        <option value="" disabled="" selected="">Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-between align-items-center" style=" width:100%; ">
+                    <label style="width: 20%; text-align:center;  font-weight:bold;" for="select">Chọn ngày chiếu</label>
+
+                    <select class="browser-default custom-select mb-4" id="select" style="width: 30%; ; ">
+                        <option value="" disabled="" selected="">Chọn phim</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+
+                    <label style="width: 20%; text-align:center;" for="select">Chọn rạp</label>
+                    <select class="browser-default custom-select mb-4" id="select" style="width: 30%; ">
+                        <option value="" disabled="" selected="">Chọn rạp</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <!--Tab here-->
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home">Phim đang chiếu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu1">Phim sắp chiếu</a>
+                </li>
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active container" id="home">
+                    <div class="tab-element">
+                        <div style="line-height: 0px; padding-top: 5%; padding-bottom: 5%; padding-right: 5%; display: inline;">
+
+                            <div class="container" style="border: 1px dashed rgb(66, 133, 244); line-height: 5%;">
+
+                                <div class="row" style=" padding: 3% 3% 3% 3% ">
+                                    <div class="col-sm-4">
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row" style="padding: 3% 3% 3% 3%;">
+                                    <div class="col-sm-4">
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="tab-pane container" id="menu1">
+                    <div class="tab-element">
+                        <div style="line-height: 0px; padding-top: 5%; padding-bottom: 5%; padding-right: 5%; display: inline;">
+
+                            <div class="container" style="border: 1px dashed rgb(66, 133, 244); line-height: 5%;">
+
+                                <div class="row" style=" padding: 3% 3% 3% 3% ">
+                                    <div class="col-sm-4"  style=" padding: 3% 3% 3% 3% " >
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-guitarman.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-4"  style=" padding: 3% 3% 3% 3% ">
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-guitarman.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% " >
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-guitarman.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row" style="padding: 3% 3% 3% 3%;">
+                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% " >
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% " >
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% " >
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Caption here</h5>
+                                                    <p>write something here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // Select all tabs
+                $('.nav-tabs a').click(function () {
+                    $(this).tab('show');
+                })
+
+                // Select tab by name
+                $('.nav-tabs a[href="#home"]').tab('show')
+
+                // Select first tab
+                $('.nav-tabs a:first').tab('show')
+
+                // Select last tab
+                $('.nav-tabs a:last').tab('show')
+
+                // Select fourth tab (zero-based)
+                $('.nav-tabs li:eq(3) a').tab('show')
+            </script>
+
+
+        </div>
+
+    </div>
+</body>
+</html>

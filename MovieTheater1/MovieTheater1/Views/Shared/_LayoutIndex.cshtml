@@ -5,52 +5,130 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/Content/Site.css" rel="stylesheet" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- For date-time-picker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <link href="~/Content/Footer.css" rel="stylesheet" />
+
+
 </head>
 <body>
     <div>
         @RenderBody()
-        <div class="container">
+        <div class="container-fluid bg-dark">
 
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 100%; font-family: 'Comic Sans MS',cursive,sans-serif; ">
+
+                @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-search"></span>
+            </button>*@
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: 100%">
+                    <ul class="navbar-nav ">
+
+                        <li class="nav-item">
+                            <div>
+                                <form class="form-inline my-2 my-lg-0 ">
+
+                                    <div class="input-group" style="border: 1px solid lightblue; border-radius:15px;">
+                                        <button class="btn btn-outline-success my-2 my-sm-0 "
+                                                type="submit" style="border:none;">
+                                            <i class="fa fa-search"></i>
+
+                                        </button>
+
+                                        <input class="form-control my-2 my-sm-0" type="text" placeholder="Search"
+                                               aria-label="Search" style="border: none; border-radius:0px 15px 15px 0px;">
+
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <li class="nav-item " style="margin-top: -0.5em;">
+                            <div class="nav-link">
+                                <a href="#" class="btn btn-primary btn-light" style="border-radius:20px; margin-right: 0.5em;  "><span class="fa fa-sign-in"></span> Đăng nhập</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item " style="margin-top: -0.5em;">
+                            <div class="nav-link">
+                                <a href="#" class="btn btn-primary btn-light" style="border-radius:20px; "><span class="fa fa-download"></span> Đăng kí</a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+            <div>
+
+            </div>
             <!--Navbar -->
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 100%; font-family: 'Comic Sans MS',cursive,sans-serif; ">
-                <a class="navbar-brand" href="#">Navbar</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 100%; font-family: 'Comic Sans MS',cursive,sans-serif; ">
+                <a class="navbar-brand" href="#" style="font-size: 3rem;">Cinema</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="fa fa-search"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto mx-auto">
+
                         <li class="nav-item active">
                             <a class="nav-link" href="#">
-                                Home <span class="sr-only">(current)</span>
+                                MUA VÉ <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li>
-                        <li class="nav-item"> <a class="nav-link disabled" href="#">Disabled</a> </li>
+
+                        <li class="nav-item"> <a class="nav-link" href="#">PHIM</a> </li>
+
+                        <li class="nav-item"> <a class="nav-link" href="#">GÓC ĐIỆN ẢNH</a> </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">SỰ KIỆN</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                RẠP/GIÁ VÉ
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                HỖ TRỢ
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                THÀNH VIÊN
+                            </a>
+                        </li>
+
+
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search"
-                               aria-label="Search"> <button class="btn btn-outline-success my-2 my-sm-0"
-                                                            type="submit">
-                            Search
-                        </button>
-                    </form>
+
                 </div>
             </nav>
 
-            <h1 style="text-align: center; font-family: Comic Sans MS, cursive, sans-serif; font-weight: 400;">Phim trong tháng</h1>
-
+            <br />
+            <h1 style="text-align: center; font-family: Comic Sans MS, cursive, sans-serif; font-weight: 200;" class="text-light">Phim trong tháng</h1>
+            <br />
             <!-- Slie show with carolsel -->
 
             <div>
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 65%;  margin:auto; z-index:100 !important;">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 75%;  margin:auto; z-index:100 !important;">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -60,7 +138,7 @@
                         <div class="carousel-item active">
 
                             <div class="hovereffect">
-                                <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                <img class="d-block w-100" src="~/Content/images/thumbs/featured/featured-beetle.jpg" />
                                 <div class="overlay">
                                     <div class="carousel-caption d-none d-md-block">
                                         <h5>Caption here</h5>
@@ -70,9 +148,8 @@
                                             age but him determine consisted therefore. Dinner to beyon
                                         </p>
 
-                                        <a style=" border-radius: 20%; margin-left: -1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> XEM TRAILER</a>
-
-                                        <a style="border-radius: 20%; margin-left: 1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
+                                        <a style=" border-radius: 20px; margin-left: -1rem; " href="#" class="btn btn-primary btn-xem-trailer"><span class="glyphicon glyphicon-eye-open"></span> XEM TRAILER</a>
+                                        <a style="border-radius: 20px; margin-left: 1rem; " href="#" class="btn btn-primary btn-dat-ve"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
 
                                     </div>
                                 </div>
@@ -91,10 +168,9 @@
                                             age but him determine consisted therefore. Dinner to beyon
                                         </p>
 
-                                        <a style=" border-radius: 20%; margin-left: -1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> XEM TRAILER</a>
+                                        <a style=" border-radius: 20px; margin-left: -1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> XEM TRAILER</a>
 
-                                        <a style="border-radius: 20%; margin-left: 1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
-
+                                        <a style="border-radius: 20px; margin-left: 1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
                                     </div>
                                 </div>
                             </div>
@@ -111,9 +187,9 @@
                                             age but him determine consisted therefore. Dinner to beyon
                                         </p>
 
-                                        <a style=" border-radius: 20%; margin-left: -1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> XEM TRAILER</a>
+                                        <a style=" border-radius: 20px; margin-left: -1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> XEM TRAILER</a>
 
-                                        <a style="border-radius: 20%; margin-left: 1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
+                                        <a style="border-radius: 20px; margin-left: 1rem; " href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
 
                                     </div>
                                 </div>
@@ -131,44 +207,49 @@
                 </div>
             </div>
 
-
-            <h1 style="text-align: center; font-family: Comic Sans MS, cursive, sans-serif; font-weight: 400;">Đặt vé ngay</h1>
+            <br />
+            <h1 style="text-align: center; font-family: Comic Sans MS, cursive, sans-serif; font-weight: 200;" class="text-light">Đặt vé ngay</h1>
             <br />
 
             <!--Đăng kí nhanh -->
             <div>
-                <div class="d-flex justify-content-between align-items-center" style=" width:100%; ">
+                <div class="d-flex justify-content-around align-items-center" style=" width:100%; border-radius:30px; ">
 
-                    <label style="width: 20%; text-align:center;  font-weight:bold;" for="select">Chọn ngày:</label>
 
-                    <select class="browser-default custom-select mb-4" id="select" style="width: 30%; ; ">
-                        <option value="" disabled="" selected="">Choose your option</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
 
-                    <label style="width: 20%; text-align:center;" for="select">Chọn rạp</label>
-                    <select class="browser-default custom-select mb-4" id="select" style="width: 30%; ">
-                        <option value="" disabled="" selected="">Choose your option</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                </div>
-                <div class="d-flex justify-content-between align-items-center" style=" width:100%; ">
-                    <label style="width: 20%; text-align:center;  font-weight:bold;" for="select">Chọn ngày chiếu</label>
 
-                    <select class="browser-default custom-select mb-4" id="select" style="width: 30%; ; ">
+                    <div class="input-group mb-4" style=" z-index:100; width: 30%;  ">
+                        <input class="form-control " type="text" placeholder="Chọn ngày " id="date_datepicker" style="  font-size: 25px;border-radius: 30px 0px 0px 30px ; ">
+                        <div class="input-group-append">
+                            <span class="fa fa-calendar input-group-text " aria-hidden="true" style="  font-size: 25px;border-radius: 0px 30px 30px 0px ; "></span>
+                        </div>
+                    </div>
+
+
+                    <script>
+                        $("#date_datepicker").datepicker();
+                    </script>
+
+
+                    <select class="browser-default custom-select mb-4" id="select" style="width: 30%; font-size: 25px; border-radius:30px; ">
                         <option value="" disabled="" selected="">Chọn phim</option>
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </select>
+                </div>
 
-                    <label style="width: 20%; text-align:center;" for="select">Chọn rạp</label>
-                    <select class="browser-default custom-select mb-4" id="select" style="width: 30%; ">
+
+                <div class="d-flex justify-content-around align-items-center" style=" width:100%;">
+                    <select class="browser-default custom-select mb-4" id="select" style="width: 30% ; font-size: 25px; border-radius:30px; ">
                         <option value="" disabled="" selected="">Chọn rạp</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+
+                    <select class="browser-default custom-select mb-4" id="select" style="width: 30%;  font-size: 25px; border-radius:30px; ">
+                        <option value="" disabled="" selected="">Chọn suất chiếu</option>
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
@@ -178,109 +259,95 @@
 
 
             <!--Tab here-->
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#home">Phim đang chiếu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#menu1">Phim sắp chiếu</a>
-                </li>
 
-            </ul>
+            <div class=" d-flex justify-content-around align-items-center">
+                <ul class="nav nav-tabs">
 
+                    <li class="nav-item">
+                        <a class="nav-link active" style=" border-radius: 20px 0 0px 0px; font-family: 'Comic Sans MS'; font-size: 1.1rem; " data-toggle="tab" href="#home">Phim đang chiếu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" style=" border-radius: 0px 20px 0px 0px; font-family: 'Comic Sans MS'; font-size: 1.1rem; " data-toggle="tab" href="#menu1">Phim sắp chiếu</a>
+                    </li>
+
+                </ul>
+            </div>
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane active container" id="home">
+                <div class="tab-pane active container" id="menu1">
                     <div class="tab-element">
-                        <div style="line-height: 0px; padding-top: 5%; padding-bottom: 5%; padding-right: 5%; display: inline;">
+                        <div style="">
 
-                            <div class="container" style="border: 1px dashed rgb(66, 133, 244); line-height: 5%;">
+                            <div class="container" style="">
 
-                                <div class="row" style=" padding: 3% 3% 3% 3% ">
-                                    <div class="col-sm-4">
+                                <div class="row" style="">
+                                    <div class="col-sm-4" style="padding: 3% 2.5% 1% 2.5% ">
 
                                         <div class="hovereffect">
-                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <img class="w-100" src="~/Content/images/thumbs/featured/featured-watch.jpg" />
                                             <div class="overlay">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    <h5>Caption here</h5>
-                                                    <p>write something here</p>
+                                                <div class="carousel-caption  d-md-block">
+
+                                                    <a style="border-radius: 20px; " href="#" class="btn btn-light"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
+
                                                 </div>
                                             </div>
+                                            <div class="text-center text-uppercase text-light font-weight-bold">Tên phim 1</div>
                                         </div>
 
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4" style="padding: 3% 2.5% 1% 2.5% ">
 
                                         <div class="hovereffect">
                                             <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
                                             <div class="overlay">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    <h5>Caption here</h5>
-                                                    <p>write something here</p>
+                                                <div class="carousel-caption  d-md-block">
+                                                    <a style="border-radius: 20px; " href="#" class="btn btn-light"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
+
                                                 </div>
                                             </div>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="col-sm-4">
-
-                                        <div class="hovereffect">
-                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
-                                            <div class="overlay">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    <h5>Caption here</h5>
-                                                    <p>write something here</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="row" style="padding: 3% 3% 3% 3%;">
-                                    <div class="col-sm-4">
-
-                                        <div class="hovereffect">
-                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
-                                            <div class="overlay">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    <h5>Caption here</h5>
-                                                    <p>write something here</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-4">
-
-                                        <div class="hovereffect">
-                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
-                                            <div class="overlay">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    <h5>Caption here</h5>
-                                                    <p>write something here</p>
-                                                </div>
-                                            </div>
+                                            <div class="text-center text-uppercase text-light font-weight-bold">Tên phim 2</div>
                                         </div>
 
 
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4" style="padding: 3% 2.5% 1% 2.5% ">
+
+                                        <div class="hovereffect">
+                                            <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                            <div class="overlay">
+                                                <div class="carousel-caption  d-md-block">
+                                                    <a style="border-radius: 20px; " href="#" class="btn btn-light"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="text-center text-uppercase text-light font-weight-bold"> Tên phim 3</div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-sm-4" style="padding: 3% 2.5% 1% 2.5% ">
 
                                         <div class="hovereffect">
                                             <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
                                             <div class="overlay">
                                                 <div class="carousel-caption d-none d-md-block">
-                                                    <h5>Caption here</h5>
-                                                    <p>write something here</p>
+                                                    <a style="border-radius: 20px; " href="#" class="btn btn-light"><span class="glyphicon glyphicon-eye-open"></span> ĐẶT VÉ</a>
+
                                                 </div>
                                             </div>
+                                            <div class="text-center text-uppercase text-light font-weight-bold"> Tên phim 4</div>
                                         </div>
 
                                     </div>
                                 </div>
+
+
 
                             </div>
                         </div>
@@ -289,14 +356,14 @@
 
                 </div>
 
-                <div class="tab-pane container" id="menu1">
+                <div class="tab-pane container" id="home">
                     <div class="tab-element">
                         <div style="line-height: 0px; padding-top: 5%; padding-bottom: 5%; padding-right: 5%; display: inline;">
 
-                            <div class="container" style="border: 1px dashed rgb(66, 133, 244); line-height: 5%;">
+                            <div class="container" style="">
 
                                 <div class="row" style=" padding: 3% 3% 3% 3% ">
-                                    <div class="col-sm-4"  style=" padding: 3% 3% 3% 3% " >
+                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% ">
 
                                         <div class="hovereffect">
                                             <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-guitarman.jpg" />
@@ -309,7 +376,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-sm-4"  style=" padding: 3% 3% 3% 3% ">
+                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% ">
 
                                         <div class="hovereffect">
                                             <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-guitarman.jpg" />
@@ -323,7 +390,7 @@
 
 
                                     </div>
-                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% " >
+                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% ">
 
                                         <div class="hovereffect">
                                             <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-guitarman.jpg" />
@@ -339,7 +406,7 @@
                                 </div>
 
                                 <div class="row" style="padding: 3% 3% 3% 3%;">
-                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% " >
+                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% ">
 
                                         <div class="hovereffect">
                                             <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
@@ -352,7 +419,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% " >
+                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% ">
 
                                         <div class="hovereffect">
                                             <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
@@ -366,7 +433,7 @@
 
 
                                     </div>
-                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% " >
+                                    <div class="col-sm-4" style=" padding: 3% 3% 3% 3% ">
 
                                         <div class="hovereffect">
                                             <img class="d-block w-100 " src="~/Content/images/thumbs/featured/featured-watch.jpg" />
@@ -407,7 +474,208 @@
             </script>
 
 
-        </div>
+            <br />
+            <h1 style="text-align: center; font-family: Comic Sans MS, cursive, sans-serif; font-weight: 200;" class="text-light">Chương trình khuyến mãi</h1>
+            <br />
+
+            <div class="container" style="border: 1px dashed gray;">
+
+                <div class="row" style="">
+                    <div class="col-sm-3" style="padding: 3% 2.5% 1% 2.5% ">
+
+                        <div class="card">
+
+                            <div class="hovereffect">
+
+                                <img class="card-img-top" src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                <div class="overlay">
+                                    <div class="carousel-caption d-md-block">
+                                        <a style="border-radius: 20px; " href="#" class="btn btn-light"><span class="glyphicon glyphicon-eye-open"></span> CHI TIẾT</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text"> ... </p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-3" style="padding: 3% 2.5% 1% 2.5% ">
+
+                        <div class="card">
+
+                            <div class="hovereffect">
+
+                                <img class="card-img-top" src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                <div class="overlay">
+                                    <div class="carousel-caption d-md-block">
+                                        <a style="border-radius: 20px; " href="#" class="btn btn-light"><span class="glyphicon glyphicon-eye-open"></span> CHI TIẾT</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-3" style="padding: 3% 2.5% 1% 2.5% ">
+
+                        <div class="card">
+
+                            <div class="hovereffect">
+
+                                <img class="card-img-top" src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                <div class="overlay">
+                                    <div class="carousel-caption d-md-block">
+                                        <a style="border-radius: 20px; " href="#" class="btn btn-light"><span class="glyphicon glyphicon-eye-open"></span> CHI TIẾT</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-3" style="padding: 3% 2.5% 1% 2.5% ">
+
+                        <div class="card">
+
+                            <div class="hovereffect">
+
+                                <img class="card-img-top" src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                <div class="overlay">
+                                    <div class="carousel-caption d-md-block">
+                                        <a style="border-radius: 20px; " href="#" class="btn btn-light"><span class="glyphicon glyphicon-eye-open"></span> CHI TIẾT</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-3" style="padding: 3% 2.5% 1% 2.5% ">
+
+                        <div class="card">
+
+                            <div class="hovereffect">
+
+                                <img class="card-img-top" src="~/Content/images/thumbs/featured/featured-watch.jpg" />
+                                <div class="overlay">
+                                    <div class="carousel-caption d-md-block">
+                                        <a style="border-radius: 20px; " href="#" class="btn btn-light"><span class="glyphicon glyphicon-eye-open"></span> CHI TIẾT</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <br />
+            <h1 style="text-align: center; font-family: Comic Sans MS, cursive, sans-serif; font-weight: 200;" class="text-light">Về chúng tôi</h1>
+            <br />
+
+            <p class="text-light">
+                <font size="10" color="red"> <b>S</b></font> o by colonel hearted ferrars. Draw from upon here gone add one. He in sportsman household otherwise it perceived instantly. Is inquiry no he several excited am. Called though excuse length ye needed it he having. Whatever throwing we on resolved entrance together graceful. Mrs assured add private married removed believe did she.
+
+                Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.
+
+                He moonlight difficult engrossed an it sportsmen. Interested has all devonshire difficulty gay assistance joy. Unaffected at ye of compliment alteration to. Place voice no arise along to. Parlors waiting so against me no. Wishing calling are warrant settled was luckily. Express besides it present if at an opinion visitor.
+
+                Is he staying arrival address earnest. To preference considered it themselves inquietude collecting estimating. View park for why gay knew face. Next than near to four so hand. Times so do he downs me would. Witty abode party her found quiet law. They door four bed fail now have.
+            </p>
+
+
+            <!-- Footer -->
+            <section id="footer">
+                <div class="container-fluid bg-dark">
+                    <div class="row text-center text-xs-center text-sm-left text-md-left">
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <h5>Quick links</h5>
+                            <ul class="list-unstyled quick-links">
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <h5>Quick links</h5>
+                            <ul class="list-unstyled quick-links">
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <h5>Quick links</h5>
+                            <ul class="list-unstyled quick-links">
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                                <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                            <ul class="list-unstyled list-inline social text-center">
+                                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                                <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                            </ul>
+                        </div>
+                        </hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                            <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                            <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                        </div>
+                        </hr>
+                    </div>
+                </div>
+            </section>
+            <!-- ./Footer -->
+        </div> 
 
     </div>
 </body>

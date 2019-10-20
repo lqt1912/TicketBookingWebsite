@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Footer.css" />
+    <Content Include="Content\image-overlay.css" />
     <Content Include="Content\images\avatars\user-01.jpg" />
     <Content Include="Content\images\avatars\user-02.jpg" />
     <Content Include="Content\images\avatars\user-03.jpg" />
@@ -222,6 +223,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LayoutIndex.cshtml" />
     <Content Include="Views\Home\IndexView.cshtml" />
+    <Content Include="Views\Shared\_LayoutNguoiDung.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

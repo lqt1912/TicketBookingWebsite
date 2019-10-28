@@ -146,7 +146,7 @@ C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\Movi
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\bin\Antlr3.Runtime.pdb
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\obj\Debug\MovieTheater1.csprojAssemblyReference.cache
-C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\obj\Debug\MovieTheater1.csproj.CoreCompileInputs.cache
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\obj\Debug\MovieTheater1.csproj.CopyComplete
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\obj\Debug\MovieTheater1.dll
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\obj\Debug\MovieTheater1.pdb
+C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\bin\Mirosoft.Utilities.Mvc.dll

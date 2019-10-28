@@ -16,7 +16,7 @@ namespace MovieTheater1
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "IndexView", id = UrlParameter.Optional }
+                defaults: new { controller = "QKTCinema", action = "TrangChu", id = UrlParameter.Optional }
             );
         }
     }

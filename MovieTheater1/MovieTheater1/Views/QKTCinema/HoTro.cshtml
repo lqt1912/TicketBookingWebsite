@@ -1,0 +1,48 @@
+﻿
+@{
+	ViewBag.Title = "HoTro";
+	Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+}
+
+<style>
+	.ho-tro-box{
+		width: 50vw;
+		
+	}
+
+
+</style>
+<body>
+	<div class=" ho-tro-box " style="min-width: 300px; border: solid 1px grey; left:1px;">
+		<label style="color: lightgrey; font-size: 1.5em; padding: 10px 10px 10px 10px; "> Liên hệ với chúng tôi </label>
+		<div class="row" style="padding: 10px 10px 10px 10px; ">
+			<div class="col-sm-4">
+				<div class="form-group" style="">
+
+					<input type="text" class="form-control" placeholder="Họ và tên ">
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group" style="">
+					<input type="email" class="form-control" placeholder="Email">
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group" style="">
+					<input type="text" class="form-control" placeholder="Số điện thoại ">
+				</div>
+			</div>
+		
+		</div>
+
+		<!-- /container -->
+
+		<div class="form-group" style="padding: 10px 10px 10px 10px; " >
+			<textarea rows="10" class="form-control" placeholder="Nội dung: "></textarea>
+			<button class="btn btn-primary btn-dark"> Gửi </button>
+		</div>
+
+	</div>
+
+
+</body>

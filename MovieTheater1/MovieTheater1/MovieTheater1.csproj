@@ -45,7 +45,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mirosoft.Utilities.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mirosoft.Utilities.Mvc.1.0.2\lib\net45\Mirosoft.Utilities.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -122,6 +126,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\QKTCinemaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -130,6 +135,50 @@
   <ItemGroup>
     <Content Include="Content\Footer.css" />
     <Content Include="Content\image-overlay.css" />
+    <Content Include="Content\Images-from-galaxycine\1042x347\small-banner %281%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\1042x347\small-banner %282%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\1042x347\small-banner %283%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\1042x347\small-banner %284%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\2048x682\big-banner %281%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\2048x682\big-banner %282%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\2048x682\big-banner %283%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\2048x682\big-banner %284%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\300x450\km %281%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\300x450\km %282%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\300x450\km %283%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\300x450\km %284%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\300x450\km %285%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\300x450\km %286%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %281%29.jpeg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %281%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %281%29.png" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %2810%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %2811%29.JPG" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %2812%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %2813%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %2814%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %2815%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %2816%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %2817%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %282%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %283%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %284%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %285%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %286%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %287%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %288%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image %289%29.jpg" />
+    <Content Include="Content\Images-from-galaxycine\450x300\phim-image.jpg" />
+    <Content Include="Content\Images-from-galaxycine\download %281%29.png" />
+    <Content Include="Content\Images-from-galaxycine\download %282%29.png" />
+    <Content Include="Content\Images-from-galaxycine\forward.png" />
+    <Content Include="Content\Images-from-galaxycine\logo %281%29.png" />
+    <Content Include="Content\Images-from-galaxycine\logo %281%29.svg" />
+    <Content Include="Content\Images-from-galaxycine\logo %282%29.png" />
+    <Content Include="Content\Images-from-galaxycine\logo %282%29.svg" />
+    <Content Include="Content\Images-from-galaxycine\logo %283%29.png" />
+    <Content Include="Content\Images-from-galaxycine\logo %284%29.png" />
+    <Content Include="Content\Images-from-galaxycine\logo %285%29.png" />
     <Content Include="Content\images\avatars\user-01.jpg" />
     <Content Include="Content\images\avatars\user-02.jpg" />
     <Content Include="Content\images\avatars\user-03.jpg" />
@@ -196,11 +245,17 @@
     <Content Include="Content\images\wheel-2000.jpg" />
     <Content Include="Content\images\wheel-500.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\StyleSheet1.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Button.scss" />
+    <Content Include="Content\Images-from-galaxycine\1042x347\desktop.ini" />
+    <Content Include="Content\Images-from-galaxycine\2048x682\desktop.ini" />
+    <Content Include="Content\Images-from-galaxycine\300x450\desktop.ini" />
+    <Content Include="Content\Images-from-galaxycine\450x300\desktop.ini" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -224,6 +279,17 @@
     <Content Include="Views\Shared\_LayoutIndex.cshtml" />
     <Content Include="Views\Home\IndexView.cshtml" />
     <Content Include="Views\Shared\_LayoutNguoiDung.cshtml" />
+    <Content Include="Views\QKTCinema\TrangChu.cshtml" />
+    <Content Include="Views\QKTCinema\PhimSapChieu.cshtml" />
+    <Content Include="Views\QKTCinema\PhimDangChieu.cshtml" />
+    <Content Include="Views\QKTCinema\TheLoaiPhim.cshtml" />
+    <Content Include="Views\QKTCinema\DienVien.cshtml" />
+    <Content Include="Views\QKTCinema\BlogDienAnh.cshtml" />
+    <Content Include="Views\QKTCinema\MuaVe.cshtml" />
+    <Content Include="Views\QKTCinema\SuKien.cshtml" />
+    <Content Include="Views\QKTCinema\RapGiaVe.cshtml" />
+    <Content Include="Views\QKTCinema\HoTro.cshtml" />
+    <Content Include="Views\QKTCinema\ThanhVien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -238,6 +304,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

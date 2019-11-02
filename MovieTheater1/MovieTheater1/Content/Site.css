@@ -1,4 +1,36 @@
-﻿
+﻿[type="date"] {
+	background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
+}
+
+	[type="date"]::-webkit-inner-spin-button {
+		display: none;
+	}
+
+	[type="date"]::-webkit-calendar-picker-indicator {
+		opacity: 0;
+	}
+
+input {
+	border: 1px solid #c4c4c4;
+	border-radius: 0px;
+	background-color: #fff;
+	padding: 3px 5px;
+	box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+	width: 190px;
+}
+
+.btn-search{
+	color: lightgrey;
+}
+
+.btn-search:hover{
+	color: dimgray;
+}
+
+
+.btn-login{
+	font-size: 1rem;
+}
 .btn-linear {
 	flex: 1 1 auto;
 	margin: 1px;
@@ -33,8 +65,45 @@
 			left: 0;
 		}
 
+.btn-tab {
+	flex: 1 1 auto;
+	margin: 1px;
+	padding: 10px;
+	border: 2px solid transparent;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	overflow: hidden;
+	transition: 0.3s;
+	background: rgb(247, 249, 250);
+	font-size: 1.2rem;
+	color: dimgray;
+}
 
+	.btn-tab:after {
+		position: absolute;
+		transition: 0.3s;
+		content: '';
+		width: 0;
+		left: 50%;
+		bottom: 0;
+		height: 3px;
+		background: rgb(242,107,56);
+	}
 
+	.btn-tab:hover {
+		cursor: pointer;
+		color: gray;
+	}
+
+		.btn-tab:hover:after {
+			width: 100%;
+			left: 0;
+		}
+
+.btn-tab:focus{
+	color: black;
+}
 .btn-xemthem {
 	flex: 1 1 auto;
 	margin: 10px;
@@ -50,10 +119,40 @@
 	border-radius: 0px;
 }
 
+.btn-linear1 {
+	flex: 1 1 auto;
+	margin: 1px;
+	padding: 10px;
+	border: 2px solid transparent;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	overflow: hidden;
+	transition: 0.3s;
+	background: rgb(247, 249, 250);
+	font-size: 1em;
+	border-bottom: 2px solid rgb(242,107,56);
+}
 .btn-xemthem:hover{
 	background-color: rgb(242,107,56);
 	color:white;
 	transition: 0.3s;
+}
+
+
+.btn-2d {
+	flex: 1 1 auto;
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid rgb(242,107,56);
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	overflow: hidden;
+	transition: 0.3s;
+	background: rgb(247, 249, 250);
+	color: rgb(242,107,56);
+	border-radius: 0px;
 }
 
 
@@ -86,9 +185,8 @@
 
 .btn-datve {
 	flex: 1 1 auto;
-	margin: 10px;
-	padding: 10px;
-	padding: 10px;
+
+	padding:5px 15px 5px 15px;
 	border: 1px solid rgb(247, 249, 250);
 	text-align: center;
 	text-transform: uppercase;
@@ -98,8 +196,7 @@
 	background-color: rgba(0,0,0,0.5);
 	color: rgb(247, 249, 250);
 	border-radius: 0px;
-	top: 50%;
-	left: 30%;
+
 }
 
 	.btn-datve:hover {
@@ -109,11 +206,33 @@
 		border: 1px solid rgb(242, 107, 56);
 	}
 
+.btn-c16 {
+	flex: 1 1 auto;
+
+	padding: 5px;
+	padding: 5px;
+	
+	text-align: center;
+	text-transform: uppercase;
+	position: absolute;
+	overflow: hidden;
+
+	color: rgb(247, 249, 250);
+	border-radius: 0px;
+	margin-top: -3rem;
+
+	font-size: 0.7rem;
+	background-color: rgb(242, 107, 56);
+
+	border: 1px solid rgb(242, 107, 56);
+}
+
+
 .btn-datve-nav {
 	padding: 5px;
 	font-size: 0.8em;
-	top: 35%;
-	left: 20%;
+	
+
 }
 /* Play button*/
 .circle {
@@ -210,7 +329,7 @@ p a:hover{
 	list-style: none;
 	text-align: center;
 	line-height: 1;
-	padding: 0px 25px 0px 25px;
+	padding: 0px 2rem 0px 2rem;
 }
 
 .nav-dropdown-text {
@@ -247,3 +366,122 @@ p a:hover{
 	border: 1px solid transparent !important;
 	text-align: center !important;
 }
+
+.dropdown:hover > .dropdown-menu {
+	transition: 0.5s;
+	display: block;
+}
+
+.custom-link{
+	color: black;
+	font-size: 0.95rem;
+	text-wrap:none;
+	
+}
+.custom-link:hover{
+	text-decoration: none;
+	color: dimgray;
+}
+	.custom-link:focus {
+		color: rgb(242, 107, 56);
+	}
+
+.image-parent{
+	border: 0.5rem solid transparent;
+}
+
+.list-group-item{
+	text-align: left;
+}
+
+
+.btn-thoi-gian-chieu {
+	
+	margin: 9px;
+	padding: 10px;
+	padding: 10px;
+	border: 1px solid rgb(247, 249, 250);
+	text-align: center;
+	text-transform: uppercase;
+
+	overflow: hidden;
+	transition: 0.1s;
+	background-color: rgba(0,0,0,0.5);
+	color: rgb(247, 249, 250);
+	border-radius: 0px;
+
+}
+
+	.btn-thoi-gian-chieu:hover {
+		background-color: rgb(242, 107, 56);
+		color: white;
+		transition: 0.1s;
+		border: 1px solid rgb(242, 107, 56);
+	}
+	.btn-thoi-gian-chieu:focus {
+		background-color: rgb(242, 107, 56);
+		color: white;
+		border: 1px solid rgb(242, 107, 56);
+	}
+
+
+.btn-thoi-gian-chieu1 {
+	margin: 9px;
+	padding: 5px;
+	padding: 5px;
+	border: 1px solid rgb(247, 249, 250);
+	text-align: center;
+	text-transform: uppercase;
+	overflow: hidden;
+	transition: 0.1s;
+	background-color: rgba(0,0,0,0.5);
+	color: rgb(247, 249, 250);
+	border-radius: 0px;
+	font-size: 0.8em;
+}
+
+ .form-control{
+	 border-radius: 0px;
+ }
+
+
+.ho-tro-box {
+	background: rgb(216, 216, 216);
+}
+
+.contact-header {
+	color: black;
+	font-size: 1.8em;
+	padding: 10px 10px 10px 10px;
+	text-align:center;
+}
+
+.feedback-contact-item a{
+	color:gray;
+	font-size: 0.6em;
+}
+	.feedback-contact-item i{
+		font-size:0.6em;
+		border: 0.5em solid transparent;
+	}
+	.feedback-contact-item a:hover {
+		text-decoration: none;
+		color: rgb(242, 107, 56);
+	}
+
+
+.btn-feedback {
+	margin-bottom: 1em;
+	padding: 5px 25px 5px 25px;
+	border-radius: 0px;
+	text-transform:uppercase;
+	color: white;
+	background: rgb(242, 107, 56);
+}
+
+	.btn-feedback:hover {
+		background: rgb(255, 101, 80);
+		color:white;
+	}
+
+

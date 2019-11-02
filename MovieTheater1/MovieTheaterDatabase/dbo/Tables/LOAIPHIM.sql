@@ -5,3 +5,4 @@ CREATE TABLE LOAIPHIM(
 	TENLOAIPHIM	varchar(40),
 	constraint pk_lphim primary key(MALOAIPHIM)
 )
+

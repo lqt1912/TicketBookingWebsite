@@ -1,0 +1,175 @@
+﻿
+@{
+	ViewBag.Title = "HoTro";
+	Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+}
+
+
+<body>
+	<br />
+	<div class="container">
+		<div class="row">
+			<div class=" ho-tro-box col-md-8 col-sm-8 col-xs-12 ">
+				<div class="contact-header">
+					Bạn có gì muốn nhắn nhủ  TQKCinema?
+
+					<div class=" d-flex justify-content-around flex-wrap feedback-contact">
+						<div class="feedback-contact-item">
+							<i class="fa fa-envelope"></i><a href="mailto:supports@galaxy.com.vn">supports@galaxy.com.vn</a>
+						</div>
+						<div class="feedback-contact-item">
+							<i class="fa fa-phone"></i>	<a href="mailto:19002224">19002224</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="form-group">
+
+							<input type="text" class="form-control" placeholder="Họ và tên ">
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="form-group" style="">
+							<input type="email" class="form-control" placeholder="Email">
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="form-group" style="">
+							<input type="text" class="form-control" placeholder="Số điện thoại ">
+						</div>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<textarea rows="4" class="form-control col-md-12 col-sm-12 col-xs-12" placeholder="Nội dung "></textarea>
+
+				</div>
+				<div class="d-flex justify-content-end">
+					<button class="btn btn-feedback"> Gửi </button>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-4 col-xs-12  d-none d-xl-block d-lg-block">
+
+				<table cellpadding="10" style="background-color: rgb(228, 228, 228); width: 100%;">
+					<tr>
+						<td style="background-color:rgb(242, 107, 56); color: white; font-weight:bold;">MUA VÉ NHANH </td>
+						<td>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<select id="selectbasic" name="selectbasic" class="form-control">
+								<option default> Chọn phim </option>
+								<option value="1">Option one</option>
+								<option value="2">Option two</option>
+							</select>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<select id="selectbasic" name="selectbasic" class="form-control">
+								<option default> Chọn rạp </option>
+								<option value="1">Option one</option>
+								<option value="2">Option two</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<select id="selectbasic" name="selectbasic" class="form-control">
+								<option default> Chọn ngày </option>
+								<option value="1">Option one</option>
+								<option value="2">Option two</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<select id="selectbasic" name="selectbasic" class="form-control">
+								<option default> Chọn suất </option>
+								<option value="1">Option one</option>
+								<option value="2">Option two</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td style="">
+						</td>
+						<td align="right">
+							<button class="btn btn-feedback">
+								MUA VÉ
+							</button>
+						</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+
+		<div class="d-none d-xl-block d-lg-block">
+			<br />
+			<div class="row d-flex justify-content-start ">
+				<div>
+					<a class="btn-linear"> Phim trong tháng </a>
+				</div>
+
+			</div>
+			<br />
+			<div class="row ">
+				<div class="col-md-3 col-sm-3 col-xs-6">
+					<div class="container-for-overlay">
+						<img src="~/Content/Images-from-galaxycine/450x300/phim-image (1).png" class="image w-100" />
+						<div class="middle d-flex justify-content-center align-items-center ">
+							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-3 col-xs-6">
+					<div class="container-for-overlay">
+						<img src="~/Content/Images-from-galaxycine/450x300/phim-image (6).jpg" class="image w-100" />
+						<div class="middle d-flex justify-content-center align-items-center ">
+							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-3 col-xs-6">
+					<div class="container-for-overlay">
+						<img src="~/Content/Images-from-galaxycine/450x300/phim-image (15).jpg" class="image w-100" />
+						<div class="middle d-flex justify-content-center align-items-center ">
+							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-3 col-xs-6">
+					<div class="container-for-overlay">
+						<img src="~/Content/Images-from-galaxycine/450x300/phim-image (13).jpg" class="image w-100" />
+						<div class="middle d-flex justify-content-center align-items-center ">
+							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container d-xl-block d-lg-block">
+			<button style="font-size: 1.2rem; " class="btn-linear">Về chúng tôi   </button>
+			<br />
+			<div class="content-text">
+				<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><a href="https://www.galaxycine.vn/"><b><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Galaxy Cinema</span></span></b></a><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">&nbsp;là một trong những công ty tư nhân đầu tiên về điện ảnh được thành lập từ năm 2003, đã khẳng định thương hiệu là 1 trong 10 địa điểm vui chơi giải trí được yêu thích nhất. Ngoài hệ thống rạp chiếu phim hiện đại, thu hút hàng triệu lượt người đến xem, <a href="https://www.galaxycine.vn/"><b>Galaxy Cinema</b></a> còn hấp dẫn khán giả bởi không khí thân thiện cũng như chất lượng dịch vụ hàng đầu.</span></span></span></span></p>
+				<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Đến website <a href="https://www.galaxycine.vn/"><i>galaxycine.vn</i></a>, quý khách sẽ được cập nhật nhanh chóng các <a href="https://www.galaxycine.vn/phim-dang-chieu"><i>phim hay nhất</i></a> <a href="https://www.galaxycine.vn/phim-dang-chieu"><i>phim mới nhất</i></a> đang chiếu hoặc sắp chiếu. <a href="https://www.galaxycine.vn/lich-chieu"><i>Lịch chiếu</i></a> tại mọi hệ thống <a href="https://www.galaxycine.vn/"><i>rạp chiếu phim</i> </a>của <a href="https://www.galaxycine.vn/"><b>Galaxy Cinema</b></a> cũng được cập nhật đầy đủ hàng ngày hàng giờ trên<i> trang chủ</i>. </span></span></span></span></p>
+				<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Mua vé tại <b><a href="https://www.galaxycine.vn/">Galaxy Cinema</a> </b>dễ dàng chỉ sau vài thao tác vô cùng đơn giản. Để mua vé, hãy vào tab Mua vé. Quý khách có thể chọn Mua vé theo phim, theo rạp, theo ngày tùy cách nào tiện lợi nhất cho bản thân.Sau đó, tiến hành mua vé theo các bước hướng dẫn. Chỉ trong vài phút, quý khách sẽ nhận được tin nhắn và email phản hồi <i>Mua vé thành công</i> của <a href="https://www.galaxycine.vn/"><b>Galaxy Cinema</b></a>. Quý khách có thể dùng tin nhắn lấy vé tại quầy vé của<a href="https://www.galaxycine.vn/"> <b>Galaxy Cinema</b></a> hoặc quét mã QR để một bước vào rạp mà không cần tốn thêm bất kỳ công đoạn nào nữa.</span></span></span></span></p>
+				<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Nếu bạn đã chọn được <a href="https://www.galaxycine.vn/phim-dang-chieu"><i>phim hay</i></a> để xem, hãy Mua vé cực nhanh bằng box <i>Mua Vé Nhanh</i> ngay từ <a href="https://www.galaxycine.vn/"><i>Trang Chủ</i></a>. Chỉ cần một phút, tin nhắn và email phản hồi của <b><a href="https://www.galaxycine.vn/">Galaxy Cinema</a> </b>sẽ gửi ngay vào điện thoại và hộp mail của bạn. </span></span></span></span></p>
+				<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Nếu chưa quyết định sẽ xem <i>phim mới</i> nào, hãy tham khảo các bộ<a href="https://www.galaxycine.vn/phim-dang-chieu"> <i>phim hay</i></a> trong mục<a href="https://www.galaxycine.vn/phim-dang-chieu"> <i>Phim Đang Chiếu</i></a> cũng như <a href="https://www.galaxycine.vn/phim-sap-chieu"><i>Phim Sắp Chiếu</i> </a>tại <a href="https://www.galaxycine.vn/"><i>rạp chiếu phim</i></a> bằng cách vào mục <a href="https://www.galaxycine.vn/binh-luan-phim"><i>Bình Luận Phim</i></a> ở <i><a href="http://beta.galaxycine.vn/dien-anh">Góc Điện Ảnh</a> </i>để đọc những bài bình luận chân thật nhất, tham khảo và cân nhắc. Sau đó, quý khách hãy Mua vé bằng box <i>Mua Vé Nhanh</i> ngay ở đầu trang để chọn được suất chiếu và chỗ ngồi vừa ý nhất. &nbsp;</span></span></span></span></p>
+				<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><a href="https://www.galaxycine.vn/"><b><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Galaxy Cinema</span></span></b></a><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"> luôn có những chương trình<a href="https://www.galaxycine.vn/khuyen-mai"> <i>khuyến mãi</i>, <i>ưu đãi</i></a>, quà tặng vô cùng hấp dẫn như <i>giảm giá</i> vé, tặng vé xem phim miễn phí, tặng Combo, tặng quà phim… &nbsp;dành cho quý khách. </span></span></span></span></p>
+				<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Trang web <i>galaxycine.vn</i> còn có mục <i>Góc Điện Ảnh</i> - sở hữu lượng dữ liệu về phim, diễn viên và đạo diễn, giúp quý khách dễ dàng chọn được phim mình yêu thích và nâng cao kiến thức về điện ảnh của bản thân. Ngoài ra, vào mỗi tháng, <a href="https://www.galaxycine.vn/"><strong>Galaxy Cinema</strong> </a>cũng giới thiệu các <a href="https://www.galaxycine.vn/phim-sap-chieu"><i>phim sắp chiếu</i></a> hot nhất trong mục <a href="https://www.galaxycine.vn/phim-hay"><i>Phim Hay Tháng</i> </a>để quý khách sớm có sự tính toán.</span></span></span></span></p>
+				<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Hiện nay, <a href="https://www.galaxycine.vn/"><strong><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Galaxy Cinema</span></strong></a> đang ngày càng phát triển hơn nữa với các chương trình đặc sắc, các khuyến mãi hấp dẫn, đem đến cho khán giả những bộ phim bom tấn của thế giới và Việt Nam nhanh chóng và sớm nhất.</span></span></span></span></p>
+			</div>
+		</div>
+	</div>
+</body>

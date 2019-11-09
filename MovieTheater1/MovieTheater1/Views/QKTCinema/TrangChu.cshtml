@@ -3,716 +3,314 @@
 	ViewBag.Title = "Trang chủ";
 	Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
 }
+
 <body>
-	<style>
+<style>
 
-		.carousel-item img {
-			height: 75vh;
-		}
-	</style>
-	<!--Visible only on lg & xl-->
-	<div class="d-none d-xl-block d-lg-block" style="background:black; position:relative;">
-		<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel" style="position:relative">
-			<ol class="carousel-indicators">
-				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="d-block w-100" src="~/Content/Images-from-galaxycine/2048x682/big-banner (1).jpg" />
-					<div class="carousel-caption d-none d-md-block " style="margin-top: 25rem;">
-						<a href='#' class="playBut">
-							<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
-							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
-							<polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
-									73.5,62.5 148.5,105.8 73.5,149.1 " />
+	.carousel-item img {
+		height: 75vh;
+	}
+</style>
+<!--Visible only on lg & xl-->
+@Html.Action("_PartialCarousel", "QKTCinema")
 
-							<circle class='circle' id="XMLID_17_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3" />
+<div class="d-none d-xl-block d-lg-block" style="background: black; position: relative;">
+	<table cellpadding="10" style="background-color: rgba(0, 0, 0, 0.8); position: absolute; z-index: 1000 !important; margin-top: -30em; margin-left: 4em; width: 19em;">
+		<tr>
+			<td colspan="2" class="text-light">MUA VÉ NHANH </td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<select id="selectbasic" name="selectbasic" class="form-control">
+				<option default> Chọn phim </option>
+				<option value="1">Option one</option>
+				<option value="2">Option two</option>
+			</select>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<select id="selectbasic" name="selectbasic" class="form-control">
+					<option default> Chọn rạp </option>
+					<option value="1">Option one</option>
+					<option value="2">Option two</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-light">
+				Chọn ngày
+			</td>
+			<td>
+				<input type="date"/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<select id="selectbasic" name="selectbasic" class="form-control">
+					<option default> Chọn suất </option>
+					<option value="2">Option two</option>
+					<option value="1">Option one</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td style="">
+			</td>
+			<td align="right">
+				<button class="btn" style="background-color: rgb(242, 107, 56); border-radius: 0px;">
+					MUA VÉ
+				</button>
+			</td>
+		</tr>
+	</table>
+</div>
+<!-- Hidden on lg & xl -->
+<div class=" d-xl-none d-lg-none">
+	<table cellpadding="10" style="background-color: lightgrey; position: relative; z-index: 1000 !important; width: 100%;">
+		<tr>
+			<td colspan="2">MUA VÉ NHANH </td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<select id="selectbasic" name="selectbasic" class="form-control">
+				<option default> Chọn phim </option>
+				<option value="1">Option one</option>
+				<option value="2">Option two</option>
+			</select>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<select id="selectbasic" name="selectbasic" class="form-control">
+					<option default> Chọn rạp </option>
+					<option value="1">Option one</option>
+					<option value="2">Option two</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="date" placeholder="Chọn ngày "/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<select id="selectbasic" name="selectbasic" class="form-control">
+					<option default> Chọn suất </option>
+					<option value="1">Option one</option>
+					<option value="2">Option two</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td style="">
+			</td>
+			<td align="right">
+				<button class="btn" style="background-color: orange;">
+					MUA VÉ
+				</button>
+			</td>
+		</tr>
+	</table>
+</div>
+<br/>
 
-								 </svg>
-						</a>
-					</div>
-				</div>
-				<div class="carousel-item ">
-					<img class="d-block w-100" src="~/Content/Images-from-galaxycine/2048x682/big-banner (2).jpg" />
-					<div class="carousel-caption d-none d-md-block " style="margin-top: 25rem;">
-						<a href='#' class="playBut">
-							<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
-							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
-							<polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
-									73.5,62.5 148.5,105.8 73.5,149.1 " />
+@Html.Action("_PartialPhimShortcut", "QKTCinema")
 
-							<circle class='circle' id="XMLID_17_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3" />
-
-								 </svg>
-						</a>
-					</div>
-				</div>
-				<div class="carousel-item ">
-					<img class="d-block w-100" src="~/Content/Images-from-galaxycine/2048x682/big-banner (3).jpg" />
-					<div class="carousel-caption d-none d-md-block " style="margin-top: 25rem;">
-						<a href='#' class="playBut">
-							<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
-							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
-							<polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
-									73.5,62.5 148.5,105.8 73.5,149.1 " />
-
-							<circle class='circle' id="XMLID_17_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3" />
-
-								 </svg>
-						</a>
-					</div>
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="margin-left: -4em;">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" style="margin-right: -4em;">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-		<table cellpadding="10" style="background-color: rgba(0, 0, 0, 0.8); position:absolute; z-index:1000 !important; margin-top: -30em;margin-left: 4em; width: 19em;  ">
-			<tr>
-				<td colspan="2" class="text-light">MUA VÉ NHANH </td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn phim </option>
-						<option value="1">Option one</option>
-						<option value="2">Option two</option>
-					</select>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn rạp </option>
-						<option value="1">Option one</option>
-						<option value="2">Option two</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td class="text-light">
-					Chọn ngày
-				</td>
-				<td>
-					<input type="date" />
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn suất </option>
-						<option value="2">Option two</option>
-						<option value="1">Option one</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td style="">
-				</td>
-				<td align="right">
-					<button class="btn"="" style="background-color: rgb(242,107,56); border-radius: 0px;">
-						MUA VÉ
-					</button>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<!-- Hidden on lg & xl -->
-	<div class=" d-xl-none d-lg-none">
-		<table cellpadding="10" style="background-color: lightgrey; position:relative; z-index:1000 !important;  width: 100%; ">
-			<tr>
-				<td colspan="2">MUA VÉ NHANH </td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn phim </option>
-						<option value="1">Option one</option>
-						<option value="2">Option two</option>
-					</select>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn rạp </option>
-						<option value="1">Option one</option>
-						<option value="2">Option two</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input type="date" placeholder="Chọn ngày " />
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn suất </option>
-						<option value="1">Option one</option>
-						<option value="2">Option two</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td style="">
-				</td>
-				<td align="right">
-					<button class="btn" style="background-color: orange;">
-						MUA VÉ
-					</button>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<br />
-	<!--Visible only on lg & xl-->
-	<div class="container">
-		<div class="d-none d-xl-block d-lg-block">
-			<div style="font-size: 1.2rem; text-transform: uppercase;" class=" d-flex  ">
-				<ul class="nav nav-tabs ">
-					<li class="nav-item">
-						<button class="nav-link btn-linear" data-toggle="tab" href="#home">Phim đang chiếu </button>
-					</li>
-					<li class="nav-item">
-						<button class=" nav-link btn-linear" style="" data-toggle="tab" href="#menu1">Phim sắp chiếu</button>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="d-none d-xl-block d-lg-block">
-			<div style="position: relative;" class="tab-content">
-				<div class="tab-pane active container" id="menu1">
-					<div class="tab-element">
-						<div style="">
-							<div class="container" style="width:100%">
-								<table>
-									<tr>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="~/Content/Images-from-galaxycine/450x300/phim-image (1).jpeg" alt="Avatar" class="image" style="width:100%" />
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">Crazy Man</div>
-												<div class="text-uppercase"> Thằng khùng hay cười </div>
-											</div>
-										</td>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="~/Content/Images-from-galaxycine/450x300/phim-image (14).jpg" alt="Avatar" class="image" style="width:100%" />
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">Bad guys: Kill them</div>
-												<div class="text-uppercase"> Bọn bất hảo: Giết người </div>
-											</div>
-										</td>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="~/Content/Images-from-galaxycine/450x300/phim-image (1).jpg" alt="Avatar" class="image" style="width:100%" />
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">Rainning</div>
-												<div class="text-uppercase"> Trời sắp mưa</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="~/Content/Images-from-galaxycine/450x300/phim-image (1).png" alt="Avatar" class="image" style="width:100%" />
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">Dead app</div>
-												<div class="text-uppercase"> Ứng dụng tử thần </div>
-											</div>
-										</td>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="~/Content/Images-from-galaxycine/450x300/phim-image (10).jpg" alt="Avatar" class="image" style="width:100%" />
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">Zombieland: Double shot</div>
-												<div class="text-uppercase"> VÙng đất thây ma: Bắn đúp  </div>
-											</div>
-										</td>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="~/Content/Images-from-galaxycine/450x300/phim-image (11).JPG" alt="Avatar" class="image" style="width:100%" />
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">Noname </div>
-												<div class="text-uppercase"> Không biết đặt tên   </div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-										</td>
-										<td>
-										</td>
-										<td align="right">
-											<a href=@Url.Action("PhimDangChieu","QKTCinema") class="btn btn-xemthem">  Xem thêm <span class="fa fa-arrow-right"> </span></a>
-										</td>
-									</tr>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tab-pane container" id="home">
-					<div class="tab-element">
-						<div style="">
-							<div class="container" style="">
-								<table>
-									<tr>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="https://www.galaxycine.vn/media/2019/7/22/maleficent6_1563766474305.jpg" alt="Avatar" class="image" style="width:100%">
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" font-weight-bold">
-													MALEFICENT MISTRESS OF EVIL
-												</div>
-												<div class=" ">MALEFICENT TIÊN HẮC ÁM</div>
-											</div>
-										</td>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="https://galaxycine.vn/media/2019/10/16/450x300-di-oi_1571217991041.jpg" alt="Avatar" class="image" style="width:100%">
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">
-													LOVE AND RUN
-												</div>
-												<div class="">
-													DÌ ƠI, ĐỪNG CÓ BỒ
-												</div>
-											</div>
-										</td>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="https://galaxycine.vn/media/2019/10/15/450x300_1571136320245.jpg" alt="Avatar" class="image" style="width:100%">
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">
-													A RAINY DAY IN NEW YORK
-												</div>
-												<div>
-													CHUYỆN NGÀY MƯA Ở NEW YORK
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="https://galaxycine.vn/media/2019/10/2/450x300_1570008728430.jpg" alt="Avatar" class="image" style="width:100%">
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">Trouble</div>
-												<div class="text-uppercase"> Thú cưng siêu quậy</div>
-											</div>
-										</td>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="https://galaxycine.vn/media/2019/10/9/450x300-song-tu_1570596304015.jpg" alt="Avatar" class="image" style="width:100%">
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">Gemini man</div>
-												<div class="text-uppercase"> Đàn ông song tử</div>
-											</div>
-										</td>
-										<td>
-											<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-												<div class="container-for-overlay">
-													<img src="https://galaxycine.vn/media/2019/9/30/450x300-c_1569838561985.jpg" alt="Avatar" class="image" style="width:100%">
-													<div class="middle d-flex justify-content-center align-items-center">
-														<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-													</div>
-												</div>
-												<div class=" text-uppercase  font-weight-bold">
-													BAD GUYS: REIGN OF CHAOS
-												</div>
-												<div>
-													BIỆT ĐỘI BẤT HẢO
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-										</td>
-										<td>
-										</td>
-										<td align="right">
-											<a href=@Url.Action("PhimSapChieu","QKTCinema") class="btn btn-xemthem">  Xem thêm <span class="fa fa-arrow-right"> </span></a>
-										</td>
-									</tr>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Hidden on lg & xl -->
-	<div class="d-xl-none d-lg-none">
-		<a href=@Url.Action("PhimDangChieu","QKTCinema") class="nav-link text-center text-dark" style="width:100%;"> Phim đang chiếu</a>
-		<table>
-			<tr>
-				<td>
-					<div class="" style="padding: 3% 2.5% 1% 2.5% ">
+<script>
+	// Select all tabs
+	$('.nav-tabs a').click(function() {
+		$(this).tab('show');
+	})
+	// Select tab by name
+	$('.nav-tabs a[href="#home"]').tab('show')
+	// Select first tab
+	$('.nav-tabs a:first').tab('show')
+	// Select last tab
+	$('.nav-tabs a:last').tab('show')
+	// Select fourth tab (zero-based)
+	$('.nav-tabs li:eq(3) a').tab('show')
+</script>
+<br/>
+<div class="container">
+	<div class="row">
+		<div class="d-flex col-md-6 col-xs-12">
+			<table style="width: 100%" cellpadding="10">
+				<tr>
+					<td colspan="2" align="left">
+						<a class="btn-linear"> Bình luận phim </a>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 40%">
 						<div class="container-for-overlay">
-							<img src="~/Content/images/thumbs/featured/featured-guitarman.jpg" alt="Avatar" class="image" style="width:100%">
-							<div class="middle d-flex justify-content-center align-items-center">
-								<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-
-							</div>
+							<img src="~/Content/Images-from-galaxycine/450x300/phim-image (14).jpg" class="image" style="width: 100%"/>
 						</div>
-						<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 1</div>
-					</div>
-				</td>
-				<td>
-					<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-						<div class="container-for-overlay">
-							<img src="~/Content/images/thumbs/featured/featured-guitarman.jpg" alt="Avatar" class="image" style="width:100%">
-							<div class="middle d-flex justify-content-center align-items-center">
-								<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-							</div>
-						</div>
-						<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 2</div>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-						<div class="container-for-overlay">
-							<img src="~/Content/images/thumbs/featured/featured-beetle.jpg" alt="Avatar" class="image" style="width:100%">
-							<div class="middle d-flex justify-content-center align-items-center">
-								<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-							</div>
-						</div>
-						<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 3</div>
-					</div>
-				</td>
-				<td>
-					<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-						<div class="container-for-overlay">
-							<img src="~/Content/images/thumbs/featured/featured-watch.jpg" alt="Avatar" class="image" style="width:100%">
-							<div class="middle d-flex justify-content-center align-items-center">
-								<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-							</div>
-						</div>
-						<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 4</div>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-				</td>
-				<td align="right">
-					<a href=@Url.Action("PhimDangChieu","QKTCinema") class="btn btn-xemthem">  Xem thêm <span class="fa fa-arrow-right"> </span></a>
-				</td>
-			</tr>
-		</table>
-		<a href=@Url.Action("PhimSapChieu","QKTCinema") class="nav-link text-center text-dark" style="width:100%;"> Phim sắp chiếu</a>
-		<table>
-			<tr>
-				<td>
-					<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-						<div class="container-for-overlay">
-							<img src="~/Content/images/thumbs/featured/featured-guitarman.jpg" alt="Avatar" class="image" style="width:100%">
-							<div class="middle d-flex justify-content-center align-items-center">
-								<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-							</div>
-						</div>
-						<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 1</div>
-					</div>
-				</td>
-				<td>
-					<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-						<div class="container-for-overlay">
-							<img src="~/Content/images/thumbs/featured/featured-guitarman.jpg" alt="Avatar" class="image" style="width:100%">
-							<div class="middle d-flex justify-content-center align-items-center">
-								<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-							</div>
-						</div>
-						<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 2</div>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-						<div class="container-for-overlay">
-							<img src="~/Content/images/thumbs/featured/featured-beetle.jpg" alt="Avatar" class="image" style="width:100%">
-							<div class="middle d-flex justify-content-center align-items-center">
-								<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-							</div>
-						</div>
-						<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 3</div>
-					</div>
-				</td>
-				<td>
-					<div class="" style="padding: 3% 2.5% 1% 2.5% ">
-						<div class="container-for-overlay">
-							<img src="~/Content/images/thumbs/featured/featured-watch.jpg" alt="Avatar" class="image" style="width:100%">
-							<div class="middle d-flex justify-content-center align-items-center">
-								<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
-							</div>
-						</div>
-						<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 4</div>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-				</td>
-				<td align="right">
-					<a href=@Url.Action("PhimDSapChieu","QKTCinema") class="btn btn-xemthem">  Xem thêm <span class="fa fa-arrow-right"> </span></a>
-				</td>
-			</tr>
-		</table>
-	</div>
-
-
-	<script>
-		// Select all tabs
-		$('.nav-tabs a').click(function () {
-			$(this).tab('show');
-		})
-		// Select tab by name
-		$('.nav-tabs a[href="#home"]').tab('show')
-		// Select first tab
-		$('.nav-tabs a:first').tab('show')
-		// Select last tab
-		$('.nav-tabs a:last').tab('show')
-		// Select fourth tab (zero-based)
-		$('.nav-tabs li:eq(3) a').tab('show')
-	</script>
-	<br />
-	<div class="container">
-		<div class="row">
-			<div class="d-flex col-md-6 col-xs-12">
-				<table style="width:100%" cellpadding="10">
-					<tr>
-						<td colspan="2" align="left">
-							<a class="btn-linear"> Bình luận phim </a>
-						</td>
-					</tr>
-					<tr>
-						<td style="width:40%">
-							<div class="container-for-overlay">
-								<img src="~/Content/Images-from-galaxycine/450x300/phim-image (14).jpg" class="image" style="width:100%" />
-							</div>
-						</td>
-						<td>
-							<h5>
-								[Preview] Frozen 2: Đại Náo Phòng Vé, Tiến Thẳng Oscar?
-							</h5>
-							<p>
-								Trở lại sau sáu năm, Disney lần nữa quyết tâm tạo nên cơn bão tuyết chấn động toàn cầu!
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="container-for-overlay"><img src="~/Content/Images-from-galaxycine/450x300/phim-image (15).jpg" class="image" style="width:100%" /></div>
-						</td>
-						<td>
-							<h5>
-								Bỏ Qua Mọi Ồn Ào, Thất Sơn Tâm Linh Là Bộ Phim Như Thế Nào?
-							</h5>
-							<p>
-								Thất Sơn Tâm Linh đã chính thức được trình chiếu tại các cụm rạp trên toàn quốc. Thế nhưng trái với
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="container-for-overlay"><img src="~/Content/Images-from-galaxycine/450x300/phim-image (16).jpg" class="image" style="width:100%" /></div>
-						</td>
-						<td>
-							<h5>
-								[Review] Trời Sáng Rồi, Ta Ngủ Đi Thôi: Xem Hay Không Xem, Nói Một Lời
-							</h5>
-							<p>
-								Trời Sáng Rồi, Ta Ngủ Đi Thôi mang dư âm của một giai điệu ngẫu hứng, ở đấy thanh xuân đôi khi
-							</p>
-						</td>
-					</tr>
-				</table>
-
-			</div>
-			<div class="col-md-6 col-xs-12">
-				<table style="width:100%" cellpadding="10">
-					<tr>
-						<td colspan="2" align="left">
-							<a class="btn-linear"> Blog điện ảnh  </a>
-						</td>
-					</tr>
-					<tr>
-						<td style="width:40%">
-							<div class="container-for-overlay"><img src="~/Content/Images-from-galaxycine/450x300/phim-image (14).jpg" class="image" style="width:100%" /></div>
-						</td>
-						<td>
-							<h5>
-								[Preview] Frozen 2: Đại Náo Phòng Vé, Tiến Thẳng Oscar?
-							</h5>
-							<p>
-								Trở lại sau sáu năm, Disney lần nữa quyết tâm tạo nên cơn bão tuyết chấn động toàn cầu!
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="container-for-overlay"><img src="~/Content/Images-from-galaxycine/450x300/phim-image (15).jpg" class="image" style="width:100%" /></div>
-						</td>
-						<td>
-							<h5>
-								Bỏ Qua Mọi Ồn Ào, Thất Sơn Tâm Linh Là Bộ Phim Như Thế Nào?
-							</h5>
-							<p>
-								Thất Sơn Tâm Linh đã chính thức được trình chiếu tại các cụm rạp trên toàn quốc. Thế nhưng trái với
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="container-for-overlay"><img src="~/Content/Images-from-galaxycine/450x300/phim-image (16).jpg" class="image" style="width:100%" /></div>
-						</td>
-						<td>
-							<h5>
-								[Review] Trời Sáng Rồi, Ta Ngủ Đi Thôi: Xem Hay Không Xem, Nói Một Lời
-							</h5>
-							<p>
-								Trời Sáng Rồi, Ta Ngủ Đi Thôi mang dư âm của một giai điệu ngẫu hứng, ở đấy thanh xuân đôi khi
-							</p>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</div>
-	<div class="container " style="position: relative; ">
-		<button style="font-size: 1.2rem; " class="btn-linear">Tin khuyến mãi  </button>
-		<div class="row col-md-12 col-xs-12" style="">
-			<div class="col-md-3 col-sm-4 col-xs-6" style="padding-top: 2%; padding-bottom: 2%;">
-				<div class="container-for-overlay">
-					<img src="~/Content/Images-from-galaxycine/300x450/km (1).jpg" class="image" style="width:100%" />
-					<div class="middle  d-none d-xl-block d-lg-block">
-						<h5 class="text-uppercase"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</h5>
+					</td>
+					<td>
+						<h5>
+							[Preview] Frozen 2: Đại Náo Phòng Vé, Tiến Thẳng Oscar?
+						</h5>
 						<p>
-							chính thức mở cửa chào đón các thành viên gan dạ nhất đến tham dự.
+							Trở lại sau sáu năm, Disney lần nữa quyết tâm tạo nên cơn bão tuyết chấn động toàn cầu!
 						</p>
-						<a href="#" class="btn btn-chitiet"><span class=" fas fa-eye "></span> CHI TIẾT</a>
-					</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="container-for-overlay"><img src="~/Content/Images-from-galaxycine/450x300/phim-image (15).jpg" class="image" style="width: 100%"/></div>
+					</td>
+					<td>
+						<h5>
+							Bỏ Qua Mọi Ồn Ào, Thất Sơn Tâm Linh Là Bộ Phim Như Thế Nào?
+						</h5>
+						<p>
+							Thất Sơn Tâm Linh đã chính thức được trình chiếu tại các cụm rạp trên toàn quốc. Thế nhưng trái với
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="container-for-overlay"><img src="~/Content/Images-from-galaxycine/450x300/phim-image (16).jpg" class="image" style="width: 100%"/></div>
+					</td>
+					<td>
+						<h5>
+							[Review] Trời Sáng Rồi, Ta Ngủ Đi Thôi: Xem Hay Không Xem, Nói Một Lời
+						</h5>
+						<p>
+							Trời Sáng Rồi, Ta Ngủ Đi Thôi mang dư âm của một giai điệu ngẫu hứng, ở đấy thanh xuân đôi khi
+						</p>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+		<div class="col-md-6 col-xs-12">
+			<table style="width: 100%" cellpadding="10">
+				<tr>
+					<td colspan="2" align="left">
+						<a class="btn-linear"> Blog điện ảnh </a>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 40%">
+						<div class="container-for-overlay"><img src="~/Content/Images-from-galaxycine/450x300/phim-image (14).jpg" class="image" style="width: 100%"/></div>
+					</td>
+					<td>
+						<h5>
+							[Preview] Frozen 2: Đại Náo Phòng Vé, Tiến Thẳng Oscar?
+						</h5>
+						<p>
+							Trở lại sau sáu năm, Disney lần nữa quyết tâm tạo nên cơn bão tuyết chấn động toàn cầu!
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="container-for-overlay"><img src="~/Content/Images-from-galaxycine/450x300/phim-image (15).jpg" class="image" style="width: 100%"/></div>
+					</td>
+					<td>
+						<h5>
+							Bỏ Qua Mọi Ồn Ào, Thất Sơn Tâm Linh Là Bộ Phim Như Thế Nào?
+						</h5>
+						<p>
+							Thất Sơn Tâm Linh đã chính thức được trình chiếu tại các cụm rạp trên toàn quốc. Thế nhưng trái với
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="container-for-overlay"><img src="~/Content/Images-from-galaxycine/450x300/phim-image (16).jpg" class="image" style="width: 100%"/></div>
+					</td>
+					<td>
+						<h5>
+							[Review] Trời Sáng Rồi, Ta Ngủ Đi Thôi: Xem Hay Không Xem, Nói Một Lời
+						</h5>
+						<p>
+							Trời Sáng Rồi, Ta Ngủ Đi Thôi mang dư âm của một giai điệu ngẫu hứng, ở đấy thanh xuân đôi khi
+						</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="container " style="position: relative;">
+	<button style="font-size: 1.2rem;" class="btn-linear">Tin khuyến mãi </button>
+	<div class="row col-md-12 col-xs-12" style="">
+		<div class="col-md-3 col-sm-4 col-xs-6" style="padding-top: 2%; padding-bottom: 2%;">
+			<div class="container-for-overlay">
+				<img src="~/Content/Images-from-galaxycine/300x450/km (1).jpg" class="image" style="width: 100%"/>
+				<div class="middle  d-none d-xl-block d-lg-block">
+					<h5 class="text-uppercase"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</h5>
+					<p>
+						chính thức mở cửa chào đón các thành viên gan dạ nhất đến tham dự.
+					</p>
+					<a href="#" class="btn btn-chitiet"><span class=" fas fa-eye "></span> CHI TIẾT</a>
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-4 col-xs-6" style="padding-top: 2%; padding-bottom: 2%;">
-				<div class="container-for-overlay">
-					<img src="~/Content/Images-from-galaxycine/300x450/km (2).jpg" class="image" style="width:100%" />
-					<div class="middle ">
-						<h5 class="text-uppercase"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</h5>
-						<p>
-							chính thức mở cửa chào đón các thành viên gan dạ nhất đến tham dự.
-						</p>
-						<a href="#" class="btn btn-chitiet"><span class="fas fa-eye"></span> CHI TIẾT</a>
-					</div>
+		</div>
+		<div class="col-md-3 col-sm-4 col-xs-6" style="padding-top: 2%; padding-bottom: 2%;">
+			<div class="container-for-overlay">
+				<img src="~/Content/Images-from-galaxycine/300x450/km (2).jpg" class="image" style="width: 100%"/>
+				<div class="middle ">
+					<h5 class="text-uppercase"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</h5>
+					<p>
+						chính thức mở cửa chào đón các thành viên gan dạ nhất đến tham dự.
+					</p>
+					<a href="#" class="btn btn-chitiet"><span class="fas fa-eye"></span> CHI TIẾT</a>
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-4 col-xs-6" style="padding-top: 2%; padding-bottom: 2%;">
-				<div class="container-for-overlay">
-					<img src="~/Content/Images-from-galaxycine/300x450/km (3).jpg" class="image" style="width:100%" />
-					<div class="middle ">
-						<h5 class="text-uppercase"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</h5>
-						<p>
-							chính thức mở cửa chào đón các thành viên gan dạ nhất đến tham dự.
-						</p>
-						<a href="#" class="btn btn-chitiet"><span class="fas fa-eye"></span> CHI TIẾT</a>
-					</div>
+		</div>
+		<div class="col-md-3 col-sm-4 col-xs-6" style="padding-top: 2%; padding-bottom: 2%;">
+			<div class="container-for-overlay">
+				<img src="~/Content/Images-from-galaxycine/300x450/km (3).jpg" class="image" style="width: 100%"/>
+				<div class="middle ">
+					<h5 class="text-uppercase"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</h5>
+					<p>
+						chính thức mở cửa chào đón các thành viên gan dạ nhất đến tham dự.
+					</p>
+					<a href="#" class="btn btn-chitiet"><span class="fas fa-eye"></span> CHI TIẾT</a>
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-4 col-xs-6" style="padding-top: 2%; padding-bottom: 2%;">
-				<div class="container-for-overlay">
-					<img src="~/Content/Images-from-galaxycine/300x450/km (4).jpg" class="image" style="width:100%" />
-					<div class="middle ">
-						<h5 class="text-uppercase"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</h5>
-						<p>
-							chính thức mở cửa chào đón các thành viên gan dạ nhất đến tham dự.
-						</p>
-						<a href="#" class="btn btn-chitiet"><span class="fas fa-eye"></span> CHI TIẾT</a>
-					</div>
+		</div>
+		<div class="col-md-3 col-sm-4 col-xs-6" style="padding-top: 2%; padding-bottom: 2%;">
+			<div class="container-for-overlay">
+				<img src="~/Content/Images-from-galaxycine/300x450/km (4).jpg" class="image" style="width: 100%"/>
+				<div class="middle ">
+					<h5 class="text-uppercase"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</h5>
+					<p>
+						chính thức mở cửa chào đón các thành viên gan dạ nhất đến tham dự.
+					</p>
+					<a href="#" class="btn btn-chitiet"><span class="fas fa-eye"></span> CHI TIẾT</a>
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-4 col-xs-6" style="padding-top: 2%; padding-bottom: 2%;">
-				<div class="container-for-overlay">
-					<img src="~/Content/Images-from-galaxycine/300x450/km (5).jpg" class="image" style="width:100%" />
-					<div class="middle ">
-						<h5 class="text-uppercase"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</h5>
-						<p>
-							chính thức mở cửa chào đón các thành viên gan dạ nhất đến tham dự.
-						</p>
-						<a href="#" class="btn btn-chitiet"><span class="fas fa-eye"></span> CHI TIẾT</a>
-					</div>
+		</div>
+		<div class="col-md-3 col-sm-4 col-xs-6" style="padding-top: 2%; padding-bottom: 2%;">
+			<div class="container-for-overlay">
+				<img src="~/Content/Images-from-galaxycine/300x450/km (5).jpg" class="image" style="width: 100%"/>
+				<div class="middle ">
+					<h5 class="text-uppercase"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</h5>
+					<p>
+						chính thức mở cửa chào đón các thành viên gan dạ nhất đến tham dự.
+					</p>
+					<a href="#" class="btn btn-chitiet"><span class="fas fa-eye"></span> CHI TIẾT</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container">
-		<button style="font-size: 1.2rem; " class="btn-linear">Về chúng tôi   </button>
-		<br />
-		<div class="content-text">
-			<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><a href="https://www.galaxycine.vn/"><b><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Galaxy Cinema</span></span></b></a><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">&nbsp;là một trong những công ty tư nhân đầu tiên về điện ảnh được thành lập từ năm 2003, đã khẳng định thương hiệu là 1 trong 10 địa điểm vui chơi giải trí được yêu thích nhất. Ngoài hệ thống rạp chiếu phim hiện đại, thu hút hàng triệu lượt người đến xem, <a href="https://www.galaxycine.vn/"><b>Galaxy Cinema</b></a> còn hấp dẫn khán giả bởi không khí thân thiện cũng như chất lượng dịch vụ hàng đầu.</span></span></span></span></p>
-			<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Đến website <a href="https://www.galaxycine.vn/"><i>galaxycine.vn</i></a>, quý khách sẽ được cập nhật nhanh chóng các <a href="https://www.galaxycine.vn/phim-dang-chieu"><i>phim hay nhất</i></a> <a href="https://www.galaxycine.vn/phim-dang-chieu"><i>phim mới nhất</i></a> đang chiếu hoặc sắp chiếu. <a href="https://www.galaxycine.vn/lich-chieu"><i>Lịch chiếu</i></a> tại mọi hệ thống <a href="https://www.galaxycine.vn/"><i>rạp chiếu phim</i> </a>của <a href="https://www.galaxycine.vn/"><b>Galaxy Cinema</b></a> cũng được cập nhật đầy đủ hàng ngày hàng giờ trên<i> trang chủ</i>. </span></span></span></span></p>
-			<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Mua vé tại <b><a href="https://www.galaxycine.vn/">Galaxy Cinema</a> </b>dễ dàng chỉ sau vài thao tác vô cùng đơn giản. Để mua vé, hãy vào tab Mua vé. Quý khách có thể chọn Mua vé theo phim, theo rạp, theo ngày tùy cách nào tiện lợi nhất cho bản thân.Sau đó, tiến hành mua vé theo các bước hướng dẫn. Chỉ trong vài phút, quý khách sẽ nhận được tin nhắn và email phản hồi <i>Mua vé thành công</i> của <a href="https://www.galaxycine.vn/"><b>Galaxy Cinema</b></a>. Quý khách có thể dùng tin nhắn lấy vé tại quầy vé của<a href="https://www.galaxycine.vn/"> <b>Galaxy Cinema</b></a> hoặc quét mã QR để một bước vào rạp mà không cần tốn thêm bất kỳ công đoạn nào nữa.</span></span></span></span></p>
-			<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Nếu bạn đã chọn được <a href="https://www.galaxycine.vn/phim-dang-chieu"><i>phim hay</i></a> để xem, hãy Mua vé cực nhanh bằng box <i>Mua Vé Nhanh</i> ngay từ <a href="https://www.galaxycine.vn/"><i>Trang Chủ</i></a>. Chỉ cần một phút, tin nhắn và email phản hồi của <b><a href="https://www.galaxycine.vn/">Galaxy Cinema</a> </b>sẽ gửi ngay vào điện thoại và hộp mail của bạn. </span></span></span></span></p>
-			<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Nếu chưa quyết định sẽ xem <i>phim mới</i> nào, hãy tham khảo các bộ<a href="https://www.galaxycine.vn/phim-dang-chieu"> <i>phim hay</i></a> trong mục<a href="https://www.galaxycine.vn/phim-dang-chieu"> <i>Phim Đang Chiếu</i></a> cũng như <a href="https://www.galaxycine.vn/phim-sap-chieu"><i>Phim Sắp Chiếu</i> </a>tại <a href="https://www.galaxycine.vn/"><i>rạp chiếu phim</i></a> bằng cách vào mục <a href="https://www.galaxycine.vn/binh-luan-phim"><i>Bình Luận Phim</i></a> ở <i><a href="http://beta.galaxycine.vn/dien-anh">Góc Điện Ảnh</a> </i>để đọc những bài bình luận chân thật nhất, tham khảo và cân nhắc. Sau đó, quý khách hãy Mua vé bằng box <i>Mua Vé Nhanh</i> ngay ở đầu trang để chọn được suất chiếu và chỗ ngồi vừa ý nhất. &nbsp;</span></span></span></span></p>
-			<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><a href="https://www.galaxycine.vn/"><b><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Galaxy Cinema</span></span></b></a><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"> luôn có những chương trình<a href="https://www.galaxycine.vn/khuyen-mai"> <i>khuyến mãi</i>, <i>ưu đãi</i></a>, quà tặng vô cùng hấp dẫn như <i>giảm giá</i> vé, tặng vé xem phim miễn phí, tặng Combo, tặng quà phim… &nbsp;dành cho quý khách. </span></span></span></span></p>
-			<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Trang web <i>galaxycine.vn</i> còn có mục <i>Góc Điện Ảnh</i> - sở hữu lượng dữ liệu về phim, diễn viên và đạo diễn, giúp quý khách dễ dàng chọn được phim mình yêu thích và nâng cao kiến thức về điện ảnh của bản thân. Ngoài ra, vào mỗi tháng, <a href="https://www.galaxycine.vn/"><strong>Galaxy Cinema</strong> </a>cũng giới thiệu các <a href="https://www.galaxycine.vn/phim-sap-chieu"><i>phim sắp chiếu</i></a> hot nhất trong mục <a href="https://www.galaxycine.vn/phim-hay"><i>Phim Hay Tháng</i> </a>để quý khách sớm có sự tính toán.</span></span></span></span></p>
-			<p style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:0in; text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="font-size:10.5pt"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Hiện nay, <a href="https://www.galaxycine.vn/"><strong><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Galaxy Cinema</span></strong></a> đang ngày càng phát triển hơn nữa với các chương trình đặc sắc, các khuyến mãi hấp dẫn, đem đến cho khán giả những bộ phim bom tấn của thế giới và Việt Nam nhanh chóng và sớm nhất.</span></span></span></span></p>
-		</div>
+</div>
+<div class="container">
+	<button style="font-size: 1.2rem;" class="btn-linear">Về chúng tôi </button>
+	<br/>
+	<div class="content-text">
+		<p style="margin-top: 0in; margin-right: 0in; margin-bottom: 10.0pt; margin-left: 0in; text-align: justify"><span style="font-size: 12pt"><span style="font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"><a href="https://www.galaxycine.vn/"><b><span style="font-size: 10.5pt"><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;">Galaxy Cinema</span></span></b></a><span style="font-size: 10.5pt"><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;">&nbsp;là một trong những công ty tư nhân đầu tiên về điện ảnh được thành lập từ năm 2003, đã khẳng định thương hiệu là 1 trong 10 địa điểm vui chơi giải trí được yêu thích nhất. Ngoài hệ thống rạp chiếu phim hiện đại, thu hút hàng triệu lượt người đến xem, <a href="https://www.galaxycine.vn/"><b>Galaxy Cinema</b></a> còn hấp dẫn khán giả bởi không khí thân thiện cũng như chất lượng dịch vụ hàng đầu.</span></span></span></span></p>
+		<p style="margin-top: 0in; margin-right: 0in; margin-bottom: 10.0pt; margin-left: 0in; text-align: justify"><span style="font-size: 12pt"><span style="font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"><span style="font-size: 10.5pt"><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;">Đến website <a href="https://www.galaxycine.vn/"><i>galaxycine.vn</i></a>, quý khách sẽ được cập nhật nhanh chóng các <a href="https://www.galaxycine.vn/phim-dang-chieu"><i>phim hay nhất</i></a> <a href="https://www.galaxycine.vn/phim-dang-chieu"><i>phim mới nhất</i></a> đang chiếu hoặc sắp chiếu. <a href="https://www.galaxycine.vn/lich-chieu"><i>Lịch chiếu</i></a> tại mọi hệ thống <a href="https://www.galaxycine.vn/"><i>rạp chiếu phim</i> </a>của <a href="https://www.galaxycine.vn/"><b>Galaxy Cinema</b></a> cũng được cập nhật đầy đủ hàng ngày hàng giờ trên<i> trang chủ</i>. </span></span></span></span></p>
+		<p style="margin-top: 0in; margin-right: 0in; margin-bottom: 10.0pt; margin-left: 0in; text-align: justify"><span style="font-size: 12pt"><span style="font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"><span style="font-size: 10.5pt"><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;">Mua vé tại <b><a href="https://www.galaxycine.vn/">Galaxy Cinema</a> </b>dễ dàng chỉ sau vài thao tác vô cùng đơn giản. Để mua vé, hãy vào tab Mua vé. Quý khách có thể chọn Mua vé theo phim, theo rạp, theo ngày tùy cách nào tiện lợi nhất cho bản thân.Sau đó, tiến hành mua vé theo các bước hướng dẫn. Chỉ trong vài phút, quý khách sẽ nhận được tin nhắn và email phản hồi <i>Mua vé thành công</i> của <a href="https://www.galaxycine.vn/"><b>Galaxy Cinema</b></a>. Quý khách có thể dùng tin nhắn lấy vé tại quầy vé của<a href="https://www.galaxycine.vn/"> <b>Galaxy Cinema</b></a> hoặc quét mã QR để một bước vào rạp mà không cần tốn thêm bất kỳ công đoạn nào nữa.</span></span></span></span></p>
+		<p style="margin-top: 0in; margin-right: 0in; margin-bottom: 10.0pt; margin-left: 0in; text-align: justify"><span style="font-size: 12pt"><span style="font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"><span style="font-size: 10.5pt"><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;">Nếu bạn đã chọn được <a href="https://www.galaxycine.vn/phim-dang-chieu"><i>phim hay</i></a> để xem, hãy Mua vé cực nhanh bằng box <i>Mua Vé Nhanh</i> ngay từ <a href="https://www.galaxycine.vn/"><i>Trang Chủ</i></a>. Chỉ cần một phút, tin nhắn và email phản hồi của <b><a href="https://www.galaxycine.vn/">Galaxy Cinema</a> </b>sẽ gửi ngay vào điện thoại và hộp mail của bạn. </span></span></span></span></p>
+		<p style="margin-top: 0in; margin-right: 0in; margin-bottom: 10.0pt; margin-left: 0in; text-align: justify"><span style="font-size: 12pt"><span style="font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"><span style="font-size: 10.5pt"><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;">Nếu chưa quyết định sẽ xem <i>phim mới</i> nào, hãy tham khảo các bộ<a href="https://www.galaxycine.vn/phim-dang-chieu"> <i>phim hay</i></a> trong mục<a href="https://www.galaxycine.vn/phim-dang-chieu"> <i>Phim Đang Chiếu</i></a> cũng như <a href="https://www.galaxycine.vn/phim-sap-chieu"><i>Phim Sắp Chiếu</i> </a>tại <a href="https://www.galaxycine.vn/"><i>rạp chiếu phim</i></a> bằng cách vào mục <a href="https://www.galaxycine.vn/binh-luan-phim"><i>Bình Luận Phim</i></a> ở <i><a href="http://beta.galaxycine.vn/dien-anh">Góc Điện Ảnh</a> </i>để đọc những bài bình luận chân thật nhất, tham khảo và cân nhắc. Sau đó, quý khách hãy Mua vé bằng box <i>Mua Vé Nhanh</i> ngay ở đầu trang để chọn được suất chiếu và chỗ ngồi vừa ý nhất. &nbsp;</span></span></span></span></p>
+		<p style="margin-top: 0in; margin-right: 0in; margin-bottom: 10.0pt; margin-left: 0in; text-align: justify"><span style="font-size: 12pt"><span style="font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"><a href="https://www.galaxycine.vn/"><b><span style="font-size: 10.5pt"><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;">Galaxy Cinema</span></span></b></a><span style="font-size: 10.5pt"><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;"> luôn có những chương trình<a href="https://www.galaxycine.vn/khuyen-mai"> <i>khuyến mãi</i>, <i>ưu đãi</i></a>, quà tặng vô cùng hấp dẫn như <i>giảm giá</i> vé, tặng vé xem phim miễn phí, tặng Combo, tặng quà phim… &nbsp;dành cho quý khách. </span></span></span></span></p>
+		<p style="margin-top: 0in; margin-right: 0in; margin-bottom: 10.0pt; margin-left: 0in; text-align: justify"><span style="font-size: 12pt"><span style="font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"><span style="font-size: 10.5pt"><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;">Trang web <i>galaxycine.vn</i> còn có mục <i>Góc Điện Ảnh</i> - sở hữu lượng dữ liệu về phim, diễn viên và đạo diễn, giúp quý khách dễ dàng chọn được phim mình yêu thích và nâng cao kiến thức về điện ảnh của bản thân. Ngoài ra, vào mỗi tháng, <a href="https://www.galaxycine.vn/"><strong>Galaxy Cinema</strong> </a>cũng giới thiệu các <a href="https://www.galaxycine.vn/phim-sap-chieu"><i>phim sắp chiếu</i></a> hot nhất trong mục <a href="https://www.galaxycine.vn/phim-hay"><i>Phim Hay Tháng</i> </a>để quý khách sớm có sự tính toán.</span></span></span></span></p>
+		<p style="margin-top: 0in; margin-right: 0in; margin-bottom: 10.0pt; margin-left: 0in; text-align: justify"><span style="font-size: 12pt"><span style="font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"><span style="font-size: 10.5pt"><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;">Hiện nay, <a href="https://www.galaxycine.vn/"><strong><span style="font-family: &quot;Cambria&quot;, &quot;serif&quot;">Galaxy Cinema</span></strong></a> đang ngày càng phát triển hơn nữa với các chương trình đặc sắc, các khuyến mãi hấp dẫn, đem đến cho khán giả những bộ phim bom tấn của thế giới và Việt Nam nhanh chóng và sớm nhất.</span></span></span></span></p>
 	</div>
+</div>
 </body>

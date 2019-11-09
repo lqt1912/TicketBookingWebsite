@@ -48,5 +48,14 @@
     <Folder Include="DataAccess\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MovieTheater1\MovieTheater1.csproj">
+      <Project>{af104b30-28f4-4017-bfcb-a1bd92be7e16}</Project>
+      <Name>MovieTheater1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

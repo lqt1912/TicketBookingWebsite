@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using MovieTheater1.Models;
+using System.Dynamic;
 namespace MovieTheater1.Controllers
 {
 	public class QKTCinemaController : Controller
 	{
+
+
+		DB_WEB_APPEntities1 dbWebApp = new DB_WEB_APPEntities1();
+
 		// GET: QKTCinema
 		public ActionResult Index()
 		{
@@ -24,6 +29,24 @@ namespace MovieTheater1.Controllers
 			return View();
 		}
 
+		public ActionResult _PartialCarousel()
+		{
+			return PartialView(DataAccess.GetPhimCarousel());
+		}
+		public ActionResult _PartialPhimShortcut()
+		{
+			return PartialView();
+		}
+
+		public ActionResult _PartialPhimShorcutDangChieu()
+		{
+			return PartialView( DataAccess.GetPhimDangChieuShort(6));
+		}
+
+		public ActionResult _PartialPhimShorcutSapChieu()
+		{
+			return PartialView(DataAccess.GetPhimSapChieuShort(6));
+		}
 		public ActionResult PhimSapChieu()
 		{
 			return View();
@@ -34,7 +57,7 @@ namespace MovieTheater1.Controllers
 			return View();
 		}
 
-		public ActionResult	TheLoaiPhim()
+		public ActionResult TheLoaiPhim()
 		{
 			return View();
 		}
@@ -68,5 +91,10 @@ namespace MovieTheater1.Controllers
 		{
 			return View();
 		}
+
+
+
+
+
 	}
 }

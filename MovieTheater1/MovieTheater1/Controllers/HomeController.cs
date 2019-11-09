@@ -17,5 +17,7 @@ namespace MovieTheater1.Controllers
         {
             return View();
         }
+
+	
     }
 }

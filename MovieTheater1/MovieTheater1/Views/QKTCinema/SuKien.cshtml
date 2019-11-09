@@ -1,8 +1,10 @@
-﻿
+﻿@using System.Globalization
+
 @{
     ViewBag.Title = "SuKien";
     Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
 }
 
-<h2>SuKien</h2>
+
+<h2>@DateTime.ParseExact(DateTime.Now.ToString(), "yyyy-MM-dd hh:mm:ss", CultureInfo.InvariantCulture)</h2>
 

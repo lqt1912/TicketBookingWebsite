@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_WEB_APPModelStoreContainer" CdmEntityContainer="DB_WEB_APPEntities1">
+    <EntitySetMapping Name="BINHLUANs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.BINHLUAN">
+        <MappingFragment StoreEntitySet="BINHLUAN">
+          <ScalarProperty Name="MABINHLUAN" ColumnName="MABINHLUAN" />
+          <ScalarProperty Name="MATHANHVIEN" ColumnName="MATHANHVIEN" />
+          <ScalarProperty Name="MAPHIM" ColumnName="MAPHIM" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GHEs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.GHE">
+        <MappingFragment StoreEntitySet="GHE">
+          <ScalarProperty Name="MAGHE" ColumnName="MAGHE" />
+          <ScalarProperty Name="MATINHTRANGGHE" ColumnName="MATINHTRANGGHE" />
+          <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+          <ScalarProperty Name="MALOAIGHE" ColumnName="MALOAIGHE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOADONs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.HOADON">
+        <MappingFragment StoreEntitySet="HOADON">
+          <ScalarProperty Name="MAHOADON" ColumnName="MAHOADON" />
+          <ScalarProperty Name="MAVE" ColumnName="MAVE" />
+          <ScalarProperty Name="THANHVIEN" ColumnName="THANHVIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIGHEs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.LOAIGHE">
+        <MappingFragment StoreEntitySet="LOAIGHE">
+          <ScalarProperty Name="MALOAIGHE" ColumnName="MALOAIGHE" />
+          <ScalarProperty Name="TENLOAIGHE" ColumnName="TENLOAIGHE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAINHANVIENs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.LOAINHANVIEN">
+        <MappingFragment StoreEntitySet="LOAINHANVIEN">
+          <ScalarProperty Name="MALOAINV" ColumnName="MALOAINV" />
+          <ScalarProperty Name="TENLOAINV" ColumnName="TENLOAINV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIPHIMs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.LOAIPHIM">
+        <MappingFragment StoreEntitySet="LOAIPHIM">
+          <ScalarProperty Name="MALOAIPHIM" ColumnName="MALOAIPHIM" />
+          <ScalarProperty Name="TENLOAIPHIM" ColumnName="TENLOAIPHIM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIPHONGs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.LOAIPHONG">
+        <MappingFragment StoreEntitySet="LOAIPHONG">
+          <ScalarProperty Name="MALOAIPHONG" ColumnName="MALOAIPHONG" />
+          <ScalarProperty Name="TENLOAIPHONG" ColumnName="TENLOAIPHONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAITHANHVIENs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.LOAITHANHVIEN">
+        <MappingFragment StoreEntitySet="LOAITHANHVIEN">
+          <ScalarProperty Name="MALOAITV" ColumnName="MALOAITV" />
+          <ScalarProperty Name="TENLOAITV" ColumnName="TENLOAITV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="SODT" ColumnName="SODT" />
+          <ScalarProperty Name="MALOAINV" ColumnName="MALOAINV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIMs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.PHIM">
+        <MappingFragment StoreEntitySet="PHIM">
+          <ScalarProperty Name="DIENVIEN" ColumnName="DIENVIEN" />
+          <ScalarProperty Name="DAODIEN" ColumnName="DAODIEN" />
+          <ScalarProperty Name="DANHGIA" ColumnName="DANHGIA" />
+          <ScalarProperty Name="TENTIENGANH" ColumnName="TENTIENGANH" />
+          <ScalarProperty Name="MAPHIM" ColumnName="MAPHIM" />
+          <ScalarProperty Name="TENPHIM" ColumnName="TENPHIM" />
+          <ScalarProperty Name="MAQUOCGIA" ColumnName="MAQUOCGIA" />
+          <ScalarProperty Name="MALOAIPHIM" ColumnName="MALOAIPHIM" />
+          <ScalarProperty Name="THOIGIANBD" ColumnName="THOIGIANBD" />
+          <ScalarProperty Name="THOIGIANKT" ColumnName="THOIGIANKT" />
+          <ScalarProperty Name="THOILUONG" ColumnName="THOILUONG" />
+          <ScalarProperty Name="SOLUONGSUAT" ColumnName="SOLUONGSUAT" />
+          <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="MABINHLUAN" ColumnName="MABINHLUAN" />
+          <ScalarProperty Name="ANHDAIDIEN" ColumnName="ANHDAIDIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONGs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.PHONG">
+        <MappingFragment StoreEntitySet="PHONG">
+          <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+          <ScalarProperty Name="MATINHTRANGPHONG" ColumnName="MATINHTRANGPHONG" />
+          <ScalarProperty Name="MALOAIPHONG" ColumnName="MALOAIPHONG" />
+          <ScalarProperty Name="SOCHOCONTRONG" ColumnName="SOCHOCONTRONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUOCGIAs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.QUOCGIA">
+        <MappingFragment StoreEntitySet="QUOCGIA">
+          <ScalarProperty Name="MAQUOCGIA" ColumnName="MAQUOCGIA" />
+          <ScalarProperty Name="TENQUOCGIA" ColumnName="TENQUOCGIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THANHVIENs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.THANHVIEN">
+        <MappingFragment StoreEntitySet="THANHVIEN">
+          <ScalarProperty Name="MATV" ColumnName="MATV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="SODT" ColumnName="SODT" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="MALOAITV" ColumnName="MALOAITV" />
+          <ScalarProperty Name="MAQUOCGIA" ColumnName="MAQUOCGIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THONGTINCHIEUx">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.THONGTINCHIEU">
+        <MappingFragment StoreEntitySet="THONGTINCHIEU">
+          <ScalarProperty Name="MATHONGTINCHIEU" ColumnName="MATHONGTINCHIEU" />
+          <ScalarProperty Name="MAPHIM" ColumnName="MAPHIM" />
+          <ScalarProperty Name="THOIGIANCHIEU" ColumnName="THOIGIANCHIEU" />
+          <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+          <ScalarProperty Name="MARAP" ColumnName="MARAP" />
+          <ScalarProperty Name="NGAYCHIEU" ColumnName="NGAYCHIEU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINHTRANGGHEs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.TINHTRANGGHE">
+        <MappingFragment StoreEntitySet="TINHTRANGGHE">
+          <ScalarProperty Name="MATINHTRANGGHE" ColumnName="MATINHTRANGGHE" />
+          <ScalarProperty Name="TENTINHTRANGGHE" ColumnName="TENTINHTRANGGHE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINHTRANGPHONGs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.TINHTRANGPHONG">
+        <MappingFragment StoreEntitySet="TINHTRANGPHONG">
+          <ScalarProperty Name="MATINHTRANGPHONG" ColumnName="MATINHTRANGPHONG" />
+          <ScalarProperty Name="TENTINHTRANGPHONG" ColumnName="TENTINHTRANGPHONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINHTRANGVEs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.TINHTRANGVE">
+        <MappingFragment StoreEntitySet="TINHTRANGVE">
+          <ScalarProperty Name="MATINHTRANGVE" ColumnName="MATINHTRANGVE" />
+          <ScalarProperty Name="TENTINHTRANGVE" ColumnName="TENTINHTRANGVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.VE">
+        <MappingFragment StoreEntitySet="VE">
+          <ScalarProperty Name="MAVE" ColumnName="MAVE" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="MATV" ColumnName="MATV" />
+          <ScalarProperty Name="MATHONGTINCHIEU" ColumnName="MATHONGTINCHIEU" />
+          <ScalarProperty Name="MASOGHE" ColumnName="MASOGHE" />
+          <ScalarProperty Name="MAVOUCHER" ColumnName="MAVOUCHER" />
+          <ScalarProperty Name="TENLOAINV" ColumnName="TENLOAINV" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="MATINHTRANGVE" ColumnName="MATINHTRANGVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VOUCHERs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.VOUCHER">
+        <MappingFragment StoreEntitySet="VOUCHER">
+          <ScalarProperty Name="MAVOUCHER" ColumnName="MAVOUCHER" />
+          <ScalarProperty Name="TENVOUCHER" ColumnName="TENVOUCHER" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          <ScalarProperty Name="NGAYBD" ColumnName="NGAYBD" />
+          <ScalarProperty Name="NGAYKT" ColumnName="NGAYKT" />
+          <ScalarProperty Name="GIAMGIA" ColumnName="GIAMGIA" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RAPCHIEUPHIMs">
+      <EntityTypeMapping TypeName="DB_WEB_APPModel.RAPCHIEUPHIM">
+        <MappingFragment StoreEntitySet="RAPCHIEUPHIM">
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="TENRAP" ColumnName="TENRAP" />
+          <ScalarProperty Name="MARAP" ColumnName="MARAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

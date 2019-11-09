@@ -1,0 +1,44 @@
+﻿@using MovieTheater1.Models
+@model List<PHIM>
+
+
+<!--Visible only on lg & xl-->
+<div class="container">
+	<div class="">
+		<div style="font-size: 0.7em; text-transform: uppercase;" class=" d-flex  ">
+			<ul class="nav nav-tabs ">
+				<li class="nav-item">
+					<button class=" nav-link btn-linear text-uppercase" style="" data-toggle="tab" href="#dangchieu" id="dangchieuu">Đang chiếu</button>
+				</li>
+				<li class="nav-item">
+					<button class="nav-link btn-linear text-uppercase" data-toggle="tab" href="#sapchieu">Sắp chiếu </button>
+				</li>
+
+			</ul>
+		</div>
+		<script>
+			window.onload=function(){
+				document.getElementById("dangchieuu").click();
+			};
+		</script>
+
+	</div>
+	<div class="">
+		<div style="position: relative;" class="tab-content">
+			<div class="tab-pane active container" id="dangchieu">
+				<div class="row ">
+
+					@Html.Action("_PartialPhimShorcutDangChieu","QKTCinema")
+				</div>
+				<button class="btn btn-xemthem">Xem thêm</button>
+			</div>
+			<div class="tab-pane container" id="sapchieu">
+				<div class="row">
+					@Html.Action("_PartialPhimShorcutSapChieu", "QKTCinema")
+				</div>
+				<button class="btn btn-xemthem">Xem thêm</button>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -137,7 +137,7 @@
     <Property Name="MAPHIM" Type="varchar" MaxLength="20" />
     <Property Name="THOIGIANCHIEU" Type="nvarchar" MaxLength="200" />
     <Property Name="MAPHONG" Type="varchar" MaxLength="20" />
-    <Property Name="NGAYCHIEU" Type="varchar" MaxLength="200" />
+    <Property Name="NGAYCHIEU" Type="smalldatetime" />
     <Property Name="MARAP" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="TINHTRANGGHE">
@@ -180,12 +180,13 @@
       <PropertyRef Name="MAVOUCHER" />
     </Key>
     <Property Name="MAVOUCHER" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="TENVOUCHER" Type="nvarchar" MaxLength="40" />
-    <Property Name="NOIDUNG" Type="nvarchar" MaxLength="100" />
+    <Property Name="TENVOUCHER" Type="nvarchar" MaxLength="360" />
+    <Property Name="NOIDUNG" Type="ntext" />
     <Property Name="NGAYBD" Type="nvarchar" MaxLength="20" />
     <Property Name="NGAYKT" Type="nvarchar" MaxLength="20" />
     <Property Name="GIAMGIA" Type="int" />
-    <Property Name="GHICHU" Type="nvarchar" MaxLength="100" />
+    <Property Name="GHICHU" Type="ntext" />
+    <Property Name="ANHDAIDIEN" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK__THONGTINC__MARAP__778AC167">
     <End Role="RAPCHIEUPHIM" Type="Self.RAPCHIEUPHIM" Multiplicity="0..1" />

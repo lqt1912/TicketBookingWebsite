@@ -51,6 +51,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="JShibo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JShibo.0.1\lib\net452\JShibo.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mirosoft.Utilities.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -251,21 +254,21 @@
     <Content Include="Content\Images\2048x682\DOCTORSLEEP_2048682.jpg" />
     <Content Include="Content\Images\2048x682\PHAPSUMU_2048682.jpg" />
     <Content Include="Content\Images\2048x682\TERMINATORDARKFATE_2048682.jpg" />
-    <Content Include="Content\Images\300x450xkhuyenmai\km %281%29.jpg" />
-    <Content Include="Content\Images\300x450xkhuyenmai\km %282%29.jpg" />
-    <Content Include="Content\Images\300x450xkhuyenmai\km %283%29.jpg" />
-    <Content Include="Content\Images\300x450xkhuyenmai\km %284%29.jpg" />
-    <Content Include="Content\Images\300x450xkhuyenmai\km %285%29.jpg" />
-    <Content Include="Content\Images\300x450xkhuyenmai\km %286%29.jpg" />
+    <Content Include="Content\Images\300x450xkhuyenmai\byethenhua.jpg" />
+    <Content Include="Content\Images\300x450xkhuyenmai\galaween.jpg" />
+    <Content Include="Content\Images\300x450xkhuyenmai\gogreenset.jpg" />
+    <Content Include="Content\Images\300x450xkhuyenmai\gstar2019.jpg" />
+    <Content Include="Content\Images\300x450xkhuyenmai\qrcode.jpg" />
+    <Content Include="Content\Images\300x450xkhuyenmai\trian45k.jpg" />
     <Content Include="Content\Images\300x450xphim\BACKIMTHANG_300450.jpg" />
-    <Content Include="Content\Images\300x450xphim\BOROI_300450.jpg" />
-    <Content Include="Content\Images\300x450xphim\CHARLIEANGLE_300450.JPG" />
-    <Content Include="Content\Images\300x450xphim\DIEUUOCCUAME_300450.jpg" />
+    <Content Include="Content\Images\300x450xphim\VIOLETEVERGARDEN_300450.jpg" />
+    <Content Include="Content\Images\300x450xphim\CHARLIEANGEL_300450.jpg" />
+    <Content Include="Content\Images\300x450xphim\THIENSUKHONGPHEPMAU_300450.jpg" />
     <Content Include="Content\Images\300x450xphim\DOCTORSLEEP_300450.jpg" />
-    <Content Include="Content\Images\300x450xphim\INFECTION_450300.jpg" />
+    <Content Include="Content\Images\300x450xphim\INFECTION_300450.jpg" />
     <Content Include="Content\Images\300x450xphim\MALEFICENT_300450.jpg" />
     <Content Include="Content\Images\300x450xphim\PHAPSUMU_300450.jpg" />
-    <Content Include="Content\Images\300x450xphim\TERMINATOR_300450.jpg" />
+    <Content Include="Content\Images\300x450xphim\TERMINATORDARKFATE_300450.jpg" />
     <Content Include="Content\Images\450x300\THIENSUKHONGPHEPMAU_450300.jpg" />
     <Content Include="Content\Images\450x300\VIOLETEVERGARDEN_450300.jpg" />
     <Content Include="Content\Images\450x300\CHARLIEANGEL_450300.jpg" />
@@ -304,7 +307,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Images\1042x347\desktop.ini" />
     <Content Include="Content\Images\2048x682\desktop.ini" />
-    <Content Include="Content\Images\300x450xkhuyenmai\desktop.ini" />
     <EntityDeploy Include="Models\DBWEBAPP.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBWEBAPP.Designer.cs</LastGenOutput>
@@ -312,6 +314,7 @@
     <Content Include="Models\DBWEBAPP.edmx.diagram">
       <DependentUpon>DBWEBAPP.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Images\300x450xkhuyenmai\desktop.ini" />
     <None Include="Properties\PublishProfiles\tqkcinema - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tqkcinema - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tqkcinema - Web Deploy.pubxml" />
@@ -353,6 +356,10 @@
     <Content Include="Views\QKTCinema\_PartialPhimShortcut.cshtml" />
     <Content Include="Views\QKTCinema\_PartialPhimShorcutDangChieu.cshtml" />
     <Content Include="Views\QKTCinema\_PartialPhimShorcutSapChieu.cshtml" />
+    <Content Include="Views\QKTCinema\_PartialNavbar.cshtml" />
+    <Content Include="Views\QKTCinema\_PartialKhuyenMai.cshtml" />
+    <Content Include="Views\QKTCinema\_PartialPhim_KhuyenMai.cshtml" />
+    <Content Include="Views\QKTCinema\_PartialPhim_HoTro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -406,7 +413,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.12.405\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.12.405\build\BuildWebCompiler.targets'))" />
   </Target>
+  <Import Project="..\packages\BuildWebCompiler.1.12.405\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.12.405\build\BuildWebCompiler.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

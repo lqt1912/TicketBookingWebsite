@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using MovieTheater1.Models;
 using System.Web.Mvc;
-using MovieTheater1.Models;
-using System.Dynamic;
 namespace MovieTheater1.Controllers
 {
 	public class QKTCinemaController : Controller
@@ -18,6 +13,9 @@ namespace MovieTheater1.Controllers
 		{
 			return View();
 		}
+
+
+
 
 		public ActionResult MuaVe()
 		{
@@ -40,7 +38,7 @@ namespace MovieTheater1.Controllers
 
 		public ActionResult _PartialPhimShorcutDangChieu()
 		{
-			return PartialView( DataAccess.GetPhimDangChieuShort(6));
+			return PartialView(DataAccess.GetPhimDangChieuShort(6));
 		}
 
 		public ActionResult _PartialPhimShorcutSapChieu()
@@ -49,12 +47,13 @@ namespace MovieTheater1.Controllers
 		}
 		public ActionResult PhimSapChieu()
 		{
-			return View();
+		
+			return View(DataAccess.GetPhimSapChieuAll(6));
 		}
 
 		public ActionResult PhimDangChieu()
 		{
-			return View();
+			return View(DataAccess.GetPhimDangChieuAll(6));
 		}
 
 		public ActionResult TheLoaiPhim()
@@ -74,7 +73,7 @@ namespace MovieTheater1.Controllers
 
 		public ActionResult SuKien()
 		{
-			return View();
+			return View(DataAccess.GetKhuyenMai());
 		}
 
 		public ActionResult RapGiaVe()
@@ -96,5 +95,19 @@ namespace MovieTheater1.Controllers
 
 
 
+		public ActionResult _PartialKhuyenMai()
+		{
+			return PartialView(DataAccess.GetKhuyenMai());
+		}
+
+		public ActionResult _PartialPhim_KhuyenMai()
+		{
+			return PartialView(DataAccess.Get3PhimMoiNhat());
+		}
+
+		public ActionResult _PartialPhim_HoTro()
+		{
+			return PartialView(DataAccess.Get4PhimMoiNhat());
+		}
 	}
 }

@@ -25,7 +25,7 @@ namespace MovieTheater1.Models
         public string THOIGIANCHIEU { get; set; }
         public string MAPHONG { get; set; }
         public string MARAP { get; set; }
-        public string NGAYCHIEU { get; set; }
+        public Nullable<System.DateTime> NGAYCHIEU { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VE> VEs { get; set; }

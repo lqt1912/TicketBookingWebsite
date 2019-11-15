@@ -1,8 +1,140 @@
-﻿
+﻿@using System.Globalization
+
+
 @{
-    ViewBag.Title = "SuKien";
-    Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+	ViewBag.Title = "SuKien";
+	Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
 }
 
-<h2>SuKien</h2>
+<body>
 
+<div class="container">
+	<br/>
+	<div class="row">
+		<div class=" col-md-8 col-sm-8 col-12">
+
+			<div class="row d-flex justify-content-start ">
+
+				<h3> Khuyến mãi mới </h3>
+			</div>
+
+			<div class="row">
+				@for (int i = 0; i < 6; i++)
+				{
+					<div class="col-md-4 col-sm-6 col-6" style="padding-top: 1em;">
+						<div class="container-for-overlay">
+							<a href="#">
+								<img src="~/Content/Images/300x450xkhuyenmai/galaween.jpg" class="image w-100"/>
+							</a>
+
+							<a href="#">
+								<div class="middle  d-none d-sm-block" style="border: 2px solid green;">
+									<div class="text-inside ">
+										<p class="voucher-title"> Sân Chơi Tử Thần - Thách Bạn Dám Chơi!</p>
+										<span style="line-height: 115%; overflow: hidden; text-overflow: ellipsis;">
+											<span style="line-height: 115%">
+												Để <b>Galaxy Cinema</b> có thể trao thêm nhiều ưu đãi tới các khách hàng thành viên
+												Gstars, từ 14.06-07.07.2019, quý khách hàng vui lòng cập nhật đầy đủ những thông tin cần có.
+											</span>
+										</span>
+									</div>
+									<div class="row d-flex justify-content-center align-items-center ">
+										<button href="#" class="btn btn-chitiet "> CHI TIẾT</button>
+									</div>
+								</div>
+							</a>
+
+
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-4 col-12">
+			<br/>
+			<div class=" d-none d-sm-block">
+				<table cellpadding="10" style="background-color: rgb(228, 228, 228); width: 100%;">
+					<tr>
+						<td style="background-color: rgb(242, 107, 56); color: white; font-weight: bold;">MUA VÉ NHANH </td>
+						<td>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<select id="selectbasic" name="selectbasic" class="form-control">
+							<option default> Chọn phim </option>
+							<option value="1">Option one</option>
+							<option value="2">Option two</option>
+						</select>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<select id="selectbasic" name="selectbasic" class="form-control">
+								<option default> Chọn rạp </option>
+								<option value="1">Option one</option>
+								<option value="2">Option two</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<select id="selectbasic" name="selectbasic" class="form-control">
+								<option default> Chọn ngày </option>
+								<option value="1">Option one</option>
+								<option value="2">Option two</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<select id="selectbasic" name="selectbasic" class="form-control">
+								<option default> Chọn suất </option>
+								<option value="1">Option one</option>
+								<option value="2">Option two</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td style="">
+						</td>
+						<td align="right">
+							<button class="btn btn-feedback">
+								MUA VÉ
+							</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br/>
+
+			<div class="d-none d-sm-block">
+				<h3>
+					Phim đang chiếu
+				</h3>
+
+				<div class="row">
+					@for (int i = 0; i < 3; i++)
+					{
+						<div class=" col-sm-12 col-12" style="padding-right: 2em; padding-top: 1em;">
+							<div class="container-for-overlay">
+								<img class="image w-100" src="~/Content/Images/450x300/CHARLIEANGEL_450300.jpg" />
+								<div class="middle d-flex justify-content-center align-items-center">
+									<a href="#" class="btn btn-datve"><span class="glyphicon glyphicon-eye-open"></span> Mua vé</a>
+
+								</div>
+							</div>
+							<div class=" text-uppercase  font-weight-bold"> Infection</div>
+							<div class="text-uppercase"> đại dịch tử thần  </div>
+						</div>
+					}
+				</div>
+
+				<div class="row d-flex justify-content-end align-items-end">
+					<div class="col-auto"><button class="btn btn-xemthem">Xem thêm <i class="fas fa-arrow-right"></i></button></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>

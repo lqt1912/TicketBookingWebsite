@@ -1,4 +1,6 @@
-﻿
+﻿@using  MovieTheater1.Models
+@model List<PHIM>
+
 @{
     ViewBag.Title = "Phim đang chiếu";
     Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
@@ -17,117 +19,25 @@
 
 		<div class="container">
 			<div class="row" style="">
-				<div class="col-md-3 col-sm-3 col-xs-6" style="padding: 3% 1% 1% 1% ">
-
-					<div class="container-for-overlay">
-						<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (9).jpg" class="image" style="width:100%" />
-						<div class="middle d-flex justify-content-center align-items-center ">
-							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
+				@foreach (var item in Model)
+				{
+					<div class="col-md-3 col-sm-3 col-xs-6" style="padding: 3% 1% 1% 1%;">
+						<div class="container-for-overlay">
+							<img class="image w-100 " src="@Url.Content("~/Content/Images/300x450xphim/" + item.ANHDAIDIEN + "_300450.jpg")" img />
+							<div class="middle d-flex justify-content-center align-items-center  d-flex justify-content-center align-items-center ">
+								<a href="#" class="btn btn-c16"> C16</a>
+								<a href="#" class="btn btn-datve"> MUA VÉ</a>
+							</div>
+						</div>
+						<div class=" text-uppercase  font-weight-bold">
+							@item.TENPHIM
+						</div>
+						<div class="text-uppercase">
+							@item.TENTIENGANH
 						</div>
 					</div>
-					<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 4</div>
-				</div>
+				}
 
-				<div class="col-md-3 col-sm-3 col-xs-6" style="padding:3% 1% 1% 1% ">
-
-					<div class="container-for-overlay">
-						<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (6).jpg" class="image" style="width:100%" />
-						<div class="middle d-flex justify-content-center align-items-center ">
-							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
-						</div>
-					</div>
-					<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 4</div>
-				</div>
-
-				<div class="col-md-3 col-sm-3 col-xs-6" style="padding:3% 1% 1% 1% ">
-
-					<div class="container-for-overlay">
-						<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (7).jpg" class="image" style="width:100%" />
-						<div class="middle d-flex justify-content-center align-items-center ">
-							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
-						</div>
-					</div>
-					<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 4</div>
-				</div>
-
-				<div class="col-md-3 col-sm-3 col-xs-6" style="padding:3% 1% 1% 1% ">
-
-					<div class="container-for-overlay">
-						<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (8).jpg" class="image" style="width:100%" />
-						<div class="middle d-flex justify-content-center align-items-center ">
-							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
-						</div>
-					</div>
-					<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 4</div>
-				</div>
-				<div class="col-md-3 col-sm-3 col-xs-6" style="padding: 3% 1% 1% 1% ; ">
-					<div class="container-for-overlay">
-						<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (1).jpg" class="image" style="width:100%" />
-						<div class="middle d-flex justify-content-center align-items-center ">
-							<a href="#" class="btn btn-c16"> C16</a>
-							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
-						</div>
-					</div>
-					<div class=" text-uppercase  font-weight-bold">
-						BAD GUYS: REIGN OF CHAOS
-					</div>
-					<div>
-						BIỆT ĐỘI BẤT HẢO
-					</div>
-				</div>
-
-				<div class="col-md-3 col-sm-3 col-xs-6" style="padding: 3% 1% 1% 1% ">
-
-					<div class="container-for-overlay">
-						<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (4).jpg" class="image" style="width:100%" />
-						<div class="middle d-flex justify-content-center align-items-center ">
-							<a href="#" class="btn btn-c16"> C16</a>
-							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
-						</div>
-					</div>
-					<div class=" text-uppercase  font-weight-bold">
-						A RAINY DAY IN NEW YORK
-					</div>
-					<div>
-						CHUYỆN NGÀY MƯA Ở NEW YORK
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-3 col-xs-6" style="padding: 3% 1% 1% 1% ">
-
-					<div class="container-for-overlay">
-						<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (2).jpg" class="image" style="width:100%" />
-						<div class="middle d-flex justify-content-center align-items-center ">
-							<a href="#" class="btn btn-c16"> C16</a>
-							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
-						</div>
-					</div>
-					<div class=" text-uppercase  font-weight-bold">Trouble</div>
-					<div class="text-uppercase"> Thú cưng siêu quậy</div>
-
-				</div>
-
-				<div class="col-md-3 col-sm-3 col-xs-6" style="padding: 3% 1% 1% 1% ">
-
-					<div class="container-for-overlay">
-						<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (3).jpg" class="image" style="width:100%" />
-						<div class="middle d-flex justify-content-center align-items-center ">
-							<a href="#" class="btn btn-c16"> C16</a>
-							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
-						</div>
-					</div>
-					<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 4</div>
-				</div>
-
-				<div class="col-md-3 col-sm-3 col-xs-6" style="padding: 3% 1% 1% 1%">
-
-					<div class="container-for-overlay">
-						<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (5).jpg" class="image" style="width:100%" />
-						<div class="middle d-flex justify-content-center align-items-center ">
-							<a href="#" class="btn btn-datve"> ĐẶT VÉ</a>
-						</div>
-					</div>
-					<div class="text-center text-uppercase text-light font-weight-bold">Tên phim 4</div>
-				</div>
 
 
 			</div>

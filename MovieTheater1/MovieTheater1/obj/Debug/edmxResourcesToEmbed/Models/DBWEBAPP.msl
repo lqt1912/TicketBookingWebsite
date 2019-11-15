@@ -189,6 +189,7 @@
     <EntitySetMapping Name="VOUCHERs">
       <EntityTypeMapping TypeName="DB_WEB_APPModel.VOUCHER">
         <MappingFragment StoreEntitySet="VOUCHER">
+          <ScalarProperty Name="ANHDAIDIEN" ColumnName="ANHDAIDIEN" />
           <ScalarProperty Name="MAVOUCHER" ColumnName="MAVOUCHER" />
           <ScalarProperty Name="TENVOUCHER" ColumnName="TENVOUCHER" />
           <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />

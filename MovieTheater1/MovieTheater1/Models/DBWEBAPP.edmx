@@ -142,7 +142,7 @@
           <Property Name="MAPHIM" Type="varchar" MaxLength="20" />
           <Property Name="THOIGIANCHIEU" Type="nvarchar" MaxLength="200" />
           <Property Name="MAPHONG" Type="varchar" MaxLength="20" />
-          <Property Name="NGAYCHIEU" Type="varchar" MaxLength="200" />
+          <Property Name="NGAYCHIEU" Type="smalldatetime" />
           <Property Name="MARAP" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="TINHTRANGGHE">
@@ -185,12 +185,13 @@
             <PropertyRef Name="MAVOUCHER" />
           </Key>
           <Property Name="MAVOUCHER" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TENVOUCHER" Type="nvarchar" MaxLength="40" />
-          <Property Name="NOIDUNG" Type="nvarchar" MaxLength="100" />
+          <Property Name="TENVOUCHER" Type="nvarchar" MaxLength="360" />
+          <Property Name="NOIDUNG" Type="ntext" />
           <Property Name="NGAYBD" Type="nvarchar" MaxLength="20" />
           <Property Name="NGAYKT" Type="nvarchar" MaxLength="20" />
           <Property Name="GIAMGIA" Type="int" />
-          <Property Name="GHICHU" Type="nvarchar" MaxLength="100" />
+          <Property Name="GHICHU" Type="ntext" />
+          <Property Name="ANHDAIDIEN" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK__THONGTINC__MARAP__778AC167">
           <End Role="RAPCHIEUPHIM" Type="Self.RAPCHIEUPHIM" Multiplicity="0..1" />
@@ -582,8 +583,8 @@
           <Property Name="TENPHIM" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="MAQUOCGIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MALOAIPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="THOIGIANBD" Type="DateTime" />
-          <Property Name="THOIGIANKT" Type="DateTime" />
+          <Property Name="THOIGIANBD" Type="DateTime" Precision="0" />
+          <Property Name="THOIGIANKT" Type="DateTime" Precision="0" />
           <Property Name="THOILUONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="SOLUONGSUAT" Type="Int16" />
           <Property Name="MOTA" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -642,7 +643,7 @@
           <Property Name="THOIGIANCHIEU" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="MAPHONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MARAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="NGAYCHIEU" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NGAYCHIEU" Type="DateTime" />
           <NavigationProperty Name="VEs" Relationship="Self.fk02_VE" FromRole="THONGTINCHIEU" ToRole="VE" />
           <NavigationProperty Name="RAPCHIEUPHIM" Relationship="DB_WEB_APPModel.FK__THONGTINC__MARAP__778AC167" FromRole="THONGTINCHIEU" ToRole="RAPCHIEUPHIM" />
         </EntityType>
@@ -694,13 +695,14 @@
             <PropertyRef Name="MAVOUCHER" />
           </Key>
           <Property Name="MAVOUCHER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TENVOUCHER" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="NOIDUNG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TENVOUCHER" Type="String" MaxLength="360" FixedLength="false" Unicode="true" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NGAYBD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="NGAYKT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="GIAMGIA" Type="Int32" />
-          <Property Name="GHICHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="VEs" Relationship="Self.fk03_VE" FromRole="VOUCHER" ToRole="VE" />
+          <Property Name="ANHDAIDIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="fk03_PHIM">
           <End Role="BINHLUAN" Type="Self.BINHLUAN" Multiplicity="0..1" />
@@ -1199,6 +1201,7 @@
           <EntitySetMapping Name="VOUCHERs">
             <EntityTypeMapping TypeName="DB_WEB_APPModel.VOUCHER">
               <MappingFragment StoreEntitySet="VOUCHER">
+                <ScalarProperty Name="ANHDAIDIEN" ColumnName="ANHDAIDIEN" />
                 <ScalarProperty Name="MAVOUCHER" ColumnName="MAVOUCHER" />
                 <ScalarProperty Name="TENVOUCHER" ColumnName="TENVOUCHER" />
                 <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />

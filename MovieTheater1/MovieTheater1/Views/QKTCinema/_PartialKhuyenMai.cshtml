@@ -1,0 +1,32 @@
+﻿@using JShibo.HtmlParser
+@using MovieTheater1.Models
+@using System.Web
+@model List<VOUCHER>
+
+@foreach (var item in Model)
+{
+	<div class="col-md-3 col-sm-4 col-6" style="padding-top: 2%; padding-bottom: 2%;">
+		<div class="container-for-overlay">
+			<a href="#">
+				<img class="image w-100 " src="@Url.Content("~/Content/Images/300x450xkhuyenmai/" + item.ANHDAIDIEN )" img />
+			</a>
+
+			<a href="#">
+				<div class="middle  d-none d-xl-block d-lg-block">
+
+					<div class="text-inside ">
+						<p class="voucher-title"> @item.TENVOUCHER</p>
+						@Html.Raw(@item.GHICHU)
+					</div>
+
+					<div class="row d-flex justify-content-center align-items-center ">
+						<button href="#" class="btn btn-chitiet "> CHI TIẾT</button>
+					</div>
+
+				</div>
+			</a>
+
+
+		</div>
+	</div>
+}

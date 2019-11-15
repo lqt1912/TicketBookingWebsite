@@ -1,23 +1,25 @@
 ﻿<!DOCTYPE html>
 
+
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<title>@ViewBag.Title</title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 	<link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
 	<link href="~/Content/bootstrap-grid.css" rel="stylesheet" />
 	<link href="~/Content/bootstrap.css" rel="stylesheet" />
 	<script src="~/Content/bootstrap.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	<link href="~/Content/Footer.css" rel="stylesheet" />
 	<link href="~/Content/Site.css" rel="stylesheet" />
@@ -60,10 +62,10 @@
 		</div>
 		<nav class="navbar navbar-expand-lg   " style="width: 100%; background-color:black;">
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="fa fa-bars bg-light"></span>
-				</button>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fa fa-bars bg-light"></span>
+			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto mx-auto nav-text">
@@ -98,90 +100,18 @@
 							PHIM
 						</a>
 
+
 						<ul class="dropdown-menu bg-black ">
 							<li>
-								<a href=@Url.Action("PhimDangChieu","QKTCinema") class="nav-link nav-dropdown-text" style="width:100%; ">
+								<a href=@Url.Action("PhimDangChieu","QKTCinema") class="nav-link nav-dropdown-text">
 									Phim đang chiếu
 								</a>
 							</li>
 
-							<li class="container-table-image d-none d-md-block" style="width:45rem;">
-								<table cellpadding="10">
-									<tr>
-										<td>
-											<div class="container-for-overlay">
-												<img src="~/Content/Images-from-galaxycine/450x300/phim-image (1).jpeg" alt="Avatar" class="image" style="width:100%" />
-												<div class="middle d-flex justify-content-center align-items-center ">
-													<a href="#" class="btn btn-datve btn-datve-nav"><span class="glyphicon glyphicon-eye-open"></span> mua vé</a>
-												</div>
-											</div>
-											<div class=" text-white-left">Crazy Man</div>
-											<div class="text-white-left"> Thằng khùng hay cười </div>
-										</td>
-										<td>
-											<div class="container-for-overlay">
-												<img class="w-100" src="~/Content/Images-from-galaxycine/450x300/phim-image (10).jpg" />
-												<div class="middle d-flex justify-content-center align-items-center ">
-													<a href="#" class="btn btn-datve btn-datve-nav"><span class="glyphicon glyphicon-eye-open"></span> mua vé</a>
-												</div>
-											</div>
-											<div class=" text-white-left">Bad guys: Kill them</div>
-											<div class="text-white-left"> Bọn bất hảo: Giết người </div>
-										</td>
-										<td>
-											<div class="container-for-overlay">
-												<img class="w-100 " src="~/Content/Images-from-galaxycine/450x300/phim-image (13).jpg" />
-												<div class="middle d-flex justify-content-center align-items-center ">
-													<a href="#" class="btn btn-datve btn-datve-nav"><span class="glyphicon glyphicon-eye-open"></span> mua vé</a>
-												</div>
-											</div>
-											<div class=" text-white-left">Rainning</div>
-											<div class="text-white-left"> Trời sắp mưa</div>
-										</td>
+							<li> <a href=@Url.Action("PhimSapChieu","QKTCinema" ) class="nav-link nav-dropdown-text" > Phim sắp chiếu</a></li>
 
-									</tr>
-								</table>
-							</li>
-							<li> <a href=@Url.Action("PhimSapChieu","QKTCinema" ) class="nav-link nav-dropdown-text" style="width:100%;"> Phim sắp chiếu</a></li>
-
-							<li class="container-table-image d-none d-md-block" style="width:45rem;">
-								<table cellpadding="10">
-									<tr>
-										<td>
-											<div class="container-for-overlay">
-												<img class="w-100 " src="~/Content/Images-from-galaxycine/450x300/phim-image (17).jpg" />
-												<div class="middle d-flex justify-content-center align-items-center ">
-													<a href="#" class="btn btn-datve btn-datve-nav"><span class="glyphicon glyphicon-eye-open"></span> mua vé</a>
-												</div>
-											</div>
-											<div class="text-white-left">Crazy Man</div>
-											<div class="text-white-left"> Thằng khùng hay cười </div>
-										</td>
-										<td>
-											<div class="container-for-overlay">
-												<img class="w-100" src="~/Content/Images-from-galaxycine/450x300/phim-image (13).jpg" />
-												<div class="middle d-flex justify-content-center align-items-center ">
-													<a href="#" class="btn btn-datve btn-datve-nav"><span class="glyphicon glyphicon-eye-open"></span> mua vé</a>
-												</div>
-											</div>
-											<div class=" text-white-left">Bad guys: Kill them</div>
-											<div class="text-white-left"> Bọn bất hảo: Giết người </div>
-										</td>
-										<td>
-											<div class="container-for-overlay">
-												<img class="w-100 " src="~/Content/Images-from-galaxycine/450x300/phim-image (9).jpg" />
-												<div class="middle d-flex justify-content-center align-items-center ">
-													<a href="#" class="btn btn-datve btn-datve-nav"><span class="glyphicon glyphicon-eye-open"></span> mua vé</a>
-												</div>
-											</div>
-											<div class=" text-white-left">Rainning</div>
-											<div class="text-white-left"> Trời sắp mưa</div>
-										</td>
-
-									</tr>
-								</table>
-							</li>
 						</ul>
+
 					</li>
 
 
@@ -258,7 +188,7 @@
 							<li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
 						</ul>
 					</div>
-					</hr>
+					<hr />
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
@@ -285,6 +215,7 @@
 
 
 
-
 </body>
+
+
 </html>

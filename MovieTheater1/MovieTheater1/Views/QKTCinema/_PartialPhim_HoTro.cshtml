@@ -1,0 +1,23 @@
+﻿
+
+@using MovieTheater1.Models
+@model List<PHIM>
+
+@foreach (var item in Model)
+{
+	<div class=" col-md-3 col-sm-3 col-6" style="padding-right: 2em; padding-top: 1em;">
+		<div class="container-for-overlay">
+			<img class="image w-100 " src="@Url.Content("~/Content/Images/450x300/" + item.ANHDAIDIEN + "_450300.jpg")" img />
+			<div class="middle d-flex justify-content-center align-items-center  d-flex justify-content-center align-items-center ">
+				<a href="#" class="btn btn-c16"> C16</a>
+				<a href="#" class="btn btn-datve"> MUA VÉ</a>
+			</div>
+		</div>
+		<div class=" text-uppercase  font-weight-bold">
+			@item.TENPHIM
+		</div>
+		<div class="text-uppercase">
+			@item.TENTIENGANH
+		</div>
+	</div>
+}

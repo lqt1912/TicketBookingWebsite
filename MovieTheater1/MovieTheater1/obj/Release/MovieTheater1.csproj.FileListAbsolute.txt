@@ -74,3 +74,7 @@ C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\Movi
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\obj\Release\MovieTheater1.csproj.CopyComplete
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\obj\Release\MovieTheater1.dll
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\obj\Release\MovieTheater1.pdb
+C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\bin\EntityFramework.dll
+C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\bin\EntityFramework.SqlServer.dll
+C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\bin\EntityFramework.xml
+C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheater1\bin\EntityFramework.SqlServer.xml

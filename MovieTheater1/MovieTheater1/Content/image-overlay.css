@@ -2,15 +2,20 @@
 .container-for-overlay {
 	position: relative;
 	background-color: rgb(26,26,26);
-}	
+}
+
+container-for-overlay a {
+	text-decoration: none;
+}
+
 
 .image {
-    opacity: 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: .3s ease;
-    backface-visibility: hidden;
+	opacity: 1;
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: .3s ease;
+	backface-visibility: hidden;
 }
 
 .middle {
@@ -23,10 +28,12 @@
 	-ms-transform: translate(-50%, -50%);
 	color: white;
 	text-align: left;
-	width: 70%;
+	width: 100%;
 	height: 100%;
-	border: solid 1rem transparent;
+	
 }
+
+
 
 .container-for-overlay:hover .image {
     opacity: 0.5 !important;
@@ -39,6 +46,6 @@
 
 .text{
 	text-align: left;
-	font-size: 14pt;
+	font-size:1em;
 }
 

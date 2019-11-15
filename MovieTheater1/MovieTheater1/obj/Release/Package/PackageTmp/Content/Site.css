@@ -10,6 +10,29 @@
 		opacity: 0;
 	}
 
+
+@media (min-width: 1200px) {
+	.container-1 {
+		padding-left: 5rem;
+		padding-right: 5rem
+
+	}
+}
+h3 {
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+	line-height: 1.5;
+}
+h3:after {
+	display: block;
+	width: 50px;
+	height: 2px;
+	margin-top: 8px;
+	content: '';
+	background-color: #f26b38;
+}
+
 input {
 	border: 1px solid #c4c4c4;
 	border-radius: 0px;
@@ -117,6 +140,7 @@ input {
 	background: rgb(247, 249, 250);
 	color: rgb(242,107,56);
 	border-radius: 0px;
+	font-size: 0.8em;
 }
 
 .btn-linear1 {
@@ -157,10 +181,9 @@ input {
 
 
 .btn-chitiet {
-
 	flex: 1 1 auto;
 	margin: 0px;
-	padding: 5px;
+	padding: 15px 30px;
 	border: 1px solid rgb(247, 249, 250);
 	text-align: center;
 	text-transform: uppercase;
@@ -171,8 +194,9 @@ input {
 	background-color: rgba(0,0,0,0.5);
 	color: rgb(247, 249, 250);
 	border-radius: 0px;
-	top: 70%;
-	left: 21%;
+	font-size: 14px;
+	line-height: 1;
+	bottom: 5%;
 }
 
 	.btn-chitiet:hover {
@@ -315,9 +339,10 @@ p a:hover{
 }
 
 .nav-text {
-	font-size: 1em;
-	font-weight: bold;
+	font-size: 14px;
+	font-weight: 600;
 	color: white !important;
+	text-transform: uppercase;
 }
 
 	.nav-text:hover {
@@ -329,29 +354,32 @@ p a:hover{
 	list-style: none;
 	text-align: center;
 	line-height: 1;
-	padding: 0px 2rem 0px 2rem;
+	padding: 0px 2.75rem 0px 2.75rem;
+}
+
+
+.dropdown-menu li {
+	line-height: 1.5;
+	border-right: none;
+	text-align: CENTER;
+	padding: 0;
+
+
 }
 
 .nav-dropdown-text {
-	text-decoration-color: gray;
-	text-align: left !important;
+	font-size: 14px;
+	font-weight: 600;
+	color: white !important;
 	text-transform: uppercase;
-	color: white;
-	margin-top: 1rem;
-	line-height: 1.5;
-	border-bottom: 2px solid rgb(242, 107, 56);
 }
 	.nav-dropdown-text:hover {
-		color: rgb(242, 107, 56) !important;
-		transition: 0.2s;
-		text-decoration: none;
-		
+		color: orange !important;
 	}
 
 
 .bg-black {
 	background-color: black;
-	border: 1px solid rgb(247, 249, 250);
 	color: white;
 }
 
@@ -484,4 +512,25 @@ p a:hover{
 		color:white;
 	}
 
+
+.voucher-title {
+	font-size: 18px;
+	line-height: 24px;
+	text-transform: uppercase;
+	color: #ffffff;
+	display: block;
+	display: -webkit-box;
+	max-width: 100%;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.text-inside {
+	display: block;
+	margin: 1em;
+	font-size: 14px;
+	line-height: 1.2;
+}
 

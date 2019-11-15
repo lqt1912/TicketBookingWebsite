@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="DB_WEB_APPEntities-Web.config Connection String" description="DB_WEB_APPEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.MovieTheater.csdl|res://*/Models.MovieTheater.ssdl|res://*/Models.MovieTheater.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-LHJNLEC;initial catalog=DB_WEB_APP;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\thang\\OneDrive\\Documents\\GitHub\\TicketBookingWebsite\\MovieTheater1\\MovieTheater1\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DB_WEB_APPEntities']/@connectionString" />
-  </parameter>
-  <parameter name="DB_WEB_APPEntities1-Web.config Connection String" description="DB_WEB_APPEntities1 Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.DBWEBAPP.csdl|res://*/Models.DBWEBAPP.ssdl|res://*/Models.DBWEBAPP.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-LHJNLEC;initial catalog=DB_WEB_APP;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\thang\\OneDrive\\Documents\\GitHub\\TicketBookingWebsite\\MovieTheater1\\MovieTheater1\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DB_WEB_APPEntities1']/@connectionString" />
-  </parameter>
-</parameters>

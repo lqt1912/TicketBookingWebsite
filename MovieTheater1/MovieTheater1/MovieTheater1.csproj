@@ -59,6 +59,9 @@
     <Reference Include="Mirosoft.Utilities.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Mirosoft.Utilities.Mvc.1.0.2\lib\net45\Mirosoft.Utilities.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Mvc.CascadeDropDown, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mvc.CascadeDropDown.2.0.3\lib\Mvc.CascadeDropDown.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -181,32 +184,14 @@
     <Compile Include="Models\LOAITHANHVIEN.cs">
       <DependentUpon>DBWEBAPP.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NewFolder1\BinhLuanModel.cs" />
-    <Compile Include="Models\NewFolder1\GheModel.cs" />
-    <Compile Include="Models\NewFolder1\HoaDonModel.cs" />
-    <Compile Include="Models\NewFolder1\LoaiGheModel.cs" />
-    <Compile Include="Models\NewFolder1\LoaiNhanVienModel.cs" />
-    <Compile Include="Models\NewFolder1\LoaiPhimModel.cs" />
-    <Compile Include="Models\NewFolder1\LoaiPhongModel.cs" />
-    <Compile Include="Models\NewFolder1\LoaiThanhVienModel.cs" />
-    <Compile Include="Models\NewFolder1\NhanVienModel.cs" />
-    <Compile Include="Models\NewFolder1\PhimModel.cs" />
-    <Compile Include="Models\NewFolder1\PhongModel.cs" />
-    <Compile Include="Models\NewFolder1\QuocGiaModel.cs" />
-    <Compile Include="Models\NewFolder1\RapChieuPhimModel.cs" />
-    <Compile Include="Models\NewFolder1\ThanhVienModel.cs" />
-    <Compile Include="Models\NewFolder1\ThongTinChieuModel.cs" />
-    <Compile Include="Models\NewFolder1\TinhTrangGheModel.cs" />
-    <Compile Include="Models\NewFolder1\TinhTrangPhongModel.cs" />
-    <Compile Include="Models\NewFolder1\TinhTrangVeModel.cs" />
-    <Compile Include="Models\NewFolder1\VeModel.cs" />
-    <Compile Include="Models\NewFolder1\VoucherModel.cs" />
     <Compile Include="Models\NHANVIEN.cs">
       <DependentUpon>DBWEBAPP.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PHIM.cs">
       <DependentUpon>DBWEBAPP.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PhimDangChieu.cs" />
+    <Compile Include="Models\PHIMINFO.cs" />
     <Compile Include="Models\PHONG.cs">
       <DependentUpon>DBWEBAPP.tt</DependentUpon>
     </Compile>
@@ -289,6 +274,7 @@
     <Content Include="Content\Images\logo %284%29.png" />
     <Content Include="Content\Images\logo %285%29.png" />
     <Content Include="Content\logo %282%29.png" />
+    <Content Include="Content\selectFilter.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -360,6 +346,8 @@
     <Content Include="Views\QKTCinema\_PartialKhuyenMai.cshtml" />
     <Content Include="Views\QKTCinema\_PartialPhim_KhuyenMai.cshtml" />
     <Content Include="Views\QKTCinema\_PartialPhim_HoTro.cshtml" />
+    <Content Include="Views\QKTCinema\_Partial_DatVeNhanh.cshtml" />
+    <Content Include="Views\QKTCinema\ChiTiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

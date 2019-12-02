@@ -1,4 +1,7 @@
 ﻿using MovieTheater1.Models;
+using System.Linq;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Web.Mvc;
 namespace MovieTheater1.Controllers
 {
@@ -9,11 +12,6 @@ namespace MovieTheater1.Controllers
 		DB_WEB_APPEntities1 dbWebApp = new DB_WEB_APPEntities1();
 
 		// GET: QKTCinema
-		public ActionResult Index()
-		{
-			return View();
-		}
-
 
 
 
@@ -108,6 +106,18 @@ namespace MovieTheater1.Controllers
 		public ActionResult _PartialPhim_HoTro()
 		{
 			return PartialView(DataAccess.Get4PhimMoiNhat());
+		}
+
+		public ActionResult _Partial_DatVeNhanh()
+		{
+
+			
+			return PartialView(DataAccess.GetThongtinchieu() );
+		}
+
+		public ActionResult ChiTiet(string id="phim01")
+		{
+			return View(DataAccess.GetPhimById(id));
 		}
 	}
 }

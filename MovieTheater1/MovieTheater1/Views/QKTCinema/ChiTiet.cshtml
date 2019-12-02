@@ -1,0 +1,71 @@
+﻿@using MovieTheater1.Models
+@model MovieTheater1.Models.PHIM
+
+@{
+	ViewBag.Title = "ChiTiet";
+	Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+}
+
+<body>
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-12">
+			<div class="row ">
+				<div class="col-md-5 col-sm-5 col-8 ">
+					<img src="@Url.Content("~/Content/Images/300x450xphim/" + Model.ANHDAIDIEN + "_300450.jpg")" class="w-100 d-block pl-lg-5 pt-lg-5 pr-lg-2 pb-lg-5" />
+				</div>
+				<div class="col-md-7 col-sm-7 col-12 pt-lg-5 ">
+					<div class="detail-header"> @Model.TENPHIM</div>
+					<div class="detail-header-small text-uppercase">@Model.TENTIENGANH</div>
+					<div class="detail-text pt-2"> Quốc gia: @DataAccess.GetTenQuocGia(@Model.MAQUOCGIA)</div>
+					<div class="detail-rating"> 7.9<i class="fas fa-star"></i>/10 </div>
+					<div class="detail-text"><i class="far fa-clock"></i> @Model.THOILUONG </div>
+					<div class="detail-text"> Thể loại: @DataAccess.GetTenTheLoai(Model.MALOAIPHIM)</div>
+					<div class="detail-text"> Đạo diễn: @Model.DAODIEN</div>
+					<div class="detail-text">Diễn viên: @Model.DIENVIEN </div>
+					<div class="detail-text">Ngày ra rạp: @Model.THOIGIANBD.ToString().Substring(0, 9)</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12 pl-lg-5">
+					<h3> Nội dung phim</h3>
+					<div class="auto-folded" ng-transclude="" style="display: block;">
+						@Html.Raw(@Model.MOTA)
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6 col-sm-6 col-12">
+			<h3 class="pt-lg-5">  Lịch chiếu </h3>
+			@{
+				foreach (var item in DataAccess.GetRapsByMaPhim(Model.MAPHIM))
+				{
+					<div class="row m-3 border">
+						<div class="col-12 cinema-header text-center"> @item.TENRAP</div>
+						@foreach (var ttc in DataAccess.GetThongtinchieusByMaRapMaPhim(@item.MARAP, Model.MAPHIM))
+						{
+							<div class="col-12 row border m-0">
+								<div class="col-4 p-0 border-right">
+									<div class="text-sub-info"> @ttc.NGAYCHIEU.ToString().Substring(0, 9) </div>
+								</div>
+								<div class="col-8 d-flex flex-wrap">
+									@foreach (var suatchieu in DataAccess.GetSuatChieu(@ttc.NGAYCHIEU, Model.MAPHIM, ttc.MARAP))
+									{
+
+									<button class="btn-suatchieu d-inline-flex">
+								
+										@DataAccess.GetTenLoaiPhongByMaTTC(@ttc.MATHONGTINCHIEU)
+										@suatchieu.THOIGIANCHIEU
+
+									</button>
+									}
+								</div>
+							</div>
+						}
+					</div>
+				}
+			}
+		</div>
+	</div>
+</body>

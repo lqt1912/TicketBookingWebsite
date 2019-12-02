@@ -476,9 +476,8 @@ p a:hover{
 
 
 .btn-thoi-gian-chieu1 {
-	margin: 9px;
-	padding: 5px;
-	padding: 5px;
+	margin: 3px;
+	padding: 2px;
 	border: 1px solid rgb(247, 249, 250);
 	text-align: center;
 	text-transform: uppercase;
@@ -487,11 +486,12 @@ p a:hover{
 	background-color: rgba(0,0,0,0.5);
 	color: rgb(247, 249, 250);
 	border-radius: 0px;
-	font-size: 0.8em;
+	font-size: 14px;
 }
 
  .form-control{
 	 border-radius: 0px;
+	 width: 100%;
  }
 
 
@@ -555,4 +555,54 @@ p a:hover{
 	font-size: 14px;
 	line-height: 1.2;
 }
+
+.detail-header {
+	font-size: 26px;
+	text-transform: uppercase;
+	line-height: 35px;
+}
+
+.detail-header-small {
+	font-size: 20px;
+	line-height: 35px;
+	color: gray;
+}
+
+.detail-rating {
+	line-height: 3;
+	font-size: 20px;
+}
+.detail-rating i {
+	color: #f8aa28;
+}
+.detail-text {
+	line-height: 2;
+	font-size: 15px;
+}
+
+.cinema-header {
+	text-transform: uppercase;
+	background: #f26b38;
+	line-height: 2;
+}
+
+.btn-suatchieu {
+	color: black;
+	margin: 10px;
+	border: 1px solid black;
+	background: white;
+	border-radius: 0px;
+
+}
+
+.btn-suatchieu:hover {
+	color: #f26b38;
+	border:1px solid  #f26b38;
+	
+}
+.text-sub-info {
+	vertical-align: middle;
+	text-align: center;
+}
+
 

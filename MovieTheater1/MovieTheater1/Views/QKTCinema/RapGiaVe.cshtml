@@ -52,17 +52,17 @@
 
 		</div>
 		<div class="row">
-			<div class="col-md-6 col-xs-12">
-				<button class="nav-link  btn-linear1" data-toggle="tab" href="#home">Phim đang chiếu </button>
-				<br />
+			<div class="col-md-6 col-12">
+				<h3 class="p-3"> Phim đang chiếu </h3>
+				
 				<div class="row">
-					<div class="col-md-5 col-sm-5 col-xs-12">
-						<input type="date" id="e" />
+					<div class="col-md-5 col-sm-5 col-12 pb-5">
+						<input type="date" id="e"  style="width: 100%; font-size: inherit;"/>
 						<script>
 							document.getElementById('e').value = new Date().toISOString().substring(0, 10);
 						</script>
 					</div>
-					<div class="col-md-5 col-sm-5 col-xs-12">
+					<div class="col-md-5 col-sm-5 col-12 pb-5">
 						<select id="selectbasic" name="selectbasic" class="form-control">
 							<option default> Chọn rạp </option>
 							<option value="1">Option one</option>
@@ -70,123 +70,50 @@
 						</select>
 					</div>
 				</div>
-				<br />
+
+				
+
 				<div class="row">
-					<div class="col-md-12 col-xs-12">
-						<table style="width:100%" cellpadding="10">
+					<div class="row col-12 pl-2">
+						<div class="col-4 d-flex justify-content-center align-items-center">
+							<img src="~/Content/Images/300x450xphim/BACKIMTHANG_300450.jpg" class="d-block w-100 pl-2"/>
+						</div>
+						<div class="col-8">
+							<p style="font-size: 18px;">Terminator: Dark Fate</p>
 
-							<tr>
-								<td style="width:40%">
-									<div class="container-for-overlay">
-										<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (15).jpg" class="image w-100" />
-									</div>
-								</td>
-								<td style="font-size: 1em;">
-									<h4>Terminator: Dark Fate</h4>
+							<div class="container row d-flex ">
+								<div style="font-size: 14px;"> <i class="fas fa-calendar-alt p-2"></i> 2019</div>
+								<div style="font-size: 14px;"><i class="far fa-clock p-2 "></i> 128 phút </div>
+							</div>
 
-									<div class="container row d-flex justify-content-around">
-										<div style="font-size: 1em;"> <i class="fas fa-calendar-alt"></i> 2019</div>
-										<div style="font-size: 1em;"><i class="far fa-clock"></i> 128 phút </div>
-									</div>
+							<div class="row d-flex pl-2" >
+								<button class="btn-thoi-gian-chieu1"> 15:15</button>
+								<button class="btn-thoi-gian-chieu1">15:30</button>
+								<button class="btn-thoi-gian-chieu1"> 15:35</button>
 
-									<div class="row d-flex">
-										<button class="btn-thoi-gian-chieu1"> 15:15</button>
-										<button class="btn-thoi-gian-chieu1">15:30</button>
-										<button class="btn-thoi-gian-chieu1"> 15:35</button>
-										<button class="btn-thoi-gian-chieu1"> 20:30 </button>
-										<button class="btn-thoi-gian-chieu1"> 15:15</button>
-										<button class="btn-thoi-gian-chieu1">15:30</button>
-										<button class="btn-thoi-gian-chieu1"> 15:35</button>
-										<button class="btn-thoi-gian-chieu1"> 20:30 </button>
-									</div>
-								</td>
-							</tr>
-
-							<tr>
-								<td style="width:40%">
-									<div class="container-for-overlay">
-										<img src="~/Content/Images-from-galaxycine/300x450xphim/300-450-phim (14).jpg" class="image w-100" />
-									</div>
-								</td>
-								<td style="font-size: 1em;">
-									<h4>Teromnativer:Light Fate</h4>
-
-									<div class="container row d-flex justify-content-around">
-										<div style="font-size: 1em;"> <i class="fas fa-calendar-alt"></i> 2019</div>
-										<div style="font-size: 1em;"><i class="far fa-clock"></i> 182 phút </div>
-									</div>
-
-									<div class="row d-flex">
-										<button class="btn-thoi-gian-chieu1"> 15:15</button>
-										<button class="btn-thoi-gian-chieu1">15:30</button>
-										<button class="btn-thoi-gian-chieu1"> 15:35</button>
-										<button class="btn-thoi-gian-chieu1"> 20:30 </button>
-										<button class="btn-thoi-gian-chieu1"> 15:15</button>
-										<button class="btn-thoi-gian-chieu1">15:30</button>
-										<button class="btn-thoi-gian-chieu1"> 15:35</button>
-										<button class="btn-thoi-gian-chieu1"> 20:30 </button>
-									</div>
-								</td>
-							</tr>
-						</table>
+							</div>
+						</div>
 					</div>
+					<div class="row col-12 p-5">
+						<div class="col-4"> <img src="~/Content/Images/300x450xphim/BACKIMTHANG_300450.jpg" class="d-block w-100" /> </div>
+						<div class="col-8"> Má  </div>
+					</div>
+
+					
 				</div>
 			</div>
 
-			<div class="col-md-6 col-xs-12">
-				<button class="nav-link  btn-linear1" data-toggle="tab" href="#home">
-					Giá vé
-				</button>
-				<div>
-					<div style="text-transform: uppercase;" class=" d-flex  ">
-						<ul class="nav nav-tabs ">
-							<li class="nav-item">
-								<button class="nav-link btn-2d" data-toggle="tab" href="#home">2D </button>
-							</li>
-							<li class="nav-item">
-								<button class=" nav-link btn-2d" style="" data-toggle="tab" href="#menu1">3D</button>
-							</li>
-						</ul>
-					</div>
+			<div class="col-md-6 col-12">
+				<h3 class="p-3"> Giá vé 2D  </h3>
+				<img src="~/Content/banggiave-nguyendu-082019-2d_1567586356540.jpg" class=" d-block w-100" />
 
-					<div style="position: relative;" class="tab-content">
-						<div class="tab-pane active container" id="menu1">
-							<div class="tab-element">
+				<h3 class="p-3"> Giá vé 3D </h3>
 
-								<img src="~/Content/banggiave-082019-3d_1567136002205.jpg" class="image w-100" />
-							</div>
-						</div>
-						<div class="tab-pane container" id="home">
-							<div class="tab-element">
-
-								<img src="~/Content/banggiave-nguyendu-082019-2d_1567586356540.jpg" class="image w-100" />
-							</div>
-						</div>
-					</div>
-					<script>
-						// Select all tabs
-						$('.nav-tabs a').click(function () {
-							$(this).tab('show');
-						})
-						// Select tab by name
-						$('.nav-tabs a[href="#home"]').tab('show')
-						// Select first tab
-						$('.nav-tabs a:first').tab('show')
-						// Select last tab
-						$('.nav-tabs a:last').tab('show')
-						// Select fourth tab (zero-based)
-						$('.nav-tabs li:eq(3) a').tab('show')
-					</script>
-
-				</div>
-
-				<br />
+				<img src="~/Content/banggiave-082019-3d_1567136002205.jpg"  class="d-block w-100"/>
 
 
-				<button class="nav-link  btn-linear1" data-toggle="tab" href="#home">
-					Thông tin chi tiết
-				</button>
-				<br />
+
+				<h3 class="p-3"> Thông tin chi tiết </h3>
 
 				<div>
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3938.7318442356013!2d105.15271071478776!3d9.178644193417188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a149a0d61b6b83%3A0x236a8af355f80d04!2sCo.opmart+C%C3%A0+Mau!5e0!3m2!1sen!2s!4v1495428317298" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>

@@ -1,4 +1,5 @@
-﻿
+﻿@using MovieTheater1.Controllers
+
 @{
 	ViewBag.Title = "Trang chủ";
 	Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
@@ -7,110 +8,24 @@
 <body >
 	<style>
 
-		.carousel-item img {
-			height: 75vh;
-		}
-	</style>
+		</style>
 	<!--Visible only on lg & xl-->
 	@Html.Action("_PartialCarousel", "QKTCinema")
 
-	<div class="d-none d-xl-block d-lg-block" style="background: black; position: relative;">
-		<table cellpadding="10" style="background-color: rgba(0, 0, 0, 0.8); position: absolute; z-index: 1000 !important; margin-top: -30em; margin-left: 4em; width: 19em;">
-			<tr>
-				<td colspan="2" class="text-light">MUA VÉ NHANH </td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn phim </option>
-						<option value="1">Option one</option>
-						<option value="2">Option two</option>
-					</select>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn rạp </option>
-						<option value="1">Option one</option>
-						<option value="2">Option two</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td class="text-light">
-					Chọn ngày
-				</td>
-				<td>
-					<input type="date" />
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn suất </option>
-						<option value="2">Option two</option>
-						<option value="1">Option one</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td style="">
-				</td>
-				<td align="right">
-					<button class="btn" style="background-color: rgb(242, 107, 56); border-radius: 0px;">
-						MUA VÉ
-					</button>
-				</td>
-			</tr>
-		</table>
+<div class="d-none d-xl-block d-lg-block" style="background: black; position: relative;">
+	<div style="background-color: rgba(0, 0, 0, 0.8); position: absolute; z-index: 1000 !important; margin-top: -23em; margin-left: 4em; width: 19em;">
+	
+		<div class="text-light pl-2 pt-2">
+			ĐẶT VÉ NHANH
+		</div>
+		@Html.Action("_Partial_DatVeNhanh", "QKTCinema");
 	</div>
+	
+</div>
 	<!-- Hidden on lg & xl -->
 	<div class=" d-xl-none d-lg-none">
-		<table cellpadding="10" style="background-color: lightgrey; position: relative; z-index: 1000 !important; width: 100%;">
-			<tr>
-				<td colspan="2">MUA VÉ NHANH </td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn phim </option>
-						<option value="1">Option one</option>
-						<option value="2">Option two</option>
-					</select>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn rạp </option>
-						<option value="1">Option one</option>
-						<option value="2">Option two</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input type="date" placeholder="Chọn ngày " />
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option default> Chọn suất </option>
-						<option value="1">Option one</option>
-						<option value="2">Option two</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td style="">
-				</td>
-				<td align="right">
-					<button class="btn" style="background-color: orange;">
-						MUA VÉ
-					</button>
-				</td>
-			</tr>
-		</table>
+		<div class="text-center"> ĐẶT VÉ NHANH</div>
+		@Html.Action("_Partial_DatVeNhanh", "QKTCinema")
 	</div>
 	<br />
 

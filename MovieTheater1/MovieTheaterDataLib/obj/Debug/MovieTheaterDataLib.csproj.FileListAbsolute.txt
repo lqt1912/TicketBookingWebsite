@@ -23,3 +23,4 @@ C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\Movi
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDataLib\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDataLib\obj\Debug\MovieTheaterDataLib.csproj.CopyComplete
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDataLib\bin\Debug\MovieTheaterDataLib.dll.config
+C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDataLib\bin\Debug\JShibo.dll

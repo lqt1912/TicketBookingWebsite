@@ -1,0 +1,126 @@
+﻿
+@model List<MovieTheater1.Models.THONGTINCHIEU>
+
+@using System.Web.UI.WebControls
+@using MovieTheater1.Models
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+		integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+		crossorigin="anonymous">
+</script>
+<script src="~/Content/selectFilter.min.js"></script>
+
+<table cellpadding="10" style="width: 100%">
+
+	
+	<tr>
+		<td colspan="2" align="center" >
+
+
+			<select data-target="secondList" class="firstList selectFilter form-control">
+
+				<option value="-1">Chọn phim</option>
+
+				@foreach (var phim in DataAccess.GetPhims())
+				{
+					<option data-ref="@phim.MAPHIM"> @phim.TENPHIM </option>
+				}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<select data-target="thirdList" class="secondList selectFilter form-control">
+				<option value="-1">Chọn rạp</option>
+				@foreach (var thongtinchieu in Model)
+				{
+					foreach (var rap in DataAccess.GetRaps())
+					{
+						if (thongtinchieu.MARAP == rap.MARAP)
+						{
+							foreach (var phim in DataAccess.GetPhims())
+							{
+								if (thongtinchieu.MAPHIM == phim.MAPHIM)
+								{
+									<option data-ref="@rap.MARAP + @phim.MAPHIM" data-belong="@thongtinchieu.MAPHIM">@rap.TENRAP</option>
+								}
+							}
+						}
+
+					}
+				}
+			</select>
+
+		</td>
+	</tr>
+
+
+	<tr>
+
+		<td colspan="2">
+			<select data-target="" class="thirdList selectFilter form-control">
+				<option value="-1">Chọn ngày</option>
+
+
+				@foreach (var thongtinchieu in Model)
+				{
+					foreach (var rap in DataAccess.GetRaps())
+
+					{
+						if (rap.MARAP == thongtinchieu.MARAP)
+						{
+							foreach (var phim in DataAccess.GetPhims())
+							{
+								if (thongtinchieu.MAPHIM == phim.MAPHIM)
+								{
+									<option data-ref="@thongtinchieu.MARAP" data-belong="@rap.MARAP + @phim.MAPHIM">@thongtinchieu.NGAYCHIEU</option>
+								}
+
+							}
+						}
+
+					}
+				}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<select data-target="" class="thirdList selectFilter form-control">
+				<option value="-1">Chọn ngày</option>
+
+
+				@foreach (var thongtinchieu in Model)
+				{
+					foreach (var rap in DataAccess.GetRaps())
+
+					{
+						if (rap.MARAP == thongtinchieu.MARAP)
+						{
+							foreach (var phim in DataAccess.GetPhims())
+							{
+								if (thongtinchieu.MAPHIM == phim.MAPHIM)
+								{
+									<option data-ref="@thongtinchieu.MARAP" data-belong="@rap.MARAP + @phim.MAPHIM">@thongtinchieu.THOIGIANCHIEU</option>
+								}
+
+							}
+						}
+
+					}
+				}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td style="">
+		</td>
+		<td align="right">
+			<button class="btn" style="background-color: rgb(242, 107, 56); border-radius: 0px;">
+				MUA VÉ
+			</button>
+		</td>
+	</tr>
+</table>
+
+

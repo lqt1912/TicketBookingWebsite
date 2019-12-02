@@ -49,59 +49,9 @@
 		</div>
 		<div class="col-md-4 col-sm-4 col-12">
 			<br/>
-			<div class=" d-none d-sm-block">
-				<table cellpadding="10" style="background-color: rgb(228, 228, 228); width: 100%;">
-					<tr>
-						<td style="background-color: rgb(242, 107, 56); color: white; font-weight: bold;">MUA VÉ NHANH </td>
-						<td>
-							&nbsp;
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-						<select id="selectbasic" name="selectbasic" class="form-control">
-							<option default> Chọn phim </option>
-							<option value="1">Option one</option>
-							<option value="2">Option two</option>
-						</select>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<select id="selectbasic" name="selectbasic" class="form-control">
-								<option default> Chọn rạp </option>
-								<option value="1">Option one</option>
-								<option value="2">Option two</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<select id="selectbasic" name="selectbasic" class="form-control">
-								<option default> Chọn ngày </option>
-								<option value="1">Option one</option>
-								<option value="2">Option two</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<select id="selectbasic" name="selectbasic" class="form-control">
-								<option default> Chọn suất </option>
-								<option value="1">Option one</option>
-								<option value="2">Option two</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td style="">
-						</td>
-						<td align="right">
-							<button class="btn btn-feedback">
-								MUA VÉ
-							</button>
-						</td>
-					</tr>
-				</table>
+			<div class=" d-none d-sm-block" style="border: 1px solid gray">
+				<div class="text-center"> ĐẶT VÉ NHANH</div>
+				@Html.Action("_Partial_DatVeNhanh", "QKTCinema")
 			</div>
 			<br/>
 

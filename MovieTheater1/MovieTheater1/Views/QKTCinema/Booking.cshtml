@@ -1,0 +1,84 @@
+﻿@using System.Text
+@using JShibo
+@using MovieTheater1.Models
+@model MovieTheater1.Models.PhimDangChieu
+
+@{
+	ViewBag.Title = "Booking";
+	Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+}
+
+
+
+<div class="row" ng-app="myApp">
+	<div class="col-md-3 col-12">
+		<table cellpadding="10">
+			<tr> <td colspan="2"> <h3>Thông tin đặt vé </h3></td></tr>
+			<tr>
+				<td> Phim</td>
+				<td> @Model.TenPhim</td>
+			</tr>
+			<tr>
+				<td> Rạp </td>
+				<td> @Model.TenRap</td>
+			</tr>
+			<tr>
+				<td> Ngày </td>
+				<td> @Model.NgayChieu</td>
+			</tr>
+			<tr>
+				<td> Suất chiếu</td>
+				<td> @Model.GioChieu</td>
+			</tr>
+			<tr>
+				<td> Phòng </td>
+				<td> @DataAccess.GetPhongById(Model.PhongChieu).TENPHONG @DataAccess.GetTenLoaiPhongByMaTTC(@Model.MaThongTinChieu)</td>
+			</tr>
+			<tr>
+				<td> Ghế đã chọn </td>
+				<td id="amount">
+					
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class=" col-md-9 col-12" >
+
+		<h3> Chọn ghế </h3>
+		@for (int i = 65; i < 65 + 10; i++)
+		{
+			for (int j = 0; j < 10; j++)
+			{
+				<button class="btn-ghe"  value="@Convert.ToChar(i)@j.ToString()"> @Convert.ToChar(i) @j.ToString()</button>
+			}
+			<br />
+		}
+		
+	</div>
+</div>
+
+<script>
+	$(document).ready(function () {
+		$('.btn-ghe').click(function () {
+			$(this).toggleClass('active-btn');
+			
+			var x = document.querySelectorAll('.active-btn');
+			var text1 = "";
+			for (var i = 0; i < x.length; i++) {
+				text1 = text1 + x[i].value + " ";
+			}
+			document.getElementById("amount").innerHTML = text1;
+
+		});
+
+	});	
+
+	
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<p>
+	<a href="@Url.Action("ChiTiet", "QKTCinema",new {id = @DataAccess.GetPhimByTen(Model.TenPhim)} )"></a>
+
+</p>

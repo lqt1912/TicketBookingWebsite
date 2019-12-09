@@ -107,6 +107,7 @@
     <EntitySetMapping Name="PHONGs">
       <EntityTypeMapping TypeName="DB_WEB_APPModel.PHONG">
         <MappingFragment StoreEntitySet="PHONG">
+          <ScalarProperty Name="TENPHONG" ColumnName="TENPHONG" />
           <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
           <ScalarProperty Name="MATINHTRANGPHONG" ColumnName="MATINHTRANGPHONG" />
           <ScalarProperty Name="MALOAIPHONG" ColumnName="MALOAIPHONG" />

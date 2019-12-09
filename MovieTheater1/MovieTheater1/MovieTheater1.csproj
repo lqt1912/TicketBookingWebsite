@@ -289,6 +289,10 @@
       <DependentUpon>DBWEBAPP.edmx</DependentUpon>
       <LastGenOutput>DBWEBAPP.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Images\1042x347\desktop.ini" />
@@ -304,6 +308,7 @@
     <None Include="Properties\PublishProfiles\tqkcinema - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tqkcinema - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tqkcinema - Web Deploy.pubxml" />
+    <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -348,6 +353,9 @@
     <Content Include="Views\QKTCinema\_PartialPhim_HoTro.cshtml" />
     <Content Include="Views\QKTCinema\_Partial_DatVeNhanh.cshtml" />
     <Content Include="Views\QKTCinema\ChiTiet.cshtml" />
+    <Content Include="Views\QKTCinema\_Partial_ChonPhim.cshtml" />
+    <Content Include="Views\QKTCinema\_Partial_ChonRap.cshtml" />
+    <Content Include="Views\QKTCinema\Booking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

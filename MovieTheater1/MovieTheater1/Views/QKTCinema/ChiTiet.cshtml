@@ -52,13 +52,19 @@
 								<div class="col-8 d-flex flex-wrap">
 									@foreach (var suatchieu in DataAccess.GetSuatChieu(@ttc.NGAYCHIEU, Model.MAPHIM, ttc.MARAP))
 									{
+										PhimDangChieu pdc = new PhimDangChieu();
+										pdc.TenPhim = DataAccess.GetPhimById(suatchieu.MAPHIM).TENPHIM;
+										pdc.PhongChieu = suatchieu.MAPHONG;
+										pdc.TenRap = DataAccess.GetRapById(ttc.MARAP).TENRAP;
+										pdc.NgayChieu = suatchieu.NGAYCHIEU.ToString().Substring(0, 9);
+										pdc.GioChieu = suatchieu.THOIGIANCHIEU;
+										pdc.MaThongTinChieu = suatchieu.MATHONGTINCHIEU;
+										<a class="btn-suatchieu d-inline-flex" href="@Url.Action("Booking", "QKTCinema",new {tenPhim = pdc.TenPhim,tenRap=pdc.TenRap, ngayChieu=pdc.NgayChieu, gioChieu=pdc.GioChieu, phongChieu=pdc.PhongChieu, maThongTinChieu=pdc.MaThongTinChieu})" >
 
-									<button class="btn-suatchieu d-inline-flex">
-								
-										@DataAccess.GetTenLoaiPhongByMaTTC(@ttc.MATHONGTINCHIEU)
-										@suatchieu.THOIGIANCHIEU
+											@DataAccess.GetTenLoaiPhongByMaTTC(@ttc.MATHONGTINCHIEU)
+											@suatchieu.THOIGIANCHIEU
 
-									</button>
+										</a>
 									}
 								</div>
 							</div>

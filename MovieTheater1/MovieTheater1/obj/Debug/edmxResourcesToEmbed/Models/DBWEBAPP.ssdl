@@ -84,7 +84,6 @@
     <Property Name="THOIGIANKT" Type="smalldatetime" />
     <Property Name="THOILUONG" Type="varchar" MaxLength="20" />
     <Property Name="SOLUONGSUAT" Type="smallint" />
-    <Property Name="MOTA" Type="nvarchar" MaxLength="200" />
     <Property Name="GHICHU" Type="nvarchar" MaxLength="100" />
     <Property Name="MABINHLUAN" Type="varchar" MaxLength="20" />
     <Property Name="ANHDAIDIEN" Type="nvarchar" MaxLength="100" />
@@ -92,6 +91,7 @@
     <Property Name="DANHGIA" Type="int" />
     <Property Name="DAODIEN" Type="nvarchar" MaxLength="50" />
     <Property Name="DIENVIEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="MOTA" Type="ntext" />
   </EntityType>
   <EntityType Name="PHONG">
     <Key>
@@ -101,6 +101,7 @@
     <Property Name="MATINHTRANGPHONG" Type="varchar" MaxLength="20" />
     <Property Name="MALOAIPHONG" Type="varchar" MaxLength="20" />
     <Property Name="SOCHOCONTRONG" Type="smallint" />
+    <Property Name="TENPHONG" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="QUOCGIA">
     <Key>

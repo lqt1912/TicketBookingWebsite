@@ -119,5 +119,29 @@ namespace MovieTheater1.Controllers
 		{
 			return View(DataAccess.GetPhimById(id));
 		}
+
+
+
+		public ActionResult _Partial_ChonPhim(string maRap, string maPhim)
+		{
+			return View(DataAccess.GetValueFromId(maPhim, maRap));
+		}
+		public ActionResult _Partial_ChonRap(string id="phim01")
+		{
+			return View(DataAccess.GetRapsByMaPhim(id));
+		}
+
+
+		public ActionResult Booking(string tenPhim, string tenRap, string ngayChieu, string gioChieu, string phongChieu, string maThongTinChieu)
+		{
+			var phimDangChieu = new PhimDangChieu();
+			phimDangChieu.TenPhim = tenPhim;
+			phimDangChieu.TenRap = tenRap;
+			phimDangChieu.NgayChieu = ngayChieu;
+			phimDangChieu.GioChieu = gioChieu;
+			phimDangChieu.PhongChieu = phongChieu;
+			phimDangChieu.MaThongTinChieu = maThongTinChieu;
+			return View(phimDangChieu);
+		}
 	}
 }

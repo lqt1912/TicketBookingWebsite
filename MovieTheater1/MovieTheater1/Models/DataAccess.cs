@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.SessionState;
 using System.Web.UI.WebControls;
 using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
@@ -16,7 +17,9 @@ namespace MovieTheater1.Models
 	public class DataAccess
 	{
 
-		public static string maphim ="phim01";
+		public static string PhimDangChon;
+
+
 		public static DB_WEB_APPEntities1 getEntities()
 		{
 			return new DB_WEB_APPEntities1();
@@ -254,5 +257,49 @@ namespace MovieTheater1.Models
 			}
 		}
 
+		public static List<THONGTINCHIEU> GetValueFromId(string maPhim, string maRap)
+		{
+			if (maRap == null)
+			{
+				using (var db=getEntities())
+				{
+					var result = db.THONGTINCHIEUx.Where(x => x.MAPHIM == maPhim);
+					return result.ToList();
+				}
+			}
+			else
+			{
+				using (var db =getEntities())
+				{
+					var result = db.THONGTINCHIEUx.Where(x => x.MARAP == maRap && x.MAPHIM == maPhim);
+					return result.ToList();
+				}
+			}
+		}
+
+		public static RAPCHIEUPHIM GetRapById(string id)
+		{
+			using (var db=getEntities())
+			{
+				return db.RAPCHIEUPHIMs.Where(x=>x.MARAP==id).ToList().ElementAt(0);
+
+			}
+		}
+
+		public static PHIM GetPhimByTen(string name)
+		{
+			using (var db= getEntities())
+			{
+				return db.PHIMs.Where(x => x.TENPHIM == name).ToList().ElementAt(0);
+			}
+		}
+
+		public static PHONG GetPhongById(string id)
+		{
+			using (var db=getEntities())
+			{
+				return db.PHONGs.Where(x => x.MAPHONG == id).ToList().ElementAt(0);
+			}
+		}
 	}
 }

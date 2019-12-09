@@ -5,23 +5,22 @@
 	Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
 }
 
-<body >
+<body>
 	<style>
-
-		</style>
+	</style>
 	<!--Visible only on lg & xl-->
 	@Html.Action("_PartialCarousel", "QKTCinema")
 
-<div class="d-none d-xl-block d-lg-block" style="background: black; position: relative;">
-	<div style="background-color: rgba(0, 0, 0, 0.8); position: absolute; z-index: 1000 !important; margin-top: -23em; margin-left: 4em; width: 19em;">
-	
-		<div class="text-light pl-2 pt-2">
-			ĐẶT VÉ NHANH
+	<div class="d-none d-xl-block d-lg-block" style="background: black; position: relative;">
+		<div style="background-color: rgba(0, 0, 0, 0.8); position: absolute; z-index: 1000 !important; margin-top: -23em; margin-left: 4em; width: 19em;">
+
+			<div class="text-light pl-2 pt-2">
+				ĐẶT VÉ NHANH
+			</div>
+			@Html.Action("_Partial_DatVeNhanh", "QKTCinema");
 		</div>
-		@Html.Action("_Partial_DatVeNhanh", "QKTCinema");
+
 	</div>
-	
-</div>
 	<!-- Hidden on lg & xl -->
 	<div class=" d-xl-none d-lg-none">
 		<div class="text-center"> ĐẶT VÉ NHANH</div>
@@ -49,9 +48,9 @@
 	<div class="container" style="position: relative;">
 		<h3>Tin khuyến mãi </h3>
 		<div class="row col-md-12 col-12" style="font-size: 1em;">
-		
-			
-			@Html.Action("_PartialKhuyenMai","QKTCinema");
+
+
+			@Html.Action("_PartialKhuyenMai", "QKTCinema");
 		</div>
 	</div>
 	<div class="container">

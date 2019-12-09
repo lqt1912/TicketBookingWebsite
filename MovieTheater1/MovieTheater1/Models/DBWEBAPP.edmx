@@ -89,7 +89,6 @@
           <Property Name="THOIGIANKT" Type="smalldatetime" />
           <Property Name="THOILUONG" Type="varchar" MaxLength="20" />
           <Property Name="SOLUONGSUAT" Type="smallint" />
-          <Property Name="MOTA" Type="nvarchar" MaxLength="200" />
           <Property Name="GHICHU" Type="nvarchar" MaxLength="100" />
           <Property Name="MABINHLUAN" Type="varchar" MaxLength="20" />
           <Property Name="ANHDAIDIEN" Type="nvarchar" MaxLength="100" />
@@ -97,6 +96,7 @@
           <Property Name="DANHGIA" Type="int" />
           <Property Name="DAODIEN" Type="nvarchar" MaxLength="50" />
           <Property Name="DIENVIEN" Type="nvarchar" MaxLength="100" />
+          <Property Name="MOTA" Type="ntext" />
         </EntityType>
         <EntityType Name="PHONG">
           <Key>
@@ -106,6 +106,7 @@
           <Property Name="MATINHTRANGPHONG" Type="varchar" MaxLength="20" />
           <Property Name="MALOAIPHONG" Type="varchar" MaxLength="20" />
           <Property Name="SOCHOCONTRONG" Type="smallint" />
+          <Property Name="TENPHONG" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="QUOCGIA">
           <Key>
@@ -587,7 +588,7 @@
           <Property Name="THOIGIANKT" Type="DateTime" Precision="0" />
           <Property Name="THOILUONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="SOLUONGSUAT" Type="Int16" />
-          <Property Name="MOTA" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MOTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="GHICHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="MABINHLUAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ANHDAIDIEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -610,6 +611,7 @@
           <NavigationProperty Name="GHEs" Relationship="Self.fk02_GHE" FromRole="PHONG" ToRole="GHE" />
           <NavigationProperty Name="LOAIPHONG" Relationship="Self.fk02_PHONG" FromRole="PHONG" ToRole="LOAIPHONG" />
           <NavigationProperty Name="TINHTRANGPHONG" Relationship="Self.fk01_PHONG" FromRole="PHONG" ToRole="TINHTRANGPHONG" />
+          <Property Name="TENPHONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="QUOCGIA">
           <Key>
@@ -643,7 +645,7 @@
           <Property Name="THOIGIANCHIEU" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="MAPHONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MARAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="NGAYCHIEU" Type="DateTime" />
+          <Property Name="NGAYCHIEU" Type="DateTime" Precision="0" />
           <NavigationProperty Name="VEs" Relationship="Self.fk02_VE" FromRole="THONGTINCHIEU" ToRole="VE" />
           <NavigationProperty Name="RAPCHIEUPHIM" Relationship="DB_WEB_APPModel.FK__THONGTINC__MARAP__778AC167" FromRole="THONGTINCHIEU" ToRole="RAPCHIEUPHIM" />
         </EntityType>
@@ -1119,6 +1121,7 @@
           <EntitySetMapping Name="PHONGs">
             <EntityTypeMapping TypeName="DB_WEB_APPModel.PHONG">
               <MappingFragment StoreEntitySet="PHONG">
+                <ScalarProperty Name="TENPHONG" ColumnName="TENPHONG" />
                 <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
                 <ScalarProperty Name="MATINHTRANGPHONG" ColumnName="MATINHTRANGPHONG" />
                 <ScalarProperty Name="MALOAIPHONG" ColumnName="MALOAIPHONG" />

@@ -24,6 +24,7 @@ namespace MovieTheater1.Models
         public string MATINHTRANGPHONG { get; set; }
         public string MALOAIPHONG { get; set; }
         public Nullable<short> SOCHOCONTRONG { get; set; }
+        public string TENPHONG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GHE> GHEs { get; set; }

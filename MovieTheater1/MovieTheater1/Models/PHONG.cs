@@ -18,17 +18,20 @@ namespace MovieTheater1.Models
         public PHONG()
         {
             this.GHEs = new HashSet<GHE>();
+            this.THONGTINCHIEUx = new HashSet<THONGTINCHIEU>();
         }
     
-        public string MAPHONG { get; set; }
-        public string MATINHTRANGPHONG { get; set; }
-        public string MALOAIPHONG { get; set; }
-        public Nullable<short> SOCHOCONTRONG { get; set; }
-        public string TENPHONG { get; set; }
+        public string MaPhong { get; set; }
+        public string MARAP { get; set; }
+        public string MaLoaiPhong { get; set; }
+        public Nullable<int> SoCho { get; set; }
+        public string TenPhong { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GHE> GHEs { get; set; }
         public virtual LOAIPHONG LOAIPHONG { get; set; }
-        public virtual TINHTRANGPHONG TINHTRANGPHONG { get; set; }
+        public virtual RAPCHIEUPHIM RAPCHIEUPHIM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THONGTINCHIEU> THONGTINCHIEUx { get; set; }
     }
 }

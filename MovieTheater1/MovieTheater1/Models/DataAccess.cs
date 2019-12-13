@@ -1,34 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.Linq;
-using System.Web;
-using System.Web.Helpers;
-using System.Web.Mvc;
-using System.Web.SessionState;
 using System.Web.UI.WebControls;
-using Microsoft.Ajax.Utilities;
-using Newtonsoft.Json;
-using JsonResult = JShibo.JSON.JsonResult;
 
 namespace MovieTheater1.Models
 {
 	public class DataAccess
 	{
 
-		public static string PhimDangChon;
+		public static PhimDangChieu phimDangChieu = new PhimDangChieu();
 
-
-		public static DB_WEB_APPEntities1 getEntities()
+		public static QTKCinemaEntities1 getEntities()
 		{
-			return new DB_WEB_APPEntities1();
+			return new QTKCinemaEntities1();
 		}
 
-		
+		public static QTKCinemaEntities1 db = getEntities();
+
 		public static List<PHIM> GetPhimCarousel()
 		{
-			var db = getEntities();
+
 			var listPhimCarousel = db.PHIMs.Take(3);
 			return listPhimCarousel.ToList();
 		}
@@ -36,7 +29,7 @@ namespace MovieTheater1.Models
 		public static List<PHIM> GetPhimDangChieuShort(int number)
 		{
 
-			using (var db = getEntities())
+			 
 			{
 				var now = DateTime.Now;
 				var result2 = db.PHIMs.SqlQuery("SELECT top 6 * FROM PHIM Where CURRENT_TIMESTAMP <= THOIGIANKT and THOIGIANBD <CURRENT_TIMESTAMP  ORDER BY  CURRENT_TIMESTAMP - THOIGIANBD");
@@ -46,17 +39,17 @@ namespace MovieTheater1.Models
 
 		public static List<PHIM> GetPhimShort()
 		{
-			using (var db = getEntities())
+			 
 			{
 				var result2 = db.PHIMs.SqlQuery("SELECT top 3 * FROM PHIM Where CURRENT_TIMESTAMP <= THOIGIANKT ORDER BY  CURRENT_TIMESTAMP - THOIGIANBD");
-				
+
 				return result2.ToList();
 			}
 		}
 
 		public static List<PHIM> GetPhimDangChieuAll(int number)
 		{
-			using (var db = getEntities())
+			 
 			{
 				var now = DateTime.Now;
 				var result2 = db.PHIMs.SqlQuery("SELECT * FROM PHIM Where CURRENT_TIMESTAMP <= THOIGIANKT and THOIGIANBD <CURRENT_TIMESTAMP ");
@@ -67,18 +60,18 @@ namespace MovieTheater1.Models
 
 		public static List<PHIM> GetPhimSapChieuShort(int number)
 		{
-			using (var db = getEntities())
+			 
 			{
 				var now = DateTime.Now;
 				var result2 = db.PHIMs.SqlQuery("SELECT top 6 * FROM PHIM Where THOIGIANBD > CURRENT_TIMESTAMP ORDER BY  THOIGIANKT - CURRENT_TIMESTAMP");
-				
+
 				return result2.ToList();
 			}
 		}
 
 		public static List<PHIM> GetPhimSapChieuAll(int number)
 		{
-			using (var db = getEntities())
+			 
 			{
 				var now = DateTime.Now;
 				var result2 = db.PHIMs.SqlQuery("SELECT * FROM PHIM Where THOIGIANBD > CURRENT_TIMESTAMP ");
@@ -88,7 +81,7 @@ namespace MovieTheater1.Models
 
 		public static List<PHIM> Get3PhimMoiNhat()
 		{
-			using (var db = getEntities())
+			 
 			{
 				var now = DateTime.Now;
 				var result2 = db.PHIMs.SqlQuery("SELECT top 3 * FROM PHIM Where CURRENT_TIMESTAMP <= THOIGIANKT ");
@@ -98,7 +91,7 @@ namespace MovieTheater1.Models
 
 		public static List<PHIM> Get4PhimMoiNhat()
 		{
-			using (var db = getEntities())
+			 
 			{
 				var now = DateTime.Now;
 				var result2 = db.PHIMs.SqlQuery("SELECT top 4 * FROM PHIM Where CURRENT_TIMESTAMP <= THOIGIANKT ");
@@ -107,7 +100,7 @@ namespace MovieTheater1.Models
 		}
 		public static List<VOUCHER> GetKhuyenMai()
 		{
-			using (var db = getEntities())
+			 
 			{
 				var result = db.VOUCHERs;
 				return result.ToList();
@@ -116,7 +109,7 @@ namespace MovieTheater1.Models
 
 		public static List<THONGTINCHIEU> GetThongtinchieu()
 		{
-			using (var db=getEntities())
+			 
 			{
 				var result = db.THONGTINCHIEUx;
 				return result.ToList();
@@ -125,7 +118,7 @@ namespace MovieTheater1.Models
 
 		public static List<PHIM> GetPhims()
 		{
-			using (var db=getEntities())
+			 
 			{
 				var result = db.PHIMs.SqlQuery("select * from PHIM where MAPHIM in (select MAPHIM from THONGTINCHIEU)");
 				return result.ToList();
@@ -134,18 +127,18 @@ namespace MovieTheater1.Models
 
 		public static List<RAPCHIEUPHIM> GetRaps()
 		{
-		
-			using (var db = getEntities())
+
+			 
 			{
 				var result = db.RAPCHIEUPHIMs;
 				return result.ToList();
-				
+
 			}
 		}
 
 		public static string GetTenTheLoai(string maloai)
 		{
-			using (var db = getEntities())
+			 
 			{
 				var result = db.LOAIPHIMs.SqlQuery("select * from LOAIPHIM where MALOAIPHIM = @maloai ",
 					new SqlParameter("maloai", maloai));
@@ -155,7 +148,7 @@ namespace MovieTheater1.Models
 
 		public static PHIM GetPhimById(string maPhim)
 		{
-			using (var db=getEntities())
+			 
 			{
 				var result = db.PHIMs.Where(x => x.MAPHIM == maPhim).ToList();
 				return result.ElementAt(0);
@@ -165,7 +158,7 @@ namespace MovieTheater1.Models
 
 		public static string GetTenQuocGia(string maquocgia)
 		{
-			using (var db = getEntities())
+			 
 			{
 				var result = db.QUOCGIAs.Where(x => x.MAQUOCGIA == maquocgia).ToList();
 				return result.ElementAt(0).TENQUOCGIA;
@@ -173,20 +166,20 @@ namespace MovieTheater1.Models
 		}
 		public static List<PhimDangChieu> GetPhimDangChieusByMaPhim(string maPhim)
 		{
-			using (var db = getEntities())
+			 
 			{
 				var result1 =
 					db.PHIMs.SqlQuery(
-						"select * from PHIM, RAPCHIEUPHIM, THONGTINCHIEU where PHIM.MAPHIM = THONGTINCHIEU.MAPHIM and THONGTINCHIEU.MARAP= RAPCHIEUPHIM.MARAP and PHIM.MAPHIM=@MaPhim",new SqlParameter("MaPhim", maPhim)).ToList();
+						"select * from PHIM, RAPCHIEUPHIM, THONGTINCHIEU where PHIM.MAPHIM = THONGTINCHIEU.MAPHIM and THONGTINCHIEU.MARAP= RAPCHIEUPHIM.MARAP and PHIM.MAPHIM=@MaPhim", new SqlParameter("MaPhim", maPhim)).ToList();
 				var result2 = db.RAPCHIEUPHIMs.SqlQuery(
 					"select  * from PHIM, RAPCHIEUPHIM, THONGTINCHIEU where PHIM.MAPHIM = THONGTINCHIEU.MAPHIM and THONGTINCHIEU.MARAP= RAPCHIEUPHIM.MARAP and PHIM.MAPHIM=@MaPhim", new SqlParameter("MaPhim", maPhim)).ToList();
 				var result3 = db.THONGTINCHIEUx.SqlQuery(
 					"select * from PHIM, RAPCHIEUPHIM, THONGTINCHIEU where PHIM.MAPHIM = THONGTINCHIEU.MAPHIM and THONGTINCHIEU.MARAP= RAPCHIEUPHIM.MARAP and PHIM.MAPHIM=@MaPhim", new SqlParameter("MaPhim", maPhim)).ToList();
 				var result4 = db.THONGTINCHIEUx.SqlQuery(
 					"select * from PHIM, RAPCHIEUPHIM, THONGTINCHIEU where PHIM.MAPHIM = THONGTINCHIEU.MAPHIM and THONGTINCHIEU.MARAP= RAPCHIEUPHIM.MARAP and PHIM.MAPHIM=@MaPhim", new SqlParameter("MaPhim", maPhim)).ToList();
-				var result5= db.THONGTINCHIEUx.SqlQuery(
+				var result5 = db.THONGTINCHIEUx.SqlQuery(
 					"select * from PHIM, RAPCHIEUPHIM, THONGTINCHIEU where PHIM.MAPHIM = THONGTINCHIEU.MAPHIM and THONGTINCHIEU.MARAP= RAPCHIEUPHIM.MARAP and PHIM.MAPHIM=@MaPhim", new SqlParameter("MaPhim", maPhim)).ToList();
-				
+
 				List<PhimDangChieu> res = new List<PhimDangChieu>();
 				int i = 0;
 
@@ -209,7 +202,7 @@ namespace MovieTheater1.Models
 
 		public static List<RAPCHIEUPHIM> GetRapsByMaThongTinChieu(string maThongTinChieu)
 		{
-			using (var db = getEntities())
+			 
 			{
 				var result = db.RAPCHIEUPHIMs.Where(x => x.MARAP == maThongTinChieu).ToList();
 				return result;
@@ -218,7 +211,7 @@ namespace MovieTheater1.Models
 
 		public static List<RAPCHIEUPHIM> GetRapsByMaPhim(string maPhim)
 		{
-			using (var db = getEntities())
+			 
 			{
 				var result2 = db.RAPCHIEUPHIMs.SqlQuery(
 					"select  * from PHIM, RAPCHIEUPHIM, THONGTINCHIEU where PHIM.MAPHIM = THONGTINCHIEU.MAPHIM and THONGTINCHIEU.MARAP= RAPCHIEUPHIM.MARAP and PHIM.MAPHIM=@MaPhim", new SqlParameter("MaPhim", maPhim)).ToList();
@@ -228,16 +221,16 @@ namespace MovieTheater1.Models
 
 		public static List<THONGTINCHIEU> GetThongtinchieusByMaRapMaPhim(string maRap, string maPhim)
 		{
-			using (var db = getEntities())
+			 
 			{
-				var result = db.THONGTINCHIEUx.SqlQuery("select * from THONGTINCHIEU where THONGTINCHIEU.MAPHIM = @MaPhim and THONGTINCHIEU.MARAP = @MaRap", new SqlParameter("MaPhim", maPhim), new  SqlParameter("MaRap", maRap)).ToList();
+				var result = db.THONGTINCHIEUx.SqlQuery("select * from THONGTINCHIEU where THONGTINCHIEU.MAPHIM = @MaPhim and THONGTINCHIEU.MARAP = @MaRap", new SqlParameter("MaPhim", maPhim), new SqlParameter("MaRap", maRap)).ToList();
 				return result;
 			}
 		}
 
 		public static List<THONGTINCHIEU> GetSuatChieu(DateTime? ngayChieu, string maPhim, string maRap)
 		{
-			using (var db = getEntities())
+			 
 			{
 
 				var result = db.THONGTINCHIEUx.SqlQuery("select * from THONGTINCHIEU where THONGTINCHIEU.MAPHIM = @MaPhim and THONGTINCHIEU.MARAP = @MaRap and THONGTINCHIEU.NGAYCHIEU=@NgayChieu", new SqlParameter("MaPhim", maPhim), new SqlParameter("MaRap", maRap), new SqlParameter("NgayChieu", ngayChieu)).ToList();
@@ -247,7 +240,7 @@ namespace MovieTheater1.Models
 
 		public static string GetTenLoaiPhongByMaTTC(string maTTC)
 		{
-			using (var db = getEntities())
+			 
 			{
 				var result = db.LOAIPHONGs.SqlQuery(
 					"select * from THONGTINCHIEU, PHONG, LOAIPHONG where THONGTINCHIEU.MAPHONG  = PHONG.MAPHONG and PHONG.MALOAIPHONG = LOAIPHONG.MALOAIPHONG and THONGTINCHIEU.MATHONGTINCHIEU=@MaTTC",
@@ -261,7 +254,7 @@ namespace MovieTheater1.Models
 		{
 			if (maRap == null)
 			{
-				using (var db=getEntities())
+				 
 				{
 					var result = db.THONGTINCHIEUx.Where(x => x.MAPHIM == maPhim);
 					return result.ToList();
@@ -269,7 +262,7 @@ namespace MovieTheater1.Models
 			}
 			else
 			{
-				using (var db =getEntities())
+				 
 				{
 					var result = db.THONGTINCHIEUx.Where(x => x.MARAP == maRap && x.MAPHIM == maPhim);
 					return result.ToList();
@@ -279,27 +272,75 @@ namespace MovieTheater1.Models
 
 		public static RAPCHIEUPHIM GetRapById(string id)
 		{
-			using (var db=getEntities())
+			 
 			{
-				return db.RAPCHIEUPHIMs.Where(x=>x.MARAP==id).ToList().ElementAt(0);
+				return db.RAPCHIEUPHIMs.Where(x => x.MARAP == id).ToList().ElementAt(0);
 
 			}
 		}
 
 		public static PHIM GetPhimByTen(string name)
 		{
-			using (var db= getEntities())
+			 
 			{
 				return db.PHIMs.Where(x => x.TENPHIM == name).ToList().ElementAt(0);
 			}
 		}
 
-		public static PHONG GetPhongById(string id)
+		public static PHONG GetPhongByPrimaryKey(string maPhong, string maRap)
 		{
-			using (var db=getEntities())
+			 
 			{
-				return db.PHONGs.Where(x => x.MAPHONG == id).ToList().ElementAt(0);
+				return db.PHONGs.Where(x => x.MaPhong == maPhong && x.MARAP == maRap).ToList().ElementAt(0);
+
 			}
+		}
+
+
+		public static THONGTINCHIEU GetTTCByTenRapNgaySuat(string ten, string rap, string ngay, string suat)
+		{
+
+			try
+			{
+				 
+				{
+					return db.THONGTINCHIEUx
+						.Where(x => x.MARAP == rap &&
+						            x.THOIGIANCHIEU == suat && x.MAPHIM == ten
+						).ToList().ElementAt(0);
+				}
+			}
+			catch (DataException)
+			{
+				 
+				{
+					return db.THONGTINCHIEUx.ToList().ElementAt(0);
+				}
+			}
+
+
+		}
+
+		public static List<THONGTINCHIEU> GetTtcByRapNgay(string maRap, DateTime ? ngayChieu)
+		{
+			return db.THONGTINCHIEUx.Where(x => x.MARAP == maRap && x.NGAYCHIEU == ngayChieu).ToList();
+		}
+
+		public static THONGTINCHIEU GetThongtinchieuById(string id)
+		{
+			return db.THONGTINCHIEUx.Where(x => x.MATHONGTINCHIEU == id).ToList().ElementAt(0);
+		}
+
+		public static bool IsUsed(GHE ghe)
+		{
+			if (ghe.IsUsed == 1)
+				return true;
+			else return false;
+		}
+
+		public static List<THONGTINCHIEU> GetThongtinchieusByPhim(string maPhim)
+		{
+			return db.THONGTINCHIEUx.Where(x => x.MAPHIM == maPhim).ToList();
 		}
 	}
 }

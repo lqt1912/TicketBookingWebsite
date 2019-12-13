@@ -1,4 +1,5 @@
-﻿@using MovieTheater1.Models
+﻿@using System.Linq
+@using MovieTheater1.Models
 @model MovieTheater1.Models.PHIM
 
 @{
@@ -16,10 +17,10 @@
 				<div class="col-md-7 col-sm-7 col-12 pt-lg-5 ">
 					<div class="detail-header"> @Model.TENPHIM</div>
 					<div class="detail-header-small text-uppercase">@Model.TENTIENGANH</div>
-					<div class="detail-text pt-2"> Quốc gia: @DataAccess.GetTenQuocGia(@Model.MAQUOCGIA)</div>
+					<div class="detail-text pt-2"> Quốc gia: @Model.QUOCGIA.TENQUOCGIA</div>
 					<div class="detail-rating"> 7.9<i class="fas fa-star"></i>/10 </div>
 					<div class="detail-text"><i class="far fa-clock"></i> @Model.THOILUONG </div>
-					<div class="detail-text"> Thể loại: @DataAccess.GetTenTheLoai(Model.MALOAIPHIM)</div>
+					<div class="detail-text"> Thể loại: @Model.LOAIPHIM.TENLOAIPHIM</div>
 					<div class="detail-text"> Đạo diễn: @Model.DAODIEN</div>
 					<div class="detail-text">Diễn viên: @Model.DIENVIEN </div>
 					<div class="detail-text">Ngày ra rạp: @Model.THOIGIANBD.ToString().Substring(0, 9)</div>
@@ -39,38 +40,54 @@
 		<div class="col-md-6 col-sm-6 col-12">
 			<h3 class="pt-lg-5">  Lịch chiếu </h3>
 			@{
-				foreach (var item in DataAccess.GetRapsByMaPhim(Model.MAPHIM))
+				var lstRap = DataAccess.GetRaps();
+				foreach (var rap in lstRap)
 				{
-					<div class="row m-3 border">
-						<div class="col-12 cinema-header text-center"> @item.TENRAP</div>
-						@foreach (var ttc in DataAccess.GetThongtinchieusByMaRapMaPhim(@item.MARAP, Model.MAPHIM))
+					var lstTtc = DataAccess.db.THONGTINCHIEUx.Where(x => x.MARAP == rap.MARAP && x.MAPHIM == Model.MAPHIM).ToList();
+					if (lstTtc.Count > 0)
+					{
+						<div class="col-12 cinema-header text-center"> @rap.TENRAP</div>
+						List<DateTime> days = new List<DateTime>();
+						foreach (var ttc in lstTtc)
 						{
+							if (ttc.NGAYCHIEU != null && days.Contains((DateTime) ttc.NGAYCHIEU) == false)
+							{
+								days.Add((DateTime)ttc.NGAYCHIEU);
+							}
+						}
+						foreach (var day in days)
+						{
+
 							<div class="col-12 row border m-0">
 								<div class="col-4 p-0 border-right">
-									<div class="text-sub-info"> @ttc.NGAYCHIEU.ToString().Substring(0, 9) </div>
+									<div text-sub-info> @day.ToString().Substring(0,9)</div>
 								</div>
 								<div class="col-8 d-flex flex-wrap">
-									@foreach (var suatchieu in DataAccess.GetSuatChieu(@ttc.NGAYCHIEU, Model.MAPHIM, ttc.MARAP))
+									@foreach (var ttc in lstTtc)
 									{
-										PhimDangChieu pdc = new PhimDangChieu();
-										pdc.TenPhim = DataAccess.GetPhimById(suatchieu.MAPHIM).TENPHIM;
-										pdc.PhongChieu = suatchieu.MAPHONG;
-										pdc.TenRap = DataAccess.GetRapById(ttc.MARAP).TENRAP;
-										pdc.NgayChieu = suatchieu.NGAYCHIEU.ToString().Substring(0, 9);
-										pdc.GioChieu = suatchieu.THOIGIANCHIEU;
-										pdc.MaThongTinChieu = suatchieu.MATHONGTINCHIEU;
-										<a class="btn-suatchieu d-inline-flex" href="@Url.Action("Booking", "QKTCinema",new {tenPhim = pdc.TenPhim,tenRap=pdc.TenRap, ngayChieu=pdc.NgayChieu, gioChieu=pdc.GioChieu, phongChieu=pdc.PhongChieu, maThongTinChieu=pdc.MaThongTinChieu})" >
+										if (ttc.NGAYCHIEU == day)
+										{
+											PhimDangChieu pdc = new PhimDangChieu();
+											pdc.TenPhim =Model.TENPHIM;
+											pdc.PhongChieu = ttc.MAPHONG;
 
-											@DataAccess.GetTenLoaiPhongByMaTTC(@ttc.MATHONGTINCHIEU)
-											@suatchieu.THOIGIANCHIEU
+											pdc.TenRap = ttc.PHONG.RAPCHIEUPHIM.TENRAP;
+											pdc.NgayChieu = ttc.NGAYCHIEU.ToString().Substring(0, 9);
+											pdc.GioChieu = ttc.THOIGIANCHIEU;
+											pdc.MaThongTinChieu = ttc.MATHONGTINCHIEU;
 
-										</a>
+											<a class="btn-suatchieu d-inline-flex" href="@Url.Action("Booking", "QKTCinema",new {tenPhim = pdc.TenPhim,tenRap=pdc.TenRap, ngayChieu=pdc.NgayChieu, gioChieu=pdc.GioChieu, phongChieu=pdc.PhongChieu, maThongTinChieu=pdc.MaThongTinChieu})"> <p style="font-size: 10px; font-weight: bold;">@ttc.PHONG.LOAIPHONG.TENLOAIPHONG</p> @ttc.THOIGIANCHIEU </a>
+										}
 									}
 								</div>
 							</div>
+							
+			
 						}
-					</div>
+					}
 				}
+
+				
 			}
 		</div>
 	</div>

@@ -11,12 +11,14 @@
   </EntityType>
   <EntityType Name="GHE">
     <Key>
-      <PropertyRef Name="MAGHE" />
+      <PropertyRef Name="MaPhong" />
+      <PropertyRef Name="MaRap" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="MAGHE" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="MATINHTRANGGHE" Type="varchar" MaxLength="20" />
-    <Property Name="MAPHONG" Type="varchar" MaxLength="20" />
-    <Property Name="MALOAIGHE" Type="varchar" MaxLength="20" />
+    <Property Name="MaPhong" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaRap" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Id" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IsUsed" Type="int" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
@@ -95,13 +97,14 @@
   </EntityType>
   <EntityType Name="PHONG">
     <Key>
-      <PropertyRef Name="MAPHONG" />
+      <PropertyRef Name="MaPhong" />
+      <PropertyRef Name="MARAP" />
     </Key>
-    <Property Name="MAPHONG" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="MATINHTRANGPHONG" Type="varchar" MaxLength="20" />
-    <Property Name="MALOAIPHONG" Type="varchar" MaxLength="20" />
-    <Property Name="SOCHOCONTRONG" Type="smallint" />
-    <Property Name="TENPHONG" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaPhong" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MARAP" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaLoaiPhong" Type="varchar" MaxLength="20" />
+    <Property Name="SoCho" Type="int" />
+    <Property Name="TenPhong" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="QUOCGIA">
     <Key>
@@ -117,6 +120,16 @@
     <Property Name="MARAP" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="TENRAP" Type="nvarchar" MaxLength="50" />
     <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="THANHVIEN">
     <Key>
@@ -137,23 +150,9 @@
     <Property Name="MATHONGTINCHIEU" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="MAPHIM" Type="varchar" MaxLength="20" />
     <Property Name="THOIGIANCHIEU" Type="nvarchar" MaxLength="200" />
-    <Property Name="MAPHONG" Type="varchar" MaxLength="20" />
     <Property Name="NGAYCHIEU" Type="smalldatetime" />
+    <Property Name="MAPHONG" Type="varchar" MaxLength="20" />
     <Property Name="MARAP" Type="varchar" MaxLength="10" />
-  </EntityType>
-  <EntityType Name="TINHTRANGGHE">
-    <Key>
-      <PropertyRef Name="MATINHTRANGGHE" />
-    </Key>
-    <Property Name="MATINHTRANGGHE" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="TENTINHTRANGGHE" Type="nvarchar" MaxLength="40" />
-  </EntityType>
-  <EntityType Name="TINHTRANGPHONG">
-    <Key>
-      <PropertyRef Name="MATINHTRANGPHONG" />
-    </Key>
-    <Property Name="MATINHTRANGPHONG" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="TENTINHTRANGPHONG" Type="nvarchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="TINHTRANGVE">
     <Key>
@@ -189,27 +188,67 @@
     <Property Name="GHICHU" Type="ntext" />
     <Property Name="ANHDAIDIEN" Type="varchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK__THONGTINC__MARAP__778AC167">
-    <End Role="RAPCHIEUPHIM" Type="Self.RAPCHIEUPHIM" Multiplicity="0..1" />
-    <End Role="THONGTINCHIEU" Type="Self.THONGTINCHIEU" Multiplicity="*" />
+  <Association Name="FK_01">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
+    <End Role="GHE" Type="Self.GHE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MaPhong" />
+        <PropertyRef Name="MARAP" />
+      </Principal>
+      <Dependent Role="GHE">
+        <PropertyRef Name="MaPhong" />
+        <PropertyRef Name="MaRap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHONG_LOAIPHONG">
+    <End Role="LOAIPHONG" Type="Self.LOAIPHONG" Multiplicity="0..1" />
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIPHONG">
+        <PropertyRef Name="MALOAIPHONG" />
+      </Principal>
+      <Dependent Role="PHONG">
+        <PropertyRef Name="MaLoaiPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHONG_RAPCHIEUPHIM">
+    <End Role="RAPCHIEUPHIM" Type="Self.RAPCHIEUPHIM" Multiplicity="1" />
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RAPCHIEUPHIM">
         <PropertyRef Name="MARAP" />
       </Principal>
-      <Dependent Role="THONGTINCHIEU">
+      <Dependent Role="PHONG">
         <PropertyRef Name="MARAP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk01_GHE">
-    <End Role="TINHTRANGGHE" Type="Self.TINHTRANGGHE" Multiplicity="0..1" />
-    <End Role="GHE" Type="Self.GHE" Multiplicity="*" />
+  <Association Name="FK_THONGTINCHIEU_PHIM">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="THONGTINCHIEU" Type="Self.THONGTINCHIEU" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="TINHTRANGGHE">
-        <PropertyRef Name="MATINHTRANGGHE" />
+      <Principal Role="PHIM">
+        <PropertyRef Name="MAPHIM" />
       </Principal>
-      <Dependent Role="GHE">
-        <PropertyRef Name="MATINHTRANGGHE" />
+      <Dependent Role="THONGTINCHIEU">
+        <PropertyRef Name="MAPHIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONGTINCHIEU_PHONG">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
+    <End Role="THONGTINCHIEU" Type="Self.THONGTINCHIEU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MaPhong" />
+        <PropertyRef Name="MARAP" />
+      </Principal>
+      <Dependent Role="THONGTINCHIEU">
+        <PropertyRef Name="MAPHONG" />
+        <PropertyRef Name="MARAP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -249,18 +288,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk01_PHONG">
-    <End Role="TINHTRANGPHONG" Type="Self.TINHTRANGPHONG" Multiplicity="0..1" />
-    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TINHTRANGPHONG">
-        <PropertyRef Name="MATINHTRANGPHONG" />
-      </Principal>
-      <Dependent Role="PHONG">
-        <PropertyRef Name="MATINHTRANGPHONG" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk01_TV">
     <End Role="LOAITHANHVIEN" Type="Self.LOAITHANHVIEN" Multiplicity="0..1" />
     <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="*" />
@@ -285,18 +312,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk02_GHE">
-    <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
-    <End Role="GHE" Type="Self.GHE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PHONG">
-        <PropertyRef Name="MAPHONG" />
-      </Principal>
-      <Dependent Role="GHE">
-        <PropertyRef Name="MAPHONG" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk02_PHIM">
     <End Role="LOAIPHIM" Type="Self.LOAIPHIM" Multiplicity="0..1" />
     <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
@@ -306,18 +321,6 @@
       </Principal>
       <Dependent Role="PHIM">
         <PropertyRef Name="MALOAIPHIM" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk02_PHONG">
-    <End Role="LOAIPHONG" Type="Self.LOAIPHONG" Multiplicity="0..1" />
-    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LOAIPHONG">
-        <PropertyRef Name="MALOAIPHONG" />
-      </Principal>
-      <Dependent Role="PHONG">
-        <PropertyRef Name="MALOAIPHONG" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -342,18 +345,6 @@
       </Principal>
       <Dependent Role="VE">
         <PropertyRef Name="MATHONGTINCHIEU" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk03_GHE">
-    <End Role="LOAIGHE" Type="Self.LOAIGHE" Multiplicity="0..1" />
-    <End Role="GHE" Type="Self.GHE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LOAIGHE">
-        <PropertyRef Name="MALOAIGHE" />
-      </Principal>
-      <Dependent Role="GHE">
-        <PropertyRef Name="MALOAIGHE" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -407,20 +398,31 @@
     <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QUOCGIA" EntityType="Self.QUOCGIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RAPCHIEUPHIM" EntityType="Self.RAPCHIEUPHIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THANHVIEN" EntityType="Self.THANHVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THONGTINCHIEU" EntityType="Self.THONGTINCHIEU" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TINHTRANGGHE" EntityType="Self.TINHTRANGGHE" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TINHTRANGPHONG" EntityType="Self.TINHTRANGPHONG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TINHTRANGVE" EntityType="Self.TINHTRANGVE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VE" EntityType="Self.VE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VOUCHER" EntityType="Self.VOUCHER" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__THONGTINC__MARAP__778AC167" Association="Self.FK__THONGTINC__MARAP__778AC167">
+    <AssociationSet Name="FK_01" Association="Self.FK_01">
+      <End Role="PHONG" EntitySet="PHONG" />
+      <End Role="GHE" EntitySet="GHE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHONG_LOAIPHONG" Association="Self.FK_PHONG_LOAIPHONG">
+      <End Role="LOAIPHONG" EntitySet="LOAIPHONG" />
+      <End Role="PHONG" EntitySet="PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHONG_RAPCHIEUPHIM" Association="Self.FK_PHONG_RAPCHIEUPHIM">
       <End Role="RAPCHIEUPHIM" EntitySet="RAPCHIEUPHIM" />
+      <End Role="PHONG" EntitySet="PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGTINCHIEU_PHIM" Association="Self.FK_THONGTINCHIEU_PHIM">
+      <End Role="PHIM" EntitySet="PHIM" />
       <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEU" />
     </AssociationSet>
-    <AssociationSet Name="fk01_GHE" Association="Self.fk01_GHE">
-      <End Role="TINHTRANGGHE" EntitySet="TINHTRANGGHE" />
-      <End Role="GHE" EntitySet="GHE" />
+    <AssociationSet Name="FK_THONGTINCHIEU_PHONG" Association="Self.FK_THONGTINCHIEU_PHONG">
+      <End Role="PHONG" EntitySet="PHONG" />
+      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEU" />
     </AssociationSet>
     <AssociationSet Name="fk01_HD" Association="Self.fk01_HD">
       <End Role="VE" EntitySet="VE" />
@@ -434,10 +436,6 @@
       <End Role="QUOCGIA" EntitySet="QUOCGIA" />
       <End Role="PHIM" EntitySet="PHIM" />
     </AssociationSet>
-    <AssociationSet Name="fk01_PHONG" Association="Self.fk01_PHONG">
-      <End Role="TINHTRANGPHONG" EntitySet="TINHTRANGPHONG" />
-      <End Role="PHONG" EntitySet="PHONG" />
-    </AssociationSet>
     <AssociationSet Name="fk01_TV" Association="Self.fk01_TV">
       <End Role="LOAITHANHVIEN" EntitySet="LOAITHANHVIEN" />
       <End Role="THANHVIEN" EntitySet="THANHVIEN" />
@@ -446,17 +444,9 @@
       <End Role="NHANVIEN" EntitySet="NHANVIEN" />
       <End Role="VE" EntitySet="VE" />
     </AssociationSet>
-    <AssociationSet Name="fk02_GHE" Association="Self.fk02_GHE">
-      <End Role="PHONG" EntitySet="PHONG" />
-      <End Role="GHE" EntitySet="GHE" />
-    </AssociationSet>
     <AssociationSet Name="fk02_PHIM" Association="Self.fk02_PHIM">
       <End Role="LOAIPHIM" EntitySet="LOAIPHIM" />
       <End Role="PHIM" EntitySet="PHIM" />
-    </AssociationSet>
-    <AssociationSet Name="fk02_PHONG" Association="Self.fk02_PHONG">
-      <End Role="LOAIPHONG" EntitySet="LOAIPHONG" />
-      <End Role="PHONG" EntitySet="PHONG" />
     </AssociationSet>
     <AssociationSet Name="fk02_TV" Association="Self.fk02_TV">
       <End Role="QUOCGIA" EntitySet="QUOCGIA" />
@@ -465,10 +455,6 @@
     <AssociationSet Name="fk02_VE" Association="Self.fk02_VE">
       <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEU" />
       <End Role="VE" EntitySet="VE" />
-    </AssociationSet>
-    <AssociationSet Name="fk03_GHE" Association="Self.fk03_GHE">
-      <End Role="LOAIGHE" EntitySet="LOAIGHE" />
-      <End Role="GHE" EntitySet="GHE" />
     </AssociationSet>
     <AssociationSet Name="fk03_PHIM" Association="Self.fk03_PHIM">
       <End Role="BINHLUAN" EntitySet="BINHLUAN" />

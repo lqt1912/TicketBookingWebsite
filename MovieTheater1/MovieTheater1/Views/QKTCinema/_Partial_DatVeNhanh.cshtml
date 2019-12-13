@@ -10,102 +10,75 @@
 </script>
 <script src="~/Content/selectFilter.min.js"></script>
 
+
 <table cellpadding="10" style="width: 100%">
 
-	
+
 	<tr>
-		<td colspan="2" align="center" >
+		<td colspan="2" align="center">
 
 
-			<select data-target="secondList" class="firstList selectFilter form-control">
-
-				<option value="-1">Chọn phim</option>
+			<select id="tenPhim" data-target="secondList" class="firstList selectFilter form-control" onchange="SelectItem()">
+				<option value="-1">- Chọn phim -</option>
 
 				@foreach (var phim in DataAccess.GetPhims())
 				{
-					<option data-ref="@phim.MAPHIM"> @phim.TENPHIM </option>
+					<option data-ref="@phim.MAPHIM" value="@phim.MAPHIM"> @phim.TENPHIM </option>
 				}
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<select data-target="thirdList" class="secondList selectFilter form-control">
-				<option value="-1">Chọn rạp</option>
-				@foreach (var thongtinchieu in Model)
-				{
-					foreach (var rap in DataAccess.GetRaps())
-					{
-						if (thongtinchieu.MARAP == rap.MARAP)
-						{
-							foreach (var phim in DataAccess.GetPhims())
-							{
-								if (thongtinchieu.MAPHIM == phim.MAPHIM)
-								{
-									<option data-ref="@rap.MARAP + @phim.MAPHIM" data-belong="@thongtinchieu.MAPHIM">@rap.TENRAP</option>
-								}
-							}
-						}
+			<select id="tenRap" data-target="thirdList" class="secondList selectFilter form-control" onchange="SelectItem()">
+				<option value="-1">- Chọn rạp -</option>
 
+				@{
+					List<string> usedValues = new List<string>();
+					foreach (var thongtinchieu in Model)
+					{
+						if (!usedValues.Contains(thongtinchieu.MARAP + thongtinchieu.MAPHIM))
+						{
+							<option data-ref="@thongtinchieu.MAPHIM @thongtinchieu.MARAP" data-belong="@thongtinchieu.MAPHIM" value="@thongtinchieu.PHONG.RAPCHIEUPHIM.MARAP">@thongtinchieu.PHONG.RAPCHIEUPHIM.TENRAP </option>
+							usedValues.Add(thongtinchieu.MARAP + thongtinchieu.MAPHIM);
+						}
 					}
+
 				}
 			</select>
 
 		</td>
 	</tr>
-
-
 	<tr>
 
 		<td colspan="2">
-			<select data-target="" class="thirdList selectFilter form-control">
-				<option value="-1">Chọn ngày</option>
+			<select id="ngayChieu" data-target="forthList" class="thirdList selectFilter form-control" onchange="SelectItem()">
 
-
-				@foreach (var thongtinchieu in Model)
-				{
-					foreach (var rap in DataAccess.GetRaps())
-
+				<option value="-1"> - Chọn ngày -</option>
+				@{
+					List<string> days = new List<string>();
+					foreach (var thongtinchieu in Model)
 					{
-						if (rap.MARAP == thongtinchieu.MARAP)
+						if (!days.Contains(thongtinchieu.NGAYCHIEU + thongtinchieu.MAPHIM + thongtinchieu.MARAP))
 						{
-							foreach (var phim in DataAccess.GetPhims())
-							{
-								if (thongtinchieu.MAPHIM == phim.MAPHIM)
-								{
-									<option data-ref="@thongtinchieu.MARAP" data-belong="@rap.MARAP + @phim.MAPHIM">@thongtinchieu.NGAYCHIEU</option>
-								}
-
-							}
+							<option data-ref="@thongtinchieu.MAPHIM @thongtinchieu.MARAP @thongtinchieu.NGAYCHIEU" data-belong="@thongtinchieu.MAPHIM @thongtinchieu.MARAP" value="@thongtinchieu.NGAYCHIEU">@thongtinchieu.NGAYCHIEU.ToString().Substring(0, 9)</option>
+							days.Add(thongtinchieu.NGAYCHIEU + thongtinchieu.MAPHIM + thongtinchieu.MARAP);
 						}
-
 					}
+
 				}
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<select data-target="" class="thirdList selectFilter form-control">
-				<option value="-1">Chọn ngày</option>
-
-
-				@foreach (var thongtinchieu in Model)
-				{
-					foreach (var rap in DataAccess.GetRaps())
-
+			<select id="suatChieu" data-target="" class="forthList selectFilter form-control" onchange="SelectItem()">
+				<option value="-1">- Chọn suất chiếu -</option>
+				@{
+					foreach (var thongtinchieu in Model)
 					{
-						if (rap.MARAP == thongtinchieu.MARAP)
-						{
-							foreach (var phim in DataAccess.GetPhims())
-							{
-								if (thongtinchieu.MAPHIM == phim.MAPHIM)
-								{
-									<option data-ref="@thongtinchieu.MARAP" data-belong="@rap.MARAP + @phim.MAPHIM">@thongtinchieu.THOIGIANCHIEU</option>
-								}
 
-							}
-						}
+						<option data-ref="@thongtinchieu.MAPHIM @thongtinchieu.MARAP" data-belong="@thongtinchieu.MAPHIM @thongtinchieu.MARAP @thongtinchieu.NGAYCHIEU" value="@thongtinchieu.THOIGIANCHIEU">@thongtinchieu.THOIGIANCHIEU</option>
 
 					}
 				}
@@ -116,11 +89,42 @@
 		<td style="">
 		</td>
 		<td align="right">
-			<button class="btn" style="background-color: rgb(242, 107, 56); border-radius: 0px;">
-				MUA VÉ
-			</button>
+
+
+			@using (Html.BeginForm("Update_DatVeNhanh", "QKTCinema"))
+			{
+
+				<input id="txtTenPhim" name="tenPhim" type="hidden" />
+				<input id="txtTenRap" name="tenRap" type="hidden" />
+				<input id="txtNgayChieu" name="ngayChieu" type="hidden" />
+				<input id="txtSuatChieu" name="suatChieu" type="hidden" />
+
+				<button class="btn " style="background: #b0e0e6" type="submit">MUA VÉ</button>
+			}
+
+
 		</td>
 	</tr>
 </table>
 
+
+
+
+<script>
+	function SelectItem() {
+
+		document.getElementById("txtTenPhim").value = document.getElementById("tenPhim").value;
+		document.getElementById("txtTenRap").value = document.getElementById("tenRap").value;
+		document.getElementById("txtNgayChieu").value = document.getElementById("ngayChieu").value;
+		document.getElementById("txtSuatChieu").value = document.getElementById("suatChieu").value;
+@{
+	usedValues.Clear();
+	days.Clear();
+	ttcs.Clear();
+}
+	}
+
+
+
+</script>
 

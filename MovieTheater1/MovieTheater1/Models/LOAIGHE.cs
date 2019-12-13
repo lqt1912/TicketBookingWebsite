@@ -14,16 +14,7 @@ namespace MovieTheater1.Models
     
     public partial class LOAIGHE
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LOAIGHE()
-        {
-            this.GHEs = new HashSet<GHE>();
-        }
-    
         public string MALOAIGHE { get; set; }
         public string TENLOAIGHE { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GHE> GHEs { get; set; }
     }
 }

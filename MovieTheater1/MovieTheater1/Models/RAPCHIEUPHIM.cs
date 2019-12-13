@@ -17,7 +17,7 @@ namespace MovieTheater1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RAPCHIEUPHIM()
         {
-            this.THONGTINCHIEUx = new HashSet<THONGTINCHIEU>();
+            this.PHONGs = new HashSet<PHONG>();
         }
     
         public string MARAP { get; set; }
@@ -25,6 +25,6 @@ namespace MovieTheater1.Models
         public string DIACHI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THONGTINCHIEU> THONGTINCHIEUx { get; set; }
+        public virtual ICollection<PHONG> PHONGs { get; set; }
     }
 }

@@ -24,7 +24,7 @@
 			</tr>
 			<tr>
 				<td> Ngày </td>
-				<td> @Model.NgayChieu</td>
+				<td> @Model.NgayChieu.Substring(0,9)</td>
 			</tr>
 			<tr>
 				<td> Suất chiếu</td>
@@ -32,7 +32,7 @@
 			</tr>
 			<tr>
 				<td> Phòng </td>
-				<td> @DataAccess.GetPhongById(Model.PhongChieu).TENPHONG @DataAccess.GetTenLoaiPhongByMaTTC(@Model.MaThongTinChieu)</td>
+				<td>  @DataAccess.GetThongtinchieuById(Model.MaThongTinChieu).PHONG.TenPhong @DataAccess.GetThongtinchieuById(Model.MaThongTinChieu).PHONG.LOAIPHONG.TENLOAIPHONG</td>
 			</tr>
 			<tr>
 				<td> Ghế đã chọn </td>
@@ -43,18 +43,39 @@
 		</table>
 	</div>
 
-	<div class=" col-md-9 col-12" >
+	<div class=" col-md-9 col-12">
 
 		<h3> Chọn ghế </h3>
-		@for (int i = 65; i < 65 + 10; i++)
+
+		@if (DataAccess.GetThongtinchieuById(Model.MaThongTinChieu).PHONG.LOAIPHONG.TENLOAIPHONG == "2D")
 		{
-			for (int j = 0; j < 10; j++)
+			for (int i = 65; i < 65 + 10; i++)
 			{
-				<button class="btn-ghe"  value="@Convert.ToChar(i)@j.ToString()"> @Convert.ToChar(i) @j.ToString()</button>
+				for (int j = 1; j < 11; j++)
+				{
+
+					<button class="btn-ghe" style="background: aqua" value="@Convert.ToChar(i)@j.ToString()">@Convert.ToChar(i)@j.ToString()</button>
+				
+
+				}
+				<br />
 			}
-			<br />
 		}
-		
+		else
+		{
+			for (int i = 65; i < 65 + 12; i++)
+			{
+				for (int j = 1; j < 15; j++)
+				{
+
+						<button class="btn-ghe" style="background: aqua" value="@Convert.ToChar(i)@j.ToString()">@Convert.ToChar(i)@j.ToString()</button>
+				}
+				<br />
+			}
+		}
+
+
+
 	</div>
 </div>
 

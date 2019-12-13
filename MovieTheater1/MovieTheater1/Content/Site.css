@@ -488,11 +488,15 @@ p a:hover{
 	border-radius: 0px;
 	font-size: 14px;
 }
+	.btn-thoi-gian-chieu1:hover {
+		text-decoration: none;
+	}
 
- .form-control{
-	 border-radius: 0px;
-	 width: 100%;
- }
+
+	.form-control {
+		border-radius: 0px;
+		width: 100%;
+	}
 
 
 .ho-tro-box {
@@ -588,7 +592,11 @@ p a:hover{
 
 .btn-suatchieu {
 	color: black;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 0px;
 	margin: 10px;
+
 	border: 1px solid black;
 	background: white;
 	border-radius: 0px;
@@ -598,6 +606,7 @@ p a:hover{
 .btn-suatchieu:hover {
 	color: #f26b38;
 	border:1px solid  #f26b38;
+	text-decoration: none;
 	
 }
 .text-sub-info {

@@ -14,13 +14,11 @@ namespace MovieTheater1.Models
     
     public partial class GHE
     {
-        public string MAGHE { get; set; }
-        public string MATINHTRANGGHE { get; set; }
-        public string MAPHONG { get; set; }
-        public string MALOAIGHE { get; set; }
+        public string MaPhong { get; set; }
+        public string MaRap { get; set; }
+        public string Id { get; set; }
+        public Nullable<int> IsUsed { get; set; }
     
-        public virtual TINHTRANGGHE TINHTRANGGHE { get; set; }
         public virtual PHONG PHONG { get; set; }
-        public virtual LOAIGHE LOAIGHE { get; set; }
     }
 }

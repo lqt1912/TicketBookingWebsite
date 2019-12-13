@@ -14,6 +14,12 @@ namespace MovieTheater1.Models
     
     public partial class PHIM
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PHIM()
+        {
+            this.THONGTINCHIEUx = new HashSet<THONGTINCHIEU>();
+        }
+    
         public string MAPHIM { get; set; }
         public string TENPHIM { get; set; }
         public string MAQUOCGIA { get; set; }
@@ -22,7 +28,6 @@ namespace MovieTheater1.Models
         public Nullable<System.DateTime> THOIGIANKT { get; set; }
         public string THOILUONG { get; set; }
         public Nullable<short> SOLUONGSUAT { get; set; }
-        public string MOTA { get; set; }
         public string GHICHU { get; set; }
         public string MABINHLUAN { get; set; }
         public string ANHDAIDIEN { get; set; }
@@ -30,9 +35,12 @@ namespace MovieTheater1.Models
         public Nullable<int> DANHGIA { get; set; }
         public string DAODIEN { get; set; }
         public string DIENVIEN { get; set; }
+        public string MOTA { get; set; }
     
         public virtual BINHLUAN BINHLUAN { get; set; }
         public virtual LOAIPHIM LOAIPHIM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THONGTINCHIEU> THONGTINCHIEUx { get; set; }
         public virtual QUOCGIA QUOCGIA { get; set; }
     }
 }

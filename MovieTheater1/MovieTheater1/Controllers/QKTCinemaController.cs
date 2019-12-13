@@ -1,4 +1,5 @@
-﻿using MovieTheater1.Models;
+﻿using System;
+using MovieTheater1.Models;
 using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -9,7 +10,7 @@ namespace MovieTheater1.Controllers
 	{
 
 
-		DB_WEB_APPEntities1 dbWebApp = new DB_WEB_APPEntities1();
+
 
 		// GET: QKTCinema
 
@@ -79,6 +80,8 @@ namespace MovieTheater1.Controllers
 			return View();
 		}
 
+
+
 		public ActionResult HoTro()
 		{
 			return View();
@@ -88,10 +91,6 @@ namespace MovieTheater1.Controllers
 		{
 			return View();
 		}
-
-
-
-
 
 		public ActionResult _PartialKhuyenMai()
 		{
@@ -108,7 +107,7 @@ namespace MovieTheater1.Controllers
 			return PartialView(DataAccess.Get4PhimMoiNhat());
 		}
 
-		public ActionResult _Partial_DatVeNhanh()
+		public ActionResult _Partial_DatVeNhanh(FormCollection f)
 		{
 
 			
@@ -143,5 +142,34 @@ namespace MovieTheater1.Controllers
 			phimDangChieu.MaThongTinChieu = maThongTinChieu;
 			return View(phimDangChieu);
 		}
+
+		public ActionResult Update_DatVeNhanh(FormCollection f)
+		{
+
+	
+
+			var val = DataAccess.GetTTCByTenRapNgaySuat(f["tenPhim"].ToString(), f["tenRap"].ToString(), f["ngayChieu"].ToString(), f["suatChieu"].ToString());
+			
+			return RedirectToAction("Booking", "QKTCinema", new{
+				tenPhim = DataAccess.GetPhimById(val.MAPHIM).TENPHIM,
+				tenRap = DataAccess.GetRapById(val.MARAP).TENRAP,
+				ngayChieu = val.NGAYCHIEU.ToString(),
+				gioChieu = val.THOIGIANCHIEU,
+				phongChieu = val.MAPHONG,
+				maThongTinChieu = val.MATHONGTINCHIEU
+			}
+			);
+		}
+
+		public ActionResult Btn_Filter_Clicked(FormCollection f)
+		{
+			return RedirectToAction("PhimTheoRap", "QKTCinema", new {maRap = f["tenRap"], ngayChieu = f["ngayChieu"]});
+		}
+
+		public ActionResult PhimTheoRap(string maRap, DateTime? ngayChieu)
+		{
+			return View(DataAccess.GetTtcByRapNgay(maRap, ngayChieu));
+		}
 	}
 }
+

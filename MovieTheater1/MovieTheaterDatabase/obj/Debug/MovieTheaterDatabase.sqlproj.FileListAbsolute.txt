@@ -1,6 +1,9 @@
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDatabase\bin\Debug\MovieTheaterDatabase.dacpac
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDatabase\bin\Debug\MovieTheaterDatabase.dll
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDatabase\bin\Debug\MovieTheaterDatabase.pdb
-C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDatabase\obj\Debug\MovieTheaterDatabase.sqlprojAssemblyReference.cache
+C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDatabase\obj\Debug\Model.xml
+C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDatabase\obj\Debug\refactor.xml
+C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDatabase\obj\Debug\postdeploy.sql
+C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDatabase\obj\Debug\predeploy.sql
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDatabase\obj\Debug\MovieTheaterDatabase.dll
 C:\Users\thang\OneDrive\Documents\GitHub\TicketBookingWebsite\MovieTheater1\MovieTheaterDatabase\obj\Debug\MovieTheaterDatabase.pdb

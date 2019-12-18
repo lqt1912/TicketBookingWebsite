@@ -24,7 +24,7 @@
 			</tr>
 			<tr>
 				<td> Ngày </td>
-				<td> @Model.NgayChieu.Substring(0,9)</td>
+				<td> @Model.NgayChieu.Substring(0, 9)</td>
 			</tr>
 			<tr>
 				<td> Suất chiếu</td>
@@ -37,25 +37,36 @@
 			<tr>
 				<td> Ghế đã chọn </td>
 				<td id="amount">
-					
 				</td>
 			</tr>
 		</table>
 	</div>
 
-	<div class=" col-md-9 col-12">
+	<div class=" col-md-6 col-12">
 
 		<h3> Chọn ghế </h3>
 
 		@if (DataAccess.GetThongtinchieuById(Model.MaThongTinChieu).PHONG.LOAIPHONG.TENLOAIPHONG == "2D")
 		{
-			for (int i = 65; i < 65 + 10; i++)
+			for (int i = 65; i < 65 + 9; i++)
 			{
 				for (int j = 1; j < 11; j++)
 				{
 
-					<button class="btn-ghe" style="background: aqua" value="@Convert.ToChar(i)@j.ToString()">@Convert.ToChar(i)@j.ToString()</button>
-				
+
+					string tempId = Convert.ToChar(i).ToString() + j.ToString();
+					GHE ghe = new GHE();
+					ghe = DataAccess.GetGheByKey(DataAccess.GetThongtinchieuById(Model.MaThongTinChieu).MAPHONG, DataAccess.GetThongtinchieuById(Model.MaThongTinChieu).MARAP, tempId);
+					if (ghe.IsUsed == 1)
+					{
+						<button class="btn-ghe" disabled style="background: rgb(125, 199, 29)" value="@Convert.ToChar(i)@j.ToString()"> @Convert.ToChar(i)@j.ToString()</button>
+
+					}
+					else
+					{
+						<button class="btn-ghe" value="@Convert.ToChar(i)@j.ToString()">@Convert.ToChar(i)@j.ToString()</button>
+
+					}
 
 				}
 				<br />
@@ -65,17 +76,28 @@
 		{
 			for (int i = 65; i < 65 + 12; i++)
 			{
-				for (int j = 1; j < 15; j++)
+				for (int j = 1; j < 14; j++)
 				{
 
-						<button class="btn-ghe" style="background: aqua" value="@Convert.ToChar(i)@j.ToString()">@Convert.ToChar(i)@j.ToString()</button>
+					<button class="btn-ghe" style="background: aqua" value="@Convert.ToChar(i)@j.ToString()">@Convert.ToChar(i)@j.ToString()</button>
 				}
 				<br />
 			}
 		}
-
-
-
+		<div class="col-12 ">
+			@using (Html.BeginForm("Confirm", "QKTCinema"))
+			{
+			<input id="txtGhe" name="Ghe" type="hidden"/>
+			<input id="txtTongTien" name ="ThanhTien" />
+			
+			<button class="btn " style="background: #b0e0e6" type="submit">MUA VÉ</button>
+			}
+		</div>
+	</div>
+	<div class="col-md-3 col-12 row pt-lg-5 ">
+		<div class="col-12"> <button disabled class="btn-ghe"></button> Ghế trống</div>
+		<div class="col-12">  <button disabled class="btn-ghe active-btn1"></button> Ghế đang chọn </div>
+		<div class="col-12">  <button disabled class="btn-ghe " style="background: rgb(125, 199, 29)"></button> Ghế đã được mua </div>
 	</div>
 </div>
 
@@ -83,19 +105,25 @@
 	$(document).ready(function () {
 		$('.btn-ghe').click(function () {
 			$(this).toggleClass('active-btn');
-			
+
 			var x = document.querySelectorAll('.active-btn');
 			var text1 = "";
 			for (var i = 0; i < x.length; i++) {
 				text1 = text1 + x[i].value + " ";
 			}
 			document.getElementById("amount").innerHTML = text1;
-
+			var thanhTien = x.length * 45000;
+			document.getElementById("txtGhe").value = text1;
+			document.getElementById("txtTongTien").value = thanhTien.toString();
 		});
 
-	});	
+		
+	
+
+	});
 
 	
+
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>

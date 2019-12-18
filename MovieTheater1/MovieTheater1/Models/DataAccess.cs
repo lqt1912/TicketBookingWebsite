@@ -12,12 +12,12 @@ namespace MovieTheater1.Models
 
 		public static PhimDangChieu phimDangChieu = new PhimDangChieu();
 
-		public static QTKCinemaEntities1 getEntities()
+		public static QTKCinemaEntities2 getEntities()
 		{
-			return new QTKCinemaEntities1();
+			return new QTKCinemaEntities2();
 		}
 
-		public static QTKCinemaEntities1 db = getEntities();
+		public static QTKCinemaEntities2 db = getEntities();
 
 		public static List<PHIM> GetPhimCarousel()
 		{
@@ -26,13 +26,13 @@ namespace MovieTheater1.Models
 			return listPhimCarousel.ToList();
 		}
 
-		public static List<PHIM> GetPhimDangChieuShort(int number)
+		public static List<PHIM> GetPhimDangChieuShort()
 		{
 
 			 
 			{
 				var now = DateTime.Now;
-				var result2 = db.PHIMs.SqlQuery("SELECT top 6 * FROM PHIM Where CURRENT_TIMESTAMP <= THOIGIANKT and THOIGIANBD <CURRENT_TIMESTAMP  ORDER BY  CURRENT_TIMESTAMP - THOIGIANBD");
+				var result2 = db.PHIMs.Where(x => x.THOIGIANBD <= now).Take(6);
 				return result2.ToList();
 			}
 		}
@@ -58,12 +58,12 @@ namespace MovieTheater1.Models
 		}
 
 
-		public static List<PHIM> GetPhimSapChieuShort(int number)
+		public static List<PHIM> GetPhimSapChieuShort()
 		{
 			 
 			{
 				var now = DateTime.Now;
-				var result2 = db.PHIMs.SqlQuery("SELECT top 6 * FROM PHIM Where THOIGIANBD > CURRENT_TIMESTAMP ORDER BY  THOIGIANKT - CURRENT_TIMESTAMP");
+				var result2 = db.PHIMs.Where(x=>x.THOIGIANBD>=now).Take(6);
 
 				return result2.ToList();
 			}
@@ -341,6 +341,11 @@ namespace MovieTheater1.Models
 		public static List<THONGTINCHIEU> GetThongtinchieusByPhim(string maPhim)
 		{
 			return db.THONGTINCHIEUx.Where(x => x.MAPHIM == maPhim).ToList();
+		}
+
+		public static GHE GetGheByKey(string maPhong, string maRap, string Id)
+		{
+			return db.GHEs.Where(x => x.MaPhong == maPhong && x.MaRap == maRap && x.Id==Id).ToList().ElementAt(0);
 		}
 	}
 }

@@ -24,14 +24,19 @@ namespace DataQueryTesting
 		{
 			Console.OutputEncoding = Encoding.UTF8;
 
-			var lst = DataAccess.GetThongtinchieu();
+
+
+			string s = "A1-A5-F10";
+			List<string> lst = new List<string>(); 
+			foreach (var s1 in s.Split('-'))
+			{
+				lst.Add(s1);
+			};
+
 			foreach (var VARIABLE in lst)
 			{
-				
-				Console.WriteLine(VARIABLE.PHONG.RAPCHIEUPHIM.TENRAP);
-
+				Console.WriteLine(VARIABLE);	
 			}
-
 			Console.Read();
 		}
 	}

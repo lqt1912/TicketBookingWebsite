@@ -621,6 +621,7 @@ p a:hover{
 	height: 20px;
 	margin: 0;
 	font-size: 10px;
+background: 	rgb(200, 200, 200)
 }
 
 .btn-ghe:active, .btn:visited {
@@ -628,5 +629,8 @@ p a:hover{
 }
 
 .active-btn {
+	background: #f26b38;	
+}
+.active-btn1 {
 	background: #f26b38;
 }

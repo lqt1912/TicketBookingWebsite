@@ -2,6 +2,7 @@
 using MovieTheater1.Models;
 using System.Linq;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Runtime.CompilerServices;
 using System.Web.Mvc;
 namespace MovieTheater1.Controllers
@@ -37,12 +38,12 @@ namespace MovieTheater1.Controllers
 
 		public ActionResult _PartialPhimShorcutDangChieu()
 		{
-			return PartialView(DataAccess.GetPhimDangChieuShort(6));
+			return PartialView(DataAccess.GetPhimDangChieuShort());
 		}
 
 		public ActionResult _PartialPhimShorcutSapChieu()
 		{
-			return PartialView(DataAccess.GetPhimSapChieuShort(6));
+			return PartialView(DataAccess.GetPhimSapChieuShort());
 		}
 		public ActionResult PhimSapChieu()
 		{
@@ -140,6 +141,14 @@ namespace MovieTheater1.Controllers
 			phimDangChieu.GioChieu = gioChieu;
 			phimDangChieu.PhongChieu = phongChieu;
 			phimDangChieu.MaThongTinChieu = maThongTinChieu;
+
+			Session["TenPhim"] = tenPhim;
+			Session["TenRap"] = tenRap;
+			Session["NgayChieu"] = ngayChieu;
+			Session["GioChieu"] = gioChieu;
+			Session["PhongChieu"] = phongChieu;
+			Session["MaThongTinChieu"] = maThongTinChieu;
+			
 			return View(phimDangChieu);
 		}
 
@@ -169,6 +178,41 @@ namespace MovieTheater1.Controllers
 		public ActionResult PhimTheoRap(string maRap, DateTime? ngayChieu)
 		{
 			return View(DataAccess.GetTtcByRapNgay(maRap, ngayChieu));
+		}
+
+		public ActionResult Confirm(FormCollection f)
+		{
+			Session["Ghe"] = f["Ghe"];
+			Session["ThanhTien"] = f["ThanhTien"];
+			return RedirectToAction("MuaVe", "QKTCinema");
+		}
+
+		public ActionResult SuccessResult()
+		{
+			var ve = new VE()
+			{
+				MAVE = "ve0001",
+				DONGIA = Int32.Parse(Session["ThanhTien"].ToString()),
+				MATHONGTINCHIEU = Session["MaThongTinChieu"].ToString(),
+			};
+
+			foreach(var s1 in Session["Ghe"].ToString().Split(' '))
+			{ 
+				GHE ghe = new GHE()
+				{
+					Id = s1,
+					MaRap = DataAccess.GetThongtinchieuById(Session["MaThongTinChieu"].ToString()).MARAP,
+					MaPhong = DataAccess.GetThongtinchieuById(Session["MaThongTinChieu"].ToString()).MAPHONG,
+					IsUsed = 1
+
+				};
+				DataAccess.db.GHEs.AddOrUpdate(ghe);
+				DataAccess.db.SaveChanges();
+			}
+			DataAccess.db.VEs.AddOrUpdate(ve);
+			DataAccess.db.SaveChanges();
+
+			return View();
 		}
 	}
 }

@@ -41,14 +41,6 @@
       <Project>{af104b30-28f4-4017-bfcb-a1bd92be7e16}</Project>
       <Name>MovieTheater1</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MovieTheaterDatabase\MovieTheaterDatabase.sqlproj">
-      <Project>{1254695c-9bd1-48ed-98de-952c8b28804b}</Project>
-      <Name>MovieTheaterDatabase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MovieTheaterDataLib\MovieTheaterDataLib.csproj">
-      <Project>{b89e1cfb-1814-4121-92af-c3b82212ceff}</Project>
-      <Name>MovieTheaterDataLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.cs" />

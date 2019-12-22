@@ -1,0 +1,71 @@
+﻿@using MovieTheater1.Models
+@model List<PHIM>
+
+@{
+    ViewBag.Title = "QuanLyPhim";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+    <body>
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Quản lý phim
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên phim</th>
+                                    <th>Quốc gia</th>
+                                    <th>Đạo diễn</th>
+                                    <th>Thời lượng</th>
+                                    <th>Số suất chiếu</th>
+                                    <th>Bắt đầu</th>
+                                    <th>Kết thúc</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.MAPHIM</td>
+                                        <td>@item.TENPHIM</td>
+                                        <td>@item.QUOCGIA.TENQUOCGIA</td>
+
+                                        <td>@item.DAODIEN</td>
+                                        <td>@item.THOILUONG</td>
+                                        <td>@item.SOLUONGSUAT</td>
+                                        <td>@item.THOIGIANBD</td>
+                                        <td>@item.THOIGIANKT</td>
+                                    </tr>
+                                }
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.MAPHIM</td>
+                                        <td>@item.TENPHIM</td>
+                                        <td>@item.QUOCGIA.TENQUOCGIA</td>
+
+                                        <td>@item.DAODIEN</td>
+                                        <td>@item.THOILUONG</td>
+                                        <td>@item.SOLUONGSUAT</td>
+                                        <td>@item.THOIGIANBD</td>
+                                        <td>@item.THOIGIANKT</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </body>

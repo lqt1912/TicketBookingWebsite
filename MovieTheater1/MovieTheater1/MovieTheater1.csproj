@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -26,6 +27,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.3</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -181,6 +183,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -271,6 +274,41 @@
     <Content Include="App_Data\QTKCinema_log.ldf">
       <DependentUpon>QTKCinema.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\Admin\css\bootstrap.css" />
+    <Content Include="Content\Admin\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\css\plugins\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Content\Admin\css\plugins\morris\morris-0.4.3.min.css" />
+    <Content Include="Content\Admin\css\plugins\social-buttons\social-buttons.css" />
+    <Content Include="Content\Admin\css\plugins\timeline\timeline.css" />
+    <Content Include="Content\Admin\css\sb-admin.css" />
+    <Content Include="Content\Admin\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\Admin\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\Admin\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Admin\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Admin\js\bootstrap.js" />
+    <Content Include="Content\Admin\js\bootstrap.min.js" />
+    <Content Include="Content\Admin\js\demo\dashboard-demo.js" />
+    <Content Include="Content\Admin\js\demo\datatables-demo.js" />
+    <Content Include="Content\Admin\js\demo\flot-demo.js" />
+    <Content Include="Content\Admin\js\demo\morris-demo.js" />
+    <Content Include="Content\Admin\js\jquery-1.10.2.js" />
+    <Content Include="Content\Admin\js\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Content\Admin\js\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="Content\Admin\js\plugins\flot\excanvas.min.js" />
+    <Content Include="Content\Admin\js\plugins\flot\jquery.flot.js" />
+    <Content Include="Content\Admin\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Content\Admin\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Content\Admin\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Content\Admin\js\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="Content\Admin\js\plugins\morris\morris.js" />
+    <Content Include="Content\Admin\js\plugins\morris\raphael-2.1.0.min.js" />
+    <Content Include="Content\Admin\js\sb-admin.js" />
+    <Content Include="Content\Admin\vendor\datatables\dataTables.bootstrap4.css" />
+    <Content Include="Content\Admin\vendor\datatables\dataTables.bootstrap4.js" />
+    <Content Include="Content\Admin\vendor\datatables\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\Admin\vendor\datatables\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\Admin\vendor\datatables\jquery.dataTables.js" />
+    <Content Include="Content\Admin\vendor\datatables\jquery.dataTables.min.js" />
     <Content Include="Content\banggiave-082019-3d_1567136002205.jpg" />
     <Content Include="Content\banggiave-nguyendu-082019-2d_1567586356540.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -397,6 +435,39 @@
     <Content Include="Models\QKTCInema.edmx.diagram">
       <DependentUpon>QKTCInema.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Admin\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Admin\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Admin\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Admin\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\Admin\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\Admin\font-awesome\less\core.less" />
+    <Content Include="Content\Admin\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\Admin\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\Admin\font-awesome\less\icons.less" />
+    <Content Include="Content\Admin\font-awesome\less\larger.less" />
+    <Content Include="Content\Admin\font-awesome\less\list.less" />
+    <Content Include="Content\Admin\font-awesome\less\mixins.less" />
+    <Content Include="Content\Admin\font-awesome\less\path.less" />
+    <Content Include="Content\Admin\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\Admin\font-awesome\less\spinning.less" />
+    <Content Include="Content\Admin\font-awesome\less\stacked.less" />
+    <Content Include="Content\Admin\font-awesome\less\variables.less" />
+    <Content Include="Content\Admin\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_core.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_list.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_path.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\Admin\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\Admin\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Admin\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Admin\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\tqkcinema - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tqkcinema - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tqkcinema - Web Deploy.pubxml" />
@@ -453,6 +524,16 @@
     <None Include="App_Start\_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <Content Include="Views\QKTCinema\Confirm.cshtml" />
     <Content Include="Views\QKTCinema\SuccessResult.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\QuanLyPhim.cshtml" />
+    <Content Include="Views\Admin\QuanLyRap.cshtml" />
+    <Content Include="Views\Admin\QuanLyKhuyenMai.cshtml" />
+    <Content Include="Views\Admin\ThemFilm.cshtml" />
+    <Content Include="Views\Admin\ThemKhuyenMai.cshtml" />
+    <Content Include="Views\Admin\QuanLyThanhVien.cshtml" />
+    <Content Include="Views\Admin\QuanLyThongTinChieu.cshtml" />
+    <Content Include="Views\Admin\QuanLyVe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Index\" />
@@ -470,6 +551,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
@@ -477,6 +559,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

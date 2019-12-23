@@ -28,5 +28,10 @@ namespace MovieTheater1.Models
         public virtual ICollection<PHIM> PHIMs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THANHVIEN> THANHVIENs { get; set; }
+
+        public static implicit operator QUOCGIA(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

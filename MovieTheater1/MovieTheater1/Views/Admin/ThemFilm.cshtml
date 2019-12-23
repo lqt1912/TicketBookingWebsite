@@ -1,4 +1,5 @@
-﻿
+﻿@using MovieTheater1.Models
+@model List<LOAIPHIM>
 @{
     ViewBag.Title = "ThemFilm";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -12,52 +13,51 @@
                 Thêm phim mới
             </div>
             <!-- /.panel-heading -->
+
             <div class="panel-body">
                 <div class="form-group">
                     <label>Tên phim</label>
-                    <input class="form-control" placeholder="Enter text">
+                    <input class="form-control" placeholder="Enter text" id="tenphim">
                 </div>
                 <div class="form-group">
                     <label>Loại phim</label>
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" id="loaiphim" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.LOAIPHIMs.ToList())
+                        {
+                            <option value="@item.MALOAIPHIM">@item.TENLOAIPHIM</option>
+                        }
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Quốc gia</label>
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" id="quocgia" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.QUOCGIAs.ToList())
+                        {
+                            <option value="@item.MAQUOCGIA">@item.TENQUOCGIA</option>
+                        }
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Ngày bắt đầu &nbsp</label>
-                    <input type="date" class="form-control" />
+                    <input type="date" class="form-control" id="ngaybatdau" />
 
                 </div>
                 <div class="form-group">
                     <label>Ngày kết thúc  &nbsp</label>
-                    <input type="date" class="form-control" />
+                    <input type="date" class="form-control" id="ngayketthuc" />
 
                 </div>
                 <div class="form-group">
                     <label>Thời lượng</label>
-                    <input class="form-control" placeholder="Enter text" type="number">
+                    <input class="form-control" placeholder="Enter text" type="number" id="thoiluong">
                 </div>
                 <div class="form-group">
                     <label>Đạo diễn</label>
-                    <input class="form-control" placeholder="Enter text">
+                    <input class="form-control" placeholder="Enter text" id="daodien">
                 </div>
                 <div class="form-group">
                     <label>Diễn viên</label>
-                    <input class="form-control" placeholder="Enter text">
+                    <input class="form-control" placeholder="Enter text" id="dienvien">
                 </div>
                 <div class="form-group">
                     <label>Mô tả</label>
@@ -71,10 +71,43 @@
                     <label>Ghi chú</label>
                     <textarea class="form-control" rows="3"></textarea>
                 </div>
+               
             </div>
-
         </div>
         <!-- /.panel -->
     </div>
     <!-- /.col-lg-12 -->
 </div>
+
+
+@using (Html.BeginForm("ThemFilm", "Admin", FormMethod.Post))
+{
+    <input id="txttenphim" name="TenPhim" />
+    <input id="txttheloai" name="TheLoai">
+    <input id="txtthoiluong" name="ThoiLuong"/>
+    <input id="txtquocgia" name="QuocGia" />
+    <input id="txtngaybatdau" name="NgayBatDau" />
+    <input id="txtngayketthuc" name="NgayKetThuc" />
+    <input id="txtdienvien" name="DienVien" />
+    <input id="txtdaodien" name="DaoDien" />
+    <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
+}
+
+<script>
+    function SelectItem1() {
+
+        document.getElementById("txttheloai").value = document.getElementById("loaiphim").value;
+        document.getElementById("txtquocgia").value = document.getElementById("quocgia").value;
+    }
+
+    function myFunc() {
+        document.getElementById("txttenphim").value = document.getElementById("tenphim").value;
+        document.getElementById("txtngaybatdau").value = document.getElementById("ngaybatdau").value;
+        document.getElementById("txtngayketthuc").value = document.getElementById("ngayketthuc").value;
+        document.getElementById("txtdienvien").value = document.getElementById("dienvien").value;
+        document.getElementById("txtdaodien").value = document.getElementById("daodien").value;
+         document.getElementById("txtthoiluong").value = document.getElementById("thoiluong").value;
+    }
+  
+
+</script>

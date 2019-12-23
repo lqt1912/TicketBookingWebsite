@@ -28,6 +28,7 @@
                                     <th>Số suất chiếu</th>
                                     <th>Bắt đầu</th>
                                     <th>Kết thúc</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
 
@@ -35,32 +36,34 @@
 
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        <td>@item.MAPHIM</td>
-                                        <td>@item.TENPHIM</td>
-                                        <td>@item.QUOCGIA.TENQUOCGIA</td>
+                                <tr>
+                                    @*<td>@item.MAPHIM</td>
+                                    <td>@item.TENPHIM</td>
+                                    <td>@item.QUOCGIA.TENQUOCGIA </td>
 
-                                        <td>@item.DAODIEN</td>
-                                        <td>@item.THOILUONG</td>
-                                        <td>@item.SOLUONGSUAT</td>
-                                        <td>@item.THOIGIANBD</td>
-                                        <td>@item.THOIGIANKT</td>
-                                    </tr>
-                                }
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>@item.MAPHIM</td>
-                                        <td>@item.TENPHIM</td>
-                                        <td>@item.QUOCGIA.TENQUOCGIA</td>
+                                    <td>@item.DAODIEN</td>
+                                    <td>@item.THOILUONG</td>
+                                    <td>@item.SOLUONGSUAT</td>
+                                    <td>@item.THOIGIANBD</td>
+                                    <td>@item.THOIGIANKT</td>*@
+                                    <td>@item.MAPHIM</td>
+                                    <td>@item.TENPHIM</td>
+                                    <td>@item.QUOCGIA.TENQUOCGIA </td>
 
-                                        <td>@item.DAODIEN</td>
-                                        <td>@item.THOILUONG</td>
-                                        <td>@item.SOLUONGSUAT</td>
-                                        <td>@item.THOIGIANBD</td>
-                                        <td>@item.THOIGIANKT</td>
-                                    </tr>
+                                    <td>@item.DAODIEN</td>
+                                    <td>@item.THOILUONG</td>
+                                    <td>@item.SOLUONGSUAT</td>
+                                    <td>@item.THOIGIANBD</td>
+                                    <td>@item.THOIGIANKT</td>
+                                    <td>
+                                        <div>
+                                            <button type="button" class="btn btn-primary">Xóa </button>
+                                            <button type="button" class="btn btn-primary">Sửa</button>
+                                        </div>
+                                    </td>
+                                </tr>
                                 }
+                               
                             </tbody>
                         </table>
                     </div>

@@ -16,15 +16,15 @@ namespace MovieTheater1.Controllers
         // manage screen
         public ActionResult QuanLyPhim()
         {
-            return View(DataAccess.GetPhims());
+            return View(DataAccess.db.PHIMs.ToList());
         }
         public ActionResult QuanLyRap()
         {
-            return View(DataAccess.GetRaps());
+            return View(DataAccess.db.RAPCHIEUPHIMs.ToList());
         }
         public ActionResult QuanLyKhuyenMai()
         {
-            return View(DataAccess.GetKhuyenMai());
+            return View(DataAccess.db.VOUCHERs.ToList());
         }
         public ActionResult QuanLyThanhVien()
         {
@@ -33,11 +33,11 @@ namespace MovieTheater1.Controllers
         public ActionResult QuanLyThongTinChieu()
         {
            
-            return View(DataAccess.GetThongtinchieu());
+            return View(DataAccess.db.THONGTINCHIEUx.ToList());
         }
        
         public ActionResult QuanLyVe()
-        {
+        {   
             return View();
         }
         // add screen
@@ -45,9 +45,53 @@ namespace MovieTheater1.Controllers
         {
             return View();
         }
+
+        [HttpPost]  
+        public ActionResult ThemFilm( FormCollection f)
+        {
+            string maPhim = "phim00" + (DataAccess.db.PHIMs.Count() + 2).ToString();
+            var phim = new PHIM()
+            {
+                MAPHIM = maPhim,
+                TENPHIM = f["TenPhim"],
+                MALOAIPHIM=f["TheLoai"],
+                DIENVIEN=f["DienVien"],
+                THOILUONG=f["ThoiLuong"],
+                DAODIEN = f["DaoDien"],
+                MAQUOCGIA =f["QuocGia"],
+               THOIGIANBD = DateTime.Parse(f["NgayBatDau"]),
+                THOIGIANKT  = DateTime.Parse(f["NgayKetThuc"]),
+            };
+
+            DataAccess.db.PHIMs.Add(phim);
+            DataAccess.db.SaveChanges();
+
+            return RedirectToAction("QuanLyPhim", "Admin");
+        }
+        public ActionResult ThemThongTinChieu()
+        {
+            return View();
+        }
         public ActionResult ThemKhuyenMai()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult ThemKhuyenMai( FormCollection f)
+        {
+            string id = "khuyenmai00" + (DataAccess.db.VOUCHERs.Count() + 2).ToString();
+            var km = new VOUCHER()
+            {
+                MAVOUCHER = id,
+                TENVOUCHER = f["TenKhuyenMai"],
+                NGAYBD =f["NgayBatDau"],
+                NGAYKT = f["NgayKetThuc"],
+                GIAMGIA = (int?) int.Parse(f["GiamGia"]),
+            };
+            DataAccess.db.VOUCHERs.Add(km);
+            DataAccess.db.SaveChanges();
+
+            return RedirectToAction("QuanLyKhuyenMai", "Admin");
         }
 
     }

@@ -94,5 +94,24 @@ namespace MovieTheater1.Controllers
             return RedirectToAction("QuanLyKhuyenMai", "Admin");
         }
 
+        [HttpPost]
+        public ActionResult ThemThongTinChieu(FormCollection f)
+        {
+            string id = "thongtinchieu" + (DataAccess.db.THONGTINCHIEUx.Count() + 2).ToString();
+            var tt = new THONGTINCHIEU()
+            {
+                MATHONGTINCHIEU = id,
+                MAPHIM= f["TenPhim"],
+                THOIGIANCHIEU = f["ThoiGianChieu"],
+                NGAYCHIEU = DateTime.Parse(f["NgayChieu"]),
+                MAPHONG = f["MaPhong"],
+                MARAP = f["MaRap"]             
+            };
+            DataAccess.db.THONGTINCHIEUx.Add(tt);
+            DataAccess.db.SaveChanges();
+
+            return RedirectToAction("QuanLyThongTinChieu", "Admin");
+        }
+
     }
 }

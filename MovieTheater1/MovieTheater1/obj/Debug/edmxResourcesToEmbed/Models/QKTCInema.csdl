@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QTKCinemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BINHLUAN">
+    <Key>
+      <PropertyRef Name="MABINHLUAN" />
+    </Key>
+    <Property Name="MABINHLUAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MATHANHVIEN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MAPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOIDUNG" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHIMs" Relationship="Self.fk03_PHIM" FromRole="BINHLUAN" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="GHE">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+      <PropertyRef Name="MaRap" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="MaPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaRap" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsUsed" Type="Int32" />
+    <NavigationProperty Name="PHONG" Relationship="Self.FK_01" FromRole="GHE" ToRole="PHONG" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="MAHOADON" />
+    </Key>
+    <Property Name="MAHOADON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MAVE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="THANHVIEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="VE" Relationship="Self.fk01_HD" FromRole="HOADON" ToRole="VE" />
+  </EntityType>
+  <EntityType Name="LOAIGHE">
+    <Key>
+      <PropertyRef Name="MALOAIGHE" />
+    </Key>
+    <Property Name="MALOAIGHE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENLOAIGHE" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LOAINHANVIEN">
+    <Key>
+      <PropertyRef Name="MALOAINV" />
+    </Key>
+    <Property Name="MALOAINV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENLOAINV" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHANVIENs" Relationship="Self.fk01_NV" FromRole="LOAINHANVIEN" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="LOAIPHIM">
+    <Key>
+      <PropertyRef Name="MALOAIPHIM" />
+    </Key>
+    <Property Name="MALOAIPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENLOAIPHIM" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHIMs" Relationship="Self.fk02_PHIM" FromRole="LOAIPHIM" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="LOAIPHONG">
+    <Key>
+      <PropertyRef Name="MALOAIPHONG" />
+    </Key>
+    <Property Name="MALOAIPHONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENLOAIPHONG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHONGs" Relationship="Self.FK_PHONG_LOAIPHONG" FromRole="LOAIPHONG" ToRole="PHONG" />
+  </EntityType>
+  <EntityType Name="LOAITHANHVIEN">
+    <Key>
+      <PropertyRef Name="MALOAITV" />
+    </Key>
+    <Property Name="MALOAITV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENLOAITV" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="THANHVIENs" Relationship="Self.fk01_TV" FromRole="LOAITHANHVIEN" ToRole="THANHVIEN" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HOTEN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="GIOITINH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="SODT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MALOAINV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LOAINHANVIEN" Relationship="Self.fk01_NV" FromRole="NHANVIEN" ToRole="LOAINHANVIEN" />
+    <NavigationProperty Name="VEs" Relationship="Self.fk01_VE" FromRole="NHANVIEN" ToRole="VE" />
+  </EntityType>
+  <EntityType Name="PHIM">
+    <Key>
+      <PropertyRef Name="MAPHIM" />
+    </Key>
+    <Property Name="MAPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENPHIM" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="MAQUOCGIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MALOAIPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="THOIGIANBD" Type="DateTime" Precision="0" />
+    <Property Name="THOIGIANKT" Type="DateTime" Precision="0" />
+    <Property Name="THOILUONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SOLUONGSUAT" Type="Int16" />
+    <Property Name="GHICHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MABINHLUAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ANHDAIDIEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TENTIENGANH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DANHGIA" Type="Int32" />
+    <Property Name="DAODIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIENVIEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MOTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BINHLUAN" Relationship="Self.fk03_PHIM" FromRole="PHIM" ToRole="BINHLUAN" />
+    <NavigationProperty Name="LOAIPHIM" Relationship="Self.fk02_PHIM" FromRole="PHIM" ToRole="LOAIPHIM" />
+    <NavigationProperty Name="THONGTINCHIEUx" Relationship="Self.FK_THONGTINCHIEU_PHIM" FromRole="PHIM" ToRole="THONGTINCHIEU" />
+    <NavigationProperty Name="QUOCGIA" Relationship="Self.fk01_PHIM" FromRole="PHIM" ToRole="QUOCGIA" />
+  </EntityType>
+  <EntityType Name="PHONG">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+      <PropertyRef Name="MARAP" />
+    </Key>
+    <Property Name="MaPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MARAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaLoaiPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SoCho" Type="Int32" />
+    <Property Name="TenPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="GHEs" Relationship="Self.FK_01" FromRole="PHONG" ToRole="GHE" />
+    <NavigationProperty Name="LOAIPHONG" Relationship="Self.FK_PHONG_LOAIPHONG" FromRole="PHONG" ToRole="LOAIPHONG" />
+    <NavigationProperty Name="RAPCHIEUPHIM" Relationship="Self.FK_PHONG_RAPCHIEUPHIM" FromRole="PHONG" ToRole="RAPCHIEUPHIM" />
+    <NavigationProperty Name="THONGTINCHIEUx" Relationship="Self.FK_THONGTINCHIEU_PHONG" FromRole="PHONG" ToRole="THONGTINCHIEU" />
+  </EntityType>
+  <EntityType Name="QUOCGIA">
+    <Key>
+      <PropertyRef Name="MAQUOCGIA" />
+    </Key>
+    <Property Name="MAQUOCGIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENQUOCGIA" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHIMs" Relationship="Self.fk01_PHIM" FromRole="QUOCGIA" ToRole="PHIM" />
+    <NavigationProperty Name="THANHVIENs" Relationship="Self.fk02_TV" FromRole="QUOCGIA" ToRole="THANHVIEN" />
+  </EntityType>
+  <EntityType Name="RAPCHIEUPHIM">
+    <Key>
+      <PropertyRef Name="MARAP" />
+    </Key>
+    <Property Name="MARAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENRAP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHONGs" Relationship="Self.FK_PHONG_RAPCHIEUPHIM" FromRole="RAPCHIEUPHIM" ToRole="PHONG" />
+  </EntityType>
+  <EntityType Name="THANHVIEN">
+    <Key>
+      <PropertyRef Name="MATV" />
+    </Key>
+    <Property Name="MATV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HOTEN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="GIOITINH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SODT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="MALOAITV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MAQUOCGIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LOAITHANHVIEN" Relationship="Self.fk01_TV" FromRole="THANHVIEN" ToRole="LOAITHANHVIEN" />
+    <NavigationProperty Name="QUOCGIA" Relationship="Self.fk02_TV" FromRole="THANHVIEN" ToRole="QUOCGIA" />
+  </EntityType>
+  <EntityType Name="THONGTINCHIEU">
+    <Key>
+      <PropertyRef Name="MATHONGTINCHIEU" />
+    </Key>
+    <Property Name="MATHONGTINCHIEU" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MAPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="THOIGIANCHIEU" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYCHIEU" Type="DateTime" Precision="0" />
+    <Property Name="MAPHONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MARAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PHIM" Relationship="Self.FK_THONGTINCHIEU_PHIM" FromRole="THONGTINCHIEU" ToRole="PHIM" />
+    <NavigationProperty Name="PHONG" Relationship="Self.FK_THONGTINCHIEU_PHONG" FromRole="THONGTINCHIEU" ToRole="PHONG" />
+    <NavigationProperty Name="VEs" Relationship="Self.fk02_VE" FromRole="THONGTINCHIEU" ToRole="VE" />
+  </EntityType>
+  <EntityType Name="TINHTRANGVE">
+    <Key>
+      <PropertyRef Name="MATINHTRANGVE" />
+    </Key>
+    <Property Name="MATINHTRANGVE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENTINHTRANGVE" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="VEs" Relationship="Self.fk04_VE" FromRole="TINHTRANGVE" ToRole="VE" />
+  </EntityType>
+  <EntityType Name="VE">
+    <Key>
+      <PropertyRef Name="MAVE" />
+    </Key>
+    <Property Name="MAVE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MANV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MATV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MATHONGTINCHIEU" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MASOGHE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MAVOUCHER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TENLOAINV" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="DONGIA" Type="Int32" />
+    <Property Name="MATINHTRANGVE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HOADONs" Relationship="Self.fk01_HD" FromRole="VE" ToRole="HOADON" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.fk01_VE" FromRole="VE" ToRole="NHANVIEN" />
+    <NavigationProperty Name="THONGTINCHIEU" Relationship="Self.fk02_VE" FromRole="VE" ToRole="THONGTINCHIEU" />
+    <NavigationProperty Name="TINHTRANGVE" Relationship="Self.fk04_VE" FromRole="VE" ToRole="TINHTRANGVE" />
+    <NavigationProperty Name="VOUCHER" Relationship="Self.fk03_VE" FromRole="VE" ToRole="VOUCHER" />
+  </EntityType>
+  <EntityType Name="VOUCHER">
+    <Key>
+      <PropertyRef Name="MAVOUCHER" />
+    </Key>
+    <Property Name="MAVOUCHER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENVOUCHER" Type="String" MaxLength="360" FixedLength="false" Unicode="true" />
+    <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYBD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYKT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GIAMGIA" Type="Int32" />
+    <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ANHDAIDIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VEs" Relationship="Self.fk03_VE" FromRole="VOUCHER" ToRole="VE" />
+  </EntityType>
+  <Association Name="fk03_PHIM">
+    <End Role="BINHLUAN" Type="Self.BINHLUAN" Multiplicity="0..1" />
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BINHLUAN">
+        <PropertyRef Name="MABINHLUAN" />
+      </Principal>
+      <Dependent Role="PHIM">
+        <PropertyRef Name="MABINHLUAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_01">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
+    <End Role="GHE" Type="Self.GHE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MaPhong" />
+        <PropertyRef Name="MARAP" />
+      </Principal>
+      <Dependent Role="GHE">
+        <PropertyRef Name="MaPhong" />
+        <PropertyRef Name="MaRap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk01_HD">
+    <End Role="VE" Type="Self.VE" Multiplicity="0..1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VE">
+        <PropertyRef Name="MAVE" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="MAVE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk01_NV">
+    <End Role="LOAINHANVIEN" Type="Self.LOAINHANVIEN" Multiplicity="0..1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAINHANVIEN">
+        <PropertyRef Name="MALOAINV" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MALOAINV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk02_PHIM">
+    <End Role="LOAIPHIM" Type="Self.LOAIPHIM" Multiplicity="0..1" />
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIPHIM">
+        <PropertyRef Name="MALOAIPHIM" />
+      </Principal>
+      <Dependent Role="PHIM">
+        <PropertyRef Name="MALOAIPHIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHONG_LOAIPHONG">
+    <End Role="LOAIPHONG" Type="Self.LOAIPHONG" Multiplicity="0..1" />
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIPHONG">
+        <PropertyRef Name="MALOAIPHONG" />
+      </Principal>
+      <Dependent Role="PHONG">
+        <PropertyRef Name="MaLoaiPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk01_TV">
+    <End Role="LOAITHANHVIEN" Type="Self.LOAITHANHVIEN" Multiplicity="0..1" />
+    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAITHANHVIEN">
+        <PropertyRef Name="MALOAITV" />
+      </Principal>
+      <Dependent Role="THANHVIEN">
+        <PropertyRef Name="MALOAITV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk01_VE">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="VE" Type="Self.VE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="VE">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONGTINCHIEU_PHIM">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="THONGTINCHIEU" Type="Self.THONGTINCHIEU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MAPHIM" />
+      </Principal>
+      <Dependent Role="THONGTINCHIEU">
+        <PropertyRef Name="MAPHIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk01_PHIM">
+    <End Role="QUOCGIA" Type="Self.QUOCGIA" Multiplicity="0..1" />
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUOCGIA">
+        <PropertyRef Name="MAQUOCGIA" />
+      </Principal>
+      <Dependent Role="PHIM">
+        <PropertyRef Name="MAQUOCGIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHONG_RAPCHIEUPHIM">
+    <End Role="RAPCHIEUPHIM" Type="Self.RAPCHIEUPHIM" Multiplicity="1" />
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RAPCHIEUPHIM">
+        <PropertyRef Name="MARAP" />
+      </Principal>
+      <Dependent Role="PHONG">
+        <PropertyRef Name="MARAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONGTINCHIEU_PHONG">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
+    <End Role="THONGTINCHIEU" Type="Self.THONGTINCHIEU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MaPhong" />
+        <PropertyRef Name="MARAP" />
+      </Principal>
+      <Dependent Role="THONGTINCHIEU">
+        <PropertyRef Name="MAPHONG" />
+        <PropertyRef Name="MARAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk02_TV">
+    <End Role="QUOCGIA" Type="Self.QUOCGIA" Multiplicity="0..1" />
+    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUOCGIA">
+        <PropertyRef Name="MAQUOCGIA" />
+      </Principal>
+      <Dependent Role="THANHVIEN">
+        <PropertyRef Name="MAQUOCGIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk02_VE">
+    <End Role="THONGTINCHIEU" Type="Self.THONGTINCHIEU" Multiplicity="0..1" />
+    <End Role="VE" Type="Self.VE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THONGTINCHIEU">
+        <PropertyRef Name="MATHONGTINCHIEU" />
+      </Principal>
+      <Dependent Role="VE">
+        <PropertyRef Name="MATHONGTINCHIEU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk04_VE">
+    <End Role="TINHTRANGVE" Type="Self.TINHTRANGVE" Multiplicity="0..1" />
+    <End Role="VE" Type="Self.VE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINHTRANGVE">
+        <PropertyRef Name="MATINHTRANGVE" />
+      </Principal>
+      <Dependent Role="VE">
+        <PropertyRef Name="MATINHTRANGVE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk03_VE">
+    <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
+    <End Role="VE" Type="Self.VE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VOUCHER">
+        <PropertyRef Name="MAVOUCHER" />
+      </Principal>
+      <Dependent Role="VE">
+        <PropertyRef Name="MAVOUCHER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QTKCinemaEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BINHLUANs" EntityType="Self.BINHLUAN" />
+    <EntitySet Name="GHEs" EntityType="Self.GHE" />
+    <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
+    <EntitySet Name="LOAIGHEs" EntityType="Self.LOAIGHE" />
+    <EntitySet Name="LOAINHANVIENs" EntityType="Self.LOAINHANVIEN" />
+    <EntitySet Name="LOAIPHIMs" EntityType="Self.LOAIPHIM" />
+    <EntitySet Name="LOAIPHONGs" EntityType="Self.LOAIPHONG" />
+    <EntitySet Name="LOAITHANHVIENs" EntityType="Self.LOAITHANHVIEN" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="PHIMs" EntityType="Self.PHIM" />
+    <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
+    <EntitySet Name="QUOCGIAs" EntityType="Self.QUOCGIA" />
+    <EntitySet Name="RAPCHIEUPHIMs" EntityType="Self.RAPCHIEUPHIM" />
+    <EntitySet Name="THANHVIENs" EntityType="Self.THANHVIEN" />
+    <EntitySet Name="THONGTINCHIEUx" EntityType="Self.THONGTINCHIEU" />
+    <EntitySet Name="TINHTRANGVEs" EntityType="Self.TINHTRANGVE" />
+    <EntitySet Name="VEs" EntityType="Self.VE" />
+    <EntitySet Name="VOUCHERs" EntityType="Self.VOUCHER" />
+    <AssociationSet Name="fk03_PHIM" Association="Self.fk03_PHIM">
+      <End Role="BINHLUAN" EntitySet="BINHLUANs" />
+      <End Role="PHIM" EntitySet="PHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_01" Association="Self.FK_01">
+      <End Role="PHONG" EntitySet="PHONGs" />
+      <End Role="GHE" EntitySet="GHEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_HD" Association="Self.fk01_HD">
+      <End Role="VE" EntitySet="VEs" />
+      <End Role="HOADON" EntitySet="HOADONs" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_NV" Association="Self.fk01_NV">
+      <End Role="LOAINHANVIEN" EntitySet="LOAINHANVIENs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_PHIM" Association="Self.fk02_PHIM">
+      <End Role="LOAIPHIM" EntitySet="LOAIPHIMs" />
+      <End Role="PHIM" EntitySet="PHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHONG_LOAIPHONG" Association="Self.FK_PHONG_LOAIPHONG">
+      <End Role="LOAIPHONG" EntitySet="LOAIPHONGs" />
+      <End Role="PHONG" EntitySet="PHONGs" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_TV" Association="Self.fk01_TV">
+      <End Role="LOAITHANHVIEN" EntitySet="LOAITHANHVIENs" />
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_VE" Association="Self.fk01_VE">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="VE" EntitySet="VEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGTINCHIEU_PHIM" Association="Self.FK_THONGTINCHIEU_PHIM">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEUx" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_PHIM" Association="Self.fk01_PHIM">
+      <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
+      <End Role="PHIM" EntitySet="PHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHONG_RAPCHIEUPHIM" Association="Self.FK_PHONG_RAPCHIEUPHIM">
+      <End Role="RAPCHIEUPHIM" EntitySet="RAPCHIEUPHIMs" />
+      <End Role="PHONG" EntitySet="PHONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGTINCHIEU_PHONG" Association="Self.FK_THONGTINCHIEU_PHONG">
+      <End Role="PHONG" EntitySet="PHONGs" />
+      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEUx" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_TV" Association="Self.fk02_TV">
+      <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_VE" Association="Self.fk02_VE">
+      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEUx" />
+      <End Role="VE" EntitySet="VEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk04_VE" Association="Self.fk04_VE">
+      <End Role="TINHTRANGVE" EntitySet="TINHTRANGVEs" />
+      <End Role="VE" EntitySet="VEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk03_VE" Association="Self.fk03_VE">
+      <End Role="VOUCHER" EntitySet="VOUCHERs" />
+      <End Role="VE" EntitySet="VEs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

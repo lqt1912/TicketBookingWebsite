@@ -1,0 +1,89 @@
+﻿@using MovieTheater1.Models
+@{
+    ViewBag.Title = "ThemVe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thêm vé mới
+            </div>
+            <!-- /.panel-heading -->
+
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label>Nhân viên thêm</label>
+                    <select class="form-control" id="manhanvien" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.NHANVIENs.ToList())
+                        {
+                            <option value="@item.MANV">@item.HOTEN</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Thời gian chiếu</label>
+                    <input class="form-control" placeholder="Enter text" id="thoigianchieu">
+                </div>
+
+                <div class="form-group">
+                    <label>Ngày chiếu &nbsp</label>
+                    <input type="date" class="form-control" id="ngaychieu" />
+                </div>
+
+                <div class="form-group">
+                    <label>Mã rạp</label>
+                    <select class="form-control" id="marap" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.RAPCHIEUPHIMs.ToList())
+                        {
+                            <option value="@item.MARAP">@item.TENRAP</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Mã phòng</label>
+                    <select class="form-control" id="maphong" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.PHONGs.ToList())
+                        {
+                            <option value="@item.MaPhong">@item.TenPhong</option>
+                        }
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("ThemThongTinChieu", "Admin", FormMethod.Post))
+{
+    <input id="txttenphim" name="TenPhim" />
+    <input id="txtthoigianchieu" name="ThoiGianChieu">
+    <input id="txtngaychieu" name="NgayChieu" />
+    <input id="txtmarap" name="MaRap" />
+    <input id="txtmaphong" name="MaPhong" />
+    <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
+}
+<script>
+    function SelectItem1() {
+
+        document.getElementById("txtmarap").value = document.getElementById("marap").value;
+        document.getElementById("txtmaphong").value = document.getElementById("maphong").value;
+        document.getElementById("txttenphim").value = document.getElementById("maphim").value;
+    }
+
+    function myFunc() {
+
+        document.getElementById("txtthoigianchieu").value = document.getElementById("thoigianchieu").value;
+        document.getElementById("txtngaychieu").value = document.getElementById("ngaychieu").value;
+    }
+
+
+</script>
+
+

@@ -5,51 +5,67 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-    <body>
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Quản lý vé
-                </div>
-                <div class="panel-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+<body>
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Quản lý vé
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-                            <thead>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Mã thành viên</th>
+                                <th>Thời gian chiếu</th>
+                                <th>Ngày chiếu</th>
+                                <th>Mã khuyến mãi</th>
+                                <th>Đơn giá</th>
+                                <th>Tình trạng</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Mã thành viên</th>
-                                    <th>Thời gian chiếu</th>
-                                    <th>Ngày chiếu</th>
-                                    <th>Mã khuyến mãi</th>
-                                    <th>Đơn giá</th>
-                                    <th>Tình trạng</th>
+                                    <td>@item.MAVE</td>
+                                    <td>@item.MATV</td>
+                                    <td>@item.THONGTINCHIEU.THOIGIANCHIEU</td>
+                                    <td>@item.THONGTINCHIEU.NGAYCHIEU</td>
+                                    <td>@item.MAVOUCHER</td>
+                                    <td>@item.DONGIA</td>
+
+                                    <td>
+                                        @{
+                                            try
+                                            {
+                                                @item.TINHTRANGVE.TENTINHTRANGVE;
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                //throw
+                                            }
+                                        }
+
+                                    </td>
+
+
+
+
                                 </tr>
-                            </thead>
+                            }
 
-                            <tbody>
-
-                                @foreach (var item in Model)
-                                {
-
-                                    <tr>
-                                        <td>@item.MAVE</td>
-                                        <td>@item.MATV</td>
-                                       
-                                        <td>@item.THONGTINCHIEU.THOIGIANCHIEU   </td>
-                                        <td>@item.THONGTINCHIEU.NGAYCHIEU</td>
-                                        <td>@item.MAVOUCHER</td>
-                                        <td>@item.DONGIA</td>
-                                        <td>@item.TINHTRANGVE</td>
-                                    </tr>
-                                }
-
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
 
-    </body>
+</body>
 

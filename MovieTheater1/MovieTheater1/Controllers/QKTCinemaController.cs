@@ -201,8 +201,7 @@ namespace MovieTheater1.Controllers
 				GHE ghe = new GHE()
 				{
 					Id = s1,
-					MaRap = DataAccess.GetThongtinchieuById(Session["MaThongTinChieu"].ToString()).MARAP,
-					MaPhong = DataAccess.GetThongtinchieuById(Session["MaThongTinChieu"].ToString()).MAPHONG,
+					
 					IsUsed = 1
 
 				};

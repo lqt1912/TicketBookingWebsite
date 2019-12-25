@@ -38,7 +38,7 @@ namespace MovieTheater1.Controllers
        
         public ActionResult QuanLyVe()
         {   
-            return View();
+            return View(DataAccess.db.VEs.ToList());
         }
         // add screen
         public ActionResult ThemFilm()

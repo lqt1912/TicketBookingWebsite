@@ -12,12 +12,12 @@ namespace MovieTheater1.Models
 
 		public static PhimDangChieu phimDangChieu = new PhimDangChieu();
 
-		public static QTKCinemaEntities2 getEntities()
+		public static cinemaEntities getEntities()
 		{
-			return new QTKCinemaEntities2();
+			return new cinemaEntities();
 		}
 
-		public static QTKCinemaEntities2 db = getEntities();
+		public static cinemaEntities db = getEntities();
 
 		public static List<PHIM> GetPhimCarousel()
 		{
@@ -343,9 +343,9 @@ namespace MovieTheater1.Models
 			return db.THONGTINCHIEUx.Where(x => x.MAPHIM == maPhim).ToList();
 		}
 
-		public static GHE GetGheByKey(string maPhong, string maRap, string Id)
-		{
-			return db.GHEs.Where(x => x.MaPhong == maPhong && x.MaRap == maRap && x.Id==Id).ToList().ElementAt(0);
-		}
+		//public static GHE GetGheByKey(string maPhong, string maRap, string Id)
+		//{
+		//	return db.GHEs.Where(x => x.MaPhong == maPhong && x.MaRap == maRap && x.Id==Id).ToList().ElementAt(0);
+		//}
 	}
 }

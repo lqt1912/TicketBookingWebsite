@@ -1,0 +1,88 @@
+﻿@using MovieTheater1.Models
+@{
+    ViewBag.Title = "ThemPhong";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thêm phòng
+            </div>
+            <!-- /.panel-heading -->
+
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label>Tên rạp</label>
+                    <select class="form-control" id="marap" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.RAPCHIEUPHIMs.ToList())
+                        {
+                            <option value="@item.MARAP">@item.TENRAP</option>
+                        }
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Mã phòng</label>
+                    <input class="form-control" placeholder="Enter text" id="maphong">
+                </div>
+
+                <div class="form-group">
+                    <label>Loại phòng</label>
+                    <select class="form-control" id="maloaiphong" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.LOAIPHONGs.ToList())
+                        {
+                            <option value="@item.MALOAIPHONG">@item.TENLOAIPHONG</option>
+                        }
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Số chổ</label>
+                    <input class="form-control" placeholder="Enter value" id="socho">
+                </div>
+
+                <div class="form-group">
+                    <label>Tên phòng</label>
+                    <input class="form-control" placeholder="Enter text" id="tenphong">
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("ThemPhong", "Admin", FormMethod.Post))
+{
+    <input id="txtmaphong" name="MaPhong" />
+    <input id="txtmarap" name="MaRap">
+    <input id="txtmaloaiphong" name="MaLoaiPhong" />
+    <input id="txtsocho" name="SoCho" />
+    <input id="txttenphong" name="TenPhong" />
+    <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
+}
+<script>
+    function SelectItem1() {
+
+        document.getElementById("txtmarap").value = document.getElementById("marap").value;
+        document.getElementById("txtmaloaiphong").value = document.getElementById("maloaiphong").value;
+
+    }
+
+    function myFunc() {
+
+        document.getElementById("txtmaphong").value = document.getElementById("maphong").value;
+        document.getElementById("txtsocho").value = document.getElementById("socho").value;
+        document.getElementById("txttenphong").value = document.getElementById("tenphong").value;
+    }
+
+
+</script>
+

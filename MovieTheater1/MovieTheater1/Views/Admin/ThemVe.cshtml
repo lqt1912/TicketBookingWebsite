@@ -1,0 +1,94 @@
+﻿@using MovieTheater1.Models
+@{
+    ViewBag.Title = "ThemVe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thêm vé mới
+            </div>
+            <!-- /.panel-heading -->
+
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label>Mã thành viên</label>
+                    <select class="form-control" id="mathanhvien" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.THANHVIENs.ToList())
+                        {
+                            <option value="@item.MATV">@item.MATV</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Mã thông tin chiếu</label>
+                    <select class="form-control" id="mathongtinchieu" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.THONGTINCHIEUx.ToList())
+                        {
+                            <option value="@item.MATHONGTINCHIEU">@item.MATHONGTINCHIEU</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Tên voucher</label>
+                    <select class="form-control" id="mavoucher" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.VOUCHERs.ToList())
+                        {
+                            <option value="@item.MAVOUCHER">@item.TENVOUCHER</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Đơn giá</label>
+                    <input class="form-control" placeholder="Enter price" id="dongia">
+                </div>
+
+                <div class="form-group">
+                    <label>Tình trạng vé</label>
+                    <select class="form-control" id="matinhtrangve" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.TINHTRANGVEs.ToList())
+                        {
+                            <option value="@item.MATINHTRANGVE">@item.TENTINHTRANGVE</option>
+                        }
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("ThemVe", "Admin", FormMethod.Post))
+{
+    <input id="txtmathanhvien" name="MaThanhVien">
+    <input id="txtmathongtinchieu" name="MaThongTinChieu" />
+    <input id="txtmavoucher" name="MaVoucher" />
+    <input id="txtdongia" name="DonGia" />
+    <input id="txtmatinhtrangve" name="MaTinhTrangVe"/>
+    <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
+}
+<script>
+    function SelectItem1() {
+
+        document.getElementById("txtmathanhvien").value = document.getElementById("mathanhvien").value;
+        document.getElementById("txtmathongtinchieu").value = document.getElementById("mathongtinchieu").value;
+        document.getElementById("txtmavoucher").value = document.getElementById("mavoucher").value;
+        document.getElementById("txtmatinhtrangve").value = document.getElementById("matinhtrangve").value;
+    }
+
+    function myFunc() {
+
+        document.getElementById("txtdongia").value = document.getElementById("dongia").value;
+    }
+
+
+</script>
+
+

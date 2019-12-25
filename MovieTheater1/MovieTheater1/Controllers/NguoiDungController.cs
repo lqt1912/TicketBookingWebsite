@@ -121,7 +121,13 @@ namespace MovieTheater1.Controllers
 			{
 				ViewData["Loi2"] = "Bạn chưa nhập mật khẩu";
 			}
-			else
+			else if (tendn=="admin" && collection["Matkhau"].ToString()=="admin")
+            {
+                Session["admin"] = 1;
+                System.Diagnostics.Debug.WriteLine("caccccccccc");
+                return RedirectToAction("QuanLyPhim", "Admin");
+            }
+            else 
 			{
 				THANHVIEN kh = DataAccess.db.THANHVIENs.SingleOrDefault(n => n.username == tendn && n.password == passwordMD5);
 				if (kh != null)

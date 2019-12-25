@@ -213,8 +213,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\QKTCinemaController.cs" />
@@ -494,6 +496,22 @@
     <Content Include="Views\QKTCinema\ChiTietKhuyenMai.cshtml" />
     <Content Include="Views\NguoiDung\ChinhSuaThongTin.cshtml" />
     <Content Include="Views\NguoiDung\DoiMatKhau.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\QuanLyKhuyenMai.cshtml" />
+    <Content Include="Views\Admin\QuanLyPhim.cshtml" />
+    <Content Include="Views\Admin\QuanLyPhong.cshtml" />
+    <Content Include="Views\Admin\QuanLyRap.cshtml" />
+    <Content Include="Views\Admin\QuanLyThanhVien.cshtml" />
+    <Content Include="Views\Admin\QuanLyThongTinChieu.cshtml" />
+    <Content Include="Views\Admin\QuanLyVe.cshtml" />
+    <Content Include="Views\Admin\ThemFilm.cshtml" />
+    <Content Include="Views\Admin\ThemKhuyenMai.cshtml" />
+    <Content Include="Views\Admin\ThemPhong.cshtml" />
+    <Content Include="Views\Admin\ThemRap.cshtml" />
+    <Content Include="Views\Admin\ThemThongTinChieu.cshtml" />
+    <Content Include="Views\Admin\ThemVe.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Index\" />

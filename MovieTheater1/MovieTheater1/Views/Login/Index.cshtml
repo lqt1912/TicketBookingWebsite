@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+    <title>Login</title>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-div">
+    
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="text-decoration:underline">Admin site </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Tên đăng nhập: </label>
+                    </td>
+                    <td>
+                        <input class="form-control" id="tendangnhap" onchange="SelectItem1()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Mật khẩu: </label>
+                    </td>
+                    <td>
+                        <input class="form-control" id="pass" type="password" onchange="SelectItem1()">
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                        {
+                            <input id="txttaikhoan" name="TaiKhoan" type="hidden"/>
+                            <input id="txtmatkhau" name="MatKhau" type="hidden"/>
+                            <input type="submit" name="name" value="Login" />
+                        }
+                    </td>
+                </tr>
+            </table>
+            <h5 style="color: red;"> @ViewData["Loi1"]</h5>
+    </div>
+</body>
+
+<script>
+    function SelectItem1() {
+
+        document.getElementById("txttaikhoan").value = document.getElementById("tendangnhap").value;
+        document.getElementById("txtmatkhau").value = document.getElementById("pass").value;
+    }
+
+
+
+</script>
+
+

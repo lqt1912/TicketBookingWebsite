@@ -186,6 +186,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QKTCinemaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -636,6 +637,7 @@
     <Content Include="Views\Admin\ThemRap.cshtml" />
     <Content Include="Views\Admin\QuanLyPhong.cshtml" />
     <Content Include="Views\Admin\ThemPhong.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Index\" />

@@ -36,6 +36,7 @@ namespace MovieTheater1.Models
         public string DAODIEN { get; set; }
         public string DIENVIEN { get; set; }
         public string MOTA { get; set; }
+        public string TRAILER { get; set; }
     
         public virtual BINHLUAN BINHLUAN { get; set; }
         public virtual LOAIPHIM LOAIPHIM { get; set; }

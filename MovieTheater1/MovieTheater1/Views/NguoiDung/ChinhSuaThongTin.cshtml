@@ -1,0 +1,115 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@using MovieTheater1.Models
+
+@model THANHVIEN
+@{
+    ViewBag.Title = "ChinhSuaThongTin";
+    Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+}
+
+<h2>ChinhSuaThongTin</h2>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <form class="form-horizontal" method="POST" action="">
+            @using (Html.BeginForm("ChinhSuaThongTin", "NguoiDung", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false)
+
+
+                <div class="row">
+                    <div class="col-md-6 col-12 p-2">
+                        <div class="row">
+                            <div class="col-6">
+                                <label> Họ và tên</label>
+                                <input type="text" class="form-control input--orange" id="hoten" name="hotenkh" value="@Model.HOTEN" required placeholder="Họ tên">@ViewData["Loi1"]
+                            </div>
+                            <div class="col-6">
+                                <label> Giới tính </label>
+                                <select class="form-control " id="gioiTinh" onchange="SelectGender()">
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ"> Nữ</option>'
+                                    <option value="Khác">Khác</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 p-2">
+                        <label>Số điện thoại</label>
+                        <input style="width: 100% !important;" type="tel" class="form-control input--orange" id="dienthoai" name="Dienthoai" placeholder="Số điện thoại" value="@Model.SODT">@ViewData["Loi6"]
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-12 p-2">
+                        <label>Email</label>
+                        <input type="email" class="form-control input--orange" disabled did="email" value="@Model.EMAIL" onblur="CheckEmail()" name="email" placeholder="Địa chỉ mail">@ViewData["Loi5"]
+                        <p onkeyup="ClearMessageEmail()"></p>
+                        <p id="messageEmail"></p>
+                    </div>
+                    <div class="col-md-6 col-12 p-2">
+                        <label> Tên đăng nhập</label>
+                        <input type="text" class="form-control input--orange"   value="@Model.username" id="username" disabled name="TenDN" onblur="CheckUser()" required placeholder="Tên đăng nhập">@ViewData["Loi2"]
+                        <p onkeyup="ClearMessageUser()"></p>
+                        <p id="messageUser"></p>
+                    </div>
+                </div>
+
+
+                <div class="row ">
+                    <div class="col-md-6 col-12 p-2">
+                        <label>Ngày sinh</label>
+                        <input type="text" class="form-control input--orange" disabled="" value="@Model.NGAYSINH" id="ngaysinh" name="Ngaysinh">
+                    </div>
+
+                    <div class="col-md-6 col-12 p-2">
+                        <label> Quốc tịch </label>
+                        <select id="quocGia"  class="form-control" onchange="SelectNation()">
+                            @foreach (var item in DataAccess.db.QUOCGIAs.ToList())
+                            {
+                                <option value="@item.MAQUOCGIA"> @item.TENQUOCGIA </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3"></label>
+                    <div class="col-sm-9">
+                        @CaptchaHelper.Captcha(Html, 5)
+                    </div>
+                </div>
+                if (ViewBag.Loi != null)
+                {
+                    <div class="alert alert-danger" style="width: 150px;padding-left: 20px;margin-left: 335px">
+                        <strong>@ViewBag.Loi</strong>
+                    </div>
+                }
+
+                <input id="txtQuocGia" name="QuocGia" />
+                <input id="txtGioiTinh" name="GioiTinh" />
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3"></label>
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn login__signup" style="border-radius: 0px;">Cập nhật</button>
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+    <div class="panel-footer">Mời bạn nhập đúng các thông tin của mình </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $("gioiTinh").val("@Model.GIOITINH");
+        $("quocGia").val("@Model.MAQUOCGIA");
+    });
+</script>

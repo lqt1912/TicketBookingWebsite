@@ -1,43 +1,68 @@
 ﻿
 @{
-	ViewBag.Title = "Mua vé";
-	Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+    ViewBag.Title = "Mua vé";
+    Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+
 }
 
 
 @using System.Reflection
 @using MovieTheater1.Models
 <div class="container">
-	<h3>  Vui lòng kiểm tra lại thông tin </h3>
-	<table border="1">
-		<tr>
-			<td>Phim: </td>
-			<td> @Session["TenPhim"] </td>
-		</tr>
-		<tr>
-			<td> Giờ: </td>
-			<td>@Session["GioChieu"]</td>
-		</tr>
-		<tr>
-			<td> Ngày </td>
-			<td> @Session["NgayChieu"]</td>
-		</tr>
-		<tr>
-			<td >
-				Ghế:
-			</td>
-			<td>
-				@foreach (var s1 in @Session["Ghe"].ToString().Split(' '))
-				{
-					<p class="pt-0 mt-0"> @s1</p>
-				}
-			</td>
-		</tr>
-		<tr> <td>Thành tiền: </td> <td>@Session["ThanhTien"] </td></tr>
-		<tr> <td > Rạp: </td> <td> @Session["TenRap"]</td></tr>
-		<tr> <td>  Phòng chiếu: </td> <td> @Session["PhongChieu"]</td></tr>
-	</table>
-	
-	<a href="@Url.Action("SuccessResult", "QKTCinema")"> Đặt vé </a>
-	
+    <h3>  Vui lòng kiểm tra lại thông tin </h3>
+    <table border="">
+        <tr>
+            <td>
+                Khách hàng
+            </td>
+            @if (Session["Taikhoan"] == null)
+            {
+                <td>
+                    <a> Bạn chưa đăng nhập</a>
+                </td>
+            }
+            else
+            {
+                THANHVIEN acc = (THANHVIEN)Session["Taikhoan"];
+                <td> @acc.HOTEN</td>
+            }
+        </tr>
+        <tr>
+            <td>Phim: </td>
+            <td> @Session["TenPhim"] </td>
+        </tr>
+        <tr>
+            <td> Giờ: </td>
+            <td>@Session["GioChieu"]</td>
+        </tr>
+        <tr>
+            <td> Ngày </td>
+            <td> @Session["NgayChieu"]</td>
+        </tr>
+        <tr>
+            <td>
+                Ghế:
+            </td>
+            <td>
+                @foreach (var s1 in @Session["Ghe"].ToString().Split(' '))
+                {
+                    <p class="pt-0 mt-0"> @s1</p>
+                }
+            </td>
+        </tr>
+        <tr> <td>Thành tiền: </td> <td>@Session["ThanhTien"] </td></tr>
+        <tr> <td> Rạp: </td> <td> @Session["TenRap"]</td></tr>
+        <tr> <td> Phòng chiếu: </td> <td> @Session["PhongChieu"]</td></tr>
+        <tr>
+            <td>
+                <a class="btn btn-booking" href="@Url.Action("SuccessResult", "QKTCinema")"> Đặt vé </a>
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" style="border-radius: 0px;" href="@Url.Action("Booking", "QKTCinema", new {id=@Session["MaThongTinChieu"]})">  Quay lại</a>
+            </td>
+        </tr>
+    </table>
+
+
+
 </div>

@@ -17,22 +17,18 @@ namespace MovieTheater1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VE()
         {
-            this.HOADONs = new HashSet<HOADON>();
+            this.GHEs = new HashSet<GHE>();
         }
     
         public string MAVE { get; set; }
-        public string MANV { get; set; }
         public string MATV { get; set; }
         public string MATHONGTINCHIEU { get; set; }
-        public string MASOGHE { get; set; }
         public string MAVOUCHER { get; set; }
-        public string TENLOAINV { get; set; }
         public Nullable<int> DONGIA { get; set; }
         public string MATINHTRANGVE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADONs { get; set; }
-        public virtual NHANVIEN NHANVIEN { get; set; }
+        public virtual ICollection<GHE> GHEs { get; set; }
         public virtual THONGTINCHIEU THONGTINCHIEU { get; set; }
         public virtual TINHTRANGVE TINHTRANGVE { get; set; }
         public virtual VOUCHER VOUCHER { get; set; }

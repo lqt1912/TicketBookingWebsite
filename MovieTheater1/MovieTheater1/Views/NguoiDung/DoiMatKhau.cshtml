@@ -1,0 +1,41 @@
+﻿@using MovieTheater1.Models
+
+@{
+    ViewBag.Title = "DoiMatKhau";
+    Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+    THANHVIEN acc =(THANHVIEN) Session["Taikhoan"];
+}
+
+<body style="background:rgb(233, 237, 241)">
+<div class="row mt-5">
+    <div class="col-md-4 col-12"> </div>
+
+    <div class=" col-md-4 col-12" style="background: white">
+        <h2 style="text-align:center">Đổi mật khẩu</h2>
+
+        <form method="post" class="d-flex flex-column">
+            @using (Html.BeginForm("DoiMatKhau", "NguoiDung"))
+            {
+                @Html.ValidationSummary(true)
+                <table class="login-box login-row">
+                    <tr>
+                        <td colspan="2"> <input class="w-100" type="text" name="old-password" placeholder="Nhập mậu khẩu "> @ViewBag.Thongbao</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> <input class="w-100" type="password" name="new-password" placeholder="Nhập mật khẩu mới">@ViewData["Loi1"]</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> <input class="w-100" type="password" name="renew-password" placeholder="Nhập lại mật khẩu mới">@ViewData["Loi3"]</td>
+                    </tr>
+                    <tr> <td colspan="2">  <input class="w-100 login__signup" type="submit" name="" value="Cập nhật"></td>
+                    
+                </table>
+            }
+        </form>
+    </div>
+
+    <div class="col-md-4 col-12">  </div>
+</div>
+</body>
+
+

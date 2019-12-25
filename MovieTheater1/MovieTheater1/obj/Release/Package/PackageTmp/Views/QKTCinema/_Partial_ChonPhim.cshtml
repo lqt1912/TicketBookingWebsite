@@ -1,0 +1,19 @@
+﻿@model List<MovieTheater1.Models.THONGTINCHIEU>
+
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4> Chọn phim</h4>
+	</div>
+
+	<ul class="list-group">
+		@foreach (var item in Model)
+		{
+			<li class="list-group-item d-flex  ">
+				<a > @item.MAPHIM</a>
+				
+			</li>
+		}
+
+	</ul>
+</div>

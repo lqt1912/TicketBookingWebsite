@@ -13,10 +13,10 @@ namespace MovieTheater1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QTKCinemaEntities2 : DbContext
+    public partial class cinemaEntities : DbContext
     {
-        public QTKCinemaEntities2()
-            : base("name=QTKCinemaEntities2")
+        public cinemaEntities()
+            : base("name=cinemaEntities")
         {
         }
     
@@ -25,15 +25,13 @@ namespace MovieTheater1.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BANNER> BANNERs { get; set; }
         public virtual DbSet<BINHLUAN> BINHLUANs { get; set; }
         public virtual DbSet<GHE> GHEs { get; set; }
-        public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<LOAIGHE> LOAIGHEs { get; set; }
-        public virtual DbSet<LOAINHANVIEN> LOAINHANVIENs { get; set; }
         public virtual DbSet<LOAIPHIM> LOAIPHIMs { get; set; }
         public virtual DbSet<LOAIPHONG> LOAIPHONGs { get; set; }
         public virtual DbSet<LOAITHANHVIEN> LOAITHANHVIENs { get; set; }
-        public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<PHIM> PHIMs { get; set; }
         public virtual DbSet<PHONG> PHONGs { get; set; }
         public virtual DbSet<QUOCGIA> QUOCGIAs { get; set; }

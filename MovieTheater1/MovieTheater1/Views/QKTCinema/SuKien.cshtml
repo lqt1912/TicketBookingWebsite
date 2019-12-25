@@ -22,27 +22,25 @@
 				@foreach (var item in Model)
 				{
 					<div class="col-md-4 col-sm-6 col-6" style="padding-top: 1em;">
-
-						<div class="container-for-overlay">
-							<a href="#">
+						<a href="@Url.Action("ChiTietKhuyenMai", "QKTCinema", new {id=item.MAVOUCHER})">
+							<div class="container-for-overlay">
 								<img class="image w-100 " src="@Url.Content("~/Content/Images/300x450xkhuyenmai/" + item.ANHDAIDIEN )" img />
-							</a>
 
-							<a href="#">
+
 								<div class="middle  d-none d-xl-block d-lg-block">
 
 									<div class="text-inside ">
 										<p class="voucher-title"> @item.TENVOUCHER</p>
-										@Html.Raw(@item.GHICHU)
+										@Html.Raw(@item.NOIDUNG)
 									</div>
 
 									<div class="row d-flex justify-content-center align-items-center ">
-										<button href="#" class="btn btn-chitiet "> CHI TIẾT</button>
+										<button href="href="@Url.Action("ChiTietKhuyenMai", "QKTCinema", new {id=item.MAVOUCHER})"" class="btn btn-chitiet "> CHI TIẾT</button>
 									</div>
 
 								</div>
-							</a>
-						</div>
+							</div>
+						</a>
 					</div>
 				}
 			</div>

@@ -21,6 +21,9 @@ namespace MovieTheater1.Models
         public string EMAIL { get; set; }
         public string MALOAITV { get; set; }
         public string MAQUOCGIA { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string NGAYSINH { get; set; }
     
         public virtual LOAITHANHVIEN LOAITHANHVIEN { get; set; }
         public virtual QUOCGIA QUOCGIA { get; set; }

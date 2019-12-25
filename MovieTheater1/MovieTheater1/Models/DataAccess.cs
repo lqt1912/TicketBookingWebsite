@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web.UI.WebControls;
+using JShibo.Windows.Forms;
 
 namespace MovieTheater1.Models
 {
@@ -12,18 +14,16 @@ namespace MovieTheater1.Models
 
 		public static PhimDangChieu phimDangChieu = new PhimDangChieu();
 
-		public static QTKCinemaEntities2 getEntities()
+		public static cinemaEntities getEntities()
 		{
-			return new QTKCinemaEntities2();
+			return new cinemaEntities();
 		}
 
-		public static QTKCinemaEntities2 db = getEntities();
+		public static cinemaEntities db = getEntities();
 
-		public static List<PHIM> GetPhimCarousel()
+		public static List<BANNER> GetPhimCarousel()
 		{
-
-			var listPhimCarousel = db.PHIMs.Take(3);
-			return listPhimCarousel.ToList();
+			return db.BANNERs.ToList();
 		}
 
 		public static List<PHIM> GetPhimDangChieuShort()
@@ -343,9 +343,18 @@ namespace MovieTheater1.Models
 			return db.THONGTINCHIEUx.Where(x => x.MAPHIM == maPhim).ToList();
 		}
 
-		public static GHE GetGheByKey(string maPhong, string maRap, string Id)
+
+
+		public static List<GHE> GetGhesByTtc(string maTtc)
 		{
-			return db.GHEs.Where(x => x.MaPhong == maPhong && x.MaRap == maRap && x.Id==Id).ToList().ElementAt(0);
+			return db.GHEs.Where(x => x.MaThongTinChieu == maTtc).ToList();
+		}
+
+		public static  GHE GetGheByKey(string maTtc, string Id)
+		{
+
+			return db.GHEs.Where(x => x.MaThongTinChieu == maTtc && x.Id == Id).ToList().ElementAt(0);
+			
 		}
 	}
 }

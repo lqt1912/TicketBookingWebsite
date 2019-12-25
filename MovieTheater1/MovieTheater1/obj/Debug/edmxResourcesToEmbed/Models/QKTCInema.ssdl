@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="QTKCinemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="cinemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BANNER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LINK" Type="varchar" MaxLength="50" />
+    <Property Name="MAPHIM" Type="varchar" MaxLength="20" />
+  </EntityType>
   <EntityType Name="BINHLUAN">
     <Key>
       <PropertyRef Name="MABINHLUAN" />
@@ -11,22 +19,14 @@
   </EntityType>
   <EntityType Name="GHE">
     <Key>
-      <PropertyRef Name="MaPhong" />
-      <PropertyRef Name="MaRap" />
       <PropertyRef Name="Id" />
+      <PropertyRef Name="MaThongTinChieu" />
     </Key>
-    <Property Name="MaPhong" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="MaRap" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="Id" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="IsUsed" Type="int" />
-  </EntityType>
-  <EntityType Name="HOADON">
-    <Key>
-      <PropertyRef Name="MAHOADON" />
-    </Key>
-    <Property Name="MAHOADON" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaThongTinChieu" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="MAVE" Type="varchar" MaxLength="20" />
-    <Property Name="THANHVIEN" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsUsed" Type="int" />
+    <Property Name="MALOAIGHE" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="LOAIGHE">
     <Key>
@@ -34,13 +34,6 @@
     </Key>
     <Property Name="MALOAIGHE" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="TENLOAIGHE" Type="nvarchar" MaxLength="40" />
-  </EntityType>
-  <EntityType Name="LOAINHANVIEN">
-    <Key>
-      <PropertyRef Name="MALOAINV" />
-    </Key>
-    <Property Name="MALOAINV" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="TENLOAINV" Type="nvarchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="LOAIPHIM">
     <Key>
@@ -63,17 +56,6 @@
     <Property Name="MALOAITV" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="TENLOAITV" Type="nvarchar" MaxLength="40" />
   </EntityType>
-  <EntityType Name="NHANVIEN">
-    <Key>
-      <PropertyRef Name="MANV" />
-    </Key>
-    <Property Name="MANV" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="HOTEN" Type="nvarchar" MaxLength="40" />
-    <Property Name="GIOITINH" Type="nvarchar" MaxLength="20" />
-    <Property Name="DIACHI" Type="nvarchar" MaxLength="40" />
-    <Property Name="SODT" Type="varchar" MaxLength="20" />
-    <Property Name="MALOAINV" Type="varchar" MaxLength="20" />
-  </EntityType>
   <EntityType Name="PHIM">
     <Key>
       <PropertyRef Name="MAPHIM" />
@@ -94,6 +76,7 @@
     <Property Name="DAODIEN" Type="nvarchar" MaxLength="50" />
     <Property Name="DIENVIEN" Type="nvarchar" MaxLength="100" />
     <Property Name="MOTA" Type="ntext" />
+    <Property Name="TRAILER" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="PHONG">
     <Key>
@@ -132,6 +115,9 @@
     <Property Name="EMAIL" Type="varchar" MaxLength="40" />
     <Property Name="MALOAITV" Type="varchar" MaxLength="20" />
     <Property Name="MAQUOCGIA" Type="varchar" MaxLength="20" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+    <Property Name="password" Type="varchar" MaxLength="200" />
+    <Property Name="NGAYSINH" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="THONGTINCHIEU">
     <Key>
@@ -156,12 +142,9 @@
       <PropertyRef Name="MAVE" />
     </Key>
     <Property Name="MAVE" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="MANV" Type="varchar" MaxLength="20" />
     <Property Name="MATV" Type="varchar" MaxLength="20" />
     <Property Name="MATHONGTINCHIEU" Type="varchar" MaxLength="20" />
-    <Property Name="MASOGHE" Type="varchar" MaxLength="20" />
     <Property Name="MAVOUCHER" Type="varchar" MaxLength="20" />
-    <Property Name="TENLOAINV" Type="nvarchar" MaxLength="40" />
     <Property Name="DONGIA" Type="int" />
     <Property Name="MATINHTRANGVE" Type="varchar" MaxLength="20" />
   </EntityType>
@@ -178,17 +161,39 @@
     <Property Name="GHICHU" Type="ntext" />
     <Property Name="ANHDAIDIEN" Type="varchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK_01">
-    <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
+  <Association Name="FK__GHE__MALOAIGHE__6A30C649">
+    <End Role="LOAIGHE" Type="Self.LOAIGHE" Multiplicity="0..1" />
     <End Role="GHE" Type="Self.GHE" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="PHONG">
-        <PropertyRef Name="MaPhong" />
-        <PropertyRef Name="MARAP" />
+      <Principal Role="LOAIGHE">
+        <PropertyRef Name="MALOAIGHE" />
       </Principal>
       <Dependent Role="GHE">
-        <PropertyRef Name="MaPhong" />
-        <PropertyRef Name="MaRap" />
+        <PropertyRef Name="MALOAIGHE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GHE__MaThongTinC__6B24EA82">
+    <End Role="THONGTINCHIEU" Type="Self.THONGTINCHIEU" Multiplicity="1" />
+    <End Role="GHE" Type="Self.GHE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THONGTINCHIEU">
+        <PropertyRef Name="MATHONGTINCHIEU" />
+      </Principal>
+      <Dependent Role="GHE">
+        <PropertyRef Name="MaThongTinChieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GHE__MAVE__6C190EBB">
+    <End Role="VE" Type="Self.VE" Multiplicity="0..1" />
+    <End Role="GHE" Type="Self.GHE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VE">
+        <PropertyRef Name="MAVE" />
+      </Principal>
+      <Dependent Role="GHE">
+        <PropertyRef Name="MAVE" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -242,30 +247,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk01_HD">
-    <End Role="VE" Type="Self.VE" Multiplicity="0..1" />
-    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="VE">
-        <PropertyRef Name="MAVE" />
-      </Principal>
-      <Dependent Role="HOADON">
-        <PropertyRef Name="MAVE" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk01_NV">
-    <End Role="LOAINHANVIEN" Type="Self.LOAINHANVIEN" Multiplicity="0..1" />
-    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LOAINHANVIEN">
-        <PropertyRef Name="MALOAINV" />
-      </Principal>
-      <Dependent Role="NHANVIEN">
-        <PropertyRef Name="MALOAINV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk01_PHIM">
     <End Role="QUOCGIA" Type="Self.QUOCGIA" Multiplicity="0..1" />
     <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
@@ -287,18 +268,6 @@
       </Principal>
       <Dependent Role="THANHVIEN">
         <PropertyRef Name="MALOAITV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk01_VE">
-    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
-    <End Role="VE" Type="Self.VE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NHANVIEN">
-        <PropertyRef Name="MANV" />
-      </Principal>
-      <Dependent Role="VE">
-        <PropertyRef Name="MANV" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -374,16 +343,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QTKCinemaModelStoreContainer">
+  <EntityContainer Name="cinemaModelStoreContainer">
+    <EntitySet Name="BANNER" EntityType="Self.BANNER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BINHLUAN" EntityType="Self.BINHLUAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GHE" EntityType="Self.GHE" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAIGHE" EntityType="Self.LOAIGHE" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="LOAINHANVIEN" EntityType="Self.LOAINHANVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAIPHIM" EntityType="Self.LOAIPHIM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAIPHONG" EntityType="Self.LOAIPHONG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAITHANHVIEN" EntityType="Self.LOAITHANHVIEN" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHIM" EntityType="Self.PHIM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QUOCGIA" EntityType="Self.QUOCGIA" Schema="dbo" store:Type="Tables" />
@@ -393,8 +360,16 @@
     <EntitySet Name="TINHTRANGVE" EntityType="Self.TINHTRANGVE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VE" EntityType="Self.VE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VOUCHER" EntityType="Self.VOUCHER" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_01" Association="Self.FK_01">
-      <End Role="PHONG" EntitySet="PHONG" />
+    <AssociationSet Name="FK__GHE__MALOAIGHE__6A30C649" Association="Self.FK__GHE__MALOAIGHE__6A30C649">
+      <End Role="LOAIGHE" EntitySet="LOAIGHE" />
+      <End Role="GHE" EntitySet="GHE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GHE__MaThongTinC__6B24EA82" Association="Self.FK__GHE__MaThongTinC__6B24EA82">
+      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEU" />
+      <End Role="GHE" EntitySet="GHE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GHE__MAVE__6C190EBB" Association="Self.FK__GHE__MAVE__6C190EBB">
+      <End Role="VE" EntitySet="VE" />
       <End Role="GHE" EntitySet="GHE" />
     </AssociationSet>
     <AssociationSet Name="FK_PHONG_LOAIPHONG" Association="Self.FK_PHONG_LOAIPHONG">
@@ -413,14 +388,6 @@
       <End Role="PHONG" EntitySet="PHONG" />
       <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEU" />
     </AssociationSet>
-    <AssociationSet Name="fk01_HD" Association="Self.fk01_HD">
-      <End Role="VE" EntitySet="VE" />
-      <End Role="HOADON" EntitySet="HOADON" />
-    </AssociationSet>
-    <AssociationSet Name="fk01_NV" Association="Self.fk01_NV">
-      <End Role="LOAINHANVIEN" EntitySet="LOAINHANVIEN" />
-      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
-    </AssociationSet>
     <AssociationSet Name="fk01_PHIM" Association="Self.fk01_PHIM">
       <End Role="QUOCGIA" EntitySet="QUOCGIA" />
       <End Role="PHIM" EntitySet="PHIM" />
@@ -428,10 +395,6 @@
     <AssociationSet Name="fk01_TV" Association="Self.fk01_TV">
       <End Role="LOAITHANHVIEN" EntitySet="LOAITHANHVIEN" />
       <End Role="THANHVIEN" EntitySet="THANHVIEN" />
-    </AssociationSet>
-    <AssociationSet Name="fk01_VE" Association="Self.fk01_VE">
-      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
-      <End Role="VE" EntitySet="VE" />
     </AssociationSet>
     <AssociationSet Name="fk02_PHIM" Association="Self.fk02_PHIM">
       <End Role="LOAIPHIM" EntitySet="LOAIPHIM" />

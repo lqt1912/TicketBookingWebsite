@@ -46,6 +46,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.3.4.13329\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -54,6 +75,9 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.SqlServerCompact.6.4.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="Eramake.Encrypted, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Eramake.EncryptDecryptUrl.1.1.3\lib\Eramake.Encrypted.dll</HintPath>
     </Reference>
     <Reference Include="JShibo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JShibo.0.1\lib\net452\JShibo.dll</HintPath>
@@ -97,16 +121,28 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -125,10 +161,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
-    </Reference>
-    <Reference Include="System.Net.Http.WebRequest">
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -184,84 +216,80 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\QKTCinemaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BANNER.cs">
+      <DependentUpon>QktCinema.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\BINHLUAN.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataAccess.cs" />
     <Compile Include="Models\GHE.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HOADON.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LOAIGHE.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LOAINHANVIEN.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOAIPHIM.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOAIPHONG.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOAITHANHVIEN.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MaHoa.cs" />
+    <Compile Include="Models\MailHelper.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\NHANVIEN.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\PHIM.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhimDangChieu.cs" />
-    <Compile Include="Models\PHIMINFO.cs" />
     <Compile Include="Models\PHONG.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QKTCInema.Context.cs">
+    <Compile Include="Models\QktCinema.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QKTCInema.Context.tt</DependentUpon>
+      <DependentUpon>QktCinema.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QKTCInema.cs">
+    <Compile Include="Models\QktCinema.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QKTCInema.Designer.cs">
+    <Compile Include="Models\QktCinema.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QKTCInema.edmx</DependentUpon>
+      <DependentUpon>QktCinema.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\QUOCGIA.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RAPCHIEUPHIM.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THANHVIEN.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THONGTINCHIEU.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TINHTRANGVE.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VE.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VOUCHER.cs">
-      <DependentUpon>QKTCInema.tt</DependentUpon>
+      <DependentUpon>QktCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -312,9 +340,13 @@
     <Content Include="Content\Images\450x300\MALEFICENT_450300.jpg" />
     <Content Include="Content\Images\450x300\PHAPSUMU_450300.jpg" />
     <Content Include="Content\Images\450x300\TERMINATORDARKFATE_450300.jpg" />
+    <Content Include="Content\Images\cinema-ticket-isolated-transparent-background_97886-518.jpg" />
+    <Content Include="Content\Images\c_member--1920x450px--01.jpg" />
+    <Content Include="Content\Images\c_ten--1920x450px--01.jpg" />
     <Content Include="Content\Images\download %281%29.png" />
     <Content Include="Content\Images\download %282%29.png" />
     <Content Include="Content\Images\forward.png" />
+    <Content Include="Content\Images\icon-register.png" />
     <Content Include="Content\Images\logo %281%29.png" />
     <Content Include="Content\Images\logo %281%29.svg" />
     <Content Include="Content\Images\logo %282%29.png" />
@@ -322,6 +354,7 @@
     <Content Include="Content\Images\logo %283%29.png" />
     <Content Include="Content\Images\logo %284%29.png" />
     <Content Include="Content\Images\logo %285%29.png" />
+    <Content Include="Content\QTKCinema.js" />
     <Content Include="Content\jquery-3.3.1.slim.min.js" />
     <Content Include="Content\jquery.min.js" />
     <Content Include="Content\logo %282%29.png" />
@@ -331,19 +364,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\QKTCInema.Context.tt">
+    <Content Include="Mail.html" />
+    <Content Include="Models\QktCinema.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QKTCInema.edmx</DependentUpon>
-      <LastGenOutput>QKTCInema.Context.cs</LastGenOutput>
+      <DependentUpon>QktCinema.edmx</DependentUpon>
+      <LastGenOutput>QktCinema.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\QKTCInema.tt">
+    <Content Include="Models\QktCinema.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QKTCInema.edmx</DependentUpon>
-      <LastGenOutput>QKTCInema.cs</LastGenOutput>
-    </Content>
-    <Content Include="QTKCinema.mdf" />
-    <Content Include="QTKCinema_log.ldf">
-      <DependentUpon>QTKCinema.mdf</DependentUpon>
+      <DependentUpon>QktCinema.edmx</DependentUpon>
+      <LastGenOutput>QktCinema.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
@@ -353,6 +383,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Images\1042x347\desktop.ini" />
     <Content Include="Content\Images\2048x682\desktop.ini" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -390,17 +422,21 @@
     <None Include="App_Start\_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
     <None Include="App_Start\_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
     <Content Include="Content\Images\300x450xkhuyenmai\desktop.ini" />
-    <EntityDeploy Include="Models\QKTCInema.edmx">
+    <Content Include="Scripts\angular.min.js.map" />
+    <EntityDeploy Include="Models\QktCinema.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QKTCInema.Designer.cs</LastGenOutput>
+      <LastGenOutput>QktCinema.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\QKTCInema.edmx.diagram">
-      <DependentUpon>QKTCInema.edmx</DependentUpon>
+    <Content Include="Models\QktCinema.edmx.diagram">
+      <DependentUpon>QktCinema.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\tqkcinema - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tqkcinema - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tqkcinema - Web Deploy.pubxml" />
-    <Content Include="Scripts\angular.min.js.map" />
+    <None Include="Properties\PublishProfiles\webxemphim - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\webxemphim - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\webxemphim - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -453,6 +489,11 @@
     <None Include="App_Start\_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <Content Include="Views\QKTCinema\Confirm.cshtml" />
     <Content Include="Views\QKTCinema\SuccessResult.cshtml" />
+    <Content Include="Views\NguoiDung\DangKi.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
+    <Content Include="Views\QKTCinema\ChiTietKhuyenMai.cshtml" />
+    <Content Include="Views\NguoiDung\ChinhSuaThongTin.cshtml" />
+    <Content Include="Views\NguoiDung\DoiMatKhau.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Index\" />

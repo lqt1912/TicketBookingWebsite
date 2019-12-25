@@ -17,6 +17,7 @@ namespace MovieTheater1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public THONGTINCHIEU()
         {
+            this.GHEs = new HashSet<GHE>();
             this.VEs = new HashSet<VE>();
         }
     
@@ -27,6 +28,8 @@ namespace MovieTheater1.Models
         public string MAPHONG { get; set; }
         public string MARAP { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GHE> GHEs { get; set; }
         public virtual PHIM PHIM { get; set; }
         public virtual PHONG PHONG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

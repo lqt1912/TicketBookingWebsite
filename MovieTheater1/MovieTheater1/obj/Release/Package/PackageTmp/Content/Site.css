@@ -11,27 +11,63 @@
 	}
 
 
-@media (min-width: 1200px) {
-	.container-1 {
-		padding-left: 5rem;
-		padding-right: 5rem
+.dvn-header {
+	text-transform: uppercase;
+	font-size: 25pt;
+	color: rgb(186, 52, 105);
+	padding: 0;
+	text-align: center;
+	font-weight: bold;
+}
 
+.dvn-border {
+	border: 2px solid brown;
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 90vw;
+		max-width: 90vw;
 	}
 }
+
+@media (min-width: 992px) {
+	.container {
+		width: 970px;
+		max-width: 970px;
+	}
+}
+
+
+@media (min-width: 768px) {
+	.container {
+		width: 750px;
+		max-width: 750px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 90vw;
+		max-width: 90vw;
+	}
+}
+
 h3 {
 	font-size: 18px;
 	font-weight: 500;
 	text-transform: uppercase;
 	line-height: 1.5;
 }
-h3:after {
-	display: block;
-	width: 50px;
-	height: 2px;
-	margin-top: 8px;
-	content: '';
-	background-color: #f26b38;
-}
+
+	h3:after {
+		display: block;
+		width: 50px;
+		height: 2px;
+		margin-top: 8px;
+		content: '';
+		background-color: #f26b38;
+	}
 
 input {
 	border: 1px solid #c4c4c4;
@@ -42,18 +78,32 @@ input {
 	width: 190px;
 }
 
-.btn-search{
+.input--orange {
+    border: 1px solid #f26b38 !important;
+}
+select {
+	border: 1px solid #f26b38 !important;
+	border-radius: 0px;
+	background-color: black;
+	padding: 3px 5px;
+	box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+	width: 190px;
+}
+
+.btn-search {
 	color: lightgrey;
 }
 
-.btn-search:hover{
-	color: dimgray;
-}
+	.btn-search:hover {
+		color: dimgray;
+	}
 
 
-.btn-login{
+.btn-login {
 	font-size: 1rem;
+	border-radius: 0px;
 }
+
 .btn-linear {
 	flex: 1 1 auto;
 	margin: 1px;
@@ -124,13 +174,16 @@ input {
 			left: 0;
 		}
 
-.btn-tab:focus{
-	color: black;
-}
+	.btn-tab:focus {
+		color: black;
+	}
+
 .btn-xemthem {
 	flex: 1 1 auto;
 	margin: 10px;
 	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
 	border: 1px solid rgb(242,107,56);
 	text-align: center;
 	text-transform: uppercase;
@@ -140,7 +193,6 @@ input {
 	background: rgb(247, 249, 250);
 	color: rgb(242,107,56);
 	border-radius: 0px;
-	font-size: 0.8em;
 }
 
 .btn-linear1 {
@@ -157,9 +209,10 @@ input {
 	font-size: 1em;
 	border-bottom: 2px solid rgb(242,107,56);
 }
-.btn-xemthem:hover{
+
+.btn-xemthem:hover {
 	background-color: rgb(242,107,56);
-	color:white;
+	color: white;
 	transition: 0.3s;
 }
 
@@ -209,8 +262,7 @@ input {
 
 .btn-datve {
 	flex: 1 1 auto;
-
-	padding:5px 15px 5px 15px;
+	padding: 7px 18px 7px 18px;
 	border: 1px solid rgb(247, 249, 250);
 	text-align: center;
 	text-transform: uppercase;
@@ -220,7 +272,6 @@ input {
 	background-color: rgba(0,0,0,0.5);
 	color: rgb(247, 249, 250);
 	border-radius: 0px;
-
 }
 
 	.btn-datve:hover {
@@ -232,22 +283,17 @@ input {
 
 .btn-c16 {
 	flex: 1 1 auto;
-
 	padding: 5px;
 	padding: 5px;
-	
 	text-align: center;
 	text-transform: uppercase;
 	position: absolute;
 	overflow: hidden;
-
 	color: rgb(247, 249, 250);
 	border-radius: 0px;
 	margin-top: -3rem;
-
 	font-size: 0.7rem;
 	background-color: rgb(242, 107, 56);
-
 	border: 1px solid rgb(242, 107, 56);
 }
 
@@ -255,8 +301,6 @@ input {
 .btn-datve-nav {
 	padding: 5px;
 	font-size: 0.8em;
-	
-
 }
 /* Play button*/
 .circle {
@@ -272,7 +316,6 @@ input {
 	*/
 	display: inline-block;
 	-webkit-transition: all 0.5s ease;
-
 }
 
 	.playBut .triangle {
@@ -316,8 +359,8 @@ input {
 	stroke-dashoffset: 0;
 	opacity: 1;
 }
- 
-p a:hover{
+
+p a:hover {
 	text-decoration: none;
 }
 
@@ -335,7 +378,6 @@ p a:hover{
 
 .image-parent {
 	max-width: 100px;
-
 }
 
 .nav-text {
@@ -363,8 +405,6 @@ p a:hover{
 	border-right: none;
 	text-align: CENTER;
 	padding: 0;
-
-
 }
 
 .nav-dropdown-text {
@@ -373,6 +413,7 @@ p a:hover{
 	color: white !important;
 	text-transform: uppercase;
 }
+
 	.nav-dropdown-text:hover {
 		color: orange !important;
 	}
@@ -383,14 +424,15 @@ p a:hover{
 	color: white;
 }
 
-.text-white-left{
+.text-white-left {
 	color: white;
 	text-transform: uppercase;
 	text-align: left;
 	font-weight: lighter;
 	font-size: smaller;
 }
-.no-border{
+
+.no-border {
 	border: 1px solid transparent !important;
 	text-align: center !important;
 }
@@ -400,44 +442,42 @@ p a:hover{
 	display: block;
 }
 
-.custom-link{
+.custom-link {
 	color: black;
 	font-size: 0.95rem;
-	text-wrap:none;
-	
+	text-wrap: none;
 }
-.custom-link:hover{
-	text-decoration: none;
-	color: dimgray;
-}
+
+	.custom-link:hover {
+		text-decoration: none;
+		color: dimgray;
+	}
+
 	.custom-link:focus {
 		color: rgb(242, 107, 56);
 	}
 
-.image-parent{
+.image-parent {
 	border: 0.5rem solid transparent;
 }
 
-.list-group-item{
+.list-group-item {
 	text-align: left;
 }
 
 
 .btn-thoi-gian-chieu {
-	
 	margin: 9px;
 	padding: 10px;
 	padding: 10px;
 	border: 1px solid rgb(247, 249, 250);
 	text-align: center;
 	text-transform: uppercase;
-
 	overflow: hidden;
 	transition: 0.1s;
 	background-color: rgba(0,0,0,0.5);
 	color: rgb(247, 249, 250);
 	border-radius: 0px;
-
 }
 
 	.btn-thoi-gian-chieu:hover {
@@ -446,6 +486,7 @@ p a:hover{
 		transition: 0.1s;
 		border: 1px solid rgb(242, 107, 56);
 	}
+
 	.btn-thoi-gian-chieu:focus {
 		background-color: rgb(242, 107, 56);
 		color: white;
@@ -454,9 +495,8 @@ p a:hover{
 
 
 .btn-thoi-gian-chieu1 {
-	margin: 9px;
-	padding: 5px;
-	padding: 5px;
+	margin: 3px;
+	padding: 2px;
 	border: 1px solid rgb(247, 249, 250);
 	text-align: center;
 	text-transform: uppercase;
@@ -465,12 +505,18 @@ p a:hover{
 	background-color: rgba(0,0,0,0.5);
 	color: rgb(247, 249, 250);
 	border-radius: 0px;
-	font-size: 0.8em;
+	font-size: 14px;
 }
 
- .form-control{
-	 border-radius: 0px;
- }
+	.btn-thoi-gian-chieu1:hover {
+		text-decoration: none;
+	}
+
+
+.form-control {
+	border-radius: 0px;
+	width: 100%;
+}
 
 
 .ho-tro-box {
@@ -481,35 +527,37 @@ p a:hover{
 	color: black;
 	font-size: 1.8em;
 	padding: 10px 10px 10px 10px;
-	text-align:center;
+	text-align: center;
 }
 
-.feedback-contact-item a{
-	color:gray;
+.feedback-contact-item a {
+	color: gray;
 	font-size: 0.6em;
 }
-	.feedback-contact-item i{
-		font-size:0.6em;
-		border: 0.5em solid transparent;
-	}
-	.feedback-contact-item a:hover {
-		text-decoration: none;
-		color: rgb(242, 107, 56);
-	}
+
+.feedback-contact-item i {
+	font-size: 0.6em;
+	border: 0.5em solid transparent;
+}
+
+.feedback-contact-item a:hover {
+	text-decoration: none;
+	color: rgb(242, 107, 56);
+}
 
 
 .btn-feedback {
 	margin-bottom: 1em;
 	padding: 5px 25px 5px 25px;
 	border-radius: 0px;
-	text-transform:uppercase;
+	text-transform: uppercase;
 	color: white;
 	background: rgb(242, 107, 56);
 }
 
 	.btn-feedback:hover {
 		background: rgb(255, 101, 80);
-		color:white;
+		color: white;
 	}
 
 
@@ -534,3 +582,143 @@ p a:hover{
 	line-height: 1.2;
 }
 
+.detail-header {
+	font-size: 26px;
+	text-transform: uppercase;
+	line-height: 35px;
+}
+
+.detail-header-small {
+	font-size: 20px;
+	line-height: 35px;
+	color: gray;
+}
+
+.detail-rating {
+	line-height: 3;
+	font-size: 20px;
+}
+
+	.detail-rating i {
+		color: #f8aa28;
+	}
+
+.detail-text {
+	line-height: 2;
+	font-size: 15px;
+}
+
+.cinema-header {
+	text-transform: uppercase;
+	background: #f26b38;
+	line-height: 2;
+}
+
+.btn-suatchieu {
+	color: black;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	margin: 10px;
+	border: 1px solid black;
+	background: white;
+	border-radius: 0px;
+}
+
+	.btn-suatchieu:hover {
+		color: #f26b38;
+		border: 1px solid #f26b38;
+		text-decoration: none;
+	}
+
+.text-sub-info {
+	vertical-align: middle;
+	text-align: center;
+}
+
+
+.btn-ghe {
+	border: 1px solid #f26b38;
+	width: 32px;
+	height: 22px;
+	margin: 1px;
+	font-size: 0.7rem;
+	background: rgb(200, 200, 200);
+	flex-shrink: 0;
+}
+
+	.btn-ghe:active, .btn:visited {
+		background: #f26b38;
+	}
+
+.active-btn {
+	background: #f26b38;
+}
+
+.active-btn1 {
+	background: #f26b38;
+}
+
+.ticket-wrapper {
+	width: 100%;
+}
+
+.seat-map-wrapper {
+	display: inline-block;
+	width: 100%;
+	border: 5px solid rgb(242, 107, 56);
+	background-color: #ffffff;
+	padding: 10px;
+	margin: 10px;
+	overflow: auto;
+}
+
+.login-box td {
+	padding: 10px;
+}
+
+.login__signup {
+	background: rgb(242, 107, 56);
+	color: white;
+	text-transform: uppercase;
+}
+
+.signup-text {
+	color: rgb(242, 107, 56);
+	;
+}
+
+.btn-dat-ve-nhanh {
+	background: #f26b38;
+	color: white;
+	border-radius: 0px;
+}
+
+	.btn-dat-ve-nhanh:hover {
+		background: orangered;
+	}
+
+.seat-row {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+
+.btn-booking {
+    background: #f26b38 !important;
+    border-radius: 0px;
+    color: white;
+}
+
+.btn-edit {
+    border: 1px solid #f26b38;
+    border-radius: 0px;
+}
+
+.btn-edit:hover {
+    color: #ffffff;
+    background: #f26b38 !important;
+}
+.btn-outline-warning {
+    border-radius: 0px;
+}

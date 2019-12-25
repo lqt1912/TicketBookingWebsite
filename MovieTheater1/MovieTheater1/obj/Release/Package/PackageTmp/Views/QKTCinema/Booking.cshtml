@@ -1,0 +1,161 @@
+﻿@using System.Text
+@using JShibo
+@using MovieTheater1.Models
+@model MovieTheater1.Models.PhimDangChieu
+
+@{
+	ViewBag.Title = Model.TenPhim;
+	Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+    
+}
+
+
+
+<div class="row">
+	<div class="col-md-3 col-12">
+		<table cellpadding="10">
+            <tr> <td colspan="2"> <h3>Thông tin đặt vé </h3></td></tr>
+            <tr>
+                <td>
+                    Khách hàng 
+                </td>
+                    @if (Session["Taikhoan"] == null)
+                    {
+                        <td>
+                            <a> Bạn chưa đăng nhập </a>
+                        </td>
+                    }
+                    else
+                    {
+                        THANHVIEN acc = (THANHVIEN) Session["Taikhoan"];
+                        <td> @acc.HOTEN</td>
+                    }
+            </tr>
+			<tr>
+				<td> Phim</td>
+				<td> @Model.TenPhim</td>
+			</tr>
+			<tr>
+				<td> Rạp </td>
+				<td> @Model.TenRap</td>
+			</tr>
+			<tr>
+				<td> Ngày </td>
+				<td> @Model.NgayChieu</td>
+			</tr>
+			<tr>
+				<td> Suất chiếu</td>
+				<td> @Model.GioChieu</td>
+			</tr>
+			<tr>
+				<td> Phòng </td>
+				<td>  @DataAccess.GetThongtinchieuById(Model.MaThongTinChieu).PHONG.TenPhong @DataAccess.GetThongtinchieuById(Model.MaThongTinChieu).PHONG.LOAIPHONG.TENLOAIPHONG</td>
+			</tr>
+			<tr>
+				<td> Ghế đã chọn </td>
+				<td id="amount">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					@using (Html.BeginForm("Confirm", "QKTCinema"))
+					{
+						<input id="txtGhe" name="Ghe" type="hidden" />
+						<input id="txtTongTien" name="ThanhTien" type="hidden" />
+                        <input id="voucher" name="Voucher" onblur="CheckVoucher()" placeholder="Nhập mã VOUCHER" />
+					    <p onkeyup="ClearMessageVoucher()"></p>
+					    <p id="messageVoucher"></p>
+					    <button id="btnMuave" class="btn btn-booking" style="background: #b0e0e6" type="submit">MUA VÉ</button>
+					}
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="col-md-6 col-12 row " >
+		<h3 class="col-12 "> Chọn ghế </h3>
+		<div class=" col-12 seat-map-wrapper " >
+			
+			<div class="">
+				@{
+					var Ghes = DataAccess.GetGhesByTtc(Model.MaThongTinChieu);
+					if (DataAccess.GetThongtinchieuById(Model.MaThongTinChieu).PHONG.MaLoaiPhong == "loaiphong01")
+					{
+						<div class="" style="background: brown; text-align: center; color: white; width: 475px;"> Màn hình </div>
+						for (int i = 65; i <= 65 + 14; i++)
+						{
+							<div class="seat-row" >
+								@for (int j = 1; j <= 14; j++)
+								{
+									var ghe = Ghes.SingleOrDefault(x => x.Id == Convert.ToChar(i).ToString() + j.ToString());
+									if (ghe.IsUsed == 1)
+									{
+										<button class="btn-ghe " disabled style="background: rgb(125, 199, 29)" value="@Convert.ToChar(i)@j.ToString()"> @Convert.ToChar(i)@j.ToString()</button>
+									}
+									else
+									{
+										<button class="btn-ghe " value="@Convert.ToChar(i)@j.ToString()">@Convert.ToChar(i)@j.ToString()</button>
+									}
+								}
+							</div>
+						}
+					}
+					else
+					{
+						<div class="" style="background: brown; text-align: center; color: white; width:645px "> Màn hình </div>
+						for (int i = 65; i <= 65 + 14; i++)
+						{
+							<div class="seat-row">
+								@for (int j = 1; j <= 19; j++)
+								{
+									var ghe = Ghes.SingleOrDefault(x => x.Id == Convert.ToChar(i).ToString() + j.ToString());
+									if (ghe.IsUsed == 1)
+									{
+										<button class="btn-ghe " disabled style="background: rgb(125, 199, 29)" value="@Convert.ToChar(i)@j.ToString()"> @Convert.ToChar(i)@j.ToString()</button>
+									}
+									else
+									{
+										<button class="btn-ghe " value="@Convert.ToChar(i)@j.ToString()">@Convert.ToChar(i)@j.ToString()</button>
+									}
+								}
+							</div>
+						}
+					}
+				}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3 col-12 row pt-lg-5 ">
+		<div class="col-12"> <button disabled class="btn-ghe"></button> Ghế trống</div>
+		<div class="col-12">  <button disabled class="btn-ghe active-btn1"></button> Ghế đang chọn </div>
+		<div class="col-12">  <button disabled class="btn-ghe " style="background: rgb(125, 199, 29)"></button> Ghế đã được mua </div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function () {
+
+		$('.btn-ghe').click(function () {
+			$(this).toggleClass('active-btn');
+			
+			var x = document.querySelectorAll('.active-btn');
+			var text1 ="";
+			for (var i = 0; i < x.length; i++) {
+				text1 = text1 + x[i].value + " ";
+			}
+			document.getElementById("amount").innerHTML = text1;
+			var thanhTien = x.length * 45000;
+			document.getElementById("txtGhe").value = text1;
+			document.getElementById("txtTongTien").value = thanhTien.toString();
+		});
+
+
+
+
+	});
+
+
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>

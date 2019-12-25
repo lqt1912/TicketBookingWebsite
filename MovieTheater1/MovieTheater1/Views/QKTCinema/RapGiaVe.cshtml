@@ -15,7 +15,7 @@
 				<div class="col-12"> <h3> phim theo rạp</h3> </div>
 
 				<div class="col-md-5 col-sm-5 col-12 pb-5">
-					<select id="tenRap" name="selectbasic" data-target="secondList" class="selectFilter form-control" onchange="SelectItem()">
+					<select id="tenRap1" name="selectbasic" data-target="secondList" class="selectFilter form-control" onchange="SelectItem()">
 						<option value=" -1"> Chọn rạp </option>
 						@foreach (var item in DataAccess.GetRaps())
 						{
@@ -26,18 +26,19 @@
 				</div>
 
 				<div class="col-md-4 col-sm-4 col-12 pb-5">
-					<select id="ngayChieu"data-target="thirdList" class="secondList selectFilter form-control" onchange="SelectItem()">
+					<select id="ngayChieu1"data-target="thirdList" class="secondList selectFilter form-control" onchange="SelectItem()">
 						<option value=" -1"> Chọn ngày </option>
-						@foreach (var rap in DataAccess.GetRaps())
-						{
-							foreach (var ttc in DataAccess.GetThongtinchieu())
-							{
-								if (ttc.MARAP == rap.MARAP)
-								{
-									<option data-belong="@ttc.MARAP" value="@ttc.NGAYCHIEU">@ttc.NGAYCHIEU.ToString().Substring(0,9)</option>
-								}
-							}
-						}
+                        @{
+                            var days = new List<string>();
+                            foreach (var thongtinchieu in DataAccess.db.THONGTINCHIEUx.ToList())
+                            {
+                                if (!days.Contains(thongtinchieu.NGAYCHIEU + thongtinchieu.MARAP))
+                                {
+                                    <option data-belong="@thongtinchieu.MARAP" value="@thongtinchieu.NGAYCHIEU">@thongtinchieu.NGAYCHIEU.ToString().Substring(0, 9)</option>
+                                    days.Add(thongtinchieu.NGAYCHIEU + thongtinchieu.MARAP);
+                                }
+                            }
+                        }
 
 					</select>
 				</div>
@@ -46,9 +47,9 @@
 					@using (Html.BeginForm("Btn_Filter_Clicked", "QKTCinema"))
 					{
 
-						<input id="txtTenRap" name="tenRap" type="hidden" />
-						<input id="txtNgayChieu" name="ngayChieu" type="hidden" />
-						<button class="btn " style="background: #b0e0e6" type="submit">TÌM PHIM</button>
+						<input id="txtTenRap" name="tenRap"  />
+						<input id="txtNgayChieu" name="ngayChieu"  />
+						<button class="btn " style="background: #ff8c00; border-radius: 0px; " type="submit">TÌM PHIM</button>
 					}
 				</div>
 			</div>
@@ -82,8 +83,8 @@
 <script>
 	function SelectItem() {
 
-		document.getElementById("txtTenRap").value = document.getElementById("tenRap").value;
-		document.getElementById("txtNgayChieu").value = document.getElementById("ngayChieu").value;
+		document.getElementById("txtTenRap").value = document.getElementById("tenRap1").value;
+		document.getElementById("txtNgayChieu").value = document.getElementById("ngayChieu1").value;
 	}
 
 

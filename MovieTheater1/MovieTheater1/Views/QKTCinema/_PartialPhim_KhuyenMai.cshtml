@@ -6,13 +6,14 @@
 @foreach (var item in Model)
 {
 	<div class=" col-sm-12 col-12" style="padding-right: 2em; padding-top: 1em;">
-		<div class="container-for-overlay">
-			<img class="image w-100 " src="@Url.Content("~/Content/Images/450x300/" + item.ANHDAIDIEN + "_450300.jpg")" img />
-			<div class="middle d-flex justify-content-center align-items-center  d-flex justify-content-center align-items-center ">
-				<a href="#" class="btn btn-c16"> C16</a>
-				<a href="#" class="btn btn-datve"> MUA VÉ</a>
-			</div>
-		</div>
+        <a href="@Url.Action("ChiTiet","QKTCinema", new {id=@item.MAPHIM})">
+            <div class="container-for-overlay">
+                <img class="image w-100 " src="@Url.Content("~/Content/Images/450x300/" + item.ANHDAIDIEN + "_450300.jpg")" img />
+                <div class="middle d-flex justify-content-center align-items-center  d-flex justify-content-center align-items-center ">
+                    <button href="#" class="btn btn-datve"> MUA VÉ</button>
+                </div>
+            </div>
+        </a>
 		<div class=" text-uppercase  font-weight-bold">
 			@item.TENPHIM
 		</div>

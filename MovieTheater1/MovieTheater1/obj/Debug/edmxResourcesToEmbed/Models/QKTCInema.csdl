@@ -1,93 +1,152 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="QTKCinemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="cinemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="cinemaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BANNERs" EntityType="cinemaModel.BANNER" />
+    <EntitySet Name="BINHLUANs" EntityType="cinemaModel.BINHLUAN" />
+    <EntitySet Name="GHEs" EntityType="cinemaModel.GHE" />
+    <EntitySet Name="LOAIGHEs" EntityType="cinemaModel.LOAIGHE" />
+    <EntitySet Name="LOAIPHIMs" EntityType="cinemaModel.LOAIPHIM" />
+    <EntitySet Name="LOAIPHONGs" EntityType="cinemaModel.LOAIPHONG" />
+    <EntitySet Name="LOAITHANHVIENs" EntityType="cinemaModel.LOAITHANHVIEN" />
+    <EntitySet Name="PHIMs" EntityType="cinemaModel.PHIM" />
+    <EntitySet Name="PHONGs" EntityType="cinemaModel.PHONG" />
+    <EntitySet Name="QUOCGIAs" EntityType="cinemaModel.QUOCGIA" />
+    <EntitySet Name="RAPCHIEUPHIMs" EntityType="cinemaModel.RAPCHIEUPHIM" />
+    <EntitySet Name="THANHVIENs" EntityType="cinemaModel.THANHVIEN" />
+    <EntitySet Name="THONGTINCHIEUx" EntityType="cinemaModel.THONGTINCHIEU" />
+    <EntitySet Name="TINHTRANGVEs" EntityType="cinemaModel.TINHTRANGVE" />
+    <EntitySet Name="VEs" EntityType="cinemaModel.VE" />
+    <EntitySet Name="VOUCHERs" EntityType="cinemaModel.VOUCHER" />
+    <AssociationSet Name="fk03_PHIM" Association="cinemaModel.fk03_PHIM">
+      <End Role="BINHLUAN" EntitySet="BINHLUANs" />
+      <End Role="PHIM" EntitySet="PHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GHE__MALOAIGHE__6A30C649" Association="cinemaModel.FK__GHE__MALOAIGHE__6A30C649">
+      <End Role="LOAIGHE" EntitySet="LOAIGHEs" />
+      <End Role="GHE" EntitySet="GHEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GHE__MaThongTinC__6B24EA82" Association="cinemaModel.FK__GHE__MaThongTinC__6B24EA82">
+      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEUx" />
+      <End Role="GHE" EntitySet="GHEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GHE__MAVE__6C190EBB" Association="cinemaModel.FK__GHE__MAVE__6C190EBB">
+      <End Role="VE" EntitySet="VEs" />
+      <End Role="GHE" EntitySet="GHEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_PHIM" Association="cinemaModel.fk02_PHIM">
+      <End Role="LOAIPHIM" EntitySet="LOAIPHIMs" />
+      <End Role="PHIM" EntitySet="PHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHONG_LOAIPHONG" Association="cinemaModel.FK_PHONG_LOAIPHONG">
+      <End Role="LOAIPHONG" EntitySet="LOAIPHONGs" />
+      <End Role="PHONG" EntitySet="PHONGs" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_TV" Association="cinemaModel.fk01_TV">
+      <End Role="LOAITHANHVIEN" EntitySet="LOAITHANHVIENs" />
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGTINCHIEU_PHIM" Association="cinemaModel.FK_THONGTINCHIEU_PHIM">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEUx" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_PHIM" Association="cinemaModel.fk01_PHIM">
+      <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
+      <End Role="PHIM" EntitySet="PHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHONG_RAPCHIEUPHIM" Association="cinemaModel.FK_PHONG_RAPCHIEUPHIM">
+      <End Role="RAPCHIEUPHIM" EntitySet="RAPCHIEUPHIMs" />
+      <End Role="PHONG" EntitySet="PHONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGTINCHIEU_PHONG" Association="cinemaModel.FK_THONGTINCHIEU_PHONG">
+      <End Role="PHONG" EntitySet="PHONGs" />
+      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEUx" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_TV" Association="cinemaModel.fk02_TV">
+      <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_VE" Association="cinemaModel.fk02_VE">
+      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEUx" />
+      <End Role="VE" EntitySet="VEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk04_VE" Association="cinemaModel.fk04_VE">
+      <End Role="TINHTRANGVE" EntitySet="TINHTRANGVEs" />
+      <End Role="VE" EntitySet="VEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk03_VE" Association="cinemaModel.fk03_VE">
+      <End Role="VOUCHER" EntitySet="VOUCHERs" />
+      <End Role="VE" EntitySet="VEs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BANNER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LINK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="BINHLUAN">
     <Key>
       <PropertyRef Name="MABINHLUAN" />
     </Key>
-    <Property Name="MABINHLUAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MABINHLUAN" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MATHANHVIEN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MAPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="NOIDUNG" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PHIMs" Relationship="Self.fk03_PHIM" FromRole="BINHLUAN" ToRole="PHIM" />
+    <NavigationProperty Name="PHIMs" Relationship="cinemaModel.fk03_PHIM" FromRole="BINHLUAN" ToRole="PHIM" />
   </EntityType>
   <EntityType Name="GHE">
     <Key>
-      <PropertyRef Name="MaPhong" />
-      <PropertyRef Name="MaRap" />
       <PropertyRef Name="Id" />
+      <PropertyRef Name="MaThongTinChieu" />
     </Key>
-    <Property Name="MaPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MaRap" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="IsUsed" Type="Int32" />
-    <NavigationProperty Name="PHONG" Relationship="Self.FK_01" FromRole="GHE" ToRole="PHONG" />
-  </EntityType>
-  <EntityType Name="HOADON">
-    <Key>
-      <PropertyRef Name="MAHOADON" />
-    </Key>
-    <Property Name="MAHOADON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MaThongTinChieu" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MAVE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="THANHVIEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="VE" Relationship="Self.fk01_HD" FromRole="HOADON" ToRole="VE" />
+    <Property Name="IsUsed" Type="Int32" />
+    <Property Name="MALOAIGHE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LOAIGHE" Relationship="cinemaModel.FK__GHE__MALOAIGHE__6A30C649" FromRole="GHE" ToRole="LOAIGHE" />
+    <NavigationProperty Name="THONGTINCHIEU" Relationship="cinemaModel.FK__GHE__MaThongTinC__6B24EA82" FromRole="GHE" ToRole="THONGTINCHIEU" />
+    <NavigationProperty Name="VE" Relationship="cinemaModel.FK__GHE__MAVE__6C190EBB" FromRole="GHE" ToRole="VE" />
   </EntityType>
   <EntityType Name="LOAIGHE">
     <Key>
       <PropertyRef Name="MALOAIGHE" />
     </Key>
-    <Property Name="MALOAIGHE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MALOAIGHE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="TENLOAIGHE" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="LOAINHANVIEN">
-    <Key>
-      <PropertyRef Name="MALOAINV" />
-    </Key>
-    <Property Name="MALOAINV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TENLOAINV" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="NHANVIENs" Relationship="Self.fk01_NV" FromRole="LOAINHANVIEN" ToRole="NHANVIEN" />
+    <NavigationProperty Name="GHEs" Relationship="cinemaModel.FK__GHE__MALOAIGHE__6A30C649" FromRole="LOAIGHE" ToRole="GHE" />
   </EntityType>
   <EntityType Name="LOAIPHIM">
     <Key>
       <PropertyRef Name="MALOAIPHIM" />
     </Key>
-    <Property Name="MALOAIPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MALOAIPHIM" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="TENLOAIPHIM" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PHIMs" Relationship="Self.fk02_PHIM" FromRole="LOAIPHIM" ToRole="PHIM" />
+    <NavigationProperty Name="PHIMs" Relationship="cinemaModel.fk02_PHIM" FromRole="LOAIPHIM" ToRole="PHIM" />
   </EntityType>
   <EntityType Name="LOAIPHONG">
     <Key>
       <PropertyRef Name="MALOAIPHONG" />
     </Key>
-    <Property Name="MALOAIPHONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MALOAIPHONG" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="TENLOAIPHONG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PHONGs" Relationship="Self.FK_PHONG_LOAIPHONG" FromRole="LOAIPHONG" ToRole="PHONG" />
+    <NavigationProperty Name="PHONGs" Relationship="cinemaModel.FK_PHONG_LOAIPHONG" FromRole="LOAIPHONG" ToRole="PHONG" />
   </EntityType>
   <EntityType Name="LOAITHANHVIEN">
     <Key>
       <PropertyRef Name="MALOAITV" />
     </Key>
-    <Property Name="MALOAITV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MALOAITV" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="TENLOAITV" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="THANHVIENs" Relationship="Self.fk01_TV" FromRole="LOAITHANHVIEN" ToRole="THANHVIEN" />
-  </EntityType>
-  <EntityType Name="NHANVIEN">
-    <Key>
-      <PropertyRef Name="MANV" />
-    </Key>
-    <Property Name="MANV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="HOTEN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="GIOITINH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="DIACHI" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="SODT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="MALOAINV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="LOAINHANVIEN" Relationship="Self.fk01_NV" FromRole="NHANVIEN" ToRole="LOAINHANVIEN" />
-    <NavigationProperty Name="VEs" Relationship="Self.fk01_VE" FromRole="NHANVIEN" ToRole="VE" />
+    <NavigationProperty Name="THANHVIENs" Relationship="cinemaModel.fk01_TV" FromRole="LOAITHANHVIEN" ToRole="THANHVIEN" />
   </EntityType>
   <EntityType Name="PHIM">
     <Key>
       <PropertyRef Name="MAPHIM" />
     </Key>
-    <Property Name="MAPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MAPHIM" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="TENPHIM" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="MAQUOCGIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MALOAIPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -103,104 +162,104 @@
     <Property Name="DAODIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DIENVIEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="MOTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="BINHLUAN" Relationship="Self.fk03_PHIM" FromRole="PHIM" ToRole="BINHLUAN" />
-    <NavigationProperty Name="LOAIPHIM" Relationship="Self.fk02_PHIM" FromRole="PHIM" ToRole="LOAIPHIM" />
-    <NavigationProperty Name="THONGTINCHIEUx" Relationship="Self.FK_THONGTINCHIEU_PHIM" FromRole="PHIM" ToRole="THONGTINCHIEU" />
-    <NavigationProperty Name="QUOCGIA" Relationship="Self.fk01_PHIM" FromRole="PHIM" ToRole="QUOCGIA" />
+    <Property Name="TRAILER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BINHLUAN" Relationship="cinemaModel.fk03_PHIM" FromRole="PHIM" ToRole="BINHLUAN" />
+    <NavigationProperty Name="LOAIPHIM" Relationship="cinemaModel.fk02_PHIM" FromRole="PHIM" ToRole="LOAIPHIM" />
+    <NavigationProperty Name="THONGTINCHIEUx" Relationship="cinemaModel.FK_THONGTINCHIEU_PHIM" FromRole="PHIM" ToRole="THONGTINCHIEU" />
+    <NavigationProperty Name="QUOCGIA" Relationship="cinemaModel.fk01_PHIM" FromRole="PHIM" ToRole="QUOCGIA" />
   </EntityType>
   <EntityType Name="PHONG">
     <Key>
       <PropertyRef Name="MaPhong" />
       <PropertyRef Name="MARAP" />
     </Key>
-    <Property Name="MaPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MARAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaPhong" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MARAP" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="MaLoaiPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="SoCho" Type="Int32" />
     <Property Name="TenPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="GHEs" Relationship="Self.FK_01" FromRole="PHONG" ToRole="GHE" />
-    <NavigationProperty Name="LOAIPHONG" Relationship="Self.FK_PHONG_LOAIPHONG" FromRole="PHONG" ToRole="LOAIPHONG" />
-    <NavigationProperty Name="RAPCHIEUPHIM" Relationship="Self.FK_PHONG_RAPCHIEUPHIM" FromRole="PHONG" ToRole="RAPCHIEUPHIM" />
-    <NavigationProperty Name="THONGTINCHIEUx" Relationship="Self.FK_THONGTINCHIEU_PHONG" FromRole="PHONG" ToRole="THONGTINCHIEU" />
+    <NavigationProperty Name="LOAIPHONG" Relationship="cinemaModel.FK_PHONG_LOAIPHONG" FromRole="PHONG" ToRole="LOAIPHONG" />
+    <NavigationProperty Name="RAPCHIEUPHIM" Relationship="cinemaModel.FK_PHONG_RAPCHIEUPHIM" FromRole="PHONG" ToRole="RAPCHIEUPHIM" />
+    <NavigationProperty Name="THONGTINCHIEUx" Relationship="cinemaModel.FK_THONGTINCHIEU_PHONG" FromRole="PHONG" ToRole="THONGTINCHIEU" />
   </EntityType>
   <EntityType Name="QUOCGIA">
     <Key>
       <PropertyRef Name="MAQUOCGIA" />
     </Key>
-    <Property Name="MAQUOCGIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MAQUOCGIA" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="TENQUOCGIA" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PHIMs" Relationship="Self.fk01_PHIM" FromRole="QUOCGIA" ToRole="PHIM" />
-    <NavigationProperty Name="THANHVIENs" Relationship="Self.fk02_TV" FromRole="QUOCGIA" ToRole="THANHVIEN" />
+    <NavigationProperty Name="PHIMs" Relationship="cinemaModel.fk01_PHIM" FromRole="QUOCGIA" ToRole="PHIM" />
+    <NavigationProperty Name="THANHVIENs" Relationship="cinemaModel.fk02_TV" FromRole="QUOCGIA" ToRole="THANHVIEN" />
   </EntityType>
   <EntityType Name="RAPCHIEUPHIM">
     <Key>
       <PropertyRef Name="MARAP" />
     </Key>
-    <Property Name="MARAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MARAP" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="TENRAP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PHONGs" Relationship="Self.FK_PHONG_RAPCHIEUPHIM" FromRole="RAPCHIEUPHIM" ToRole="PHONG" />
+    <NavigationProperty Name="PHONGs" Relationship="cinemaModel.FK_PHONG_RAPCHIEUPHIM" FromRole="RAPCHIEUPHIM" ToRole="PHONG" />
   </EntityType>
   <EntityType Name="THANHVIEN">
     <Key>
       <PropertyRef Name="MATV" />
     </Key>
-    <Property Name="MATV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MATV" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="HOTEN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="GIOITINH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="SODT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="MALOAITV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MAQUOCGIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="LOAITHANHVIEN" Relationship="Self.fk01_TV" FromRole="THANHVIEN" ToRole="LOAITHANHVIEN" />
-    <NavigationProperty Name="QUOCGIA" Relationship="Self.fk02_TV" FromRole="THANHVIEN" ToRole="QUOCGIA" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="NGAYSINH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LOAITHANHVIEN" Relationship="cinemaModel.fk01_TV" FromRole="THANHVIEN" ToRole="LOAITHANHVIEN" />
+    <NavigationProperty Name="QUOCGIA" Relationship="cinemaModel.fk02_TV" FromRole="THANHVIEN" ToRole="QUOCGIA" />
   </EntityType>
   <EntityType Name="THONGTINCHIEU">
     <Key>
       <PropertyRef Name="MATHONGTINCHIEU" />
     </Key>
-    <Property Name="MATHONGTINCHIEU" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MATHONGTINCHIEU" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MAPHIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="THOIGIANCHIEU" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="NGAYCHIEU" Type="DateTime" Precision="0" />
     <Property Name="MAPHONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MARAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="PHIM" Relationship="Self.FK_THONGTINCHIEU_PHIM" FromRole="THONGTINCHIEU" ToRole="PHIM" />
-    <NavigationProperty Name="PHONG" Relationship="Self.FK_THONGTINCHIEU_PHONG" FromRole="THONGTINCHIEU" ToRole="PHONG" />
-    <NavigationProperty Name="VEs" Relationship="Self.fk02_VE" FromRole="THONGTINCHIEU" ToRole="VE" />
+    <NavigationProperty Name="GHEs" Relationship="cinemaModel.FK__GHE__MaThongTinC__6B24EA82" FromRole="THONGTINCHIEU" ToRole="GHE" />
+    <NavigationProperty Name="PHIM" Relationship="cinemaModel.FK_THONGTINCHIEU_PHIM" FromRole="THONGTINCHIEU" ToRole="PHIM" />
+    <NavigationProperty Name="PHONG" Relationship="cinemaModel.FK_THONGTINCHIEU_PHONG" FromRole="THONGTINCHIEU" ToRole="PHONG" />
+    <NavigationProperty Name="VEs" Relationship="cinemaModel.fk02_VE" FromRole="THONGTINCHIEU" ToRole="VE" />
   </EntityType>
   <EntityType Name="TINHTRANGVE">
     <Key>
       <PropertyRef Name="MATINHTRANGVE" />
     </Key>
-    <Property Name="MATINHTRANGVE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MATINHTRANGVE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="TENTINHTRANGVE" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="VEs" Relationship="Self.fk04_VE" FromRole="TINHTRANGVE" ToRole="VE" />
+    <NavigationProperty Name="VEs" Relationship="cinemaModel.fk04_VE" FromRole="TINHTRANGVE" ToRole="VE" />
   </EntityType>
   <EntityType Name="VE">
     <Key>
       <PropertyRef Name="MAVE" />
     </Key>
-    <Property Name="MAVE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MANV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MAVE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MATV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MATHONGTINCHIEU" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="MASOGHE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MAVOUCHER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="TENLOAINV" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="DONGIA" Type="Int32" />
     <Property Name="MATINHTRANGVE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="HOADONs" Relationship="Self.fk01_HD" FromRole="VE" ToRole="HOADON" />
-    <NavigationProperty Name="NHANVIEN" Relationship="Self.fk01_VE" FromRole="VE" ToRole="NHANVIEN" />
-    <NavigationProperty Name="THONGTINCHIEU" Relationship="Self.fk02_VE" FromRole="VE" ToRole="THONGTINCHIEU" />
-    <NavigationProperty Name="TINHTRANGVE" Relationship="Self.fk04_VE" FromRole="VE" ToRole="TINHTRANGVE" />
-    <NavigationProperty Name="VOUCHER" Relationship="Self.fk03_VE" FromRole="VE" ToRole="VOUCHER" />
+    <NavigationProperty Name="GHEs" Relationship="cinemaModel.FK__GHE__MAVE__6C190EBB" FromRole="VE" ToRole="GHE" />
+    <NavigationProperty Name="THONGTINCHIEU" Relationship="cinemaModel.fk02_VE" FromRole="VE" ToRole="THONGTINCHIEU" />
+    <NavigationProperty Name="TINHTRANGVE" Relationship="cinemaModel.fk04_VE" FromRole="VE" ToRole="TINHTRANGVE" />
+    <NavigationProperty Name="VOUCHER" Relationship="cinemaModel.fk03_VE" FromRole="VE" ToRole="VOUCHER" />
   </EntityType>
   <EntityType Name="VOUCHER">
     <Key>
       <PropertyRef Name="MAVOUCHER" />
     </Key>
-    <Property Name="MAVOUCHER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MAVOUCHER" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="TENVOUCHER" Type="String" MaxLength="360" FixedLength="false" Unicode="true" />
     <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="NGAYBD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -208,11 +267,11 @@
     <Property Name="GIAMGIA" Type="Int32" />
     <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ANHDAIDIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="VEs" Relationship="Self.fk03_VE" FromRole="VOUCHER" ToRole="VE" />
+    <NavigationProperty Name="VEs" Relationship="cinemaModel.fk03_VE" FromRole="VOUCHER" ToRole="VE" />
   </EntityType>
   <Association Name="fk03_PHIM">
-    <End Role="BINHLUAN" Type="Self.BINHLUAN" Multiplicity="0..1" />
-    <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+    <End Type="cinemaModel.BINHLUAN" Role="BINHLUAN" Multiplicity="0..1" />
+    <End Type="cinemaModel.PHIM" Role="PHIM" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BINHLUAN">
         <PropertyRef Name="MABINHLUAN" />
@@ -222,47 +281,45 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_01">
-    <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
-    <End Role="GHE" Type="Self.GHE" Multiplicity="*" />
+  <Association Name="FK__GHE__MALOAIGHE__6A30C649">
+    <End Type="cinemaModel.LOAIGHE" Role="LOAIGHE" Multiplicity="0..1" />
+    <End Type="cinemaModel.GHE" Role="GHE" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="PHONG">
-        <PropertyRef Name="MaPhong" />
-        <PropertyRef Name="MARAP" />
+      <Principal Role="LOAIGHE">
+        <PropertyRef Name="MALOAIGHE" />
       </Principal>
       <Dependent Role="GHE">
-        <PropertyRef Name="MaPhong" />
-        <PropertyRef Name="MaRap" />
+        <PropertyRef Name="MALOAIGHE" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk01_HD">
-    <End Role="VE" Type="Self.VE" Multiplicity="0..1" />
-    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+  <Association Name="FK__GHE__MaThongTinC__6B24EA82">
+    <End Type="cinemaModel.THONGTINCHIEU" Role="THONGTINCHIEU" Multiplicity="1" />
+    <End Type="cinemaModel.GHE" Role="GHE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THONGTINCHIEU">
+        <PropertyRef Name="MATHONGTINCHIEU" />
+      </Principal>
+      <Dependent Role="GHE">
+        <PropertyRef Name="MaThongTinChieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GHE__MAVE__6C190EBB">
+    <End Type="cinemaModel.VE" Role="VE" Multiplicity="0..1" />
+    <End Type="cinemaModel.GHE" Role="GHE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VE">
         <PropertyRef Name="MAVE" />
       </Principal>
-      <Dependent Role="HOADON">
+      <Dependent Role="GHE">
         <PropertyRef Name="MAVE" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk01_NV">
-    <End Role="LOAINHANVIEN" Type="Self.LOAINHANVIEN" Multiplicity="0..1" />
-    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LOAINHANVIEN">
-        <PropertyRef Name="MALOAINV" />
-      </Principal>
-      <Dependent Role="NHANVIEN">
-        <PropertyRef Name="MALOAINV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk02_PHIM">
-    <End Role="LOAIPHIM" Type="Self.LOAIPHIM" Multiplicity="0..1" />
-    <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+    <End Type="cinemaModel.LOAIPHIM" Role="LOAIPHIM" Multiplicity="0..1" />
+    <End Type="cinemaModel.PHIM" Role="PHIM" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LOAIPHIM">
         <PropertyRef Name="MALOAIPHIM" />
@@ -273,8 +330,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PHONG_LOAIPHONG">
-    <End Role="LOAIPHONG" Type="Self.LOAIPHONG" Multiplicity="0..1" />
-    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
+    <End Type="cinemaModel.LOAIPHONG" Role="LOAIPHONG" Multiplicity="0..1" />
+    <End Type="cinemaModel.PHONG" Role="PHONG" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LOAIPHONG">
         <PropertyRef Name="MALOAIPHONG" />
@@ -285,8 +342,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk01_TV">
-    <End Role="LOAITHANHVIEN" Type="Self.LOAITHANHVIEN" Multiplicity="0..1" />
-    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="*" />
+    <End Type="cinemaModel.LOAITHANHVIEN" Role="LOAITHANHVIEN" Multiplicity="0..1" />
+    <End Type="cinemaModel.THANHVIEN" Role="THANHVIEN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LOAITHANHVIEN">
         <PropertyRef Name="MALOAITV" />
@@ -296,21 +353,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk01_VE">
-    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
-    <End Role="VE" Type="Self.VE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NHANVIEN">
-        <PropertyRef Name="MANV" />
-      </Principal>
-      <Dependent Role="VE">
-        <PropertyRef Name="MANV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_THONGTINCHIEU_PHIM">
-    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
-    <End Role="THONGTINCHIEU" Type="Self.THONGTINCHIEU" Multiplicity="*" />
+    <End Type="cinemaModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="cinemaModel.THONGTINCHIEU" Role="THONGTINCHIEU" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PHIM">
         <PropertyRef Name="MAPHIM" />
@@ -321,8 +366,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk01_PHIM">
-    <End Role="QUOCGIA" Type="Self.QUOCGIA" Multiplicity="0..1" />
-    <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+    <End Type="cinemaModel.QUOCGIA" Role="QUOCGIA" Multiplicity="0..1" />
+    <End Type="cinemaModel.PHIM" Role="PHIM" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="QUOCGIA">
         <PropertyRef Name="MAQUOCGIA" />
@@ -333,8 +378,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PHONG_RAPCHIEUPHIM">
-    <End Role="RAPCHIEUPHIM" Type="Self.RAPCHIEUPHIM" Multiplicity="1" />
-    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
+    <End Type="cinemaModel.RAPCHIEUPHIM" Role="RAPCHIEUPHIM" Multiplicity="1" />
+    <End Type="cinemaModel.PHONG" Role="PHONG" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RAPCHIEUPHIM">
         <PropertyRef Name="MARAP" />
@@ -345,8 +390,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_THONGTINCHIEU_PHONG">
-    <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
-    <End Role="THONGTINCHIEU" Type="Self.THONGTINCHIEU" Multiplicity="*" />
+    <End Type="cinemaModel.PHONG" Role="PHONG" Multiplicity="0..1" />
+    <End Type="cinemaModel.THONGTINCHIEU" Role="THONGTINCHIEU" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PHONG">
         <PropertyRef Name="MaPhong" />
@@ -359,8 +404,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk02_TV">
-    <End Role="QUOCGIA" Type="Self.QUOCGIA" Multiplicity="0..1" />
-    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="*" />
+    <End Type="cinemaModel.QUOCGIA" Role="QUOCGIA" Multiplicity="0..1" />
+    <End Type="cinemaModel.THANHVIEN" Role="THANHVIEN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="QUOCGIA">
         <PropertyRef Name="MAQUOCGIA" />
@@ -371,8 +416,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk02_VE">
-    <End Role="THONGTINCHIEU" Type="Self.THONGTINCHIEU" Multiplicity="0..1" />
-    <End Role="VE" Type="Self.VE" Multiplicity="*" />
+    <End Type="cinemaModel.THONGTINCHIEU" Role="THONGTINCHIEU" Multiplicity="0..1" />
+    <End Type="cinemaModel.VE" Role="VE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="THONGTINCHIEU">
         <PropertyRef Name="MATHONGTINCHIEU" />
@@ -383,8 +428,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk04_VE">
-    <End Role="TINHTRANGVE" Type="Self.TINHTRANGVE" Multiplicity="0..1" />
-    <End Role="VE" Type="Self.VE" Multiplicity="*" />
+    <End Type="cinemaModel.TINHTRANGVE" Role="TINHTRANGVE" Multiplicity="0..1" />
+    <End Type="cinemaModel.VE" Role="VE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TINHTRANGVE">
         <PropertyRef Name="MATINHTRANGVE" />
@@ -395,8 +440,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk03_VE">
-    <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
-    <End Role="VE" Type="Self.VE" Multiplicity="*" />
+    <End Type="cinemaModel.VOUCHER" Role="VOUCHER" Multiplicity="0..1" />
+    <End Type="cinemaModel.VE" Role="VE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VOUCHER">
         <PropertyRef Name="MAVOUCHER" />
@@ -406,88 +451,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QTKCinemaEntities2" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="BINHLUANs" EntityType="Self.BINHLUAN" />
-    <EntitySet Name="GHEs" EntityType="Self.GHE" />
-    <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
-    <EntitySet Name="LOAIGHEs" EntityType="Self.LOAIGHE" />
-    <EntitySet Name="LOAINHANVIENs" EntityType="Self.LOAINHANVIEN" />
-    <EntitySet Name="LOAIPHIMs" EntityType="Self.LOAIPHIM" />
-    <EntitySet Name="LOAIPHONGs" EntityType="Self.LOAIPHONG" />
-    <EntitySet Name="LOAITHANHVIENs" EntityType="Self.LOAITHANHVIEN" />
-    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
-    <EntitySet Name="PHIMs" EntityType="Self.PHIM" />
-    <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
-    <EntitySet Name="QUOCGIAs" EntityType="Self.QUOCGIA" />
-    <EntitySet Name="RAPCHIEUPHIMs" EntityType="Self.RAPCHIEUPHIM" />
-    <EntitySet Name="THANHVIENs" EntityType="Self.THANHVIEN" />
-    <EntitySet Name="THONGTINCHIEUx" EntityType="Self.THONGTINCHIEU" />
-    <EntitySet Name="TINHTRANGVEs" EntityType="Self.TINHTRANGVE" />
-    <EntitySet Name="VEs" EntityType="Self.VE" />
-    <EntitySet Name="VOUCHERs" EntityType="Self.VOUCHER" />
-    <AssociationSet Name="fk03_PHIM" Association="Self.fk03_PHIM">
-      <End Role="BINHLUAN" EntitySet="BINHLUANs" />
-      <End Role="PHIM" EntitySet="PHIMs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_01" Association="Self.FK_01">
-      <End Role="PHONG" EntitySet="PHONGs" />
-      <End Role="GHE" EntitySet="GHEs" />
-    </AssociationSet>
-    <AssociationSet Name="fk01_HD" Association="Self.fk01_HD">
-      <End Role="VE" EntitySet="VEs" />
-      <End Role="HOADON" EntitySet="HOADONs" />
-    </AssociationSet>
-    <AssociationSet Name="fk01_NV" Association="Self.fk01_NV">
-      <End Role="LOAINHANVIEN" EntitySet="LOAINHANVIENs" />
-      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
-    </AssociationSet>
-    <AssociationSet Name="fk02_PHIM" Association="Self.fk02_PHIM">
-      <End Role="LOAIPHIM" EntitySet="LOAIPHIMs" />
-      <End Role="PHIM" EntitySet="PHIMs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PHONG_LOAIPHONG" Association="Self.FK_PHONG_LOAIPHONG">
-      <End Role="LOAIPHONG" EntitySet="LOAIPHONGs" />
-      <End Role="PHONG" EntitySet="PHONGs" />
-    </AssociationSet>
-    <AssociationSet Name="fk01_TV" Association="Self.fk01_TV">
-      <End Role="LOAITHANHVIEN" EntitySet="LOAITHANHVIENs" />
-      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
-    </AssociationSet>
-    <AssociationSet Name="fk01_VE" Association="Self.fk01_VE">
-      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
-      <End Role="VE" EntitySet="VEs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_THONGTINCHIEU_PHIM" Association="Self.FK_THONGTINCHIEU_PHIM">
-      <End Role="PHIM" EntitySet="PHIMs" />
-      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEUx" />
-    </AssociationSet>
-    <AssociationSet Name="fk01_PHIM" Association="Self.fk01_PHIM">
-      <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
-      <End Role="PHIM" EntitySet="PHIMs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PHONG_RAPCHIEUPHIM" Association="Self.FK_PHONG_RAPCHIEUPHIM">
-      <End Role="RAPCHIEUPHIM" EntitySet="RAPCHIEUPHIMs" />
-      <End Role="PHONG" EntitySet="PHONGs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_THONGTINCHIEU_PHONG" Association="Self.FK_THONGTINCHIEU_PHONG">
-      <End Role="PHONG" EntitySet="PHONGs" />
-      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEUx" />
-    </AssociationSet>
-    <AssociationSet Name="fk02_TV" Association="Self.fk02_TV">
-      <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
-      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
-    </AssociationSet>
-    <AssociationSet Name="fk02_VE" Association="Self.fk02_VE">
-      <End Role="THONGTINCHIEU" EntitySet="THONGTINCHIEUx" />
-      <End Role="VE" EntitySet="VEs" />
-    </AssociationSet>
-    <AssociationSet Name="fk04_VE" Association="Self.fk04_VE">
-      <End Role="TINHTRANGVE" EntitySet="TINHTRANGVEs" />
-      <End Role="VE" EntitySet="VEs" />
-    </AssociationSet>
-    <AssociationSet Name="fk03_VE" Association="Self.fk03_VE">
-      <End Role="VOUCHER" EntitySet="VOUCHERs" />
-      <End Role="VE" EntitySet="VEs" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

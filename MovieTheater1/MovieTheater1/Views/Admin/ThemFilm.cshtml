@@ -61,7 +61,10 @@
                 </div>
                 <div class="form-group">
                     <label>Mô tả</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea id="mota" nam class="form-control" rows="3"></textarea>
+                    <script>
+                        CKEDITOR.replace('mota');
+                    </script>
                 </div>
                 <div class="form-group">
                     <label>Ảnh bìa</label>
@@ -90,7 +93,9 @@
     <input id="txtngayketthuc" name="NgayKetThuc" />
     <input id="txtdienvien" name="DienVien" />
     <input id="txtdaodien" name="DaoDien" />
+    <input id="txtmota" name="MoTa"/>
     <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
+
 }
 
 <script>
@@ -98,6 +103,8 @@
 
         document.getElementById("txttheloai").value = document.getElementById("loaiphim").value;
         document.getElementById("txtquocgia").value = document.getElementById("quocgia").value;
+        document.getElementById("txtmota").value = CKEDITOR.instances.mota.getData();
+
     }
 
     function myFunc() {
@@ -107,6 +114,7 @@
         document.getElementById("txtdienvien").value = document.getElementById("dienvien").value;
         document.getElementById("txtdaodien").value = document.getElementById("daodien").value;
         document.getElementById("txtthoiluong").value = document.getElementById("thoiluong").value;
+      
     }
   
 

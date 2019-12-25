@@ -193,6 +193,5 @@ namespace MovieTheater1.Controllers
 
             return RedirectToAction("QuanLyPhong", "Admin");
         }
-
     }
 }

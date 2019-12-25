@@ -20,7 +20,8 @@
     <!-- SB Admin CSS - Include with every page -->
     <link href="~/Content/Admin/css/sb-admin.css" rel="stylesheet">
     <link href="~/Content/Admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-</head>
+    <script src="https://cdn.ckeditor.com/4.13.1/basic/ckeditor.js"></script>
+    </head>
 
 <body>
 
@@ -34,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="@Url.Action("TrangChu", "QKTCinema")">QKTCinema</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -265,10 +266,6 @@
                             </div>
                             <!-- /input-group -->
                         </li>
-                        <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-
 
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý <span class="fa arrow"></span></a>
@@ -306,9 +303,7 @@
                                 <li>
                                     <a href=@Url.Action("ThemThongTinChieu","Admin")><i class="fa fa-table fa-fw"></i> Thêm thông tin chiếu</a>
                                 </li>
-                                <li>
-                                    <a href=@Url.Action("ThemVe", "Admin")><i class="fa fa-table fa-fw"></i> Thêm vé</a>
-                                </li>
+
                                 <li>
                                     <a href=@Url.Action("ThemRap", "Admin")><i class="fa fa-table fa-fw"></i> Thêm rạp</a>
                                 </li>

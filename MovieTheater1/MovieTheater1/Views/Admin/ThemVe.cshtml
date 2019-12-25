@@ -15,41 +15,46 @@
             <div class="panel-body">
 
                 <div class="form-group">
-                    <label>Nhân viên thêm</label>
-                    <select class="form-control" id="manhanvien" onchange="SelectItem1()">
-                        @foreach (var item in DataAccess.db.NHANVIENs.ToList())
+                    <label>Mã thành viên</label>
+                    <select class="form-control" id="mathanhvien" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.THANHVIENs.ToList())
                         {
-                            <option value="@item.MANV">@item.HOTEN</option>
+                            <option value="@item.MATV">@item.MATV</option>
                         }
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Thời gian chiếu</label>
-                    <input class="form-control" placeholder="Enter text" id="thoigianchieu">
-                </div>
-
-                <div class="form-group">
-                    <label>Ngày chiếu &nbsp</label>
-                    <input type="date" class="form-control" id="ngaychieu" />
-                </div>
-
-                <div class="form-group">
-                    <label>Mã rạp</label>
-                    <select class="form-control" id="marap" onchange="SelectItem1()">
-                        @foreach (var item in DataAccess.db.RAPCHIEUPHIMs.ToList())
+                    <label>Mã thông tin chiếu</label>
+                    <select class="form-control" id="mathongtinchieu" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.THONGTINCHIEUx.ToList())
                         {
-                            <option value="@item.MARAP">@item.TENRAP</option>
+                            <option value="@item.MATHONGTINCHIEU">@item.MATHONGTINCHIEU</option>
                         }
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Mã phòng</label>
-                    <select class="form-control" id="maphong" onchange="SelectItem1()">
-                        @foreach (var item in DataAccess.db.PHONGs.ToList())
+                    <label>Tên voucher</label>
+                    <select class="form-control" id="mavoucher" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.VOUCHERs.ToList())
                         {
-                            <option value="@item.MaPhong">@item.TenPhong</option>
+                            <option value="@item.MAVOUCHER">@item.TENVOUCHER</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Đơn giá</label>
+                    <input class="form-control" placeholder="Enter price" id="dongia">
+                </div>
+
+                <div class="form-group">
+                    <label>Tình trạng vé</label>
+                    <select class="form-control" id="matinhtrangve" onchange="SelectItem1()">
+                        @foreach (var item in DataAccess.db.TINHTRANGVEs.ToList())
+                        {
+                            <option value="@item.MATINHTRANGVE">@item.TENTINHTRANGVE</option>
                         }
                     </select>
                 </div>
@@ -60,27 +65,27 @@
     </div>
 </div>
 
-@using (Html.BeginForm("ThemThongTinChieu", "Admin", FormMethod.Post))
+@using (Html.BeginForm("ThemVe", "Admin", FormMethod.Post))
 {
-    <input id="txttenphim" name="TenPhim" />
-    <input id="txtthoigianchieu" name="ThoiGianChieu">
-    <input id="txtngaychieu" name="NgayChieu" />
-    <input id="txtmarap" name="MaRap" />
-    <input id="txtmaphong" name="MaPhong" />
+    <input id="txtmathanhvien" name="MaThanhVien">
+    <input id="txtmathongtinchieu" name="MaThongTinChieu" />
+    <input id="txtmavoucher" name="MaVoucher" />
+    <input id="txtdongia" name="DonGia" />
+    <input id="txtmatinhtrangve" name="MaTinhTrangVe"/>
     <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
 }
 <script>
     function SelectItem1() {
 
-        document.getElementById("txtmarap").value = document.getElementById("marap").value;
-        document.getElementById("txtmaphong").value = document.getElementById("maphong").value;
-        document.getElementById("txttenphim").value = document.getElementById("maphim").value;
+        document.getElementById("txtmathanhvien").value = document.getElementById("mathanhvien").value;
+        document.getElementById("txtmathongtinchieu").value = document.getElementById("mathongtinchieu").value;
+        document.getElementById("txtmavoucher").value = document.getElementById("mavoucher").value;
+        document.getElementById("txtmatinhtrangve").value = document.getElementById("matinhtrangve").value;
     }
 
     function myFunc() {
 
-        document.getElementById("txtthoigianchieu").value = document.getElementById("thoigianchieu").value;
-        document.getElementById("txtngaychieu").value = document.getElementById("ngaychieu").value;
+        document.getElementById("txtdongia").value = document.getElementById("dongia").value;
     }
 
 

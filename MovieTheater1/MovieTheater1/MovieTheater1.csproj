@@ -633,6 +633,9 @@
     <Content Include="Views\Admin\QuanLyVe.cshtml" />
     <Content Include="Views\Admin\ThemThongTinChieu.cshtml" />
     <Content Include="Views\Admin\ThemVe.cshtml" />
+    <Content Include="Views\Admin\ThemRap.cshtml" />
+    <Content Include="Views\Admin\QuanLyPhong.cshtml" />
+    <Content Include="Views\Admin\ThemPhong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Index\" />

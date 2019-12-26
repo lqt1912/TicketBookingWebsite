@@ -17,7 +17,7 @@
     }
     else
     {
-        <hr />
+        <p class="text-center"> Đăng nhập để tận hưởng các 'tính năng' của hệ thống nhé <i class="fas fa-grin-beam-sweat"></i> </p>
     }
     <div class="row mt-5">
         <div class="col-md-4 col-12"> </div>
@@ -40,7 +40,7 @@
                             <td colspan="2"> <input class="w-100" type="password" name="Matkhau" placeholder="Nhập mật khẩu">@ViewData["Loi2"]</td>
                         </tr>
                         <tr> <td colspan="2"> <input class="w-100 login__signup" type="submit" name="" value="Đăng nhập"></td>
-
+                        <tr> <td style="color: red;"> @ViewBag.Thongbao</td></tr>
                     </table>
 
                     <p class="text-center">Bạn chưa có tài khoản? &nbsp;<a class="signup-text" href="@Url.Action("DangKi", "NguoiDung")">Đăng ký</a></p>

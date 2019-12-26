@@ -3,10 +3,12 @@ using System.Activities.Statements;
 using MovieTheater1.Models;
 using System.Linq;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity.Migrations;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
@@ -83,7 +85,7 @@ namespace MovieTheater1.Controllers
             return View();
         }
 
-        public ActionResult ThanhVien(string id )
+        public ActionResult ThanhVien(string id)
         {
             if (!id.IsNullOrWhiteSpace())
                 return View(DataAccess.db.THANHVIENs.SingleOrDefault(x => x.MATV == id));
@@ -107,8 +109,6 @@ namespace MovieTheater1.Controllers
 
         public ActionResult _Partial_DatVeNhanh(FormCollection f)
         {
-
-
             return PartialView(DataAccess.GetThongtinchieu());
         }
 
@@ -116,8 +116,6 @@ namespace MovieTheater1.Controllers
         {
             return View(DataAccess.GetPhimById(id));
         }
-
-
 
         public ActionResult _Partial_ChonPhim(string maRap, string maPhim)
         {
@@ -153,9 +151,13 @@ namespace MovieTheater1.Controllers
 
                 Session["TenPhim"] = ttc?.PHIM.TENPHIM;
                 Session["TenRap"] = ttc?.PHONG.RAPCHIEUPHIM.TENRAP;
-                Session["NgayChieu"] = ttc.NGAYCHIEU.ToString().Substring(0, 9);
-                Session["GioChieu"] = ttc.THOIGIANCHIEU;
-                Session["PhongChieu"] = ttc.MAPHONG;
+                if (ttc != null)
+                {
+                    Session["NgayChieu"] = ttc.NGAYCHIEU.ToString().Substring(0, 9);
+                    Session["GioChieu"] = ttc.THOIGIANCHIEU;
+                    Session["PhongChieu"] = ttc.MAPHONG;
+                }
+
                 Session["MaThongTinChieu"] = infoId;
 
                 return View(phimDangChieu);
@@ -163,22 +165,15 @@ namespace MovieTheater1.Controllers
 
         }
 
-
-
         public ActionResult Update_DatVeNhanh(FormCollection f)
         {
             var val = DataAccess.GetTTCByTenRapNgaySuat(f["tenPhim"].ToString(), f["tenRap"].ToString(), f["ngayChieu"].ToString(), f["suatChieu"].ToString());
-
-            return RedirectToAction("Booking", "QKTCinema", new
-            {
-                infoId = val.MATHONGTINCHIEU
-            }
-            );
+            return RedirectToAction("Booking", "QKTCinema", new {infoId = val.MATHONGTINCHIEU });
         }
 
         public ActionResult Btn_Filter_Clicked(FormCollection f)
         {
-            return RedirectToAction("PhimTheoRap", "QKTCinema", new { cineId = f["tenRap"], time =f["ngayChieu"] });
+            return RedirectToAction("PhimTheoRap", "QKTCinema", new { cineId = f["tenRap"], time = f["ngayChieu"] });
         }
 
         public ActionResult PhimTheoRap(string cineId, DateTime? time)
@@ -191,7 +186,6 @@ namespace MovieTheater1.Controllers
             if (f["Voucher"].ToString() != String.Empty)
             {
                 string vcId = f["Voucher"];
-
                 VOUCHER vc = DataAccess.db.VOUCHERs.SingleOrDefault(x => x.MAVOUCHER == vcId);
                 Session["MaVoucher"] = vc.MAVOUCHER;
                 int? giamGia = 100 - vc.GIAMGIA;
@@ -199,21 +193,18 @@ namespace MovieTheater1.Controllers
                 int? thanhTien = Int32.Parse(f["ThanhTien"].ToString()) * giamGia;
                 Session["ThanhTien"] = (thanhTien / 100).ToString();
             }
-            else 
+            else
             {
-                int? thanhTien = Int32.Parse(f["ThanhTien"].ToString()) ;
-                Session["ThanhTien"] = (thanhTien ).ToString();
+                int? thanhTien = Int32.Parse(f["ThanhTien"].ToString());
+                Session["ThanhTien"] = (thanhTien).ToString();
                 Session["MaVoucher"] = "";
             }
-
-
             Session["Ghe"] = f["Ghe"];
             return RedirectToAction("MuaVe", "QKTCinema");
         }
 
         public ActionResult SuccessResult()
         {
-         
             if (Session["Taikhoan"] != null)
             {
                 var kh = (THANHVIEN)Session["Taikhoan"];
@@ -226,7 +217,9 @@ namespace MovieTheater1.Controllers
                         MATHONGTINCHIEU = Session["MaThongTinChieu"].ToString(),
                         MATV = kh.MATV,
                         MATINHTRANGVE = "tinhtrang01"
+
                     };
+                    Session["MaVe"] = ve.MAVE;
                     DataAccess.db.VEs.Add(ve);
                     string sIn = Session["Ghe"].ToString();
 
@@ -236,19 +229,16 @@ namespace MovieTheater1.Controllers
                     {
                         if (s1.Length >= 2)
                         {
-
                             var ghe = DataAccess.GetGheByKey(Session["MaThongTinChieu"].ToString(), s1);
                             ghe.MAVE = ve.MAVE;
                             ghe.IsUsed = 1;
                             DataAccess.db.GHEs.AddOrUpdate(ghe);
 
                             DataAccess.db.SaveChanges();
-
-
                         }
                     }
                 }
-               else
+                else
                 {
                     var ve = new VE()
                     {
@@ -259,6 +249,7 @@ namespace MovieTheater1.Controllers
                         MATV = kh.MATV,
                         MATINHTRANGVE = "tinhtrang01"
                     };
+                    Session["MaVe"] = ve.MAVE;
                     DataAccess.db.VEs.Add(ve);
                     string sIn = Session["Ghe"].ToString();
 
@@ -268,19 +259,28 @@ namespace MovieTheater1.Controllers
                     {
                         if (s1.Length >= 2)
                         {
-
                             var ghe = DataAccess.GetGheByKey(Session["MaThongTinChieu"].ToString(), s1);
                             ghe.MAVE = ve.MAVE;
                             ghe.IsUsed = 1;
                             DataAccess.db.GHEs.AddOrUpdate(ghe);
-
                             DataAccess.db.SaveChanges();
-
-
                         }
                     }
                 }
 
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/Mail-Booking.html"));
+
+                content = content.Replace("{{mave}}", Session["MaVe"].ToString());
+                content = content.Replace("{{tenphim}}", Session["TenPhim"].ToString());
+                content = content.Replace("{{tenrap}}", Session["TenRap"].ToString());
+                content = content.Replace("{{phong}}", Session["PhongChieu"].ToString());
+                content = content.Replace("{{ghe}}", Session["Ghe"].ToString());
+                content = content.Replace("{{ngaychieu}}", Session["NgayChieu"].ToString().Substring(0, 9));
+                content = content.Replace("{{suatchieu}}", Session["GioChieu"].ToString());
+
+                new MailHelper().SendMail(kh.EMAIL, "Thông tin đặt vé ", content);
+
+                Session["MaVe"] = null;
                 Session["TenPhim"] = null;
                 Session["MaThongTinChieu"] = null;
                 Session["TenRap"] = null;
@@ -288,13 +288,9 @@ namespace MovieTheater1.Controllers
                 Session["GioChieu"] = null;
                 Session["PhongChieu"] = null;
                 Session["MaVoucher"] = null;
-
                 return View();
             }
             else
-            {
-                        
-            }
             {
                 return RedirectToAction("DangNhap", "NguoiDung");
             }

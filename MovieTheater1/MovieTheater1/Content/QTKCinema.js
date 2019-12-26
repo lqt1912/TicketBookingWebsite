@@ -105,7 +105,9 @@ function SelectItem3() {
 
 function SelectItem4() {
 
+    $("#btn-mua-ve-nhanh").attr("disabled", false);
     document.getElementById("txtSuatChieu").value = document.getElementById("suatChieu").value;
+
 }
 
 $(document).ready(function () {

@@ -4,7 +4,25 @@
     Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
 }
 
-<div>
-	Đặt vé thành công 
-</div>
+    <div>
+        <p class="text-center"> Đặt vé thành công, vui lòng kiểm tra email</p>
+        <p class="text-center"> Quý khách sẽ được điều hướng về trang chủ trong <div id="countdown"></div> giây nữa  </p>
+    </div>
 
+<script>
+    $(document).ready(function() {
+        window.setTimeout(function(){
+            window.location.href='@Url.Action("TrangChu", "QKTCinema")';
+        }, 4000);
+
+        var timeleft = 6;
+        var downloadTimer = setInterval(function(){
+            document.getElementById("countdown").innerHTML = timeleft +" " ;
+            timeleft -= 1;
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = "";
+            }
+        }, 1000);
+    })
+</script>

@@ -409,6 +409,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Mail-Support.html" />
+    <Content Include="Mail-Booking.html" />
     <Content Include="Mail.html" />
     <Content Include="Models\QktCinema.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

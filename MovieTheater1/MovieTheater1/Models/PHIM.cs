@@ -11,7 +11,9 @@ namespace MovieTheater1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.Web;
+
     public partial class PHIM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -43,5 +45,8 @@ namespace MovieTheater1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THONGTINCHIEU> THONGTINCHIEUx { get; set; }
         public virtual QUOCGIA QUOCGIA { get; set; }
+
+        [DisplayName("Upload File")]
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

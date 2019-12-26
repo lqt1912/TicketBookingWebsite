@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label>Nội dung</label>
-                    <textarea class="form-control" rows="3" id="noidung"></textarea>
+                    <textarea class="form-control" rows="3" id="noidung" onchange="SelectItem1()"></textarea>
                     <script>
                         CKEDITOR.replace('noidung');
                     </script>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label>Ghi chú</label>
-                    <textarea class="form-control" rows="3" id="ghichu"></textarea>
+                    <textarea class="form-control" rows="3" id="ghichu" onchange="SelectItem1()"></textarea>
                     <script>
                         CKEDITOR.replace('ghichu');
                     </script>
@@ -67,12 +67,17 @@
     <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
 }
 <script>
+    function SelectItem1() {
+
+       
+        document.getElementById("txtnoidung").value = CKEDITOR.instances.noidung.getData();
+        document.getElementById("txtnoidung").value = CKEDITOR.instances.ghichu.getData();
+
+    }
     function myFunc() {
         document.getElementById("txttenkhuyenmai").value = document.getElementById("tenkhuyenmai").value;
         document.getElementById("txtngaybatdau").value = document.getElementById("ngaybatdau").value;
         document.getElementById("txtngayketthuc").value = document.getElementById("ngayketthuc").value;
         document.getElementById("txtgiamgia").value = document.getElementById("giamgia").value;
-        document.getElementById("txtnoidung").value = document.getElementById("noidung").value;
-        document.getElementById("txtghichu").value = document.getElementById("ghichu").value;
     }
 </script>

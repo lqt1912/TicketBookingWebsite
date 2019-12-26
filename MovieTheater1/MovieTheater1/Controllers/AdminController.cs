@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,12 +11,18 @@ namespace MovieTheater1.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
+        [HttpGet]
         public ActionResult Index()
         {
             if (Session["admin"] != null)
                 return View();
             else
                 return RedirectToAction("Index", "Login");
+        }
+
+        public ActionResult AddImage()
+        {
+            return View();
         }
         // manage screen
         public ActionResult QuanLyPhim()
@@ -54,11 +62,26 @@ namespace MovieTheater1.Controllers
         }
 
         [HttpPost]
-        public ActionResult ThemFilm(FormCollection f)
+        public ActionResult ThemFilm(FormCollection f, HttpPostedFileBase file)
         {
+            //string fileName = Path.GetFileNameWithoutExtension(file.FileName);
+            var path = "";
+            if(file!=null)
+            {
+                if(file.ContentLength>0)
+                {
+                    if(Path.GetExtension(file.FileName).ToLower()==".jpg"
+                        || Path.GetExtension(file.FileName).ToLower() == ".png")
+                    {
+                        path = Path.Combine(Server.MapPath("~/Content/Images/300x450xphim"), file.FileName);
+
+                    }
+                }
+            }
             string maPhim = "phim00" + (DataAccess.db.PHIMs.Count() + 2).ToString();
             var phim = new PHIM()
             {
+                //ANHDAIDIEN = fileName,
                 MAPHIM = maPhim,
                 TENPHIM = f["TenPhim"],
                 MALOAIPHIM = f["TheLoai"],
@@ -195,5 +218,11 @@ namespace MovieTheater1.Controllers
 
             return RedirectToAction("QuanLyPhong", "Admin");
         }
+
+        //[HttpPost]
+        //public ActionResult AddImage()
+        //{
+        //    st
+        //}
     }
 }

@@ -84,10 +84,12 @@
 </div>
 
 
-@using (Html.BeginForm("ThemFilm", "Admin", FormMethod.Post, new { enctype = "multipart/form-data"}))
+@using (Html.BeginForm("ThemFilm", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <label>Ảnh bìa</label>
-    <input type="file" name="ImageFile" required><br />
+    <label>Ảnh bìa 300x450</label>
+    <input type="file" name="file" required><br />
+    <label>Ảnh bìa 450x300</label>
+    <input type="file" name="file2" required><br />
     <input id="txttenphim" name="TenPhim" />
     <input id="txttheloai" name="TheLoai">
     <input id="txtthoiluong" name="ThoiLuong" />
@@ -108,7 +110,6 @@
 
         document.getElementById("txttheloai").value = document.getElementById("loaiphim").value;
         document.getElementById("txtquocgia").value = document.getElementById("quocgia").value;
-        document.getElementById("txtmota").value = CKEDITOR.instances.mota.getData();
 
     }
 
@@ -119,10 +120,16 @@
         document.getElementById("txtdienvien").value = document.getElementById("dienvien").value;
         document.getElementById("txtdaodien").value = document.getElementById("daodien").value;
         document.getElementById("txtthoiluong").value = document.getElementById("thoiluong").value;
-        document.getElementById("txtghichu").value = document.getElementById("ghichu").value;
 
     }
-
+    window.onload = function () {
+        CKEDITOR.instances.mota.on('blur', function () {
+            document.getElementById("txtmota").value = CKEDITOR.instances.mota.getData();
+        });
+        CKEDITOR.instances.ghichu.on('blur', function () {
+            document.getElementById("txtghichu").value = CKEDITOR.instances.ghichu.getData();
+        });
+    };
 
 </script>
 

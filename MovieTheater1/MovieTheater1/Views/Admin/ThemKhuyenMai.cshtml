@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label>Nội dung</label>
-                    <textarea class="form-control" rows="3" id="noidung" onchange="SelectItem1()"></textarea>
+                    <textarea class="form-control" rows="3" id="noidung"></textarea>
                     <script>
                         CKEDITOR.replace('noidung');
                     </script>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label>Ghi chú</label>
-                    <textarea class="form-control" rows="3" id="ghichu" onchange="SelectItem1()"></textarea>
+                    <textarea class="form-control" rows="3" id="ghichu"></textarea>
                     <script>
                         CKEDITOR.replace('ghichu');
                     </script>
@@ -55,8 +55,10 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
-@using (Html.BeginForm("ThemKhuyenMai", "Admin", FormMethod.Post))
+@using (Html.BeginForm("ThemKhuyenMai", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    <label>Ảnh bìa 300x450</label>
+    <input type="file" name="file" required><br />
     <input id="txttenkhuyenmai" name="TenKhuyenMai" />
     <input id="txtngaybatdau" name="NgayBatDau" />
     <input id="txtngayketthuc" name="NgayKetThuc" />
@@ -69,9 +71,8 @@
 <script>
     function SelectItem1() {
 
-       
-        document.getElementById("txtnoidung").value = CKEDITOR.instances.noidung.getData();
-        document.getElementById("txtnoidung").value = CKEDITOR.instances.ghichu.getData();
+
+
 
     }
     function myFunc() {
@@ -80,4 +81,15 @@
         document.getElementById("txtngayketthuc").value = document.getElementById("ngayketthuc").value;
         document.getElementById("txtgiamgia").value = document.getElementById("giamgia").value;
     }
+    window.onload = function () {
+        CKEDITOR.instances.noidung.on('blur', function () {
+            document.getElementById("txtnoidung").value = CKEDITOR.instances.noidung.getData();
+
+        });
+        CKEDITOR.instances.ghichu.on('blur', function () {
+            document.getElementById("txtghichu").value = CKEDITOR.instances.ghichu.getData();
+
+        });
+
+    };
 </script>

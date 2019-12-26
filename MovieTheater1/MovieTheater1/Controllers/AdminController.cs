@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -249,5 +250,25 @@ namespace MovieTheater1.Controllers
         //{
         //    st
         //}
+ 
+       
+        public ActionResult UpdateVe(string id)
+        {
+            var ve = DataAccess.db.VEs.SingleOrDefault(x => x.MAVE == id);
+            var veNew = new VE();
+            veNew = ve;
+            if(ve!=null)
+            {
+                if(ve.TINHTRANGVE.MATINHTRANGVE=="tinhtrang01")
+                {
+                    veNew.MATINHTRANGVE = "tinhtrang02";
+                    DataAccess.db.VEs.AddOrUpdate(veNew);
+                    DataAccess.db.SaveChanges();
+                    return RedirectToAction("QuanLyVe", "Admin");
+                }
+                else return RedirectToAction("QuanLyVe", "Admin");
+            }
+            else return RedirectToAction("QuanLyVe", "Admin");
+        }
     }
 }

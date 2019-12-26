@@ -685,6 +685,7 @@
     <Content Include="Views\Admin\ThemVe.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\UpdateVe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Index\" />

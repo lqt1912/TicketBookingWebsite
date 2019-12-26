@@ -106,6 +106,8 @@ namespace MovieTheater1.Controllers
                 NGAYBD =f["NgayBatDau"],
                 NGAYKT = f["NgayKetThuc"],
                 GIAMGIA = (int?) int.Parse(f["GiamGia"]),
+                NOIDUNG=f["NoiDung"],
+                GHICHU=f["GhiChu"]
             };
             DataAccess.db.VOUCHERs.Add(km);
             DataAccess.db.SaveChanges();

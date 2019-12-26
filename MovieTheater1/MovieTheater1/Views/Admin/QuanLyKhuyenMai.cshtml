@@ -24,6 +24,7 @@
                                 <th>Bắt đầu</th>
                                 <th>Kết thúc</th>
                                 <th>Nội dung</th>
+                                <th>Ghi chu</th>
                             </tr>
                         </thead>
 
@@ -38,7 +39,8 @@
                                     <td>@item.GIAMGIA</td>
                                     <td>@item.NGAYBD</td>
                                     <td>@item.NGAYKT</td>
-                                    <td>@item.NOIDUNG</td>
+                                    <td>@Html.Raw(item.NOIDUNG)</td>
+                                    <td>@Html.Raw(item.GHICHU)</td>
                                 </tr>
                             }
 

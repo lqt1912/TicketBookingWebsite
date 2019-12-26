@@ -31,7 +31,10 @@
                 </div>
                 <div class="form-group">
                     <label>Nội dung</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" id="noidung"></textarea>
+                    <script>
+                        CKEDITOR.replace('noidung');
+                    </script>
                 </div>
                 <div class="form-group">
                     <label>Ảnh bìa</label>
@@ -39,7 +42,10 @@
                 </div>
                 <div class="form-group">
                     <label>Ghi chú</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" id="ghichu"></textarea>
+                    <script>
+                        CKEDITOR.replace('ghichu');
+                    </script>
                 </div>
             </div>
 
@@ -55,6 +61,8 @@
     <input id="txtngaybatdau" name="NgayBatDau" />
     <input id="txtngayketthuc" name="NgayKetThuc" />
     <input id="txtgiamgia" name="GiamGia" />
+    <input id="txtnoidung" name="NoiDung" />
+    <input id="txtghichu" name="GhiChu" />
 
     <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
 }
@@ -64,5 +72,7 @@
         document.getElementById("txtngaybatdau").value = document.getElementById("ngaybatdau").value;
         document.getElementById("txtngayketthuc").value = document.getElementById("ngayketthuc").value;
         document.getElementById("txtgiamgia").value = document.getElementById("giamgia").value;
+        document.getElementById("txtnoidung").value = document.getElementById("noidung").value;
+        document.getElementById("txtghichu").value = document.getElementById("ghichu").value;
     }
 </script>

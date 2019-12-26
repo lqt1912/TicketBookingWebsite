@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="28709d27c76d47dd9bf47f9cd42c06d9" Name="Diagram1" ZoomLevel="67">
-        <EntityTypeShape EntityType="cinemaModel.BANNER" Width="1.5" PointX="10.75" PointY="10.25" />
-        <EntityTypeShape EntityType="cinemaModel.BINHLUAN" Width="1.5" PointX="0.75" PointY="10.25" />
+      <Diagram DiagramId="28709d27c76d47dd9bf47f9cd42c06d9" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="cinemaModel.BANNER" Width="1.5" PointX="12.375" PointY="8.875" />
+        <EntityTypeShape EntityType="cinemaModel.BINHLUAN" Width="1.5" PointX="2.875" PointY="8.75" />
         <EntityTypeShape EntityType="cinemaModel.GHE" Width="1.5" PointX="12.75" PointY="6.75" />
-        <EntityTypeShape EntityType="cinemaModel.LOAIGHE" Width="1.5" PointX="10.5" PointY="3.25" />
-        <EntityTypeShape EntityType="cinemaModel.LOAIPHIM" Width="1.5" PointX="0.75" PointY="3.875" />
-        <EntityTypeShape EntityType="cinemaModel.LOAIPHONG" Width="1.5" PointX="3.75" PointY="2.375" />
-        <EntityTypeShape EntityType="cinemaModel.LOAITHANHVIEN" Width="1.5" PointX="3.75" PointY="15.25" />
+        <EntityTypeShape EntityType="cinemaModel.LOAIGHE" Width="1.5" PointX="12.5" PointY="4.375" />
+        <EntityTypeShape EntityType="cinemaModel.LOAIPHIM" Width="1.5" PointX="1.5" PointY="3.875" />
+        <EntityTypeShape EntityType="cinemaModel.LOAIPHONG" Width="1.5" PointX="3.75" PointY="3.375" />
+        <EntityTypeShape EntityType="cinemaModel.LOAITHANHVIEN" Width="1.5" PointX="6.75" PointY="8.5" />
         <EntityTypeShape EntityType="cinemaModel.PHIM" Width="1.5" PointX="3" PointY="5.5" />
-        <EntityTypeShape EntityType="cinemaModel.PHONG" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="cinemaModel.PHONG" Width="1.5" PointX="6" PointY="3.375" />
         <EntityTypeShape EntityType="cinemaModel.QUOCGIA" Width="1.5" PointX="0.75" PointY="7.125" />
-        <EntityTypeShape EntityType="cinemaModel.RAPCHIEUPHIM" Width="1.5" PointX="3.75" PointY="11.75" />
+        <EntityTypeShape EntityType="cinemaModel.RAPCHIEUPHIM" Width="1.5" PointX="4.875" PointY="8.625" />
         <EntityTypeShape EntityType="cinemaModel.THANHVIEN" Width="1.5" PointX="6" PointY="6.375" />
-        <EntityTypeShape EntityType="cinemaModel.THONGTINCHIEU" Width="1.5" PointX="8.25" PointY="6.5" />
+        <EntityTypeShape EntityType="cinemaModel.THONGTINCHIEU" Width="1.5" PointX="8.375" PointY="5.5" />
         <EntityTypeShape EntityType="cinemaModel.TINHTRANGVE" Width="1.5" PointX="8.25" PointY="3.5" />
         <EntityTypeShape EntityType="cinemaModel.VE" Width="1.5" PointX="10.5" PointY="6.5" />
-        <EntityTypeShape EntityType="cinemaModel.VOUCHER" Width="1.5" PointX="8.25" PointY="10.875" />
+        <EntityTypeShape EntityType="cinemaModel.VOUCHER" Width="1.5" PointX="9.375" PointY="8.625" />
         <AssociationConnector Association="cinemaModel.fk03_PHIM" />
         <AssociationConnector Association="cinemaModel.FK__GHE__MALOAIGHE__6A30C649" />
         <AssociationConnector Association="cinemaModel.FK__GHE__MaThongTinC__6B24EA82" />

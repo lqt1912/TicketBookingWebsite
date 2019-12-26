@@ -72,9 +72,12 @@
                 </div>
                 <div class="form-group">
                     <label>Ghi chú</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" id="ghichu"></textarea>
+                    <script>
+                        CKEDITOR.replace('ghichu');
+                    </script>
                 </div>
-               
+
             </div>
         </div>
         <!-- /.panel -->
@@ -87,13 +90,14 @@
 {
     <input id="txttenphim" name="TenPhim" />
     <input id="txttheloai" name="TheLoai">
-    <input id="txtthoiluong" name="ThoiLuong"/>
+    <input id="txtthoiluong" name="ThoiLuong" />
     <input id="txtquocgia" name="QuocGia" />
     <input id="txtngaybatdau" name="NgayBatDau" />
     <input id="txtngayketthuc" name="NgayKetThuc" />
     <input id="txtdienvien" name="DienVien" />
     <input id="txtdaodien" name="DaoDien" />
-    <input id="txtmota" name="MoTa"/>
+    <input id="txtmota" name="MoTa" />
+    <input id="txtghichu" name="GhiChu" />
     <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
 
 }
@@ -114,8 +118,9 @@
         document.getElementById("txtdienvien").value = document.getElementById("dienvien").value;
         document.getElementById("txtdaodien").value = document.getElementById("daodien").value;
         document.getElementById("txtthoiluong").value = document.getElementById("thoiluong").value;
-      
+        document.getElementById("txtghichu").value = document.getElementById("ghichu").value;
+
     }
-  
+
 
 </script>

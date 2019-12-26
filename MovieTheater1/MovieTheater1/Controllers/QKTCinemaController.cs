@@ -87,9 +87,15 @@ namespace MovieTheater1.Controllers
 
         public ActionResult ThanhVien(string id)
         {
-            if (!id.IsNullOrWhiteSpace())
+            if (!Session["Taikhoan"].ToString().IsNullOrWhiteSpace())
+            {
+                THANHVIEN acc = (THANHVIEN)Session["Taikhoan"];
+                return View(acc);
+            }
+            else if (!id.IsNullOrWhiteSpace())
                 return View(DataAccess.db.THANHVIENs.SingleOrDefault(x => x.MATV == id));
-            else return RedirectToAction("DangNhap", "NguoiDung");
+            else
+                return RedirectToAction("DangNhap", "NguoiDung");
         }
 
         public ActionResult _PartialKhuyenMai()

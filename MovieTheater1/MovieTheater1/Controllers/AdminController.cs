@@ -62,18 +62,24 @@ namespace MovieTheater1.Controllers
         }
 
         [HttpPost]
-        public ActionResult ThemFilm(FormCollection f, HttpPostedFileBase file)
+        [ValidateInput(false)]
+        public ActionResult ThemFilm(FormCollection f, HttpPostedFileBase file, HttpPostedFileBase file2)
         {
-            //string fileName = Path.GetFileNameWithoutExtension(file.FileName);
+            string fileName = Path.GetFileNameWithoutExtension(file.FileName);
+            string fileName2 = Path.GetFileNameWithoutExtension(file.FileName);
             var path = "";
-            if(file!=null)
+            var path2 = "";
+
+            if (file != null && file2 != null)
             {
-                if(file.ContentLength>0)
+                if (file.ContentLength > 0 && file2.ContentLength > 0)
                 {
-                    if(Path.GetExtension(file.FileName).ToLower()==".jpg"
-                        || Path.GetExtension(file.FileName).ToLower() == ".png")
+                    if (Path.GetExtension(file.FileName).ToLower() == ".jpg" && Path.GetExtension(file2.FileName).ToLower() == ".jpg")
                     {
                         path = Path.Combine(Server.MapPath("~/Content/Images/300x450xphim"), file.FileName);
+                        path2 = Path.Combine(Server.MapPath("~/Content/Images/450x300"), file2.FileName);
+                        file.SaveAs(path);
+                        file2.SaveAs(path2);
 
                     }
                 }
@@ -81,7 +87,7 @@ namespace MovieTheater1.Controllers
             string maPhim = "phim00" + (DataAccess.db.PHIMs.Count() + 2).ToString();
             var phim = new PHIM()
             {
-                //ANHDAIDIEN = fileName,
+                ANHDAIDIEN = fileName,
                 MAPHIM = maPhim,
                 TENPHIM = f["TenPhim"],
                 MALOAIPHIM = f["TheLoai"],
@@ -91,6 +97,8 @@ namespace MovieTheater1.Controllers
                 MAQUOCGIA = f["QuocGia"],
                 THOIGIANBD = DateTime.Parse(f["NgayBatDau"]),
                 THOIGIANKT = DateTime.Parse(f["NgayKetThuc"]),
+                GHICHU = f["GhiChu"],
+                MOTA = f["MoTa"]
             };
 
             DataAccess.db.PHIMs.Add(phim);
@@ -98,6 +106,7 @@ namespace MovieTheater1.Controllers
 
             return RedirectToAction("QuanLyPhim", "Admin");
         }
+
         public ActionResult ThemThongTinChieu()
         {
             return View();
@@ -119,18 +128,34 @@ namespace MovieTheater1.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ThemKhuyenMai( FormCollection f)
+        [ValidateInput(false)]
+        public ActionResult ThemKhuyenMai(FormCollection f, HttpPostedFileBase file)
         {
+            var path = "";
+
+            if (file != null)
+            {
+                if (file.ContentLength > 0)
+                {
+                    if (Path.GetExtension(file.FileName).ToLower() == ".jpg")
+                    {
+                        path = Path.Combine(Server.MapPath("~/Content/Images/300x450xkhuyenmai"), file.FileName);
+                        file.SaveAs(path);
+
+                    }
+                }
+            }
             string id = "khuyenmai00" + (DataAccess.db.VOUCHERs.Count() + 2).ToString();
             var km = new VOUCHER()
             {
+                ANHDAIDIEN = file.FileName,
                 MAVOUCHER = id,
                 TENVOUCHER = f["TenKhuyenMai"],
-                NGAYBD =f["NgayBatDau"],
+                NGAYBD = f["NgayBatDau"],
                 NGAYKT = f["NgayKetThuc"],
-                GIAMGIA = (int?) int.Parse(f["GiamGia"]),
-                NOIDUNG=f["NoiDung"],
-                GHICHU=f["GhiChu"]
+                GIAMGIA = (int?)int.Parse(f["GiamGia"]),
+                NOIDUNG = f["NoiDung"],
+                GHICHU = f["GhiChu"]
             };
             DataAccess.db.VOUCHERs.Add(km);
             DataAccess.db.SaveChanges();
@@ -145,11 +170,11 @@ namespace MovieTheater1.Controllers
             var tt = new THONGTINCHIEU()
             {
                 MATHONGTINCHIEU = id,
-                MAPHIM= f["TenPhim"],
+                MAPHIM = f["TenPhim"],
                 THOIGIANCHIEU = f["ThoiGianChieu"],
                 NGAYCHIEU = DateTime.Parse(f["NgayChieu"]),
                 MAPHONG = f["MaPhong"],
-                MARAP = f["MaRap"]             
+                MARAP = f["MaRap"]
             };
             DataAccess.db.THONGTINCHIEUx.Add(tt);
             DataAccess.db.SaveChanges();
@@ -191,8 +216,8 @@ namespace MovieTheater1.Controllers
             var rap = new RAPCHIEUPHIM()
             {
                 MARAP = id,
-                TENRAP=f["TenRap"],
-                DIACHI=f["DiaChi"]
+                TENRAP = f["TenRap"],
+                DIACHI = f["DiaChi"]
             };
             DataAccess.db.RAPCHIEUPHIMs.Add(rap);
             DataAccess.db.SaveChanges();
@@ -204,14 +229,14 @@ namespace MovieTheater1.Controllers
         [HttpPost]
         public ActionResult ThemPhong(FormCollection f)
         {
-            
+
             var phong = new PHONG()
             {
-                MARAP=f["MaRap"],
-                MaPhong=f["MaPhong"],
-                MaLoaiPhong=f["MaLoaiPhong"],
-                SoCho= (int?)int.Parse(f["SoCho"]),
-                TenPhong=f["TenPhong"]
+                MARAP = f["MaRap"],
+                MaPhong = f["MaPhong"],
+                MaLoaiPhong = f["MaLoaiPhong"],
+                SoCho = (int?)int.Parse(f["SoCho"]),
+                TenPhong = f["TenPhong"]
             };
             DataAccess.db.PHONGs.Add(phong);
             DataAccess.db.SaveChanges();

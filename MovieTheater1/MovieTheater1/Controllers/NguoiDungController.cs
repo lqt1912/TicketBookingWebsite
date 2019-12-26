@@ -142,7 +142,6 @@ namespace MovieTheater1.Controllers
                     {
                         return RedirectToAction("TrangChu", "QKTCinema");
                     }
-
                 }
                 else
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";

@@ -34,8 +34,8 @@
 
 @using (Html.BeginForm("ThemRap", "Admin", FormMethod.Post))
 {
-    <input id="txttenrap" name="TenRap" />
-    <input id="txtdiachi" name="DiaChi">
+    <input id="txttenrap" name="TenRap" type="hidden"/>
+    <input id="txtdiachi" name="DiaChi" type="hidden"/>
 
     <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
 }

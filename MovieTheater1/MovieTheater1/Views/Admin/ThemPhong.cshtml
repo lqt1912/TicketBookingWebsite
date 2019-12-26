@@ -61,11 +61,11 @@
 
 @using (Html.BeginForm("ThemPhong", "Admin", FormMethod.Post))
 {
-    <input id="txtmaphong" name="MaPhong" />
-    <input id="txtmarap" name="MaRap">
-    <input id="txtmaloaiphong" name="MaLoaiPhong" />
-    <input id="txtsocho" name="SoCho" />
-    <input id="txttenphong" name="TenPhong" />
+    <input id="txtmaphong" name="MaPhong" type="hidden"/>
+    <input id="txtmarap" name="MaRap" type="hidden"/>
+    <input id="txtmaloaiphong" name="MaLoaiPhong" type="hidden"/>
+    <input id="txtsocho" name="SoCho" type="hidden"/>
+    <input id="txttenphong" name="TenPhong" type="hidden"/>
     <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunc()">Thêm</button>
 }
 <script>

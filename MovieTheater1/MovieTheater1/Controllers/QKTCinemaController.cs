@@ -22,6 +22,7 @@ namespace MovieTheater1.Controllers
     public class QKTCinemaController : Controller
     {
 
+     
         // GET: QKTCinema
         public ActionResult MuaVe()
         {
@@ -87,13 +88,17 @@ namespace MovieTheater1.Controllers
 
         public ActionResult ThanhVien(string id)
         {
-            if (!Session["Taikhoan"].ToString().IsNullOrWhiteSpace())
+            var sstk = (THANHVIEN)Session["Taikhoan"];
+            if (sstk!=null)
             {
                 THANHVIEN acc = (THANHVIEN)Session["Taikhoan"];
                 return View(acc);
             }
             else if (!id.IsNullOrWhiteSpace())
+            {
+                Session["Taikhoan"] = DataAccess.db.THANHVIENs.SingleOrDefault(x => x.MATV == id);
                 return View(DataAccess.db.THANHVIENs.SingleOrDefault(x => x.MATV == id));
+            }
             else 
                 return RedirectToAction("DangNhap", "NguoiDung");
         }
@@ -326,6 +331,26 @@ namespace MovieTheater1.Controllers
                     return Json(true);
                 else return Json(false);
             }
+        }
+
+
+        public ActionResult HuyVe(string id)
+        {
+            var ve = DataAccess.db.VEs.SingleOrDefault(x => x.MAVE == id);
+            var veNew = new VE();
+            veNew = ve;
+            if (ve != null)
+            {
+                if (ve.TINHTRANGVE.MATINHTRANGVE == "tinhtrang01")
+                {
+                    veNew.MATINHTRANGVE = "tinhtrang03";
+                    DataAccess.db.VEs.AddOrUpdate(veNew);
+                    DataAccess.db.SaveChanges();
+                    return RedirectToAction("ThanhVien", "QKTCinema");
+                }
+                else return RedirectToAction("ThanhVien", "QKTCinema");
+            }
+            else return RedirectToAction("ThanhVien", "QKTCinema");
         }
     }
 }

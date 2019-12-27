@@ -60,13 +60,74 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-5 col-12">
-            <button  href=@Url.Action("ChinhSuaThongTin", "NguoiDung", new {id=@Model.MATV}) class="btn btn-edit" >Chỉnh sửa thông tin cá nhân </button>
-        </div>
-        <div class="col-md-5 col-12">
-            <a href="@Url.Action("DoiMatKhau", "NguoiDung")" class="btn btn-outline-warning"> Đổi mật khẩu </a>
-        </div>
-
+<div class="row">
+    <div class="col-md-5 col-12">
+        <button  href=@Url.Action("ChinhSuaThongTin", "NguoiDung", new {id=@Model.MATV}) class="btn btn-edit" >Chỉnh sửa thông tin cá nhân </button>
     </div>
+    <div class="col-md-5 col-12">
+        <a href="@Url.Action("DoiMatKhau", "NguoiDung")" class="btn btn-outline-warning"> Đổi mật khẩu </a>
+    </div>
+
+</div>
+
+<div class="col-12">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading mt-3">
+                Quản lý vé
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                        <thead>
+                            <tr>
+                                <th>Phim</th>
+                                <th>Thời gian chiếu</th>
+                                <th>Rạp</th>
+                                <th>Ngày chiếu</th>
+                                <th>Đơn giá</th>
+                                <th>Tình trạng</th>
+                                <th> Cập nhật</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in DataAccess.db.VEs.Where(x=>x.MATV==Model.MATV).ToList())
+                            {
+
+                                <tr>
+                                    <td>@item.THONGTINCHIEU.PHIM.TENPHIM</td>
+                                    <td>@item.THONGTINCHIEU.THOIGIANCHIEU</td>
+                                    <td>@item.THONGTINCHIEU.PHONG.RAPCHIEUPHIM.TENRAP</td>
+                                    <td>@item.THONGTINCHIEU.NGAYCHIEU.ToString().Substring(0,9)</td>
+                                    <td>@item.DONGIA</td>
+
+                                    <td>
+                                        @{
+                                            try
+                                            {
+                                                @item.TINHTRANGVE.TENTINHTRANGVE;
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                //throw
+                                            }
+                                        }
+
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("HuyVe", "QKTCinema", new { id=item.MAVE})"> Cập nhật</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
